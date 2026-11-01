@@ -4,6 +4,8 @@
 	var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 	function Slider(el) {
+		if (el._mks) return;
+		el._mks = 1;
 		var cfg = {};
 		try { cfg = JSON.parse(el.getAttribute('data-mks')) || {}; } catch (e) { cfg = {}; }
 		var slides = Array.prototype.slice.call(el.querySelectorAll('.mks__slide'));
@@ -80,6 +82,7 @@
 		schedule();
 	}
 
-	function boot() { Array.prototype.forEach.call(document.querySelectorAll('[data-mks]'), Slider); }
-	if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot); else boot();
+	function boot(root) { Array.prototype.forEach.call((root || document).querySelectorAll('[data-mks]'), Slider); }
+	window.MakaaziSliderInit = boot;
+	if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', function () { boot(); }); else boot();
 }());

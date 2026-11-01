@@ -600,6 +600,14 @@
 		if (saved && saved !== CFG.unit) applyUnit(saved);
 		SL.boot();
 	}
+	// Re-run for HTML added after load (Elementor editor, AJAX). Safe to call many times.
+	window.MakaaziInit = function (root) {
+		root = root || document;
+		initStrips(root);
+		$$('[data-mk-listing]', root).forEach(initListing);
+		initMaps(root);
+		updated();
+	};
 	if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot); else boot();
 }());
 

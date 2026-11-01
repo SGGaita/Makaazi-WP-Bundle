@@ -38,6 +38,7 @@ require_once MAKAAZI_DIR . 'includes/class-agents.php';
 require_once MAKAAZI_DIR . 'includes/class-accounts.php';
 require_once MAKAAZI_DIR . 'includes/class-submission.php';
 require_once MAKAAZI_DIR . 'includes/class-help.php';
+require_once MAKAAZI_DIR . 'includes/elementor/class-elementor.php';
 
 if ( is_admin() ) {
 	require_once MAKAAZI_DIR . 'admin/class-admin.php';
@@ -60,6 +61,7 @@ Makaazi_Agents::init();
 Makaazi_Accounts::init();
 Makaazi_Submission::init();
 Makaazi_Help::init();
+Makaazi_Elementor::init();
 
 if ( is_admin() ) {
 	Makaazi_Admin::init();
