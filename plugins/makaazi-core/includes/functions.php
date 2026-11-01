@@ -39,6 +39,8 @@ function makaazi_default_settings() {
 		'enquiry_email'      => '',
 		'brackets_sale'      => '5000000,10000000,20000000,35000000,50000000,75000000,100000000,150000000',
 		'brackets_rent'      => '20000,50000,100000,150000,250000,500000',
+		'brackets_stay'      => '3000,5000,8000,12000,20000,35000',
+		'stays_enabled'      => 1,
 		'ref_prefix'         => 'MK-',
 		'card_favourite'     => 1,
 		'card_compare'       => 1,
@@ -109,7 +111,8 @@ function makaazi_meta( $post_id, $key, $default = '' ) {
  * @return int[]
  */
 function makaazi_brackets( $status ) {
-	$raw = makaazi_settings( 'rent' === $status ? 'brackets_rent' : 'brackets_sale' );
+	$key = in_array( $status, array( 'rent', 'stay' ), true ) ? 'brackets_' . $status : 'brackets_sale';
+	$raw = makaazi_settings( $key );
 	$out = array_filter( array_map( 'absint', explode( ',', (string) $raw ) ) );
 	sort( $out );
 	return array_values( $out );
@@ -319,7 +322,63 @@ function makaazi_status_label( $slug ) {
 	if ( $t ) {
 		return $t->name;
 	}
-	return 'rent' === $slug ? __( 'For Rent', 'makaazi' ) : __( 'For Sale', 'makaazi' );
+	$all = makaazi_statuses( true );
+	return isset( $all[ $slug ] ) ? $all[ $slug ]['badge'] : __( 'For Sale', 'makaazi' );
+}
+
+/**
+ * Listing statuses (the Buy / Rent / Stay choice).
+ *
+ * Short Stay is the nightly, holiday-rental listing type. It can be switched off in
+ * Settings › Features; then it disappears from search, filters and forms.
+ *
+ * @param bool $all Include switched-off statuses (for labels of existing listings).
+ * @return array slug => array( tab, badge, period, closed, price_label )
+ */
+function makaazi_statuses( $all = false ) {
+	$list = array(
+		'sale' => array(
+			'tab'         => __( 'Buy', 'makaazi' ),
+			'badge'       => __( 'For Sale', 'makaazi' ),
+			'period'      => 'total',
+			'closed'      => 'sold',
+			'price_label' => __( 'Price', 'makaazi' ),
+		),
+		'rent' => array(
+			'tab'         => __( 'Rent', 'makaazi' ),
+			'badge'       => __( 'For Rent', 'makaazi' ),
+			'period'      => 'month',
+			'closed'      => 'let',
+			'price_label' => __( 'Price per month', 'makaazi' ),
+		),
+		'stay' => array(
+			'tab'         => __( 'Short Stay', 'makaazi' ),
+			'badge'       => __( 'Short Stay', 'makaazi' ),
+			'period'      => 'night',
+			'closed'      => 'let',
+			'price_label' => __( 'Price per night', 'makaazi' ),
+		),
+	);
+	if ( ! $all && ! makaazi_settings( 'stays_enabled' ) ) {
+		unset( $list['stay'] );
+	}
+	/**
+	 * Filter the listing statuses. Keys must match property_status term slugs.
+	 *
+	 * @param array $list Statuses.
+	 * @param bool  $all  Whether switched-off statuses are included.
+	 */
+	return apply_filters( 'makaazi_statuses', $list, $all );
+}
+
+/**
+ * Is this a valid status slug for search?
+ *
+ * @param string $slug Slug.
+ * @return bool
+ */
+function makaazi_is_status( $slug ) {
+	return is_string( $slug ) && isset( makaazi_statuses()[ $slug ] );
 }
 
 /**

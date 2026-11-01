@@ -40,7 +40,7 @@ return array(
 <li><strong>Pending review</strong> – waiting for our team. You can still open it, but changes wait for the review.</li>
 <li><strong>Needs changes</strong> – our team sent it back. The reason is shown on the listing and in your email. Click <strong>Fix and resubmit</strong>.</li>
 <li><strong>Live</strong> – visible to everyone and in search. The eye icon shows how many times it has been viewed.</li>
-<li><strong>Sold / Let</strong> – still online with a ribbon, but no longer in search. Click <strong>Relist</strong> if it becomes available again.</li>
+<li><strong>Sold / Let</strong> – still online with a ribbon, but no longer in search. Click <strong>Relist</strong> if it becomes available again. Short stays you mark unavailable show as Let.</li>
 </ul>',
 			'makaazi'
 		),
@@ -71,7 +71,7 @@ return array(
 		'body'     => __(
 			'<ul>
 <li><strong>Title</strong> says what and where, e.g. “3 Bedroom Apartment, Kilimani”.</li>
-<li><strong>Price</strong> is the real asking price, and for rentals the period (per month, per year…).</li>
+<li><strong>Price</strong> is the real asking price, and for rentals the period (per month, per year…). Short stays are priced per night.</li>
 <li><strong>Description</strong> covers size, rooms, condition, what is included and what is nearby.</li>
 <li><strong>Location</strong> uses a nearby road or landmark, not the house number. The pin stays private: visitors only see a shaded area.</li>
 <li><strong>Photos</strong> are your own, clear and show the actual property.</li>

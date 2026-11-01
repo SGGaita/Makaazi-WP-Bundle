@@ -19,11 +19,11 @@ class Makaazi_EW_Options {
 	 * @return array
 	 */
 	public static function status( $any ) {
-		return array(
-			''     => $any,
-			'sale' => __( 'For sale', 'makaazi' ),
-			'rent' => __( 'To rent', 'makaazi' ),
-		);
+		$out = array( '' => $any );
+		foreach ( makaazi_statuses() as $k => $st ) {
+			$out[ $k ] = $st['badge'];
+		}
+		return $out;
 	}
 
 	/**
@@ -262,6 +262,7 @@ class Makaazi_EW_Properties extends Makaazi_Elementor_Widget {
 					'featured' => __( 'Featured', 'makaazi' ),
 					'sale'     => __( 'For sale', 'makaazi' ),
 					'rent'     => __( 'To rent', 'makaazi' ),
+					'stay'     => __( 'Short stays', 'makaazi' ),
 					'ids'      => __( 'Hand-picked', 'makaazi' ),
 				),
 				'default' => 'featured',
@@ -621,11 +622,26 @@ class Makaazi_EW_Search extends Makaazi_Elementor_Widget {
 			'default_status' => array(
 				'type'    => 'select',
 				'label'   => __( 'Open on', 'makaazi' ),
-				'options' => array(
-					'sale' => __( 'Buy', 'makaazi' ),
-					'rent' => __( 'Rent', 'makaazi' ),
-				),
+				'options' => function () {
+					$o = array();
+					foreach ( makaazi_statuses() as $k => $st ) {
+						$o[ $k ] = $st['tab'];
+					}
+					return $o;
+				},
 				'default' => 'sale',
+			),
+			'tabs'           => array(
+				'type'    => 'multi',
+				'label'   => __( 'Tabs to show', 'makaazi' ),
+				'options' => function () {
+					$o = array();
+					foreach ( makaazi_statuses() as $k => $st ) {
+						$o[ $k ] = $st['tab'];
+					}
+					return $o;
+				},
+				'help'    => __( 'Empty shows all: Buy, Rent and Short Stay (when switched on).', 'makaazi' ),
 			),
 			'button_text'    => array(
 				'type'    => 'text',
@@ -643,6 +659,12 @@ class Makaazi_EW_Search extends Makaazi_Elementor_Widget {
 				'type'    => 'text',
 				'label'   => __( 'Rent tab', 'makaazi' ),
 				'default' => __( 'Rent', 'makaazi' ),
+				'section' => 'labels',
+			),
+			'stay_label'     => array(
+				'type'    => 'text',
+				'label'   => __( 'Short Stay tab', 'makaazi' ),
+				'default' => __( 'Short Stay', 'makaazi' ),
 				'section' => 'labels',
 			),
 			'location_label' => array(

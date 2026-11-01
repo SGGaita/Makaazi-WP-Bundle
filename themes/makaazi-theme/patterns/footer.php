@@ -68,7 +68,10 @@ $mk_props = home_url( '/properties/' );
 
 <!-- wp:group {"align":"wide","className":"mk-footer-base","layout":{"type":"flex","justifyContent":"space-between"}} -->
 <div class="wp-block-group alignwide mk-footer-base"><!-- wp:paragraph -->
-<p>© <?php echo esc_html( gmdate( 'Y' ) ); ?> <?php echo esc_html( get_bloginfo( 'name' ) ); ?></p>
+<p>© <?php echo esc_html( gmdate( 'Y' ) ); ?> <?php echo esc_html( get_bloginfo( 'name' ) ); ?> · <?php
+/* translators: %s: Ascension Dynamics link */
+printf( esc_html__( 'Developed by %s', 'makaazi-theme' ), '<a href="https://ascensiondynamics.co/" target="_blank" rel="noopener">Ascension Dynamics</a>' );
+?></p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph -->

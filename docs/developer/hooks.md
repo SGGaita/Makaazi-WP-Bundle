@@ -61,6 +61,19 @@ add_filter( 'makaazi_query_args', function ( $args, $f ) {
 }, 10, 2 );
 ```
 
+#### `makaazi_statuses`
+`( array $statuses, bool $all )`: the listing types offered in search (`sale`, `rent`, `stay`). Each has `tab`, `badge`, `period`, `closed` and `price_label`. Keys must match `property_status` term slugs. `$all` is true when switched-off types are included (labels of existing listings).
+
+```php
+// Rename the Short Stay tab.
+add_filter( 'makaazi_statuses', function ( $s ) {
+	if ( isset( $s['stay'] ) ) {
+		$s['stay']['tab'] = __( 'Holiday lets', 'my-site' );
+	}
+	return $s;
+} );
+```
+
 #### `makaazi_related`
 `( array $rows, int $property_id )`: similar listings. Each row is `array( 'id' => int, 'why' => string[] )`; `why` holds the short reasons shown on the card ("Same area"). The result is cached, so call `makaazi_bump_cache()` after changing this filter's logic.
 

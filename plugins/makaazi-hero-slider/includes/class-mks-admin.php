@@ -226,8 +226,8 @@ class MKS_Admin {
 			echo '<li data-k="' . esc_attr( $k ) . '"><span class="dashicons dashicons-menu"></span><label><input type="checkbox"' . checked( in_array( $k, $enabled, true ), true, false ) . '> ' . esc_html( $all[ $k ] ) . '</label></li>';
 		}
 		echo '</ul><p class="description">' . esc_html__( 'Tick the fields to show and drag to change their order. Price brackets for Buy and Rent are set in Properties › Settings › Price brackets.', 'makaazi-slider' ) . '</p></td></tr>';
-		echo '<tr><th>' . esc_html__( 'Labels', 'makaazi-slider' ) . '</th><td class="mks-labels"><label>' . esc_html__( 'Buy tab', 'makaazi-slider' ) . ' <input type="text" name="mks[buy_label]" value="' . esc_attr( $s['buy_label'] ) . '"></label> <label>' . esc_html__( 'Rent tab', 'makaazi-slider' ) . ' <input type="text" name="mks[rent_label]" value="' . esc_attr( $s['rent_label'] ) . '"></label> <label>' . esc_html__( 'Button', 'makaazi-slider' ) . ' <input type="text" name="mks[button_text]" value="' . esc_attr( $s['button_text'] ) . '"></label></td></tr>';
-		echo '<tr><th>' . esc_html__( 'Open on', 'makaazi-slider' ) . '</th><td>' . self::radios( 'default_status', array( 'sale' => __( 'Buy', 'makaazi-slider' ), 'rent' => __( 'Rent', 'makaazi-slider' ) ), $s ) . '</td></tr>'; // phpcs:ignore
+		echo '<tr><th>' . esc_html__( 'Labels', 'makaazi-slider' ) . '</th><td class="mks-labels"><label>' . esc_html__( 'Buy tab', 'makaazi-slider' ) . ' <input type="text" name="mks[buy_label]" value="' . esc_attr( $s['buy_label'] ) . '"></label> <label>' . esc_html__( 'Rent tab', 'makaazi-slider' ) . ' <input type="text" name="mks[rent_label]" value="' . esc_attr( $s['rent_label'] ) . '"></label> <label>' . esc_html__( 'Short Stay tab', 'makaazi-slider' ) . ' <input type="text" name="mks[stay_label]" value="' . esc_attr( $s['stay_label'] ) . '"></label> <label>' . esc_html__( 'Button', 'makaazi-slider' ) . ' <input type="text" name="mks[button_text]" value="' . esc_attr( $s['button_text'] ) . '"></label></td></tr>';
+		echo '<tr><th>' . esc_html__( 'Open on', 'makaazi-slider' ) . '</th><td>' . self::radios( 'default_status', array( 'sale' => __( 'Buy', 'makaazi-slider' ), 'rent' => __( 'Rent', 'makaazi-slider' ), 'stay' => __( 'Short Stay', 'makaazi-slider' ) ), $s ) . '</td></tr>'; // phpcs:ignore
 		echo '</tbody></table>';
 	}
 
@@ -277,7 +277,7 @@ class MKS_Admin {
 			'effect'          => array( 'fade', 'slide', 'kenburns' ),
 			'search_position' => array( 'overlap', 'inside', 'below' ),
 			'search_style'    => array( 'solid', 'glass', 'minimal' ),
-			'default_status'  => array( 'sale', 'rent' ),
+			'default_status'  => array( 'sale', 'rent', 'stay' ),
 		);
 		foreach ( $enum as $k => $allowed ) {
 			$out[ $k ] = isset( $in[ $k ] ) && in_array( $in[ $k ], $allowed, true ) ? $in[ $k ] : $d[ $k ];
@@ -288,7 +288,7 @@ class MKS_Admin {
 		foreach ( array( 'featured_count', 'delay', 'speed', 'height_desktop', 'height_tablet', 'height_mobile' ) as $k ) {
 			$out[ $k ] = isset( $in[ $k ] ) && '' !== $in[ $k ] ? absint( $in[ $k ] ) : $d[ $k ];
 		}
-		foreach ( array( 'buy_label', 'rent_label', 'button_text' ) as $k ) {
+		foreach ( array( 'buy_label', 'rent_label', 'stay_label', 'button_text' ) as $k ) {
 			$out[ $k ] = isset( $in[ $k ] ) && '' !== trim( $in[ $k ] ) ? sanitize_text_field( $in[ $k ] ) : $d[ $k ];
 		}
 		$fields               = isset( $in['search_fields'] ) ? array_intersect( array_map( 'trim', explode( ',', $in['search_fields'] ) ), array( 'location', 'type', 'price', 'beds', 'keyword' ) ) : array();

@@ -265,7 +265,7 @@ class Makaazi_Render {
 	public static function price_options( $status, $selected, $empty ) {
 		$out = '<option value="">' . esc_html( $empty ) . '</option>';
 		foreach ( makaazi_brackets( $status ) as $v ) {
-			$out .= '<option value="' . (int) $v . '"' . selected( (int) $selected, $v, false ) . '>' . esc_html( makaazi_short_money( $v ) . ( 'rent' === $status ? ' ' . __( '/mo', 'makaazi' ) : '' ) ) . '</option>';
+			$out .= '<option value="' . (int) $v . '"' . selected( (int) $selected, $v, false ) . '>' . esc_html( makaazi_short_money( $v ) . ( 'rent' === $status ? ' ' . __( '/mo', 'makaazi' ) : ( 'stay' === $status ? ' ' . __( '/night', 'makaazi' ) : '' ) ) ) . '</option>';
 		}
 		return $out;
 	}
@@ -285,6 +285,8 @@ class Makaazi_Render {
 				'button_text'    => __( 'Search', 'makaazi' ),
 				'buy_label'      => __( 'Buy', 'makaazi' ),
 				'rent_label'     => __( 'Rent', 'makaazi' ),
+				'stay_label'     => __( 'Short Stay', 'makaazi' ),
+				'tabs'           => '',
 				'default_status' => 'sale',
 				'show_tabs'      => 'yes',
 				'labels'         => array(),
@@ -296,7 +298,18 @@ class Makaazi_Render {
 		static $n = 0;
 		++$n;
 		$uid    = $a['id'] ? sanitize_html_class( $a['id'] ) : 'mk-s' . $n;
-		$status = 'rent' === $a['default_status'] ? 'rent' : 'sale';
+		$avail  = makaazi_statuses();
+		$tabs   = array();
+		$want   = $a['tabs'] ? array_filter( array_map( 'trim', explode( ',', $a['tabs'] ) ) ) : array_keys( $avail );
+		foreach ( $want as $k ) {
+			if ( isset( $avail[ $k ] ) ) {
+				$tabs[ $k ] = isset( $a[ ( 'sale' === $k ? 'buy' : $k ) . '_label' ] ) && '' !== $a[ ( 'sale' === $k ? 'buy' : $k ) . '_label' ] ? $a[ ( 'sale' === $k ? 'buy' : $k ) . '_label' ] : $avail[ $k ]['tab'];
+			}
+		}
+		if ( ! $tabs ) {
+			$tabs = array( 'sale' => $a['buy_label'] );
+		}
+		$status = isset( $tabs[ $a['default_status'] ] ) ? $a['default_status'] : (string) key( $tabs );
 		$labels = wp_parse_args(
 			(array) $a['labels'],
 			array(
@@ -319,10 +332,7 @@ class Makaazi_Render {
 		$html  = '<form class="mk-search mk-search--' . esc_attr( $a['style'] ) . ' ' . esc_attr( $a['class'] ) . '" method="get" action="' . esc_url( $action ) . '" role="search" data-mk-search>';
 		if ( 'no' !== $a['show_tabs'] ) {
 			$html .= '<div class="mk-search__tabs" role="radiogroup" aria-label="' . esc_attr__( 'Buy or rent', 'makaazi' ) . '">';
-			foreach ( array(
-				'sale' => $a['buy_label'],
-				'rent' => $a['rent_label'],
-			) as $k => $label ) {
+			foreach ( $tabs as $k => $label ) {
 				$html .= '<label class="mk-search__tab"><input type="radio" name="status" value="' . esc_attr( $k ) . '"' . checked( $status, $k, false ) . '><span>' . esc_html( $label ) . '</span></label>';
 			}
 			$html .= '</div>';
@@ -343,7 +353,7 @@ class Makaazi_Render {
 					$html .= '<label class="mk-field" for="' . $uid . '-type"><span>' . esc_html( $labels['type'] ) . '</span><select id="' . $uid . '-type" name="type">' . $opts . '</select></label>';
 					break;
 				case 'price':
-					foreach ( array( 'sale', 'rent' ) as $st ) {
+					foreach ( array_keys( $tabs ) as $st ) {
 						$off   = $st !== $status;
 						$html .= '<div class="mk-search__price" data-mk-price="' . $st . '"' . ( $off ? ' hidden' : '' ) . '>'
 							. '<label class="mk-field" for="' . $uid . '-min-' . $st . '"><span>' . esc_html__( 'Min price', 'makaazi' ) . '</span><select id="' . $uid . '-min-' . $st . '" name="min_price"' . ( $off ? ' disabled' : '' ) . '>' . self::price_options( $st, 0, __( 'No min', 'makaazi' ) ) . '</select></label>'
@@ -569,6 +579,8 @@ class Makaazi_Render {
 		$s = sprintf( _n( '%s property', '%s properties', $total, 'makaazi' ), number_format_i18n( $total ) );
 		if ( 'rent' === $f['status'] ) {
 			$s .= ' ' . __( 'to rent', 'makaazi' );
+		} elseif ( 'stay' === $f['status'] ) {
+			$s .= ' ' . __( 'for short stays', 'makaazi' );
 		} elseif ( 'sale' === $f['status'] ) {
 			$s .= ' ' . __( 'for sale', 'makaazi' );
 		}
@@ -603,11 +615,11 @@ class Makaazi_Render {
 
 		if ( $has( 'status' ) ) {
 			$h .= '<fieldset class="mk-fg"><legend>' . esc_html__( 'Looking to', 'makaazi' ) . '</legend><div class="mk-seg">';
-			foreach ( array(
-				''     => __( 'Any', 'makaazi' ),
-				'sale' => __( 'Buy', 'makaazi' ),
-				'rent' => __( 'Rent', 'makaazi' ),
-			) as $k => $label ) {
+			$opts = array( '' => __( 'Any', 'makaazi' ) );
+			foreach ( makaazi_statuses() as $k => $st_def ) {
+				$opts[ $k ] = $st_def['tab'];
+			}
+			foreach ( $opts as $k => $label ) {
 				$h .= '<label><input type="radio" name="status" value="' . esc_attr( $k ) . '"' . checked( $f['status'], $k, false ) . '><span>' . esc_html( $label ) . '</span></label>';
 			}
 			$h .= '</div></fieldset>';
@@ -651,12 +663,12 @@ class Makaazi_Render {
 		}
 		if ( $has( 'price' ) ) {
 			$st = $f['status'] ? $f['status'] : ( isset( $preset['status'] ) ? $preset['status'] : '' );
-			$h .= '<div class="mk-fg"><span class="mk-fg__label">' . esc_html( 'rent' === $st ? __( 'Price per month', 'makaazi' ) : __( 'Price', 'makaazi' ) ) . '</span>';
+			$h .= '<div class="mk-fg"><span class="mk-fg__label">' . esc_html( $st && isset( makaazi_statuses( true )[ $st ] ) ? makaazi_statuses( true )[ $st ]['price_label'] : __( 'Price', 'makaazi' ) ) . '</span>';
 			if ( $st ) {
 				$h .= '<div class="mk-two"><label><span class="screen-reader-text">' . esc_html__( 'Minimum price', 'makaazi' ) . '</span><select id="mk-f-min" name="min_price">' . self::price_options( $st, $f['min_price'], __( 'No min', 'makaazi' ) ) . '</select></label>'
 					. '<label><span class="screen-reader-text">' . esc_html__( 'Maximum price', 'makaazi' ) . '</span><select id="mk-f-max" name="max_price">' . self::price_options( $st, $f['max_price'], __( 'No max', 'makaazi' ) ) . '</select></label></div>';
 			} else {
-				$h .= '<p class="mk-hint">' . esc_html__( 'Choose Buy or Rent to filter by price. Sale and rent prices use different ranges.', 'makaazi' ) . '</p>';
+				$h .= '<p class="mk-hint">' . esc_html__( 'Choose Buy, Rent or Short Stay to filter by price. Each uses its own price range.', 'makaazi' ) . '</p>';
 			}
 			$h .= '</div>';
 		}

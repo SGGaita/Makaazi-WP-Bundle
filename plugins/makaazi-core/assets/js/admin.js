@@ -29,6 +29,7 @@
 	$(document).on('change', '#taxonomy-property_status input, #property_statusdiv input', function () {
 		var label = $.trim($(this).parent().text()).toLowerCase();
 		if (this.checked && label.indexOf('rent') > -1 && $('[data-mk-period]').val() === 'total') { $('[data-mk-period]').val('month'); previewPrice(); }
+		if (this.checked && label.indexOf('short') > -1) { $('[data-mk-period]').val('night'); previewPrice(); }
 	});
 
 	/* Gallery */

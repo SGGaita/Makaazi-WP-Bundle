@@ -97,7 +97,7 @@ return array(
 			'<ol>
 <li><strong>Title</strong> – e.g. “4 Bedroom Townhouse, Lavington”. It becomes the page address.</li>
 <li><strong>Description</strong> – the main text box. Short paragraphs read best on phones.</li>
-<li><strong>Right-hand column</strong> – choose the <em>Status</em> (Buy or Rent), <em>Use</em> (residential or commercial), <em>Type</em>, <em>Category</em>, <em>Location</em> and tick the <em>Features</em>. Pick the most specific location (e.g. Kilimani, not Nairobi); the parents are added automatically.</li>
+<li><strong>Right-hand column</strong> – choose the <em>Status</em> (For Sale, For Rent or Short Stay), <em>Use</em> (residential or commercial), <em>Type</em>, <em>Category</em>, <em>Location</em> and tick the <em>Features</em>. Pick the most specific location (e.g. Kilimani, not Nairobi); the parents are added automatically.</li>
 <li><strong>Property Details box</strong>, tab by tab:
 <ul>
 <li><em>Listing</em> – Featured (shows first and gets a badge), availability (Available, Under offer, Sold, Let) and the reference number (created on save).</li>
@@ -150,6 +150,25 @@ return array(
 		),
 	),
 	array(
+		'id'       => 'short-stays',
+		'group'    => __( 'Listings', 'makaazi' ),
+		'title'    => __( 'Short Stays (nightly rentals)', 'makaazi' ),
+		'summary'  => __( 'List furnished homes that guests book by the night.', 'makaazi' ),
+		'screens'  => array( 'property', 'edit-property' ),
+		'keywords' => 'short stay holiday nightly night booking guest serviced apartment vacation rental',
+		'body'     => __(
+			'<p>Short Stay is a third listing type next to Buy and Rent, for holiday homes and serviced apartments priced per night.</p>
+<ol>
+<li>Make sure <em>Short Stays</em> is ticked in <a href="{url:settings:features}">Settings › Features</a>.</li>
+<li>Add a property and choose the <em>Short Stay</em> status. The price period switches to <em>Per night</em>.</li>
+<li>Use <em>Attributes</em> for stay details: Sleeps, Minimum stay, Check-in time, Cleaning.</li>
+</ol>
+<p>Visitors get a <strong>Short Stay</strong> tab in the search bar and filters, with nightly price ranges you set in <a href="{url:settings:prices}">Settings › Price brackets</a>. Put a row of stays on any page with <code>[makaazi_properties source="stay" layout="carousel"]</code>.</p>
+<p>When a stay is no longer offered, owners click <em>Mark unavailable</em> (you can set Availability to Let). Makaazi shows availability and takes enquiries; it does not take bookings or payments.</p>',
+			'makaazi'
+		),
+	),
+	array(
 		'id'       => 'taxonomies',
 		'group'    => __( 'Listings', 'makaazi' ),
 		'title'    => __( 'Locations, types, categories and features', 'makaazi' ),
@@ -160,7 +179,7 @@ return array(
 			'<ul>
 <li><strong>Locations</strong> are nested: City › Area (e.g. Nairobi › Westlands). Give each area a photo – it is used by the Locations tiles on the home page.</li>
 <li><strong>Types</strong> are what the building is (Apartment, Villa, Office…). <strong>Categories</strong> group listings for marketing (Luxury, New development…).</li>
-<li><strong>Uses</strong> are Residential or Commercial. <strong>Statuses</strong> are For Sale and For Rent – the Buy / Rent choice in search.</li>
+<li><strong>Uses</strong> are Residential or Commercial. <strong>Statuses</strong> are For Sale, For Rent and Short Stay – the Buy / Rent / Short Stay choice in search.</li>
 <li><strong>Features</strong> are the ticks on the property page (Borehole, Backup generator, Pool…).</li>
 </ul>
 <p>Renaming a term updates every listing that uses it. Deleting a term removes it from listings but does not delete the listings.</p>',
@@ -348,13 +367,13 @@ return array(
 		'keywords' => 'settings options currency units cards filters features switches',
 		'body'     => __(
 			'<ul>
-<li><a href="{url:settings:features}"><strong>Features</strong></a> – switch agents and owner submissions on or off, and how they work. Switching off hides things; nothing is deleted.</li>
+<li><a href="{url:settings:features}"><strong>Features</strong></a> – switch Short Stays, agents and owner submissions on or off, and how they work. Switching off hides things; nothing is deleted.</li>
 <li><a href="{url:settings:general}"><strong>General</strong></a> – currency, short prices (KES 85M), m² or ft², the unit switch and the reference prefix.</li>
 <li><a href="{url:settings:cards}"><strong>Cards</strong></a> – button text, how many photos a card can scroll, photo shape, what each card shows and the “New” badge.</li>
 <li><a href="{url:settings:listing}"><strong>Properties page</strong></a> – listings per page, default sort and which filters to offer.</li>
 <li><a href="{url:settings:shortlist}"><strong>Favourites &amp; compare</strong></a> – switches and pages.</li>
 <li><a href="{url:settings:single}"><strong>Property page</strong></a> – contact details, where enquiries go, map privacy, similar listings and map tiles.</li>
-<li><a href="{url:settings:prices}"><strong>Price brackets</strong></a> – amounts offered in the price filters for Buy and Rent.</li>
+<li><a href="{url:settings:prices}"><strong>Price brackets</strong></a> – amounts offered in the price filters for Buy, Rent (per month) and Short Stay (per night).</li>
 </ul>',
 			'makaazi'
 		),

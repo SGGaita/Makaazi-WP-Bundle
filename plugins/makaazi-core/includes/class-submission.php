@@ -206,7 +206,7 @@ class Makaazi_Submission {
 			if ( $can ) {
 				$h .= '<a class="mk-btn mk-btn--ghost mk-btn--sm" href="' . esc_url( $edit ) . '">' . esc_html( 'rejected' === $st[0] ? __( 'Fix and resubmit', 'makaazi' ) : __( 'Edit', 'makaazi' ) ) . '</a>';
 				if ( 'live' === $st[0] ) {
-					$h .= self::action_form( $p->ID, 'close', 'rent' === makaazi_status( $p->ID ) ? __( 'Mark let', 'makaazi' ) : __( 'Mark sold', 'makaazi' ) );
+					$h .= self::action_form( $p->ID, 'close', 'stay' === makaazi_status( $p->ID ) ? __( 'Mark unavailable', 'makaazi' ) : ( 'rent' === makaazi_status( $p->ID ) ? __( 'Mark let', 'makaazi' ) : __( 'Mark sold', 'makaazi' ) ) );
 				} elseif ( 'closed' === $st[0] ) {
 					$h .= self::action_form( $p->ID, 'relist', __( 'Relist', 'makaazi' ) );
 				}
@@ -381,14 +381,14 @@ class Makaazi_Submission {
 		// Step 1.
 		$h .= '<fieldset class="mk-step" data-step="1"><legend class="mk-step__title">' . esc_html__( 'The basics', 'makaazi' ) . '</legend>';
 		$h .= '<label class="mk-field' . ( isset( $e['title'] ) ? ' has-error' : '' ) . '" for="mk-s-title"><span>' . esc_html__( 'Listing title', 'makaazi' ) . '</span><input id="mk-s-title" type="text" name="title" maxlength="80" required value="' . esc_attr( $v['title'] ) . '" placeholder="' . esc_attr__( 'e.g. Sunny 3-bedroom apartment in Lavington', 'makaazi' ) . '">' . $err( 'title' ) . '</label>';
-		$h .= '<div class="mk-fg"><span class="mk-fg__label">' . esc_html__( 'I want to', 'makaazi' ) . '</span><div class="mk-seg mk-seg--inline"><label><input type="radio" name="status" value="sale"' . checked( $v['status'], 'sale', false ) . ' data-mk-status><span>' . esc_html__( 'Sell', 'makaazi' ) . '</span></label><label><input type="radio" name="status" value="rent"' . checked( $v['status'], 'rent', false ) . ' data-mk-status><span>' . esc_html__( 'Rent out', 'makaazi' ) . '</span></label></div></div>';
+		$h .= '<div class="mk-fg"><span class="mk-fg__label">' . esc_html__( 'I want to', 'makaazi' ) . '</span><div class="mk-seg mk-seg--inline"><label><input type="radio" name="status" value="sale"' . checked( $v['status'], 'sale', false ) . ' data-mk-status><span>' . esc_html__( 'Sell', 'makaazi' ) . '</span></label><label><input type="radio" name="status" value="rent"' . checked( $v['status'], 'rent', false ) . ' data-mk-status><span>' . esc_html__( 'Rent out', 'makaazi' ) . '</span></label>' . ( isset( makaazi_statuses()['stay'] ) || 'stay' === $v['status'] ? '<label><input type="radio" name="status" value="stay"' . checked( $v['status'], 'stay', false ) . ' data-mk-status><span>' . esc_html__( 'Host short stays', 'makaazi' ) . '</span></label>' : '' ) . '</div></div>';
 		$opts = '<option value="">' . esc_html__( 'Choose a type', 'makaazi' ) . '</option>';
 		foreach ( (array) $types as $t ) {
 			$opts .= '<option value="' . esc_attr( $t->slug ) . '"' . selected( $v['type'], $t->slug, false ) . '>' . esc_html( $t->name ) . '</option>';
 		}
 		$h .= '<div class="mk-g2"><label class="mk-field' . ( isset( $e['type'] ) ? ' has-error' : '' ) . '" for="mk-s-type"><span>' . esc_html__( 'Property type', 'makaazi' ) . '</span><select id="mk-s-type" name="type" required data-mk-type>' . $opts . '</select>' . $err( 'type' ) . '</label>';
 		$h .= '<div class="mk-fg"><span class="mk-fg__label">' . esc_html__( 'Use', 'makaazi' ) . '</span>' . self::term_inputs( 'property_use', 'use[]', $v['use'] ) . '</div></div>';
-		$h .= '<div class="mk-g2"><label class="mk-field' . ( isset( $e['price'] ) ? ' has-error' : '' ) . '" for="mk-s-price"><span data-mk-price-label data-sale="' . esc_attr( sprintf( /* translators: %s: currency */ __( 'Asking price (%s)', 'makaazi' ), makaazi_settings( 'currency' ) ) ) . '" data-rent="' . esc_attr( sprintf( /* translators: %s: currency */ __( 'Rent (%s)', 'makaazi' ), makaazi_settings( 'currency' ) ) ) . '">' . esc_html( sprintf( 'rent' === $v['status'] ? __( 'Rent (%s)', 'makaazi' ) : __( 'Asking price (%s)', 'makaazi' ), makaazi_settings( 'currency' ) ) ) . '</span><input id="mk-s-price" type="number" min="0" step="1" name="price" inputmode="numeric" value="' . esc_attr( $v['price'] ) . '" placeholder="' . esc_attr( 'rent' === $v['status'] ? '150000' : '25000000' ) . '">' . $err( 'price' ) . '</label>';
+		$h .= '<div class="mk-g2"><label class="mk-field' . ( isset( $e['price'] ) ? ' has-error' : '' ) . '" for="mk-s-price"><span data-mk-price-label data-sale="' . esc_attr( sprintf( /* translators: %s: currency */ __( 'Asking price (%s)', 'makaazi' ), makaazi_settings( 'currency' ) ) ) . '" data-rent="' . esc_attr( sprintf( /* translators: %s: currency */ __( 'Rent (%s)', 'makaazi' ), makaazi_settings( 'currency' ) ) ) . '" data-stay="' . esc_attr( sprintf( /* translators: %s: currency */ __( 'Nightly rate (%s)', 'makaazi' ), makaazi_settings( 'currency' ) ) ) . '">' . esc_html( sprintf( 'stay' === $v['status'] ? __( 'Nightly rate (%s)', 'makaazi' ) : ( 'rent' === $v['status'] ? __( 'Rent (%s)', 'makaazi' ) : __( 'Asking price (%s)', 'makaazi' ) ), makaazi_settings( 'currency' ) ) ) . '</span><input id="mk-s-price" type="number" min="0" step="1" name="price" inputmode="numeric" value="' . esc_attr( $v['price'] ) . '" placeholder="' . esc_attr( 'stay' === $v['status'] ? '8000' : ( 'rent' === $v['status'] ? '150000' : '25000000' ) ) . '">' . $err( 'price' ) . '</label>';
 		$h .= '<label class="mk-field" for="mk-s-period"><span>' . esc_html__( 'Price is', 'makaazi' ) . '</span><select id="mk-s-period" name="period" data-mk-period>';
 		foreach ( array(
 			'total' => __( 'Total (sale)', 'makaazi' ),
@@ -482,7 +482,7 @@ class Makaazi_Submission {
 		$msg = '';
 		switch ( $action ) {
 			case 'close':
-				update_post_meta( $pid, '_mk_availability', 'rent' === makaazi_status( $pid ) ? 'let' : 'sold' );
+				update_post_meta( $pid, '_mk_availability', in_array( makaazi_status( $pid ), array( 'rent', 'stay' ), true ) ? 'let' : 'sold' );
 				$msg = 'closed';
 				break;
 			case 'relist':
@@ -517,7 +517,7 @@ class Makaazi_Submission {
 		};
 		$v      = array(
 			'title'     => isset( $p['title'] ) ? sanitize_text_field( $p['title'] ) : '',
-			'status'    => isset( $p['status'] ) && 'rent' === $p['status'] ? 'rent' : 'sale',
+			'status'    => isset( $p['status'] ) && in_array( $p['status'], array( 'rent', 'stay' ), true ) ? $p['status'] : 'sale',
 			'type'      => isset( $p['type'] ) ? sanitize_title( $p['type'] ) : '',
 			'use'       => $list( 'use' ),
 			'category'  => $list( 'category' ),
@@ -541,6 +541,9 @@ class Makaazi_Submission {
 		);
 		if ( 'rent' === $v['status'] && 'total' === $v['period'] ) {
 			$v['period'] = 'month';
+		}
+		if ( 'stay' === $v['status'] && 'night' !== $v['period'] && 'month' !== $v['period'] ) {
+			$v['period'] = 'night';
 		}
 		// Only the user's own uploads (or photos already on this listing) can be used.
 		$existing    = $pid ? makaazi_gallery_ids( $pid ) : array();

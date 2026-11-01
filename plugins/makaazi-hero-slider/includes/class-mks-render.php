@@ -135,7 +135,7 @@ class MKS_Render {
 		$yes = function ( $v ) {
 			return in_array( strtolower( (string) $v ), array( '1', 'yes', 'true', 'on' ), true ) ? 1 : 0;
 		};
-		foreach ( array( 'effect', 'search_position', 'search_style', 'search_fields', 'button_text', 'buy_label', 'rent_label', 'default_status' ) as $k ) {
+		foreach ( array( 'effect', 'search_position', 'search_style', 'search_fields', 'button_text', 'buy_label', 'rent_label', 'stay_label', 'default_status' ) as $k ) {
 			if ( isset( $atts[ $k ] ) && '' !== $atts[ $k ] ) {
 				$s[ $k ] = sanitize_text_field( $atts[ $k ] );
 			}
@@ -186,6 +186,7 @@ class MKS_Render {
 					'button_text'    => $s['button_text'],
 					'buy_label'      => $s['buy_label'],
 					'rent_label'     => $s['rent_label'],
+					'stay_label'     => isset( $s['stay_label'] ) ? $s['stay_label'] : '',
 					'default_status' => $s['default_status'],
 					'id'             => 'mks-' . $id,
 				)

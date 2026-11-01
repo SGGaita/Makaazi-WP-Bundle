@@ -3,7 +3,12 @@ body { -webkit-font-smoothing: antialiased; }
 :where(.wp-site-blocks) > * { margin-block-start: 0; }
 
 /* Header */
-.mk-site-header { position: sticky; top: 0; z-index: 9000; background: var(--wp--preset--color--base); border-bottom: 1px solid var(--wp--preset--color--line); }
+html { scroll-padding-top: calc(var(--wp--custom--header-height, 72px) + 16px); }
+.mk-site-header { position: sticky; top: 0; z-index: 9000; background: var(--wp--preset--color--base); border-bottom: 1px solid var(--wp--preset--color--line); transition: box-shadow .2s ease; }
+.mk-scrolled .mk-site-header { box-shadow: 0 6px 20px rgba(11, 21, 40, .08); border-bottom-color: transparent; }
+.mk-site-header__bar { transition: min-height .2s ease; }
+@media (min-width: 782px) { .mk-scrolled .mk-site-header__bar { min-height: 60px; } }
+@media (prefers-reduced-motion: reduce) { .mk-site-header, .mk-site-header__bar { transition: none; } }
 .admin-bar .mk-site-header { top: var(--wp-admin--admin-bar--height, 32px); }
 @media (max-width: 600px) { .admin-bar .mk-site-header { top: 0; } }
 .mk-site-header__bar { min-height: var(--wp--custom--header-height, 72px); gap: 16px; }

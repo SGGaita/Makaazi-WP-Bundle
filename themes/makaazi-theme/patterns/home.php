@@ -42,6 +42,12 @@ if ( function_exists( 'makaazi_owners_on' ) && makaazi_owners_on() && makaazi_da
 <!-- /wp:shortcode --></div>
 <!-- /wp:group -->
 
+<!-- wp:group {"align":"full","className":"mk-section","layout":{"type":"constrained","contentSize":"1280px"}} -->
+<div class="wp-block-group alignfull mk-section"><!-- wp:shortcode -->
+[makaazi_properties source="stay" count="8" columns="4" layout="carousel" eyebrow="Book by the night" title="Short stays" hide="compare"]
+<!-- /wp:shortcode --></div>
+<!-- /wp:group -->
+
 <!-- wp:group {"align":"full","className":"mk-cta","backgroundColor":"primary","textColor":"base","layout":{"type":"constrained","contentSize":"1280px"}} -->
 <div class="wp-block-group alignfull mk-cta has-base-color has-primary-background-color has-text-color has-background"><!-- wp:group {"layout":{"type":"flex","flexWrap":"wrap","justifyContent":"space-between","verticalAlignment":"center"}} -->
 <div class="wp-block-group"><!-- wp:group {"className":"mk-cta__text","layout":{"type":"default"}} -->

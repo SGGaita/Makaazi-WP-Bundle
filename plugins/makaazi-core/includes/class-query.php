@@ -73,7 +73,7 @@ class Makaazi_Query {
 		};
 		$src = wp_unslash( (array) $src );
 		if ( isset( $src['status'] ) ) {
-			$f['status'] = in_array( $src['status'], array( 'sale', 'rent' ), true ) ? $src['status'] : '';
+			$f['status'] = makaazi_is_status( $src['status'] ) ? $src['status'] : '';
 		}
 		if ( isset( $src['location'] ) ) {
 			$f['location'] = sanitize_title( $src['location'] );
@@ -162,6 +162,17 @@ class Makaazi_Query {
 				'field'    => 'slug',
 				'terms'    => $f['status'],
 			);
+		} else {
+			// Leave out listing types that are switched off (e.g. Short Stays).
+			$off = array_diff( array_keys( makaazi_statuses( true ) ), array_keys( makaazi_statuses() ) );
+			if ( $off ) {
+				$tax[] = array(
+					'taxonomy' => 'property_status',
+					'field'    => 'slug',
+					'terms'    => array_values( $off ),
+					'operator' => 'NOT IN',
+				);
+			}
 		}
 		if ( $f['location'] ) {
 			$tax[] = array(

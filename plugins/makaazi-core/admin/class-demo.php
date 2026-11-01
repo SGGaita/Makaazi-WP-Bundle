@@ -435,6 +435,7 @@ class Makaazi_Demo {
 						array(
 							$link( __( 'Buy', 'makaazi' ), add_query_arg( 'status', 'sale', $props ) ),
 							$link( __( 'Rent', 'makaazi' ), add_query_arg( 'status', 'rent', $props ) ),
+							$link( __( 'Short Stays', 'makaazi' ), add_query_arg( 'status', 'stay', $props ) ),
 							$link( __( 'Commercial', 'makaazi' ), add_query_arg( 'use', 'commercial', $props ) ),
 							$link( __( 'All properties', 'makaazi' ), $props ),
 							$link( __( 'Contact', 'makaazi' ), get_permalink( $contact ) ),
@@ -467,6 +468,29 @@ class Makaazi_Demo {
 					)
 				);
 			}
+		}
+
+		// Sites imported before Short Stays existed: add the menu link after "Rent".
+		if ( $nav_id && makaazi_settings( 'stays_enabled' ) && false === strpos( get_post_field( 'post_content', $nav_id ), 'status=stay' ) ) {
+			$content   = get_post_field( 'post_content', $nav_id );
+			$stay_link = '<!-- wp:navigation-link ' . wp_json_encode(
+				array(
+					'label'          => __( 'Short Stays', 'makaazi' ),
+					'url'            => add_query_arg( 'status', 'stay', makaazi_archive_url() ),
+					'kind'           => 'custom',
+					'isTopLevelLink' => true,
+				),
+				JSON_UNESCAPED_SLASHES
+			) . ' /-->';
+			$pos       = strpos( $content, 'status=rent' );
+			$end       = false === $pos ? false : strpos( $content, '/-->', $pos );
+			$content   = false === $end ? $content . "\n" . $stay_link : substr( $content, 0, $end + 4 ) . "\n" . $stay_link . substr( $content, $end + 4 );
+			wp_update_post(
+				array(
+					'ID'           => $nav_id,
+					'post_content' => $content,
+				)
+			);
 		}
 
 		if ( 'Just another WordPress site' === get_option( 'blogdescription' ) || '' === get_option( 'blogdescription' ) ) {
@@ -504,6 +528,7 @@ class Makaazi_Demo {
 				$sc( '[makaazi_properties source="sale" count="3" columns="3" eyebrow="Buy" title="Homes for sale" use="residential"]' ),
 				$sc( '[makaazi_locations count="6" columns="3" eyebrow="Neighbourhoods" title="Browse by location"]' ),
 				$sc( '[makaazi_properties source="rent" count="8" columns="4" layout="carousel" eyebrow="Rent" title="Homes to rent"]' ),
+				$sc( '[makaazi_properties source="stay" count="8" columns="4" layout="carousel" eyebrow="Book by the night" title="Short stays"]' ),
 			)
 		);
 	}

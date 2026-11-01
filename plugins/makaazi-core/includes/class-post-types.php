@@ -17,8 +17,20 @@ class Makaazi_Post_Types {
 	 */
 	public static function init() {
 		add_action( 'init', array( __CLASS__, 'register' ), 5 );
+		add_action( 'init', array( __CLASS__, 'maybe_seed' ), 20 );
 		add_action( 'after_setup_theme', array( __CLASS__, 'image_sizes' ) );
 		add_filter( 'use_block_editor_for_post_type', array( __CLASS__, 'classic_editor' ), 10, 2 );
+	}
+
+	/**
+	 * Add default terms introduced in later versions (e.g. Short Stay) on existing sites.
+	 */
+	public static function maybe_seed() {
+		if ( (int) get_option( 'makaazi_terms_ver' ) >= 2 ) {
+			return;
+		}
+		self::seed_terms();
+		update_option( 'makaazi_terms_ver', 2 );
 	}
 
 	/**
@@ -183,7 +195,7 @@ class Makaazi_Post_Types {
 	 */
 	public static function seed_terms() {
 		$seed = array(
-			'property_status' => array( 'sale' => __( 'For Sale', 'makaazi' ), 'rent' => __( 'For Rent', 'makaazi' ) ),
+			'property_status' => array( 'sale' => __( 'For Sale', 'makaazi' ), 'rent' => __( 'For Rent', 'makaazi' ), 'stay' => __( 'Short Stay', 'makaazi' ) ),
 			'property_use'    => array( 'residential' => __( 'Residential', 'makaazi' ), 'commercial' => __( 'Commercial', 'makaazi' ) ),
 			'property_type'   => array(
 				'apartment'  => __( 'Apartment', 'makaazi' ),

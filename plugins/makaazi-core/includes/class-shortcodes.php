@@ -120,11 +120,12 @@ class Makaazi_Shortcodes {
 				$f['status'] = 'sale';
 				break;
 			case 'rent':
-				$f['status'] = 'rent';
+			case 'stay':
+				$f['status'] = $a['source'];
 				break;
 		}
 		if ( $a['status'] ) {
-			$f['status'] = in_array( $a['status'], array( 'sale', 'rent' ), true ) ? $a['status'] : $f['status'];
+			$f['status'] = makaazi_is_status( $a['status'] ) ? $a['status'] : $f['status'];
 		}
 		foreach ( array( 'location', 'use' ) as $k ) {
 			if ( $a[ $k ] ) {
@@ -189,6 +190,10 @@ class Makaazi_Shortcodes {
 	 */
 	public static function properties( $atts ) {
 		$a = shortcode_atts( self::properties_defaults(), $atts, 'makaazi_properties' );
+		// A Short Stay section disappears while Short Stays are switched off.
+		if ( ( 'stay' === $a['source'] || 'stay' === $a['status'] ) && ! makaazi_is_status( 'stay' ) ) {
+			return '';
+		}
 		static $n = 0;
 		++$n;
 		$page          = ( 'numbered' === $a['pagination'] && isset( $_GET[ 'mkp' . $n ] ) ) ? absint( $_GET[ 'mkp' . $n ] ) : 1; // phpcs:ignore WordPress.Security.NonceVerification
@@ -340,7 +345,7 @@ class Makaazi_Shortcodes {
 		Makaazi_Assets::enqueue();
 		$link = function ( $t ) use ( $a ) {
 			$q = array( 'location' => $t->slug );
-			if ( in_array( $a['status'], array( 'sale', 'rent' ), true ) ) {
+			if ( makaazi_is_status( $a['status'] ) ) {
 				$q['status'] = $a['status'];
 			}
 			return makaazi_archive_url( $q );

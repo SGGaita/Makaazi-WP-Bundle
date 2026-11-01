@@ -30,6 +30,18 @@
    "areas": {
     "nyali": "Nyali"
    }
+  },
+  "kwale": {
+   "name": "Kwale",
+   "areas": {
+    "diani": "Diani"
+   }
+  },
+  "nakuru": {
+   "name": "Nakuru",
+   "areas": {
+    "naivasha": "Naivasha"
+   }
   }
  },
  "categories": {
@@ -873,6 +885,190 @@
    ],
    "lat": -1.27016,
    "lng": 36.81016
+  },
+  {
+   "key": "p16",
+   "agent": "a3",
+   "title": "Diani Beach Cottage",
+   "status": "stay",
+   "type": "villa",
+   "use": [
+    "residential"
+   ],
+   "cats": [
+    "holiday",
+    "furnished"
+   ],
+   "loc": "diani",
+   "label": "Off Diani Beach Road, Diani",
+   "price": 18000,
+   "period": "night",
+   "por": 0,
+   "area": 120,
+   "land": null,
+   "bd": 2,
+   "ba": 2,
+   "pk": 2,
+   "featured": 1,
+   "year": 2017,
+   "features": [
+    "pool",
+    "sea",
+    "aircon",
+    "fibre",
+    "garden"
+   ],
+   "attrs": [
+    [
+     "Sleeps",
+     "5 guests"
+    ],
+    [
+     "Minimum stay",
+     "2 nights"
+    ],
+    [
+     "Check-in",
+     "From 2 pm"
+    ],
+    [
+     "Cleaning",
+     "Daily housekeeping"
+    ]
+   ],
+   "desc": "A two-bedroom cottage in a palm garden, two minutes' walk from the white sand of Diani beach. A plunge pool, outdoor shower and a covered veranda for long breakfasts. Linen, towels and Wi-Fi are included and the caretaker lives on site.",
+   "age": 3,
+   "photos": [
+    "beach-2.jpg",
+    "pool-3.jpg",
+    "living-4.jpg",
+    "bed-4.jpg",
+    "kitchen-3.jpg",
+    "bath-3.jpg",
+    "beach-1.jpg"
+   ],
+   "lat": -4.3166,
+   "lng": 39.5786
+  },
+  {
+   "key": "p17",
+   "agent": "a1",
+   "title": "Westlands Serviced Studio",
+   "status": "stay",
+   "type": "apartment",
+   "use": [
+    "residential"
+   ],
+   "cats": [
+    "furnished"
+   ],
+   "loc": "westlands",
+   "label": "Near Sarit Centre, Westlands",
+   "price": 6500,
+   "period": "night",
+   "por": 0,
+   "area": 38,
+   "land": null,
+   "bd": 1,
+   "ba": 1,
+   "pk": 1,
+   "featured": 0,
+   "year": 2022,
+   "features": [
+    "gym",
+    "lift",
+    "generator",
+    "fibre",
+    "cctv"
+   ],
+   "attrs": [
+    [
+     "Sleeps",
+     "2 guests"
+    ],
+    [
+     "Minimum stay",
+     "1 night"
+    ],
+    [
+     "Check-in",
+     "Self check-in, 24 h"
+    ],
+    [
+     "Weekly rate",
+     "10% off 7+ nights"
+    ]
+   ],
+   "desc": "A compact serviced studio for business trips and weekends in town: queen bed, workspace with fast fibre, a kitchenette and a rooftop gym. Walk to Sarit Centre and the Westlands restaurants.",
+   "age": 5,
+   "photos": [
+    "tower-3.jpg",
+    "living-1.jpg",
+    "bed-1.jpg",
+    "kitchen-1.jpg",
+    "bath-1.jpg"
+   ],
+   "lat": -1.2611,
+   "lng": 36.8027
+  },
+  {
+   "key": "p18",
+   "agent": "a4",
+   "title": "Naivasha Lakeside Cabin",
+   "status": "stay",
+   "type": "bungalow",
+   "use": [
+    "residential"
+   ],
+   "cats": [
+    "holiday"
+   ],
+   "loc": "naivasha",
+   "label": "Moi South Lake Road, Naivasha",
+   "price": 12000,
+   "period": "night",
+   "por": 0,
+   "area": 85,
+   "land": [
+    0.5,
+    "acres"
+   ],
+   "bd": 2,
+   "ba": 1,
+   "pk": 3,
+   "featured": 0,
+   "year": 2015,
+   "features": [
+    "garden",
+    "solar",
+    "borehole"
+   ],
+   "attrs": [
+    [
+     "Sleeps",
+     "4 guests"
+    ],
+    [
+     "Minimum stay",
+     "2 nights"
+    ],
+    [
+     "Pets",
+     "Allowed on request"
+    ]
+   ],
+   "desc": "A timber cabin on half an acre near the shore of Lake Naivasha, with a fire pit, hammocks and hippos at dusk. A good base for Hell's Gate and Crescent Island.",
+   "age": 9,
+   "photos": [
+    "villa-3.jpg",
+    "living-3.jpg",
+    "bed-3.jpg",
+    "kitchen-2.jpg",
+    "bath-2.jpg",
+    "land-2.jpg"
+   ],
+   "lat": -0.7811,
+   "lng": 36.3876
   }
  ],
  "hero": [

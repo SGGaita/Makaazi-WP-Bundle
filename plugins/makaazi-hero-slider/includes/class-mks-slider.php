@@ -74,6 +74,7 @@ class MKS_Slider {
 			'search_fields'   => 'location,type,price',
 			'buy_label'       => __( 'Buy', 'makaazi-slider' ),
 			'rent_label'      => __( 'Rent', 'makaazi-slider' ),
+			'stay_label'      => __( 'Short Stay', 'makaazi-slider' ),
 			'default_status'  => 'sale',
 			'button_text'     => __( 'Search', 'makaazi-slider' ),
 		);

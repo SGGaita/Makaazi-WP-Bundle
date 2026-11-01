@@ -675,9 +675,12 @@
 
 	/* Sale / rent: label and period */
 	function syncStatus() {
-		var rent = ($('[data-mk-status]:checked', form) || {}).value === 'rent';
-		var lab = $('[data-mk-price-label]', form); lab.textContent = lab.getAttribute(rent ? 'data-rent' : 'data-sale');
-		var per = $('[data-mk-period]', form); if (rent && per.value === 'total') per.value = 'month'; if (!rent) per.value = 'total';
+		var st = ($('[data-mk-status]:checked', form) || {}).value || 'sale';
+		var lab = $('[data-mk-price-label]', form); lab.textContent = lab.getAttribute('data-' + st) || lab.getAttribute('data-sale');
+		var per = $('[data-mk-period]', form);
+		if (st === 'rent' && (per.value === 'total' || per.value === 'night')) per.value = 'month';
+		if (st === 'stay') per.value = 'night';
+		if (st === 'sale') per.value = 'total';
 	}
 	$$('[data-mk-status]', form).forEach(function (r) { r.addEventListener('change', syncStatus); });
 	/* Land: hide rooms */
@@ -794,11 +797,11 @@
 	function txt(sel) { var el = $(sel, form); if (!el) return ''; if (el.tagName === 'SELECT') return el.value ? el.options[el.selectedIndex].text : ''; return el.value; }
 	function review() {
 		var R = T.rv || {}, dl = $('[data-mk-review]', form), none = T.none || '–';
-		var rent = ($('[data-mk-status]:checked', form) || {}).value === 'rent';
+		var stEl = $('[data-mk-status]:checked', form) || $$('[data-mk-status]', form)[0];
 		var feats = $$('[name="features[]"]:checked', form).map(function (i) { return i.parentElement.textContent.trim(); });
 		var price = $('[name=por]', form).checked ? R.request : (txt('[name=price]') ? 'KES ' + Number(txt('[name=price]')).toLocaleString('en-US') + (txt('[name=period]') && $('[name=period]', form).value !== 'total' ? ' · ' + txt('[name=period]') : '') : '');
 		var rows = [
-			[R.title, txt('[name=title]')], [R.status, rent ? $$('[data-mk-status]', form)[1].parentElement.textContent.trim() : $$('[data-mk-status]', form)[0].parentElement.textContent.trim()],
+			[R.title, txt('[name=title]')], [R.status, stEl ? stEl.parentElement.textContent.trim() : ''],
 			[R.type, txt('[name=type]')], [R.price, price],
 			[R.rooms, [txt('[name=bedrooms]'), txt('[name=bathrooms]'), txt('[name=parking]')].map(function (x) { return x || '–'; }).join(' / ')],
 			[R.area, txt('[name=area]') ? txt('[name=area]') + ' ' + ($('#mk-s-area', form).previousElementSibling.textContent.match(/\(([^)]+)\)/) || ['', ''])[1] : (txt('[name=land_size]') ? txt('[name=land_size]') + ' ' + txt('[name=land_unit]') : '')],

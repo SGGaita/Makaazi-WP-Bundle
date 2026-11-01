@@ -13,7 +13,7 @@
 
 | Taxonomy | URL base | Hierarchical | Admin box | Default terms |
 |---|---|---|---|---|
-| `property_status` | `/status/` | no | radio | `sale` (For Sale), `rent` (For Rent) |
+| `property_status` | `/status/` | no | radio | `sale` (For Sale), `rent` (For Rent), `stay` (Short Stay) |
 | `property_use` | `/use/` | no | radio | `residential`, `commercial` |
 | `property_type` | `/property-type/` | no | radio | Apartment, Maisonette, Townhouse, Villa, Bungalow, Office, Shop, Warehouse, Land |
 | `property_category` | `/property-category/` | yes | checkboxes | |
@@ -21,6 +21,8 @@
 | `property_feature` | `/feature/` | yes | checkboxes | |
 
 Location terms can carry an image (term meta `mk_image`, an attachment ID) used by `[makaazi_locations]` tiles.
+
+The listing statuses and their labels, default price period and closed state come from `makaazi_statuses()` (filter `makaazi_statuses`). Statuses switched off in Settings are left out of search, filters and forms, and their listings are excluded from results.
 
 Query values use **slugs**: `?status=rent&location=westlands&type=apartment`.
 
@@ -109,7 +111,8 @@ Read meta with `makaazi_meta( $id, 'price' )` (prefix added for you; returns reg
 | `contact_name`, `contact_phone`, `whatsapp`, `enquiry_email` | | Property page |
 | `privacy_radius`, `related_count`, `related_same_status` | `500`, `8`, `1` | Property page |
 | `map_tiles`, `map_center` | OSM tiles, Nairobi | Property page |
-| `brackets_sale`, `brackets_rent` | comma-separated amounts | Price brackets |
+| `brackets_sale`, `brackets_rent`, `brackets_stay` | comma-separated amounts | Price brackets |
+| `stays_enabled` | `1` | Features (Short Stay listing type) |
 
 Add your own keys with the `makaazi_default_settings` filter (they are then readable with `makaazi_settings()`); see [Hooks](hooks.md).
 

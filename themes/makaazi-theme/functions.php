@@ -24,6 +24,10 @@ add_action( 'after_setup_theme', 'makaazi_theme_setup' );
 function makaazi_theme_assets() {
 	$file = get_template_directory() . '/assets/css/theme.css';
 	wp_enqueue_style( 'makaazi-theme', get_template_directory_uri() . '/assets/css/theme.css', array(), (string) filemtime( $file ) );
+	// Sticky header: add a shadow and a slimmer bar once the page scrolls.
+	wp_register_script( 'makaazi-theme', '', array(), '1', true );
+	wp_enqueue_script( 'makaazi-theme' );
+	wp_add_inline_script( 'makaazi-theme', "(function(){var b=document.body,on=false;function f(){var s=window.scrollY>8;if(s!==on){on=s;b.classList.toggle('mk-scrolled',s);}}window.addEventListener('scroll',f,{passive:true});f();})();" );
 }
 add_action( 'wp_enqueue_scripts', 'makaazi_theme_assets' );
 

@@ -89,6 +89,7 @@ class Makaazi_Settings {
 			'features' => array(
 				__( 'Features', 'makaazi' ),
 				array(
+					'stays_enabled'      => array( 'checkbox', __( 'Short Stays', 'makaazi' ), __( 'A third listing type next to Buy and Rent, for furnished homes booked by the night (holiday and serviced rentals). Adds a Short Stay tab to search and filters. Turning it off hides the tab; existing listings keep their pages.', 'makaazi' ) ),
 					'agents_enabled'     => array( 'checkbox', __( 'Agents', 'makaazi' ), __( 'Agent profiles, agent pages, the agent on each listing and agent sign-in. Turning this off hides them; nothing is deleted.', 'makaazi' ) ),
 					'agent_review'       => array( 'checkbox', __( 'Review agent listings', 'makaazi' ), __( 'New listings from agents wait for an admin to approve them.', 'makaazi' ) ),
 					'enquiry_cc_admin'   => array( 'checkbox', __( 'Copy me on agent enquiries', 'makaazi' ), __( 'Send a copy of every enquiry to the address in Property page › Send enquiries to.', 'makaazi' ) ),
@@ -119,7 +120,7 @@ class Makaazi_Settings {
 					'enquiry_email'       => array( 'text', __( 'Send enquiries to', 'makaazi' ), __( 'Leave empty to use the site admin email. Enquiries are also saved under Properties › Enquiries.', 'makaazi' ) ),
 					'privacy_radius'      => array( 'select', __( 'Default map privacy radius', 'makaazi' ), '', array( 250 => '250 m', 500 => '500 m', 1000 => '1 km', 2000 => '2 km' ) ),
 					'related_count'       => array( 'number', __( 'Similar properties', 'makaazi' ), __( 'How many to show.', 'makaazi' ) ),
-					'related_same_status' => array( 'checkbox', __( 'Same status only', 'makaazi' ), __( 'Only suggest rentals for rentals and sales for sales.', 'makaazi' ) ),
+					'related_same_status' => array( 'checkbox', __( 'Same status only', 'makaazi' ), __( 'Only suggest rentals for rentals, short stays for short stays and sales for sales.', 'makaazi' ) ),
 					'map_tiles'           => array( 'text', __( 'Map tiles URL', 'makaazi' ), __( 'OpenStreetMap by default. Use a tile provider for high traffic sites.', 'makaazi' ) ),
 					'map_center'          => array( 'text', __( 'Default map centre', 'makaazi' ), __( 'Latitude,longitude used when placing a new pin.', 'makaazi' ) ),
 				),
@@ -129,6 +130,7 @@ class Makaazi_Settings {
 				array(
 					'brackets_sale' => array( 'text', __( 'Buy brackets', 'makaazi' ), __( 'Comma-separated amounts used in search and filters.', 'makaazi' ) ),
 					'brackets_rent' => array( 'text', __( 'Rent brackets (per month)', 'makaazi' ), __( 'Comma-separated amounts.', 'makaazi' ) ),
+					'brackets_stay' => array( 'text', __( 'Short Stay brackets (per night)', 'makaazi' ), __( 'Comma-separated amounts.', 'makaazi' ) ),
 				),
 			),
 		);
