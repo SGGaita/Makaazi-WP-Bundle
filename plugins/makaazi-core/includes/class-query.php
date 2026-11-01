@@ -277,6 +277,9 @@ class Makaazi_Query {
 			}
 		}
 		$args = self::apply_sort( $args, $f['sort'] );
+		if ( class_exists( 'Makaazi_Index' ) && Makaazi_Index::ready() ) {
+			$args = self::use_index( $args, $f );
+		}
 		/**
 		 * Filter the WP_Query arguments used for property searches and listings.
 		 *
@@ -284,6 +287,49 @@ class Makaazi_Query {
 		 * @param array $filters Parsed filters (status, location, type, price…).
 		 */
 		return apply_filters( 'makaazi_query_args', array_merge( $args, $extra ), $f );
+	}
+
+	/**
+	 * Move the numeric conditions and sorts from meta queries to the index table.
+	 *
+	 * The result keeps the same shape: callers can still add meta_query clauses, and
+	 * `$args['mk_index']` holds the index conditions (include_closed, featured, agent can be added).
+	 *
+	 * @param array $args Query args built from meta queries.
+	 * @param array $f    Filters.
+	 * @return array
+	 */
+	public static function use_index( $args, $f ) {
+		$meta = array( 'relation' => 'AND' );
+		foreach ( $args['meta_query'] as $k => $clause ) {
+			if ( 'relation' === $k || 'avail' === $k || in_array( $k, array( 'price_clause', 'area_clause', 'feat_clause' ), true ) ) {
+				continue;
+			}
+			$keys = wp_list_pluck( array_filter( (array) $clause, 'is_array' ), 'key' );
+			$key  = isset( $clause['key'] ) ? $clause['key'] : ( $keys ? reset( $keys ) : '' );
+			if ( in_array( $key, array( '_mk_price', '_mk_price_on_request', '_mk_bedrooms', '_mk_bathrooms', '_mk_parking' ), true ) ) {
+				continue;
+			}
+			$meta[] = $clause;
+		}
+		$args['meta_query'] = $meta; // phpcs:ignore WordPress.DB.SlowDBQuery
+		// get_posts() turns filters off by default; the index join is a posts_clauses filter.
+		$args['suppress_filters'] = false;
+		$args['mk_index']   = array(
+			'min_price' => $f['min_price'],
+			'max_price' => $f['max_price'],
+			'beds'      => $f['beds'],
+			'baths'     => $f['baths'],
+			'parking'   => $f['parking'],
+			'sort'      => $f['sort'],
+		);
+		if ( in_array( $f['sort'], array( 'price_asc', 'price_desc', 'largest', 'featured' ), true ) ) {
+			$args['orderby'] = array(
+				'date' => 'DESC',
+				'ID'   => 'DESC',
+			);
+		}
+		return $args;
 	}
 
 	/**

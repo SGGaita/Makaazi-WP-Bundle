@@ -150,6 +150,9 @@ class Makaazi_Shortcodes {
 		$args      = Makaazi_Query::args( $f, max( 1, min( 48, (int) $a['count'] ) ) );
 		if ( 'yes' === $a['include_closed'] ) {
 			unset( $args['meta_query']['avail'] );
+			if ( isset( $args['mk_index'] ) ) {
+				$args['mk_index']['include_closed'] = 1;
+			}
 		}
 		if ( '' !== (string) $a['agent'] ) {
 			$aid = is_numeric( $a['agent'] ) ? absint( $a['agent'] ) : 0;
@@ -163,10 +166,14 @@ class Makaazi_Shortcodes {
 			);
 		}
 		if ( 'featured' === $a['source'] ) {
-			$args['meta_query'][] = array(
-				'key'   => '_mk_featured',
-				'value' => '1',
-			);
+			if ( isset( $args['mk_index'] ) ) {
+				$args['mk_index']['featured'] = 1;
+			} else {
+				$args['meta_query'][] = array(
+					'key'   => '_mk_featured',
+					'value' => '1',
+				);
+			}
 		}
 		if ( 'ids' === $a['source'] || $a['ids'] ) {
 			$ids                    = array_filter( array_map( 'absint', explode( ',', $a['ids'] ) ) );

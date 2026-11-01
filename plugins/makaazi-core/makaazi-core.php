@@ -25,6 +25,7 @@ require_once MAKAAZI_DIR . 'includes/functions.php';
 require_once MAKAAZI_DIR . 'includes/class-post-types.php';
 require_once MAKAAZI_DIR . 'includes/class-meta.php';
 require_once MAKAAZI_DIR . 'includes/class-query.php';
+require_once MAKAAZI_DIR . 'includes/class-index.php';
 require_once MAKAAZI_DIR . 'includes/class-related.php';
 require_once MAKAAZI_DIR . 'includes/class-render.php';
 require_once MAKAAZI_DIR . 'includes/class-shortcodes.php';
@@ -51,6 +52,7 @@ if ( is_admin() ) {
 
 Makaazi_Post_Types::init();
 Makaazi_Meta::init();
+Makaazi_Index::init();
 Makaazi_Related::init();
 Makaazi_Shortcodes::init();
 Makaazi_Rest::init();

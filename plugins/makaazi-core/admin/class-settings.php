@@ -202,6 +202,15 @@ class Makaazi_Settings {
 		echo '</table>';
 		submit_button();
 		echo '</form>';
+		if ( 'general' === $tab && class_exists( 'Makaazi_Index' ) ) {
+			$st = Makaazi_Index::stats();
+			echo '<h2>' . esc_html__( 'Search index', 'makaazi' ) . '</h2><p class="description" style="max-width:640px">' . esc_html__( 'A fast lookup table for price, rooms and size filters, kept up to date automatically. Rebuild it after importing listings with another tool or editing the database directly.', 'makaazi' ) . '</p>';
+			echo '<p><strong>' . ( $st['ready'] ? esc_html( sprintf( /* translators: 1: rows, 2: total */ __( 'In use: %1$s of %2$s properties indexed.', 'makaazi' ), number_format_i18n( $st['rows'] ), number_format_i18n( $st['total'] ) ) ) : esc_html( sprintf( /* translators: 1: rows, 2: total */ __( 'Building: %1$s of %2$s properties so far. Searches work normally meanwhile.', 'makaazi' ), number_format_i18n( $st['rows'] ), number_format_i18n( $st['total'] ) ) ) ) . '</strong></p>';
+			echo '<form method="post" action="' . esc_url( admin_url( 'admin-post.php' ) ) . '"><input type="hidden" name="action" value="makaazi_index_rebuild">';
+			wp_nonce_field( 'makaazi_index_rebuild' );
+			submit_button( __( 'Rebuild search index', 'makaazi' ), 'secondary', 'submit', false );
+			echo '</form>';
+		}
 		if ( 'cards' === $tab ) {
 			$sample = get_posts(
 				array(

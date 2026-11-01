@@ -43,6 +43,9 @@ add_filter( 'makaazi_query_args', function ( $args ) {
 } );
 ```
 
+#### `makaazi_use_index`
+`( bool $use )`: whether searches use the `mk_index` table (see [Data model](data-model.md#search-index-table)). When it is used, `$args['meta_query']` no longer contains the price, rooms and availability clauses; they are in `$args['mk_index']` (keys `min_price`, `max_price`, `beds`, `baths`, `parking`, `sort`, and optionally `include_closed`, `featured`, `agent`). Custom sorts added with `makaazi_sorts` still work through `meta_query`/`orderby`.
+
 #### `makaazi_sorts`
 `( array $sorts )`: sort options (`key => label`). Add a key here and handle it in `makaazi_query_args`:
 
