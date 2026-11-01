@@ -290,6 +290,8 @@ class Makaazi_Shortcodes {
 				'button_text'    => __( 'Search', 'makaazi' ),
 				'buy_label'      => __( 'Buy', 'makaazi' ),
 				'rent_label'     => __( 'Rent', 'makaazi' ),
+				'stay_label'     => __( 'Short Stay', 'makaazi' ),
+				'tabs'           => '',
 				'default_status' => 'sale',
 				'show_tabs'      => 'yes',
 				'location_label' => __( 'Location', 'makaazi' ),
@@ -379,7 +381,15 @@ class Makaazi_Shortcodes {
 				$g      = $p ? makaazi_gallery_ids( $p[0] ) : array();
 				$img_id = $g ? $g[0] : 0;
 			}
-			$img = $img_id ? wp_get_attachment_image( $img_id, 'makaazi-card', false, array( 'loading' => 'lazy', 'alt' => '' ) ) : '';
+			$img = $img_id ? wp_get_attachment_image(
+				$img_id,
+				'makaazi-card',
+				false,
+				array(
+					'loading' => 'lazy',
+					'alt' => '',
+				)
+			) : '';
 			/* translators: %d: number of properties */
 			$h .= '<a class="mk-loc" href="' . esc_url( $link( $t ) ) . '">' . $img . '<span><b>' . esc_html( $t->name ) . '</b><small>' . esc_html( sprintf( _n( '%d property', '%d properties', $t->count, 'makaazi' ), $t->count ) ) . '</small></span></a>';
 		}
@@ -479,7 +489,13 @@ class Makaazi_Shortcodes {
 	 * @return string
 	 */
 	public static function property_details( $atts ) {
-		$a  = shortcode_atts( array( 'id' => 0, 'title' => '' ), $atts );
+		$a  = shortcode_atts(
+			array(
+				'id' => 0,
+				'title' => '',
+			),
+			$atts
+		);
 		$id = Makaazi_Render::pid( $a );
 		return $id ? Makaazi_Render::details( $id, $a['title'] ) : '';
 	}
@@ -491,7 +507,13 @@ class Makaazi_Shortcodes {
 	 * @return string
 	 */
 	public static function property_features( $atts ) {
-		$a  = shortcode_atts( array( 'id' => 0, 'title' => '' ), $atts );
+		$a  = shortcode_atts(
+			array(
+				'id' => 0,
+				'title' => '',
+			),
+			$atts
+		);
 		$id = Makaazi_Render::pid( $a );
 		return $id ? Makaazi_Render::features( $id, $a['title'] ) : '';
 	}
@@ -503,7 +525,13 @@ class Makaazi_Shortcodes {
 	 * @return string
 	 */
 	public static function property_map( $atts ) {
-		$a  = shortcode_atts( array( 'id' => 0, 'title' => '' ), $atts );
+		$a  = shortcode_atts(
+			array(
+				'id' => 0,
+				'title' => '',
+			),
+			$atts
+		);
 		$id = Makaazi_Render::pid( $a );
 		return $id ? Makaazi_Render::map( $id, $a['title'] ) : '';
 	}

@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+<ruleset name="Makaazi">
+	<description>Coding standards for the Makaazi theme and plugins.</description>
+
+	<file>./plugins/makaazi-core</file>
+	<file>./plugins/makaazi-hero-slider</file>
+	<file>./themes/makaazi-theme</file>
+	<file>./tests/phpunit</file>
+
+	<exclude-pattern>*/vendor/*</exclude-pattern>
+	<exclude-pattern>*/assets/vendor/*</exclude-pattern>
+	<exclude-pattern>*/node_modules/*</exclude-pattern>
+	<exclude-pattern>*.js</exclude-pattern>
+	<exclude-pattern>*.css</exclude-pattern>
+
+	<arg name="extensions" value="php"/>
+	<arg value="sp"/>
+	<arg name="colors"/>
+
+	<config name="testVersion" value="7.4-"/>
+	<config name="minimum_wp_version" value="6.6"/>
+
+	<rule ref="PHPCompatibilityWP">
+		<exclude name="PHPCompatibility.Extensions.RemovedExtensions"/>
+	</rule>
+
+	<rule ref="WordPress-Core">
+		<!-- Readable one-line HTML building is used throughout the renderers. -->
+		<exclude name="Generic.Formatting.MultipleStatementAlignment"/>
+		<exclude name="WordPress.Arrays.MultipleStatementAlignment"/>
+		<exclude name="Universal.Operators.DisallowShortTernary"/>
+		<exclude name="WordPress.PHP.YodaConditions"/>
+		<exclude name="Generic.Arrays.DisallowShortArraySyntax"/>
+		<exclude name="WordPress.Files.FileName"/>
+		<exclude name="Squiz.Commenting"/>
+		<exclude name="Generic.Commenting"/>
+	</rule>
+
+	<rule ref="WordPress.Security"/>
+	<rule ref="WordPress.WP.I18n">
+		<properties>
+			<property name="text_domain" type="array">
+				<element value="makaazi"/>
+				<element value="makaazi-slider"/>
+				<element value="makaazi-theme"/>
+			</property>
+		</properties>
+	</rule>
+	<rule ref="WordPress.NamingConventions.PrefixAllGlobals">
+		<properties>
+			<property name="prefixes" type="array">
+				<element value="makaazi"/>
+				<element value="mks"/>
+				<element value="Makaazi"/>
+				<element value="MKS"/>
+			</property>
+		</properties>
+		<exclude-pattern>*/tests/*</exclude-pattern>
+	</rule>
+
+	<!-- The Elementor widgets and the index CLI live next to the classes they belong to. -->
+	<rule ref="Generic.Files.OneObjectStructurePerFile">
+		<exclude-pattern>*/includes/elementor/widgets.php</exclude-pattern>
+		<exclude-pattern>*/includes/class-index.php</exclude-pattern>
+	</rule>
+
+	<!-- Templates and patterns are included inside functions, so their variables are local. -->
+	<rule ref="WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound">
+		<exclude-pattern>*/templates/*</exclude-pattern>
+		<exclude-pattern>*/patterns/*</exclude-pattern>
+	</rule>
+
+	<!-- Tests use PHPUnit naming. -->
+	<rule ref="WordPress.NamingConventions.ValidFunctionName">
+		<exclude-pattern>*/tests/*</exclude-pattern>
+	</rule>
+	<rule ref="PEAR.NamingConventions.ValidClassName">
+		<exclude-pattern>*/tests/*</exclude-pattern>
+	</rule>
+</ruleset>

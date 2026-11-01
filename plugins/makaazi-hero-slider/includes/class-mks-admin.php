@@ -127,7 +127,11 @@ class MKS_Admin {
 		$h .= '<label class="mks-span">' . esc_html__( 'Text', 'makaazi-slider' ) . '<textarea rows="2" name="' . esc_attr( $name( 'text' ) ) . '">' . esc_textarea( $s['text'] ) . '</textarea></label>';
 		$h .= $txt( 'btn1_text', __( 'Button 1 text', 'makaazi-slider' ) ) . $txt( 'btn1_url', __( 'Button 1 link', 'makaazi-slider' ), '/properties/' ) . $txt( 'btn2_text', __( 'Button 2 text', 'makaazi-slider' ) ) . $txt( 'btn2_url', __( 'Button 2 link', 'makaazi-slider' ) );
 		$h .= '<label>' . esc_html__( 'Text alignment', 'makaazi-slider' ) . '<select name="' . esc_attr( $name( 'align' ) ) . '">';
-		foreach ( array( 'left' => __( 'Left', 'makaazi-slider' ), 'center' => __( 'Centre', 'makaazi-slider' ), 'right' => __( 'Right', 'makaazi-slider' ) ) as $v => $l ) {
+		foreach ( array(
+			'left' => __( 'Left', 'makaazi-slider' ),
+			'center' => __( 'Centre', 'makaazi-slider' ),
+			'right' => __( 'Right', 'makaazi-slider' ),
+		) as $v => $l ) {
 			$h .= '<option value="' . $v . '"' . selected( $s['align'], $v, false ) . '>' . esc_html( $l ) . '</option>';
 		}
 		$h .= '</select></label><label>' . esc_html__( 'Overlay darkness', 'makaazi-slider' ) . ' <output>' . (int) $s['overlay'] . '%</output><input type="range" min="0" max="90" step="5" name="' . esc_attr( $name( 'overlay' ) ) . '" value="' . (int) $s['overlay'] . '" oninput="this.previousElementSibling.value=this.value+\'%\'"></label>';

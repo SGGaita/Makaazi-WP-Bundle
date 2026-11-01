@@ -400,7 +400,12 @@ class Makaazi_Submission {
 		}
 		$h .= '</select></label></div><label class="mk-check"><input type="checkbox" name="por" value="1"' . checked( (int) $v['por'], 1, false ) . '> <span>' . esc_html__( 'Show "Price on request" instead', 'makaazi' ) . '</span></label>';
 		$h .= '<label class="mk-field' . ( isset( $e['desc'] ) ? ' has-error' : '' ) . '" for="mk-s-desc"><span>' . esc_html__( 'Description', 'makaazi' ) . '</span><textarea id="mk-s-desc" name="desc" rows="6" placeholder="' . esc_attr__( 'Describe the layout, finishes, security, water and power, and what is nearby.', 'makaazi' ) . '">' . esc_textarea( $v['desc'] ) . '</textarea>' . $err( 'desc' ) . '</label>';
-		$cats = get_terms( array( 'taxonomy' => 'property_category', 'hide_empty' => false ) );
+		$cats = get_terms(
+			array(
+				'taxonomy' => 'property_category',
+				'hide_empty' => false,
+			)
+		);
 		if ( $cats && ! is_wp_error( $cats ) ) {
 			$h .= '<div class="mk-fg"><span class="mk-fg__label">' . esc_html__( 'Category (optional)', 'makaazi' ) . '</span>' . self::term_inputs( 'property_category', 'category[]', $v['category'] ) . '</div>';
 		}
@@ -413,7 +418,11 @@ class Makaazi_Submission {
 		$h .= '<fieldset class="mk-step" data-step="2"><legend class="mk-step__title">' . esc_html__( 'Details', 'makaazi' ) . '</legend><div class="mk-g3">' . $num( 'bedrooms', __( 'Bedrooms', 'makaazi' ) ) . $num( 'bathrooms', __( 'Bathrooms', 'makaazi' ), '0.5' ) . $num( 'parking', __( 'Parking spaces', 'makaazi' ) ) . '</div>';
 		$h .= '<div class="mk-g3"><label class="mk-field' . ( isset( $e['area'] ) ? ' has-error' : '' ) . '" for="mk-s-area"><span>' . esc_html( sprintf( /* translators: %s: unit */ __( 'Floor area (%s)', 'makaazi' ), $unit ) ) . '</span><input id="mk-s-area" type="number" min="0" step="0.01" inputmode="decimal" name="area" value="' . esc_attr( $v['area'] ) . '">' . $err( 'area' ) . '</label>';
 		$h .= '<label class="mk-field" for="mk-s-land"><span>' . esc_html__( 'Land size', 'makaazi' ) . '</span><span class="mk-inline"><input id="mk-s-land" type="number" min="0" step="0.01" inputmode="decimal" name="land_size" value="' . esc_attr( $v['land_size'] ) . '"><select name="land_unit" aria-label="' . esc_attr__( 'Land unit', 'makaazi' ) . '">';
-		foreach ( array( 'acres' => __( 'acres', 'makaazi' ), 'hectares' => __( 'hectares', 'makaazi' ), 'sqm' => 'm²' ) as $k => $l ) {
+		foreach ( array(
+			'acres' => __( 'acres', 'makaazi' ),
+			'hectares' => __( 'hectares', 'makaazi' ),
+			'sqm' => 'm²',
+		) as $k => $l ) {
 			$h .= '<option value="' . esc_attr( $k ) . '"' . selected( $v['land_unit'], $k, false ) . '>' . esc_html( $l ) . '</option>';
 		}
 		$h .= '</select></span></label><label class="mk-field" for="mk-s-year"><span>' . esc_html__( 'Year built (optional)', 'makaazi' ) . '</span><input id="mk-s-year" type="number" min="1900" max="2100" name="year_built" value="' . esc_attr( $v['year'] ) . '"></label></div>';
@@ -832,7 +841,20 @@ class Makaazi_Submission {
 			$author = get_userdata( (int) get_post_field( 'post_author', $id ) );
 			if ( $author ) {
 				/* translators: %s: title */
-				wp_mail( $author->user_email, sprintf( __( 'Changes needed: %s', 'makaazi' ), get_the_title( $id ) ), sprintf( /* translators: 1: reason, 2: link */ __( "Thanks for your listing. Before it can go live, please make this change:\n\n%1\$s\n\nEdit and resubmit here:\n%2\$s", 'makaazi' ), $reason, makaazi_dashboard_url( array( 'tab' => 'submit', 'id' => $id ) ) ) );
+				wp_mail(
+					$author->user_email,
+					sprintf( __( 'Changes needed: %s', 'makaazi' ), get_the_title( $id ) ),
+					sprintf(
+					 /* translators: 1: reason, 2: link */                        __( "Thanks for your listing. Before it can go live, please make this change:\n\n%1\$s\n\nEdit and resubmit here:\n%2\$s", 'makaazi' ),
+						$reason,
+						makaazi_dashboard_url(
+							array(
+								'tab' => 'submit',
+								'id' => $id,
+							)
+						)
+					)
+				);
 			}
 			/**
 			 * Fires when a moderator sends a listing back for changes.

@@ -23,13 +23,16 @@ class Makaazi_Query {
 		 *
 		 * @param array $sorts key => label.
 		 */
-		return apply_filters( 'makaazi_sorts', array(
-			'newest'     => __( 'Newest', 'makaazi' ),
-			'price_asc'  => __( 'Price: low to high', 'makaazi' ),
-			'price_desc' => __( 'Price: high to low', 'makaazi' ),
-			'largest'    => __( 'Largest', 'makaazi' ),
-			'featured'   => __( 'Featured first', 'makaazi' ),
-		) );
+		return apply_filters(
+			'makaazi_sorts',
+			array(
+				'newest'     => __( 'Newest', 'makaazi' ),
+				'price_asc'  => __( 'Price: low to high', 'makaazi' ),
+				'price_desc' => __( 'Price: high to low', 'makaazi' ),
+				'largest'    => __( 'Largest', 'makaazi' ),
+				'featured'   => __( 'Featured first', 'makaazi' ),
+			)
+		);
 	}
 
 	/**

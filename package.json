@@ -1,0 +1,19 @@
+{
+	"name": "makaazi",
+	"private": true,
+	"description": "Makaazi property listing template by Ascension Dynamics: development tooling.",
+	"license": "GPL-2.0-or-later",
+	"scripts": {
+		"env:start": "wp-env start && npm run env:setup",
+		"env:setup": "wp-env run cli wp theme activate makaazi-theme && wp-env run cli wp rewrite structure '/%postname%/' --hard && wp-env run cli wp eval-file wp-content/makaazi-tests/e2e/setup.php",
+		"env:stop": "wp-env stop",
+		"lint:js": "node tests/bin/check-js.mjs",
+		"test:e2e": "playwright test --config tests/e2e/playwright.config.js",
+		"test:php": "composer test"
+	},
+	"devDependencies": {
+		"@playwright/test": "1.63.0",
+		"@wordpress/env": "^10.20.0",
+		"axe-core": "4.10.2"
+	}
+}

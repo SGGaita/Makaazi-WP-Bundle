@@ -75,7 +75,8 @@ function makaazi_default_settings() {
  */
 function makaazi_settings( $key = null ) {
 	static $cache = null;
-	if ( null === $cache || ( ! did_action( 'init' ) ) ) {
+	if ( null === $cache || ( ! did_action( 'init' ) ) || ! empty( $GLOBALS['makaazi_settings_stale'] ) ) {
+		$GLOBALS['makaazi_settings_stale'] = false;
 		$saved = get_option( 'makaazi_settings', array() );
 		$cache = wp_parse_args( is_array( $saved ) ? $saved : array(), makaazi_default_settings() );
 		/**
@@ -639,3 +640,13 @@ function makaazi_dashboard_url( $args = array() ) {
 	}
 	return ( $url && $args ) ? add_query_arg( $args, $url ) : $url;
 }
+
+/**
+ * Re-read settings after they are saved (in the same request).
+ */
+function makaazi_settings_changed() {
+	$GLOBALS['makaazi_settings_stale'] = true;
+}
+add_action( 'add_option_makaazi_settings', 'makaazi_settings_changed' );
+add_action( 'update_option_makaazi_settings', 'makaazi_settings_changed' );
+add_action( 'delete_option_makaazi_settings', 'makaazi_settings_changed' );

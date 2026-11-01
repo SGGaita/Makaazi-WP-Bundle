@@ -98,19 +98,39 @@ class Makaazi_Render {
 		$park    = (int) makaazi_meta( $id, 'parking', 0 );
 		$area    = (float) makaazi_meta( $id, 'area_sqm', 0 );
 		if ( $on( 'beds' ) && $beds ) {
-			$specs[] = array( 'icon' => 'bed', 'label' => __( 'Bedrooms', 'makaazi' ), 'html' => esc_html( $beds ) );
+			$specs[] = array(
+				'icon' => 'bed',
+				'label' => __( 'Bedrooms', 'makaazi' ),
+				'html' => esc_html( $beds ),
+			);
 		}
 		if ( $on( 'baths' ) && $baths ) {
-			$specs[] = array( 'icon' => 'bath', 'label' => __( 'Bathrooms', 'makaazi' ), 'html' => esc_html( 0 + $baths ) );
+			$specs[] = array(
+				'icon' => 'bath',
+				'label' => __( 'Bathrooms', 'makaazi' ),
+				'html' => esc_html( 0 + $baths ),
+			);
 		}
 		if ( $on( 'parking' ) && $park ) {
-			$specs[] = array( 'icon' => 'car', 'label' => __( 'Parking', 'makaazi' ), 'html' => esc_html( $park ) );
+			$specs[] = array(
+				'icon' => 'car',
+				'label' => __( 'Parking', 'makaazi' ),
+				'html' => esc_html( $park ),
+			);
 		}
 		if ( $on( 'area' ) ) {
 			if ( $is_land && makaazi_land_text( $id ) ) {
-				$specs[] = array( 'icon' => 'area', 'label' => __( 'Land size', 'makaazi' ), 'html' => esc_html( makaazi_land_text( $id ) ) );
+				$specs[] = array(
+					'icon' => 'area',
+					'label' => __( 'Land size', 'makaazi' ),
+					'html' => esc_html( makaazi_land_text( $id ) ),
+				);
 			} elseif ( $area ) {
-				$specs[] = array( 'icon' => 'area', 'label' => __( 'Area', 'makaazi' ), 'html' => makaazi_area_html( $area ) );
+				$specs[] = array(
+					'icon' => 'area',
+					'label' => __( 'Area', 'makaazi' ),
+					'html' => makaazi_area_html( $area ),
+				);
 			}
 		}
 
@@ -649,13 +669,23 @@ class Makaazi_Render {
 		if ( $has( 'use' ) ) {
 			$h .= '<fieldset class="mk-fg"><legend>' . esc_html__( 'Use', 'makaazi' ) . '</legend><div class="mk-chips">';
 			$h .= '<label class="mk-chip"><input type="radio" name="use" value=""' . checked( $f['use'], '', false ) . '><span>' . esc_html__( 'Any', 'makaazi' ) . '</span></label>';
-			foreach ( (array) get_terms( array( 'taxonomy' => 'property_use', 'hide_empty' => false ) ) as $t ) {
+			foreach ( (array) get_terms(
+				array(
+					'taxonomy' => 'property_use',
+					'hide_empty' => false,
+				)
+			) as $t ) {
 				$h .= '<label class="mk-chip"><input type="radio" name="use" value="' . esc_attr( $t->slug ) . '"' . checked( $f['use'], $t->slug, false ) . '><span>' . esc_html( $t->name ) . '</span></label>';
 			}
 			$h .= '</div></fieldset>';
 		}
 		if ( $has( 'category' ) ) {
-			$cats = get_terms( array( 'taxonomy' => 'property_category', 'hide_empty' => false ) );
+			$cats = get_terms(
+				array(
+					'taxonomy' => 'property_category',
+					'hide_empty' => false,
+				)
+			);
 			if ( $cats && ! is_wp_error( $cats ) ) {
 				$h .= '<fieldset class="mk-fg"><legend>' . esc_html__( 'Category', 'makaazi' ) . '</legend><div class="mk-chips">';
 				foreach ( $cats as $t ) {
@@ -690,7 +720,12 @@ class Makaazi_Render {
 			$h .= '</div></fieldset>';
 		}
 		if ( $has( 'features' ) ) {
-			$feats = get_terms( array( 'taxonomy' => 'property_feature', 'hide_empty' => false ) );
+			$feats = get_terms(
+				array(
+					'taxonomy' => 'property_feature',
+					'hide_empty' => false,
+				)
+			);
 			if ( $feats && ! is_wp_error( $feats ) ) {
 				$h .= '<fieldset class="mk-fg mk-fg--more" data-mk-more><legend>' . esc_html__( 'Features', 'makaazi' ) . '</legend>';
 				foreach ( $feats as $i => $t ) {
@@ -956,7 +991,15 @@ class Makaazi_Render {
 		foreach ( array_slice( $ids, 0, 5 ) as $i => $aid ) {
 			/* translators: 1: photo number, 2: total */
 			$h .= '<button type="button" class="mk-mosaic__item" data-mk-open="' . $i . '" aria-label="' . esc_attr( sprintf( __( 'Open photo %1$d of %2$d', 'makaazi' ), $i + 1, $n ) ) . '">'
-				. wp_get_attachment_image( $aid, 0 === $i ? 'makaazi-wide' : 'makaazi-card', false, array( 'loading' => $i ? 'lazy' : 'eager', 'sizes' => 0 === $i ? '(max-width: 900px) 100vw, 800px' : '400px' ) ) . '</button>';
+				. wp_get_attachment_image(
+					$aid,
+					0 === $i ? 'makaazi-wide' : 'makaazi-card',
+					false,
+					array(
+						'loading' => $i ? 'lazy' : 'eager',
+						'sizes' => 0 === $i ? '(max-width: 900px) 100vw, 800px' : '400px',
+					)
+				) . '</button>';
 		}
 		/* translators: %d: number of photos */
 		$h .= '<button type="button" class="mk-mosaic__all" data-mk-open="0">' . makaazi_icon( 'photo', 15 ) . ' ' . esc_html( sprintf( _n( 'View %d photo', 'View all %d photos', $n, 'makaazi' ), $n ) ) . '</button></div>';

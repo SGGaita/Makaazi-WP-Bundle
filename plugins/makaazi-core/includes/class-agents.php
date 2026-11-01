@@ -197,7 +197,15 @@ class Makaazi_Agents {
 	 */
 	public static function photo( $d, $size = 'thumbnail', $cls = 'mk-agent__avatar' ) {
 		if ( $d['photo'] ) {
-			return wp_get_attachment_image( $d['photo'], $size, false, array( 'class' => $cls . ' is-photo', 'alt' => $d['name'] ) );
+			return wp_get_attachment_image(
+				$d['photo'],
+				$size,
+				false,
+				array(
+					'class' => $cls . ' is-photo',
+					'alt' => $d['name'],
+				)
+			);
 		}
 		$initials = '';
 		foreach ( array_slice( preg_split( '/\s+/', trim( $d['name'] ) ), 0, 2 ) as $w ) {
@@ -508,7 +516,12 @@ class Makaazi_Agents {
 		$wa      = $d['whatsapp'] ? makaazi_whatsapp_url( $d['whatsapp'], '' ) : '';
 		$tel     = preg_replace( '/[^\d+]/', '', $d['phone'] );
 		$socials = '';
-		foreach ( array( 'facebook' => 'Facebook', 'instagram' => 'Instagram', 'linkedin' => 'LinkedIn', 'x' => 'X' ) as $k => $l ) {
+		foreach ( array(
+			'facebook' => 'Facebook',
+			'instagram' => 'Instagram',
+			'linkedin' => 'LinkedIn',
+			'x' => 'X',
+		) as $k => $l ) {
 			if ( $d[ $k ] ) {
 				$socials .= '<a href="' . esc_url( $d[ $k ] ) . '" target="_blank" rel="noopener">' . esc_html( $l ) . '</a>';
 			}

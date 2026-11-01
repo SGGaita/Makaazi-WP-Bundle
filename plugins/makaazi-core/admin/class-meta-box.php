@@ -245,7 +245,10 @@ class Makaazi_Meta_Box {
 		update_post_meta( $post_id, '_mk_location_label', isset( $in['location_label'] ) ? sanitize_text_field( $in['location_label'] ) : '' );
 		update_post_meta( $post_id, '_mk_video_url', isset( $in['video_url'] ) ? esc_url_raw( $in['video_url'] ) : '' );
 
-		foreach ( array( 'lat' => 90, 'lng' => 180 ) as $k => $max ) {
+		foreach ( array(
+			'lat' => 90,
+			'lng' => 180,
+		) as $k => $max ) {
 			$v = isset( $in[ $k ] ) ? trim( (string) $in[ $k ] ) : '';
 			if ( '' === $v || ! is_numeric( $v ) || abs( (float) $v ) > $max ) {
 				delete_post_meta( $post_id, '_mk_' . $k );

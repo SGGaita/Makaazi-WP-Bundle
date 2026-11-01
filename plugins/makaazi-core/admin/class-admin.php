@@ -211,7 +211,7 @@ class Makaazi_Admin {
 	 * Location image field (add screen).
 	 */
 	public static function term_image_add() {
-		echo '<div class="form-field"><label>' . esc_html__( 'Image', 'makaazi' ) . '</label>' . self::term_image_control( 0 ) . '<p>' . esc_html__( 'Shown on "Browse by location" tiles. If empty, a photo of a property in this area is used.', 'makaazi' ) . '</p></div>';
+		echo '<div class="form-field"><label>' . esc_html__( 'Image', 'makaazi' ) . '</label>' . self::term_image_control( 0 ) . '<p>' . esc_html__( 'Shown on "Browse by location" tiles. If empty, a photo of a property in this area is used.', 'makaazi' ) . '</p></div>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- control markup is escaped where built.
 	}
 
 	/**
@@ -220,7 +220,7 @@ class Makaazi_Admin {
 	 * @param WP_Term $term Term.
 	 */
 	public static function term_image_edit( $term ) {
-		echo '<tr class="form-field"><th scope="row"><label>' . esc_html__( 'Image', 'makaazi' ) . '</label></th><td>' . self::term_image_control( (int) get_term_meta( $term->term_id, 'mk_image', true ) ) . '<p class="description">' . esc_html__( 'Shown on "Browse by location" tiles.', 'makaazi' ) . '</p></td></tr>';
+		echo '<tr class="form-field"><th scope="row"><label>' . esc_html__( 'Image', 'makaazi' ) . '</label></th><td>' . self::term_image_control( (int) get_term_meta( $term->term_id, 'mk_image', true ) ) . '<p class="description">' . esc_html__( 'Shown on "Browse by location" tiles.', 'makaazi' ) . '</p></td></tr>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- control markup is escaped where built.
 	}
 
 	/**

@@ -120,7 +120,7 @@ class Makaazi_SEO {
 		$excerpt = has_excerpt( $id ) ? get_the_excerpt( $id ) : wp_strip_all_tags( get_post_field( 'post_content', $id ) );
 		$s    .= ' ' . $excerpt;
 		$s     = trim( preg_replace( '/\s+/', ' ', $s ) );
-		return mb_strlen( $s ) > 158 ? rtrim( mb_substr( $s, 0, 155 ), " ,.;:" ) . '…' : $s;
+		return mb_strlen( $s ) > 158 ? rtrim( mb_substr( $s, 0, 155 ), ' ,.;:' ) . '…' : $s;
 	}
 
 	/**
@@ -527,7 +527,16 @@ class Makaazi_SEO {
 			}
 		}
 		$f   = Makaazi_Query::parse( wp_unslash( $_GET ), $preset ); // phpcs:ignore WordPress.Security.NonceVerification
-		$ids = get_posts( Makaazi_Query::args( $f, (int) makaazi_settings( 'per_page' ), array( 'fields' => 'ids', 'no_found_rows' => true ) ) );
+		$ids = get_posts(
+			Makaazi_Query::args(
+				$f,
+				(int) makaazi_settings( 'per_page' ),
+				array(
+					'fields' => 'ids',
+					'no_found_rows' => true,
+				)
+			)
+		);
 		$items = array();
 		foreach ( $ids as $i => $pid ) {
 			$items[] = array(
@@ -559,7 +568,7 @@ class Makaazi_SEO {
 		$keys = array_diff( array_keys( $_GET ), array( 'paged', 'pg', 'view', 'utm_source', 'utm_medium', 'utm_campaign' ) );
 		// One clean filter (e.g. ?status=rent) is a useful landing page; combinations are not.
 		$keys = array_values( $keys );
-		if ( 1 === count( $keys ) && in_array( $keys[0], array( 'status', 'location', 'type', 'use' ), true ) && ! is_array( $_GET[ $keys[0] ] ) ) { // phpcs:ignore WordPress.Security.NonceVerification
+		if ( 1 === count( $keys ) && in_array( $keys[0], array( 'status', 'location', 'type', 'use' ), true ) && isset( $_GET[ $keys[0] ] ) && ! is_array( $_GET[ $keys[0] ] ) ) { // phpcs:ignore WordPress.Security.NonceVerification
 			return false;
 		}
 		return (bool) $keys;
@@ -730,23 +739,38 @@ class Makaazi_SEO {
 			return;
 		}
 		$vars = array(
-			'mk_price'    => array( __( 'Property price, e.g. KES 180,000 /month', 'makaazi' ), function ( $id ) {
-				return wp_strip_all_tags( makaazi_price( $id ) );
-			} ),
+			'mk_price'    => array(
+				__( 'Property price, e.g. KES 180,000 /month', 'makaazi' ),
+				function ( $id ) {
+						return wp_strip_all_tags( makaazi_price( $id ) );
+				},
+			),
 			'mk_location' => array( __( 'Property location, e.g. Westlands, Nairobi', 'makaazi' ), 'makaazi_location_text' ),
-			'mk_status'   => array( __( 'For Sale, For Rent or Short Stay', 'makaazi' ), function ( $id ) {
-				return makaazi_status_label( makaazi_status( $id ) );
-			} ),
-			'mk_type'     => array( __( 'Property type', 'makaazi' ), function ( $id ) {
-				$t = makaazi_term( $id, 'property_type' );
-				return $t ? $t->name : '';
-			} ),
-			'mk_beds'     => array( __( 'Bedrooms', 'makaazi' ), function ( $id ) {
-				return (string) makaazi_meta( $id, 'bedrooms' );
-			} ),
-			'mk_ref'      => array( __( 'Property reference', 'makaazi' ), function ( $id ) {
-				return (string) makaazi_meta( $id, 'ref' );
-			} ),
+			'mk_status'   => array(
+				__( 'For Sale, For Rent or Short Stay', 'makaazi' ),
+				function ( $id ) {
+						return makaazi_status_label( makaazi_status( $id ) );
+				},
+			),
+			'mk_type'     => array(
+				__( 'Property type', 'makaazi' ),
+				function ( $id ) {
+						$t = makaazi_term( $id, 'property_type' );
+						return $t ? $t->name : '';
+				},
+			),
+			'mk_beds'     => array(
+				__( 'Bedrooms', 'makaazi' ),
+				function ( $id ) {
+						return (string) makaazi_meta( $id, 'bedrooms' );
+				},
+			),
+			'mk_ref'      => array(
+				__( 'Property reference', 'makaazi' ),
+				function ( $id ) {
+						return (string) makaazi_meta( $id, 'ref' );
+				},
+			),
 		);
 		foreach ( $vars as $name => $v ) {
 			$cb = $v[1];

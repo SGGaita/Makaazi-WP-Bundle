@@ -197,8 +197,16 @@ class Makaazi_Shortlist {
 	 */
 	public static function rest_me_set( $r ) {
 		$uid = get_current_user_id();
-		$p   = $r->get_json_params();
-		$p   = is_array( $p ) ? $p : array();
+		$p   = array(
+			'favs'    => $r->get_param( 'favs' ),
+			'compare' => $r->get_param( 'compare' ),
+		);
+		$p   = array_filter(
+			$p,
+			function ( $v ) {
+				return null !== $v;
+			}
+		);
 		if ( isset( $p['favs'] ) ) {
 			update_user_meta( $uid, '_mk_favs', self::clean( $p['favs'], self::MAX_FAVS ) );
 		}
@@ -241,7 +249,10 @@ class Makaazi_Shortlist {
 					return $v ? (string) ( 0 + $v ) : '';
 				case 'area':
 					$a = (float) makaazi_meta( $id, 'area_sqm', 0 );
-					return $a ? array( 'html' => makaazi_area_html( $a ), 'raw' => (string) round( $a ) ) : '';
+					return $a ? array(
+						'html' => makaazi_area_html( $a ),
+						'raw' => (string) round( $a ),
+					) : '';
 				case 'land':
 					return makaazi_land_text( $id );
 				case 'year':

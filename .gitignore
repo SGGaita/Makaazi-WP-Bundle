@@ -3,6 +3,13 @@
 !/.gitignore
 !/README.md
 !/docs/
+!/tests/
+!/.github/
+!/composer.json
+!/package.json
+!/phpunit.xml.dist
+!/.phpcs.xml.dist
+!/.wp-env.json
 !/themes/
 /themes/*
 !/themes/makaazi-theme/
@@ -12,3 +19,12 @@
 !/plugins/makaazi-hero-slider/
 .DS_Store
 Thumbs.db
+
+# Tooling output
+/vendor/
+/node_modules/
+/dist/
+tests/e2e/node_modules
+tests/e2e/test-results/
+tests/e2e/playwright-report/
+test-results/

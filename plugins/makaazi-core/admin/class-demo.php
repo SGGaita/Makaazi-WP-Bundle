@@ -120,7 +120,8 @@ class Makaazi_Demo {
 		}
 		$found = self::existing( 'img:' . $file, 'attachment' );
 		if ( $found ) {
-			return $cache[ $file ] = $found;
+			$cache[ $file ] = $found;
+			return $found;
 		}
 		$src = MAKAAZI_DIR . 'demo/images/' . $file;
 		if ( ! file_exists( $src ) ) {
@@ -148,7 +149,8 @@ class Makaazi_Demo {
 		if ( $alt ) {
 			update_post_meta( $id, '_wp_attachment_image_alt', $alt );
 		}
-		return $cache[ $file ] = $id;
+		$cache[ $file ] = $id;
+		return $id;
 	}
 
 	/**
@@ -165,7 +167,14 @@ class Makaazi_Demo {
 		if ( $t ) {
 			return (int) $t->term_id;
 		}
-		$r = wp_insert_term( $name, $taxonomy, array( 'slug' => $slug, 'parent' => $parent ) );
+		$r = wp_insert_term(
+			$name,
+			$taxonomy,
+			array(
+				'slug' => $slug,
+				'parent' => $parent,
+			)
+		);
 		if ( is_wp_error( $r ) ) {
 			return 0;
 		}

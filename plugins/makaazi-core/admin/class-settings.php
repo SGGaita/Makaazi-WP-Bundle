@@ -63,7 +63,15 @@ class Makaazi_Settings {
 				array(
 					'currency'    => array( 'text', __( 'Currency code', 'makaazi' ), __( 'Shown before prices, e.g. KES.', 'makaazi' ) ),
 					'short_price' => array( 'checkbox', __( 'Short prices', 'makaazi' ), __( 'Show KES 85M instead of KES 85,000,000.', 'makaazi' ) ),
-					'unit'        => array( 'select', __( 'Default area unit', 'makaazi' ), '', array( 'sqm' => __( 'Square metres (m²)', 'makaazi' ), 'sqft' => __( 'Square feet (ft²)', 'makaazi' ) ) ),
+					'unit'        => array(
+						'select',
+						__( 'Default area unit', 'makaazi' ),
+						'',
+						array(
+							'sqm' => __( 'Square metres (m²)', 'makaazi' ),
+							'sqft' => __( 'Square feet (ft²)', 'makaazi' ),
+						),
+					),
 					'unit_toggle' => array( 'checkbox', __( 'Unit switch', 'makaazi' ), __( 'Let visitors switch between m² and ft².', 'makaazi' ) ),
 					'ref_prefix'  => array( 'text', __( 'Reference prefix', 'makaazi' ), __( 'New listings get references like MK-00101.', 'makaazi' ) ),
 				),
@@ -72,8 +80,28 @@ class Makaazi_Settings {
 				__( 'Cards', 'makaazi' ),
 				array(
 					'button_text' => array( 'text', __( 'Button text', 'makaazi' ), __( 'Each [makaazi_properties] can override it with button_text="…".', 'makaazi' ) ),
-					'card_images' => array( 'select', __( 'Photos per card', 'makaazi' ), __( 'How many photos visitors can scroll on a card.', 'makaazi' ), array( 1 => '1', 3 => '3', 5 => '5', 8 => '8' ) ),
-					'image_ratio' => array( 'select', __( 'Photo shape', 'makaazi' ), '', array( '4:3' => '4:3', '3:2' => '3:2', '16:9' => '16:9', '1:1' => '1:1' ) ),
+					'card_images' => array(
+						'select',
+						__( 'Photos per card', 'makaazi' ),
+						__( 'How many photos visitors can scroll on a card.', 'makaazi' ),
+						array(
+							1 => '1',
+							3 => '3',
+							5 => '5',
+							8 => '8',
+						),
+					),
+					'image_ratio' => array(
+						'select',
+						__( 'Photo shape', 'makaazi' ),
+						'',
+						array(
+							'4:3' => '4:3',
+							'3:2' => '3:2',
+							'16:9' => '16:9',
+							'1:1' => '1:1',
+						),
+					),
 					'card_show'   => array( 'multi', __( 'Show on cards', 'makaazi' ), '', $card_parts ),
 					'new_days'    => array( 'number', __( '"New" badge for', 'makaazi' ), __( 'days after publishing.', 'makaazi' ) ),
 				),
@@ -94,7 +122,16 @@ class Makaazi_Settings {
 					'agent_review'       => array( 'checkbox', __( 'Review agent listings', 'makaazi' ), __( 'New listings from agents wait for an admin to approve them.', 'makaazi' ) ),
 					'enquiry_cc_admin'   => array( 'checkbox', __( 'Copy me on agent enquiries', 'makaazi' ), __( 'Send a copy of every enquiry to the address in Property page › Send enquiries to.', 'makaazi' ) ),
 					'owners_enabled'     => array( 'checkbox', __( 'Owner submissions', 'makaazi' ), __( 'Owners can sign up, list properties from the website and manage them in their dashboard.', 'makaazi' ) ),
-					'owner_registration' => array( 'select', __( 'Owner accounts', 'makaazi' ), __( 'How property owners get an account.', 'makaazi' ), array( 'open' => __( 'Anyone can sign up', 'makaazi' ), 'approval' => __( 'Sign-ups need my approval', 'makaazi' ), 'invite' => __( 'Invite only (I create accounts)', 'makaazi' ) ) ),
+					'owner_registration' => array(
+						'select',
+						__( 'Owner accounts', 'makaazi' ),
+						__( 'How property owners get an account.', 'makaazi' ),
+						array(
+							'open' => __( 'Anyone can sign up', 'makaazi' ),
+							'approval' => __( 'Sign-ups need my approval', 'makaazi' ),
+							'invite' => __( 'Invite only (I create accounts)', 'makaazi' ),
+						),
+					),
 					'owner_email_verify' => array( 'checkbox', __( 'Confirm email', 'makaazi' ), __( 'New owners must click a link in an email before signing in. Your site must be able to send email (XAMPP cannot by default); you can also activate accounts under Users.', 'makaazi' ) ),
 					'owner_autopublish'  => array( 'checkbox', __( 'Publish owner listings straight away', 'makaazi' ), __( 'Not recommended. When off, every owner listing waits for review.', 'makaazi' ) ),
 					'owner_edit_review'  => array( 'checkbox', __( 'Review edits to live listings', 'makaazi' ), __( 'When an owner edits a live listing it goes back to Pending review.', 'makaazi' ) ),
@@ -118,7 +155,17 @@ class Makaazi_Settings {
 					'contact_phone'       => array( 'text', __( 'Phone', 'makaazi' ), '' ),
 					'whatsapp'            => array( 'text', __( 'WhatsApp number', 'makaazi' ), __( 'International format without +, e.g. 254700123456.', 'makaazi' ) ),
 					'enquiry_email'       => array( 'text', __( 'Send enquiries to', 'makaazi' ), __( 'Leave empty to use the site admin email. Enquiries are also saved under Properties › Enquiries.', 'makaazi' ) ),
-					'privacy_radius'      => array( 'select', __( 'Default map privacy radius', 'makaazi' ), '', array( 250 => '250 m', 500 => '500 m', 1000 => '1 km', 2000 => '2 km' ) ),
+					'privacy_radius'      => array(
+						'select',
+						__( 'Default map privacy radius', 'makaazi' ),
+						'',
+						array(
+							250 => '250 m',
+							500 => '500 m',
+							1000 => '1 km',
+							2000 => '2 km',
+						),
+					),
 					'related_count'       => array( 'number', __( 'Similar properties', 'makaazi' ), __( 'How many to show.', 'makaazi' ) ),
 					'related_same_status' => array( 'checkbox', __( 'Same status only', 'makaazi' ), __( 'Only suggest rentals for rentals, short stays for short stays and sales for sales.', 'makaazi' ) ),
 					'map_tiles'           => array( 'text', __( 'Map tiles URL', 'makaazi' ), __( 'OpenStreetMap by default. Use a tile provider for high traffic sites.', 'makaazi' ) ),
@@ -180,10 +227,10 @@ class Makaazi_Settings {
 				case 'page':
 					wp_dropdown_pages(
 						array(
-							'name'              => 's[' . $key . ']',
-							'id'                => $id,
+							'name'              => 's[' . esc_attr( $key ) . ']',
+							'id'                => esc_attr( $id ),
 							'selected'          => (int) $val,
-							'show_option_none'  => __( '— Choose a page —', 'makaazi' ),
+							'show_option_none'  => esc_html__( '— Choose a page —', 'makaazi' ),
 							'option_none_value' => 0,
 						)
 					);

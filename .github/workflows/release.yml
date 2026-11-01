@@ -1,0 +1,33 @@
+name: Release
+
+on:
+  push:
+    tags: [ 'v*' ]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check versions match the tag
+        if: startsWith(github.ref, 'refs/tags/v')
+        run: |
+          V="${GITHUB_REF_NAME#v}"
+          grep -q "Version:           $V" plugins/makaazi-core/makaazi-core.php
+          grep -q "Version:           $V" plugins/makaazi-hero-slider/makaazi-hero-slider.php
+          grep -q "Version: $V" themes/makaazi-theme/style.css
+      - name: Build zips
+        run: bash tests/bin/build-zips.sh
+      - uses: actions/upload-artifact@v4
+        with:
+          name: makaazi-zips
+          path: dist/*.zip
+      - name: GitHub release
+        if: startsWith(github.ref, 'refs/tags/v')
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release create "$GITHUB_REF_NAME" dist/*.zip --title "Makaazi $GITHUB_REF_NAME" --generate-notes

@@ -195,8 +195,15 @@ class Makaazi_Post_Types {
 	 */
 	public static function seed_terms() {
 		$seed = array(
-			'property_status' => array( 'sale' => __( 'For Sale', 'makaazi' ), 'rent' => __( 'For Rent', 'makaazi' ), 'stay' => __( 'Short Stay', 'makaazi' ) ),
-			'property_use'    => array( 'residential' => __( 'Residential', 'makaazi' ), 'commercial' => __( 'Commercial', 'makaazi' ) ),
+			'property_status' => array(
+				'sale' => __( 'For Sale', 'makaazi' ),
+				'rent' => __( 'For Rent', 'makaazi' ),
+				'stay' => __( 'Short Stay', 'makaazi' ),
+			),
+			'property_use'    => array(
+				'residential' => __( 'Residential', 'makaazi' ),
+				'commercial' => __( 'Commercial', 'makaazi' ),
+			),
 			'property_type'   => array(
 				'apartment'  => __( 'Apartment', 'makaazi' ),
 				'maisonette' => __( 'Maisonette', 'makaazi' ),

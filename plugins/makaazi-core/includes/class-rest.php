@@ -126,7 +126,12 @@ class Makaazi_Rest {
 		};
 		// Bots fill the hidden field or submit instantly.
 		if ( ! empty( $p['website'] ) || ( isset( $p['ts'] ) && time() - (int) $p['ts'] < 3 ) ) {
-			return rest_ensure_response( array( 'ok' => true, 'message' => __( 'Thanks. Your enquiry has been sent.', 'makaazi' ) ) );
+			return rest_ensure_response(
+				array(
+					'ok' => true,
+					'message' => __( 'Thanks. Your enquiry has been sent.', 'makaazi' ),
+				)
+			);
 		}
 		$ip  = isset( $_SERVER['REMOTE_ADDR'] ) ? sanitize_text_field( wp_unslash( $_SERVER['REMOTE_ADDR'] ) ) : '';
 		$key = 'mk_rl_' . md5( $ip );
