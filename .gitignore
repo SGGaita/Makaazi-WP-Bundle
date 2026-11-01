@@ -6,6 +6,7 @@
 !/tests/
 !/.github/
 !/composer.json
+!/CHANGELOG.md
 !/package.json
 !/phpunit.xml.dist
 !/.phpcs.xml.dist

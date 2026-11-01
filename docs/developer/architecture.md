@@ -43,6 +43,8 @@ That gives one renderer, one set of options, and one place to fix bugs.
 | `Makaazi_Accounts` | `includes/class-accounts.php` | Sign in / sign up / verify, `[makaazi_dashboard]` |
 | `Makaazi_Submission` | `includes/class-submission.php` | Front-end listing form, uploads, moderation, view counts |
 | `Makaazi_Help` | `includes/class-help.php` | Help Center, contextual help tabs, dashboard Help tab |
+| `Makaazi_Index` | `includes/class-index.php` | `{prefix}mk_index` search table: sync, rebuild, query clauses, `wp makaazi index` |
+| `Makaazi_SEO` | `includes/class-seo.php` | Schema.org, descriptions, share tags, robots, Yoast SEO and Rank Math integration |
 | `Makaazi_Elementor` | `includes/elementor/class-elementor.php` | Elementor category, widget registration, editor assets |
 
 Admin-only: `Makaazi_Admin` (list columns, featured star, location images), `Makaazi_Meta_Box` (Property Details), `Makaazi_Settings`, `Makaazi_Shortcodes_Page`, `Makaazi_Demo`.

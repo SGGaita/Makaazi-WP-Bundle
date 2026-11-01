@@ -3,7 +3,7 @@
  * Plugin Name:       Makaazi Hero Slider
  * Plugin URI:        https://ascensiondynamics.co/
  * Description:       Hero sliders with fade, slide and Ken Burns effects and a configurable Buy/Rent property search bar. Place with [makaazi_slider].
- * Version:           0.3.0
+ * Version:           1.0.0
  * Requires at least: 6.6
  * Requires PHP:      7.4
  * Author:            Ascension Dynamics
@@ -17,7 +17,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'MKS_VERSION', '0.3.0' );
+define( 'MKS_VERSION', '1.0.0' );
 define( 'MKS_DIR', plugin_dir_path( __FILE__ ) );
 define( 'MKS_URL', plugin_dir_url( __FILE__ ) );
 
