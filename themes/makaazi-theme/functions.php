@@ -77,3 +77,18 @@ function makaazi_theme_plugin_notice() {
 	}
 }
 add_action( 'admin_notices', 'makaazi_theme_plugin_notice' );
+
+/**
+ * Default favicon: the bundled Makaazi icon, used until a Site Icon is set in
+ * Settings › General (or Appearance › Editor › Site Identity), which always wins.
+ */
+function makaazi_theme_favicon() {
+	if ( has_site_icon() ) {
+		return;
+	}
+	$url = get_theme_file_uri( 'assets/img/favicon.ico' );
+	echo '<link rel="icon" href="' . esc_url( $url ) . '" sizes="16x16 32x32 48x48">' . "\n";
+}
+add_action( 'wp_head', 'makaazi_theme_favicon', 2 );
+add_action( 'admin_head', 'makaazi_theme_favicon' );
+add_action( 'login_head', 'makaazi_theme_favicon' );
