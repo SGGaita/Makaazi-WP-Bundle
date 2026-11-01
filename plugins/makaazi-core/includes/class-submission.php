@@ -190,8 +190,8 @@ class Makaazi_Submission {
 					'id'  => $p->ID,
 				)
 			);
-			$h     .= '<li class="mk-mylist__row"><a class="mk-mylist__img" href="' . esc_url( 'publish' === $p->post_status ? get_permalink( $p ) : $edit ) . '" tabindex="-1">' . ( $g ? wp_get_attachment_image( $g[0], 'thumbnail', false, array( 'alt' => '' ) ) : '<img src="' . esc_url( makaazi_placeholder() ) . '" alt="">' ) . '</a>'
-				. '<div class="mk-mylist__main"><div class="mk-mylist__top"><h3>' . esc_html( $p->post_title ? $p->post_title : __( '(Untitled)', 'makaazi' ) ) . '</h3><span class="mk-pill mk-pill--' . esc_attr( $st[0] ) . '">' . esc_html( $st[1] ) . '</span></div>'
+			$h     .= '<li class="mk-mylist__row"><a class="mk-mylist__img" href="' . esc_url( 'publish' === $p->post_status ? get_permalink( $p ) : $edit ) . '" tabindex="-1" aria-hidden="true">' . ( $g ? wp_get_attachment_image( $g[0], 'thumbnail', false, array( 'alt' => '' ) ) : '<img src="' . esc_url( makaazi_placeholder() ) . '" alt="">' ) . '</a>'
+				. '<div class="mk-mylist__main"><div class="mk-mylist__top"><h2 class="mk-mylist__title">' . esc_html( $p->post_title ? $p->post_title : __( '(Untitled)', 'makaazi' ) ) . '</h2><span class="mk-pill mk-pill--' . esc_attr( $st[0] ) . '">' . esc_html( $st[1] ) . '</span></div>'
 				. '<p class="mk-mylist__meta"><span>' . esc_html( makaazi_meta( $p->ID, 'ref' ) ) . '</span><span>' . wp_kses_post( makaazi_price( $p->ID, false ) ) . '</span><span>' . esc_html( makaazi_location_text( $p->ID ) ) . '</span>'
 				/* translators: %d: views */
 				. '<span>' . makaazi_icon( 'eye', 13 ) . ' ' . esc_html( sprintf( _n( '%d view', '%d views', (int) makaazi_meta( $p->ID, 'views', 0 ), 'makaazi' ), (int) makaazi_meta( $p->ID, 'views', 0 ) ) ) . '</span>'
@@ -374,7 +374,7 @@ class Makaazi_Submission {
 		$h    .= '<ol class="mk-steps" aria-label="' . esc_attr__( 'Steps', 'makaazi' ) . '">';
 		$steps = array( __( 'Basics', 'makaazi' ), __( 'Details', 'makaazi' ), __( 'Photos', 'makaazi' ), __( 'Location', 'makaazi' ), __( 'Review', 'makaazi' ) );
 		foreach ( $steps as $i => $s ) {
-			$h .= '<li><button type="button" data-mk-go="' . ( $i + 1 ) . '"><i aria-hidden="true"></i><span>' . ( $i + 1 ) . '. ' . esc_html( $s ) . '</span></button></li>';
+			$h .= '<li><button type="button" data-mk-go="' . ( $i + 1 ) . '" aria-label="' . esc_attr( sprintf( /* translators: 1: step number, 2: step name */ __( 'Step %1$d: %2$s', 'makaazi' ), $i + 1, $s ) ) . '"><i aria-hidden="true"></i><span>' . ( $i + 1 ) . '. ' . esc_html( $s ) . '</span></button></li>';
 		}
 		$h .= '</ol></div><div class="mk-submit__grid"><div class="mk-box mk-submit__box">';
 

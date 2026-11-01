@@ -179,7 +179,7 @@ class Makaazi_Admin {
 			$t = get_taxonomy( $tax );
 			wp_dropdown_categories(
 				array(
-					/* translators: %s: taxonomy name */
+					/* translators: %s: taxonomy plural name */
 					'show_option_all' => sprintf( __( 'All %s', 'makaazi' ), strtolower( $t->labels->name ) ),
 					'taxonomy'        => $tax,
 					'name'            => $tax,

@@ -61,8 +61,8 @@ if ( function_exists( 'makaazi_owners_on' ) && makaazi_owners_on() && makaazi_da
 <!-- /wp:group -->
 
 <!-- wp:buttons -->
-<div class="wp-block-buttons"><!-- wp:button {"backgroundColor":"accent","textColor":"base"} -->
-<div class="wp-block-button"><a class="wp-block-button__link has-base-color has-accent-background-color has-text-color has-background wp-element-button" href="<?php echo esc_url( $mk_cta_url ); ?>"><?php esc_html_e( 'List your property', 'makaazi-theme' ); ?></a></div>
+<div class="wp-block-buttons"><!-- wp:button {"backgroundColor":"accent","textColor":"primary-dark"} -->
+<div class="wp-block-button"><a class="wp-block-button__link has-primary-dark-color has-accent-background-color has-text-color has-background wp-element-button" href="<?php echo esc_url( $mk_cta_url ); ?>"><?php esc_html_e( 'List your property', 'makaazi-theme' ); ?></a></div>
 <!-- /wp:button --></div>
 <!-- /wp:buttons --></div>
 <!-- /wp:group --></div>

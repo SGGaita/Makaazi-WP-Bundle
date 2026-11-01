@@ -18,7 +18,8 @@
 				{ "slug": "primary", "name": "Makaazi navy", "color": "#13223F" },
 				{ "slug": "primary-light", "name": "Navy light", "color": "#1C3058" },
 				{ "slug": "primary-dark", "name": "Navy deep", "color": "#0B1528" },
-				{ "slug": "accent", "name": "Brass", "color": "#B9924A" }
+				{ "slug": "accent", "name": "Brass", "color": "#B9924A" },
+				{ "slug": "accent-ink", "name": "Brass text", "color": "#86672C" }
 			]
 		},
 		"typography": {

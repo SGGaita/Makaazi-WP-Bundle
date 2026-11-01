@@ -10,6 +10,7 @@
  * Author URI:        https://ascensiondynamics.co/
  * License:           GPL-2.0-or-later
  * Text Domain:       makaazi
+ * Domain Path:       /languages
  *
  * @package Makaazi
  */
@@ -88,3 +89,11 @@ function makaazi_activate() {
 register_activation_hook( __FILE__, 'makaazi_activate' );
 
 register_deactivation_hook( __FILE__, 'flush_rewrite_rules' );
+
+/**
+ * Translations: wp-content/languages/plugins/{domain}-{locale}.mo first, then this plugin's languages/ folder.
+ */
+function makaazi_load_textdomain() {
+	load_plugin_textdomain( 'makaazi', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
+}
+add_action( 'init', 'makaazi_load_textdomain', 0 );

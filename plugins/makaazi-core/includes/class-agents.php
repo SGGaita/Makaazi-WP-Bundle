@@ -462,11 +462,13 @@ class Makaazi_Agents {
 			);
 		}
 		Makaazi_Assets::enqueue();
-		$h = '<div class="mk-block">' . Makaazi_Render::section_head( $a['eyebrow'], $a['title'] ) . '<div class="mk-agents" style="--mk-cols:' . max( 1, min( 6, (int) $a['columns'] ) ) . '">';
+		$lvl = Makaazi_Render::page_level();
+		$hl  = $lvl + 1;
+		$h   = '<div class="mk-block">' . Makaazi_Render::section_head( $a['eyebrow'], $a['title'], '', '', '', $lvl ) . '<div class="mk-agents" style="--mk-cols:' . max( 1, min( 6, (int) $a['columns'] ) ) . '">';
 		foreach ( $data as $d ) {
 			$wa = $d['whatsapp'] ? makaazi_whatsapp_url( $d['whatsapp'], '' ) : '';
 			/* translators: %d: listings */
-			$h .= '<article class="mk-agentcard"><a class="mk-agentcard__photo" href="' . esc_url( $d['url'] ) . '" tabindex="-1">' . self::photo( $d, 'medium', 'mk-agentcard__img' ) . '</a><div class="mk-agentcard__body"><h3><a href="' . esc_url( $d['url'] ) . '">' . esc_html( $d['name'] ) . '</a></h3><p>' . esc_html( $d['role'] ) . '</p><p class="mk-agentcard__n">' . esc_html( sprintf( _n( '%d listing', '%d listings', $d['count'], 'makaazi' ), $d['count'] ) ) . '</p>'
+			$h .= '<article class="mk-agentcard"><a class="mk-agentcard__photo" href="' . esc_url( $d['url'] ) . '" tabindex="-1" aria-hidden="true">' . self::photo( $d, 'medium', 'mk-agentcard__img' ) . '</a><div class="mk-agentcard__body"><h' . $hl . '><a href="' . esc_url( $d['url'] ) . '">' . esc_html( $d['name'] ) . '</a></h' . $hl . '><p>' . esc_html( $d['role'] ) . '</p><p class="mk-agentcard__n">' . esc_html( sprintf( _n( '%d listing', '%d listings', $d['count'], 'makaazi' ), $d['count'] ) ) . '</p>'
 				. '<div class="mk-row2"><a class="mk-btn mk-btn--outline mk-btn--sm" href="' . esc_url( $d['url'] ) . '">' . esc_html__( 'Profile', 'makaazi' ) . '</a>' . ( $wa ? '<a class="mk-btn mk-btn--wa mk-btn--sm" href="' . esc_url( $wa ) . '" target="_blank" rel="noopener" aria-label="' . esc_attr( 'WhatsApp ' . $d['name'] ) . '">' . makaazi_icon( 'wa', 15 ) . '</a>' : '' ) . '</div></div></article>';
 		}
 		return $h . '</div></div>';
@@ -527,6 +529,7 @@ class Makaazi_Agents {
 				'columns'    => 3,
 				'pagination' => 'loadmore',
 				'view_all'   => 'no',
+				/* translators: 1: agent first name, 2: number of listings */
 				'title'      => sprintf( __( 'Listings by %1$s (%2$d)', 'makaazi' ), strtok( $d['name'], ' ' ), $d['count'] ),
 				'empty_text' => __( 'No live listings at the moment.', 'makaazi' ),
 			)

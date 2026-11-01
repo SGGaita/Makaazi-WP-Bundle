@@ -1,0 +1,4632 @@
+# Copyright (C) 2026 Ascension Dynamics
+# This file is distributed under the GPL-2.0-or-later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Makaazi Core 0.3.0\n"
+"Report-Msgid-Bugs-To: https://ascensiondynamics.co/\n"
+"Last-Translator: Ascension Dynamics\n"
+"Language-Team: Ascension Dynamics\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-11-01T17:46:59+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.11.0\n"
+"X-Domain: makaazi\n"
+
+#. Plugin Name of the plugin
+#: makaazi-core.php
+msgid "Makaazi Core"
+msgstr ""
+
+#. Plugin URI of the plugin
+#. Author URI of the plugin
+#: makaazi-core.php
+msgid "https://ascensiondynamics.co/"
+msgstr ""
+
+#. Description of the plugin
+#: makaazi-core.php
+msgid "Property listings for the Makaazi property template: properties, taxonomies, settings, enquiries and the listing shortcodes."
+msgstr ""
+
+#. Author of the plugin
+#: makaazi-core.php
+msgid "Ascension Dynamics"
+msgstr ""
+
+#: admin/class-admin.php:59
+msgid "Choose photos"
+msgstr ""
+
+#: admin/class-admin.php:60
+msgid "Add to gallery"
+msgstr ""
+
+#. translators: %s: property title
+#: admin/class-admin.php:61
+#: admin/class-admin.php:234
+#: admin/class-meta-box.php:147
+#: admin/class-meta-box.php:186
+#: includes/class-assets.php:66
+#: includes/class-shortlist.php:280
+msgid "Remove"
+msgstr ""
+
+#: admin/class-admin.php:62
+#: admin/class-meta-box.php:147
+#: includes/class-assets.php:71
+#: includes/class-submission.php:429
+msgid "Cover"
+msgstr ""
+
+#: admin/class-admin.php:63
+msgid "No match found. Drag the pin instead."
+msgstr ""
+
+#: admin/class-admin.php:64
+msgid "Copied"
+msgstr ""
+
+#: admin/class-admin.php:86
+msgid "Photo"
+msgstr ""
+
+#: admin/class-admin.php:88
+#: admin/class-meta-box.php:96
+#: admin/class-settings.php:53
+#: includes/class-assets.php:84
+#: includes/class-render.php:320
+#: includes/class-render.php:669
+#: includes/class-render.php:1025
+#: includes/class-shortlist.php:256
+#: includes/elementor/class-widget.php:368
+#: includes/elementor/widgets.php:569
+#: includes/elementor/widgets.php:976
+#: includes/functions.php:345
+msgid "Price"
+msgstr ""
+
+#: admin/class-admin.php:95
+#: includes/class-render.php:900
+#: includes/elementor/widgets.php:262
+#: templates/card.php:40
+msgid "Featured"
+msgstr ""
+
+#: admin/class-admin.php:96
+#: includes/class-accounts.php:468
+#: includes/class-enquiries.php:33
+#: includes/class-enquiries.php:37
+#: includes/help/admin-articles.php:192
+msgid "Enquiries"
+msgstr ""
+
+#: admin/class-admin.php:128
+msgid "Toggle featured"
+msgstr ""
+
+#. translators: %s: taxonomy plural name
+#: admin/class-admin.php:183
+#: includes/class-post-types.php:96
+msgid "All %s"
+msgstr ""
+
+#: admin/class-admin.php:214
+#: admin/class-admin.php:223
+msgid "Image"
+msgstr ""
+
+#: admin/class-admin.php:214
+msgid "Shown on \"Browse by location\" tiles. If empty, a photo of a property in this area is used."
+msgstr ""
+
+#: admin/class-admin.php:223
+msgid "Shown on \"Browse by location\" tiles."
+msgstr ""
+
+#: admin/class-admin.php:234
+msgid "Choose image"
+msgstr ""
+
+#: admin/class-admin.php:260
+#: admin/class-settings.php:27
+#: includes/help/admin-articles.php:363
+#: includes/help/admin-articles.php:384
+msgid "Settings"
+msgstr ""
+
+#: admin/class-admin.php:261
+msgid "Demo content"
+msgstr ""
+
+#: admin/class-admin.php:277
+msgid "Makaazi is ready."
+msgstr ""
+
+#: admin/class-admin.php:277
+msgid "Import the demo listings, slider and home page to see everything working, or start adding your own properties."
+msgstr ""
+
+#: admin/class-admin.php:277
+#: admin/class-demo.php:52
+msgid "Import demo content"
+msgstr ""
+
+#: admin/class-demo.php:28
+#: admin/class-demo.php:37
+msgid "Demo Content"
+msgstr ""
+
+#: admin/class-demo.php:39
+msgid "Demo content imported."
+msgstr ""
+
+#: admin/class-demo.php:39
+msgid "View the home page"
+msgstr ""
+
+#: admin/class-demo.php:41
+msgid "Demo content removed."
+msgstr ""
+
+#: admin/class-demo.php:43
+msgid "Sample listings for Nairobi, Kiambu, Kajiado and Mombasa"
+msgstr ""
+
+#: admin/class-demo.php:43
+msgid "Importing creates:"
+msgstr ""
+
+#: admin/class-demo.php:44
+msgid "15 properties with photos, prices in KES, features and approximate map locations"
+msgstr ""
+
+#: admin/class-demo.php:45
+#: includes/help/admin-articles.php:174
+msgid "Locations, types, categories and features"
+msgstr ""
+
+#: admin/class-demo.php:46
+msgid "A three-slide hero slider with the Buy/Rent search (needs Makaazi Hero Slider)"
+msgstr ""
+
+#: admin/class-demo.php:47
+msgid "4 agent profiles, assigned to the listings"
+msgstr ""
+
+#: admin/class-demo.php:48
+msgid "Home, Contact, Favourites, Compare and My account pages, the front page setting and a main menu"
+msgstr ""
+
+#: admin/class-demo.php:49
+msgid "Photos are illustrations. Running the import again skips anything already imported."
+msgstr ""
+
+#: admin/class-demo.php:52
+msgid "Import again (skips existing)"
+msgstr ""
+
+#: admin/class-demo.php:54
+#: admin/class-demo.php:57
+msgid "Remove demo content"
+msgstr ""
+
+#: admin/class-demo.php:54
+msgid "Deletes only the items the importer created, including their photos. Your own properties and pages are kept."
+msgstr ""
+
+#: admin/class-demo.php:57
+msgid "I understand this permanently deletes the demo items."
+msgstr ""
+
+#: admin/class-demo.php:67
+msgid "You are not allowed to import demo content."
+msgstr ""
+
+#: admin/class-demo.php:80
+msgid "You are not allowed to remove demo content."
+msgstr ""
+
+#: admin/class-demo.php:321
+msgid "Home hero"
+msgstr ""
+
+#: admin/class-demo.php:358
+#: includes/class-agents.php:518
+#: includes/class-render.php:892
+msgid "Home"
+msgstr ""
+
+#: admin/class-demo.php:371
+#: admin/class-demo.php:441
+#: includes/class-agents.php:365
+msgid "Contact"
+msgstr ""
+
+#: admin/class-demo.php:373
+msgid "Call or WhatsApp us on +254 700 123 456, or email hello@makaazihomes.co.ke. Our office is at Westlands Business Park, Nairobi, open Monday to Saturday, 8am to 6pm."
+msgstr ""
+
+#: admin/class-demo.php:373
+msgid "Search properties"
+msgstr ""
+
+#: admin/class-demo.php:382
+#: admin/class-settings.php:108
+msgid "Favourites"
+msgstr ""
+
+#. translators: %s: property title
+#: admin/class-demo.php:383
+#: admin/class-settings.php:109
+#: includes/class-assets.php:62
+#: includes/class-render.php:909
+#: templates/card.php:73
+msgid "Compare"
+msgstr ""
+
+#: admin/class-demo.php:384
+#: includes/class-accounts.php:486
+#: includes/class-accounts.php:543
+#: includes/class-accounts.php:682
+#: includes/elementor/widgets.php:1147
+msgid "My account"
+msgstr ""
+
+#: admin/class-demo.php:432
+msgid "Main menu"
+msgstr ""
+
+#: admin/class-demo.php:436
+#: includes/class-render.php:288
+#: includes/class-shortcodes.php:291
+#: includes/elementor/widgets.php:655
+#: includes/functions.php:341
+msgid "Buy"
+msgstr ""
+
+#: admin/class-demo.php:437
+#: includes/class-render.php:289
+#: includes/class-shortcodes.php:292
+#: includes/elementor/widgets.php:661
+#: includes/functions.php:348
+msgid "Rent"
+msgstr ""
+
+#: admin/class-demo.php:438
+#: admin/class-demo.php:478
+#: admin/class-settings.php:92
+msgid "Short Stays"
+msgstr ""
+
+#: admin/class-demo.php:439
+#: includes/class-post-types.php:199
+#: includes/elementor/widgets.php:38
+msgid "Commercial"
+msgstr ""
+
+#: admin/class-demo.php:440
+#: includes/elementor/widgets.php:261
+msgid "All properties"
+msgstr ""
+
+#: admin/class-demo.php:455
+#: admin/class-settings.php:93
+#: includes/class-agents.php:60
+#: includes/class-agents.php:65
+#: includes/class-agents.php:518
+#: includes/class-agents.php:549
+#: includes/class-agents.php:563
+#: includes/elementor/widgets.php:796
+#: includes/help/admin-articles.php:299
+msgid "Agents"
+msgstr ""
+
+#: admin/class-demo.php:497
+msgid "Homes, offices and land across Kenya"
+msgstr ""
+
+#: admin/class-meta-box.php:28
+msgid "Property Details"
+msgstr ""
+
+#: admin/class-meta-box.php:29
+#: includes/class-assets.php:82
+#: includes/elementor/widgets.php:462
+msgid "Listing"
+msgstr ""
+
+#: admin/class-meta-box.php:42
+msgid "Write the description below, then fill in the Property Details. Status, type and location are in the right-hand column."
+msgstr ""
+
+#: admin/class-meta-box.php:53
+msgid "Featured property"
+msgstr ""
+
+#: admin/class-meta-box.php:54
+msgid "Availability"
+msgstr ""
+
+#: admin/class-meta-box.php:56
+msgid "Available"
+msgstr ""
+
+#: admin/class-meta-box.php:57
+#: includes/class-render.php:124
+#: includes/class-render.php:901
+msgid "Under offer"
+msgstr ""
+
+#: admin/class-meta-box.php:58
+#: includes/class-render.php:120
+#: includes/class-render.php:901
+#: includes/class-submission.php:114
+msgid "Sold"
+msgstr ""
+
+#: admin/class-meta-box.php:59
+#: includes/class-render.php:122
+#: includes/class-render.php:901
+#: includes/class-submission.php:117
+msgid "Let"
+msgstr ""
+
+#: admin/class-meta-box.php:63
+msgid "Sold and let properties stay online but are hidden from search and grids."
+msgstr ""
+
+#: admin/class-meta-box.php:64
+#: includes/class-render.php:1020
+#: includes/class-shortlist.php:268
+msgid "Reference"
+msgstr ""
+
+#: admin/class-meta-box.php:64
+msgid "Created on save"
+msgstr ""
+
+#: admin/class-meta-box.php:79
+msgid "Pricing"
+msgstr ""
+
+#: admin/class-meta-box.php:80
+msgid "Specs"
+msgstr ""
+
+#: admin/class-meta-box.php:81
+msgid "Gallery"
+msgstr ""
+
+#: admin/class-meta-box.php:82
+#: admin/class-settings.php:41
+#: admin/class-settings.php:49
+#: includes/class-assets.php:89
+#: includes/class-post-types.php:77
+#: includes/class-render.php:318
+#: includes/class-render.php:631
+#: includes/class-render.php:1090
+#: includes/class-shortcodes.php:295
+#: includes/class-shortlist.php:258
+#: includes/class-submission.php:375
+#: includes/class-submission.php:434
+#: includes/elementor/class-widget.php:212
+#: includes/elementor/widgets.php:76
+#: includes/elementor/widgets.php:293
+#: includes/elementor/widgets.php:530
+#: includes/elementor/widgets.php:672
+#: includes/elementor/widgets.php:673
+msgid "Location"
+msgstr ""
+
+#: admin/class-meta-box.php:83
+msgid "Attributes"
+msgstr ""
+
+#: admin/class-meta-box.php:97
+msgid "Price period"
+msgstr ""
+
+#: admin/class-meta-box.php:101
+#: includes/class-submission.php:394
+msgid "Total (sale)"
+msgstr ""
+
+#: admin/class-meta-box.php:102
+#: includes/class-submission.php:395
+msgid "Per month"
+msgstr ""
+
+#: admin/class-meta-box.php:103
+#: includes/class-submission.php:396
+msgid "Per year"
+msgstr ""
+
+#: admin/class-meta-box.php:104
+#: includes/class-submission.php:397
+msgid "Per night"
+msgstr ""
+
+#: admin/class-meta-box.php:111
+msgid "Shows as"
+msgstr ""
+
+#: admin/class-meta-box.php:113
+msgid "Show \"Price on request\" instead of the price"
+msgstr ""
+
+#: admin/class-meta-box.php:114
+msgid "Rentals usually use \"Per month\". The period is added after the price, for example KES 180,000 /month."
+msgstr ""
+
+#: admin/class-meta-box.php:119
+#: admin/class-settings.php:42
+#: admin/class-settings.php:54
+#: includes/class-render.php:101
+#: includes/class-render.php:321
+#: includes/class-render.php:679
+#: includes/class-render.php:983
+#: includes/class-seo.php:744
+#: includes/class-shortlist.php:262
+#: includes/class-submission.php:413
+#: includes/elementor/class-widget.php:213
+#: includes/elementor/widgets.php:79
+msgid "Bedrooms"
+msgstr ""
+
+#: admin/class-meta-box.php:120
+#: admin/class-settings.php:43
+#: admin/class-settings.php:55
+#: includes/class-render.php:104
+#: includes/class-render.php:680
+#: includes/class-render.php:984
+#: includes/class-shortlist.php:263
+#: includes/class-submission.php:413
+#: includes/elementor/class-widget.php:214
+msgid "Bathrooms"
+msgstr ""
+
+#: admin/class-meta-box.php:121
+#: includes/class-submission.php:413
+msgid "Parking spaces"
+msgstr ""
+
+#. translators: %s: unit
+#: admin/class-meta-box.php:122
+#: includes/class-submission.php:414
+msgid "Floor area (%s)"
+msgstr ""
+
+#. translators: %s: unit
+#: admin/class-meta-box.php:123
+#: includes/class-render.php:111
+#: includes/class-render.php:994
+#: includes/class-render.php:1038
+#: includes/class-shortlist.php:266
+#: includes/class-submission.php:415
+msgid "Land size"
+msgstr ""
+
+#. translators: %s: unit
+#: admin/class-meta-box.php:125
+#: includes/class-submission.php:415
+msgid "Land unit"
+msgstr ""
+
+#: admin/class-meta-box.php:128
+#: includes/class-submission.php:416
+#: includes/functions.php:238
+msgid "acres"
+msgstr ""
+
+#: admin/class-meta-box.php:129
+#: includes/class-submission.php:416
+#: includes/functions.php:239
+msgid "hectares"
+msgstr ""
+
+#: admin/class-meta-box.php:137
+msgid "Year built or completion"
+msgstr ""
+
+#: admin/class-meta-box.php:139
+msgid "Leave a field empty to hide it on the website. Land listings usually only need the land size. Features are chosen in the Features box on the right."
+msgstr ""
+
+#: admin/class-meta-box.php:150
+msgid "Add photos"
+msgstr ""
+
+#: admin/class-meta-box.php:151
+msgid "Drag to reorder. The first photo is the cover on cards and the large photo on the property page."
+msgstr ""
+
+#: admin/class-meta-box.php:156
+msgid "Public location label"
+msgstr ""
+
+#: admin/class-meta-box.php:156
+msgid "e.g. Off Riverside Drive, Westlands"
+msgstr ""
+
+#: admin/class-meta-box.php:157
+msgid "Find a place"
+msgstr ""
+
+#: admin/class-meta-box.php:157
+msgid "Road, estate or landmark"
+msgstr ""
+
+#: admin/class-meta-box.php:157
+#: includes/class-submission.php:438
+msgid "Find"
+msgstr ""
+
+#: admin/class-meta-box.php:161
+msgid "Latitude"
+msgstr ""
+
+#: admin/class-meta-box.php:162
+msgid "Longitude"
+msgstr ""
+
+#: admin/class-meta-box.php:163
+msgid "Public privacy radius"
+msgstr ""
+
+#: admin/class-meta-box.php:174
+msgid "Show the exact pin publicly (for offices, shops and developments)"
+msgstr ""
+
+#: admin/class-meta-box.php:175
+msgid "Click the map or drag the pin to the exact spot. Visitors only see a shaded area around an offset centre, never these coordinates, unless you tick the box above."
+msgstr ""
+
+#: admin/class-meta-box.php:179
+msgid "Extra rows for the Details table, for example \"Service charge\" and \"KES 8,000 /month\"."
+msgstr ""
+
+#: admin/class-meta-box.php:186
+msgid "Label"
+msgstr ""
+
+#: admin/class-meta-box.php:186
+msgid "Value"
+msgstr ""
+
+#: admin/class-meta-box.php:189
+msgid "Add row"
+msgstr ""
+
+#: admin/class-meta-box.php:190
+msgid "Video or virtual tour URL"
+msgstr ""
+
+#: admin/class-settings.php:27
+#: admin/class-settings.php:146
+msgid "Makaazi Settings"
+msgstr ""
+
+#: admin/class-settings.php:37
+msgid "Badges (status, featured, new)"
+msgstr ""
+
+#: admin/class-settings.php:38
+#: admin/class-settings.php:52
+#: includes/class-post-types.php:76
+#: includes/class-render.php:660
+#: includes/class-render.php:1022
+#: includes/class-shortlist.php:261
+#: includes/elementor/class-widget.php:209
+#: includes/elementor/widgets.php:548
+msgid "Category"
+msgstr ""
+
+#: admin/class-settings.php:39
+#: includes/elementor/class-widget.php:210
+msgid "Residential / Commercial"
+msgstr ""
+
+#: admin/class-settings.php:40
+#: includes/class-assets.php:83
+#: includes/class-post-types.php:75
+#: includes/class-render.php:999
+#: includes/class-render.php:1023
+#: includes/class-shortlist.php:259
+#: includes/elementor/class-widget.php:211
+#: includes/elementor/widgets.php:539
+msgid "Type"
+msgstr ""
+
+#: admin/class-settings.php:44
+#: admin/class-settings.php:56
+#: includes/class-render.php:107
+#: includes/class-render.php:681
+#: includes/class-render.php:985
+#: includes/class-shortlist.php:264
+#: includes/elementor/class-widget.php:215
+msgid "Parking"
+msgstr ""
+
+#: admin/class-settings.php:45
+#: includes/class-assets.php:86
+#: includes/class-render.php:113
+#: includes/class-render.php:996
+#: includes/class-render.php:1035
+#: includes/class-shortlist.php:265
+#: includes/class-submission.php:435
+#: includes/elementor/class-widget.php:216
+msgid "Area"
+msgstr ""
+
+#: admin/class-settings.php:48
+#: includes/elementor/widgets.php:287
+#: includes/elementor/widgets.php:523
+msgid "Buy / Rent"
+msgstr ""
+
+#: admin/class-settings.php:50
+#: includes/class-render.php:319
+#: includes/class-render.php:634
+#: includes/class-seo.php:740
+#: includes/class-shortcodes.php:296
+#: includes/class-submission.php:389
+#: includes/elementor/widgets.php:77
+#: includes/elementor/widgets.php:678
+#: includes/elementor/widgets.php:679
+msgid "Property type"
+msgstr ""
+
+#: admin/class-settings.php:51
+#: includes/class-post-types.php:74
+#: includes/class-render.php:650
+#: includes/class-render.php:1002
+#: includes/class-render.php:1024
+#: includes/class-shortlist.php:260
+#: includes/class-submission.php:390
+#: includes/elementor/widgets.php:316
+#: includes/elementor/widgets.php:557
+msgid "Use"
+msgstr ""
+
+#: admin/class-settings.php:57
+#: admin/class-settings.php:90
+#: includes/class-assets.php:87
+#: includes/class-post-types.php:78
+#: includes/class-render.php:695
+#: includes/class-render.php:1069
+#: includes/class-shortlist.php:329
+#: includes/class-submission.php:420
+#: includes/elementor/widgets.php:881
+msgid "Features"
+msgstr ""
+
+#: admin/class-settings.php:58
+#: includes/class-render.php:708
+#: includes/elementor/widgets.php:80
+msgid "Keyword or reference"
+msgstr ""
+
+#: admin/class-settings.php:62
+msgid "General"
+msgstr ""
+
+#: admin/class-settings.php:64
+msgid "Currency code"
+msgstr ""
+
+#: admin/class-settings.php:64
+msgid "Shown before prices, e.g. KES."
+msgstr ""
+
+#: admin/class-settings.php:65
+msgid "Short prices"
+msgstr ""
+
+#: admin/class-settings.php:65
+msgid "Show KES 85M instead of KES 85,000,000."
+msgstr ""
+
+#: admin/class-settings.php:66
+msgid "Default area unit"
+msgstr ""
+
+#: admin/class-settings.php:66
+msgid "Square metres (m²)"
+msgstr ""
+
+#: admin/class-settings.php:66
+msgid "Square feet (ft²)"
+msgstr ""
+
+#: admin/class-settings.php:67
+msgid "Unit switch"
+msgstr ""
+
+#: admin/class-settings.php:67
+msgid "Let visitors switch between m² and ft²."
+msgstr ""
+
+#: admin/class-settings.php:68
+msgid "Reference prefix"
+msgstr ""
+
+#: admin/class-settings.php:68
+msgid "New listings get references like MK-00101."
+msgstr ""
+
+#: admin/class-settings.php:72
+#: includes/elementor/widgets.php:251
+msgid "Cards"
+msgstr ""
+
+#: admin/class-settings.php:74
+#: includes/elementor/widgets.php:405
+msgid "Button text"
+msgstr ""
+
+#: admin/class-settings.php:74
+msgid "Each [makaazi_properties] can override it with button_text=\"…\"."
+msgstr ""
+
+#: admin/class-settings.php:75
+msgid "Photos per card"
+msgstr ""
+
+#: admin/class-settings.php:75
+msgid "How many photos visitors can scroll on a card."
+msgstr ""
+
+#: admin/class-settings.php:76
+#: includes/elementor/widgets.php:411
+msgid "Photo shape"
+msgstr ""
+
+#: admin/class-settings.php:77
+msgid "Show on cards"
+msgstr ""
+
+#: admin/class-settings.php:78
+msgid "\"New\" badge for"
+msgstr ""
+
+#: admin/class-settings.php:78
+msgid "days after publishing."
+msgstr ""
+
+#: admin/class-settings.php:82
+msgid "Properties page"
+msgstr ""
+
+#: admin/class-settings.php:84
+msgid "Properties per page"
+msgstr ""
+
+#: admin/class-settings.php:85
+msgid "Default sort"
+msgstr ""
+
+#: admin/class-settings.php:86
+#: includes/class-render.php:510
+#: includes/class-render.php:522
+#: includes/elementor/widgets.php:471
+msgid "Filters"
+msgstr ""
+
+#: admin/class-settings.php:92
+msgid "A third listing type next to Buy and Rent, for furnished homes booked by the night (holiday and serviced rentals). Adds a Short Stay tab to search and filters. Turning it off hides the tab; existing listings keep their pages."
+msgstr ""
+
+#: admin/class-settings.php:93
+msgid "Agent profiles, agent pages, the agent on each listing and agent sign-in. Turning this off hides them; nothing is deleted."
+msgstr ""
+
+#: admin/class-settings.php:94
+msgid "Review agent listings"
+msgstr ""
+
+#: admin/class-settings.php:94
+msgid "New listings from agents wait for an admin to approve them."
+msgstr ""
+
+#: admin/class-settings.php:95
+msgid "Copy me on agent enquiries"
+msgstr ""
+
+#: admin/class-settings.php:95
+msgid "Send a copy of every enquiry to the address in Property page › Send enquiries to."
+msgstr ""
+
+#: admin/class-settings.php:96
+msgid "Owner submissions"
+msgstr ""
+
+#: admin/class-settings.php:96
+msgid "Owners can sign up, list properties from the website and manage them in their dashboard."
+msgstr ""
+
+#: admin/class-settings.php:97
+msgid "Owner accounts"
+msgstr ""
+
+#: admin/class-settings.php:97
+msgid "How property owners get an account."
+msgstr ""
+
+#: admin/class-settings.php:97
+msgid "Anyone can sign up"
+msgstr ""
+
+#: admin/class-settings.php:97
+msgid "Sign-ups need my approval"
+msgstr ""
+
+#: admin/class-settings.php:97
+msgid "Invite only (I create accounts)"
+msgstr ""
+
+#: admin/class-settings.php:98
+msgid "Confirm email"
+msgstr ""
+
+#: admin/class-settings.php:98
+msgid "New owners must click a link in an email before signing in. Your site must be able to send email (XAMPP cannot by default); you can also activate accounts under Users."
+msgstr ""
+
+#: admin/class-settings.php:99
+msgid "Publish owner listings straight away"
+msgstr ""
+
+#: admin/class-settings.php:99
+msgid "Not recommended. When off, every owner listing waits for review."
+msgstr ""
+
+#: admin/class-settings.php:100
+msgid "Review edits to live listings"
+msgstr ""
+
+#: admin/class-settings.php:100
+msgid "When an owner edits a live listing it goes back to Pending review."
+msgstr ""
+
+#: admin/class-settings.php:101
+msgid "Photos per listing"
+msgstr ""
+
+#: admin/class-settings.php:101
+msgid "Maximum photos an owner or agent can upload."
+msgstr ""
+
+#: admin/class-settings.php:102
+msgid "My account page"
+msgstr ""
+
+#: admin/class-settings.php:102
+msgid "A page containing [makaazi_dashboard]."
+msgstr ""
+
+#: admin/class-settings.php:106
+#: includes/class-shortlist.php:471
+#: includes/class-shortlist.php:482
+#: includes/class-shortlist.php:492
+msgid "Favourites & compare"
+msgstr ""
+
+#: admin/class-settings.php:108
+msgid "Show the heart on cards and the Save button on property pages."
+msgstr ""
+
+#: admin/class-settings.php:109
+msgid "Show the compare button and the compare bar (up to 4 properties)."
+msgstr ""
+
+#: admin/class-settings.php:110
+msgid "Favourites page"
+msgstr ""
+
+#: admin/class-settings.php:110
+msgid "A page containing [makaazi_favourites]."
+msgstr ""
+
+#: admin/class-settings.php:111
+msgid "Compare page"
+msgstr ""
+
+#: admin/class-settings.php:111
+msgid "A page containing [makaazi_compare]."
+msgstr ""
+
+#: admin/class-settings.php:115
+#: includes/class-shortcode-docs.php:130
+#: includes/class-shortcode-docs.php:153
+#: includes/class-shortcode-docs.php:161
+msgid "Property page"
+msgstr ""
+
+#: admin/class-settings.php:117
+msgid "Contact name"
+msgstr ""
+
+#: admin/class-settings.php:117
+msgid "Shown in the contact box when a listing has no agent."
+msgstr ""
+
+#: admin/class-settings.php:118
+#: includes/class-accounts.php:554
+#: includes/class-accounts.php:652
+#: includes/class-agents.php:24
+#: includes/class-enquiries.php:155
+#: includes/class-render.php:1157
+msgid "Phone"
+msgstr ""
+
+#: admin/class-settings.php:119
+msgid "WhatsApp number"
+msgstr ""
+
+#: admin/class-settings.php:119
+msgid "International format without +, e.g. 254700123456."
+msgstr ""
+
+#: admin/class-settings.php:120
+msgid "Send enquiries to"
+msgstr ""
+
+#: admin/class-settings.php:120
+msgid "Leave empty to use the site admin email. Enquiries are also saved under Properties › Enquiries."
+msgstr ""
+
+#: admin/class-settings.php:121
+msgid "Default map privacy radius"
+msgstr ""
+
+#: admin/class-settings.php:122
+#: includes/class-render.php:1176
+#: includes/class-shortcodes.php:533
+#: includes/elementor/widgets.php:884
+msgid "Similar properties"
+msgstr ""
+
+#: admin/class-settings.php:122
+msgid "How many to show."
+msgstr ""
+
+#: admin/class-settings.php:123
+msgid "Same status only"
+msgstr ""
+
+#: admin/class-settings.php:123
+msgid "Only suggest rentals for rentals, short stays for short stays and sales for sales."
+msgstr ""
+
+#: admin/class-settings.php:124
+msgid "Map tiles URL"
+msgstr ""
+
+#: admin/class-settings.php:124
+msgid "OpenStreetMap by default. Use a tile provider for high traffic sites."
+msgstr ""
+
+#: admin/class-settings.php:125
+msgid "Default map centre"
+msgstr ""
+
+#: admin/class-settings.php:125
+msgid "Latitude,longitude used when placing a new pin."
+msgstr ""
+
+#: admin/class-settings.php:129
+msgid "Price brackets"
+msgstr ""
+
+#: admin/class-settings.php:131
+msgid "Buy brackets"
+msgstr ""
+
+#: admin/class-settings.php:131
+msgid "Comma-separated amounts used in search and filters."
+msgstr ""
+
+#: admin/class-settings.php:132
+msgid "Rent brackets (per month)"
+msgstr ""
+
+#: admin/class-settings.php:132
+#: admin/class-settings.php:133
+msgid "Comma-separated amounts."
+msgstr ""
+
+#: admin/class-settings.php:133
+msgid "Short Stay brackets (per night)"
+msgstr ""
+
+#: admin/class-settings.php:148
+msgid "Settings saved."
+msgstr ""
+
+#: admin/class-settings.php:186
+msgid "— Choose a page —"
+msgstr ""
+
+#: admin/class-settings.php:207
+msgid "Search index"
+msgstr ""
+
+#: admin/class-settings.php:207
+msgid "A fast lookup table for price, rooms and size filters, kept up to date automatically. Rebuild it after importing listings with another tool or editing the database directly."
+msgstr ""
+
+#. translators: 1: rows, 2: total
+#: admin/class-settings.php:208
+msgid "In use: %1$s of %2$s properties indexed."
+msgstr ""
+
+#. translators: 1: rows, 2: total
+#: admin/class-settings.php:208
+msgid "Building: %1$s of %2$s properties so far. Searches work normally meanwhile."
+msgstr ""
+
+#: admin/class-settings.php:211
+msgid "Rebuild search index"
+msgstr ""
+
+#: admin/class-settings.php:225
+msgid "Preview"
+msgstr ""
+
+#: admin/class-settings.php:236
+msgid "You are not allowed to change these settings."
+msgstr ""
+
+#: admin/class-shortcodes-page.php:26
+#: admin/class-shortcodes-page.php:38
+#: includes/class-help.php:314
+msgid "Shortcodes"
+msgstr ""
+
+#: admin/class-shortcodes-page.php:39
+msgid "Paste a shortcode into a Shortcode block, a classic editor page or a page builder text widget. Attributes are optional; values shown are the defaults. Click Copy to copy an example."
+msgstr ""
+
+#: admin/class-shortcodes-page.php:50
+msgid "Attribute"
+msgstr ""
+
+#: admin/class-shortcodes-page.php:50
+#: includes/elementor/widgets.php:62
+#: includes/elementor/widgets.php:413
+msgid "Default"
+msgstr ""
+
+#: admin/class-shortcodes-page.php:50
+msgid "Values"
+msgstr ""
+
+#: admin/class-shortcodes-page.php:57
+msgid "Copy"
+msgstr ""
+
+#: includes/class-accounts.php:98
+msgid "Thanks, your email is confirmed. You can sign in now."
+msgstr ""
+
+#: includes/class-accounts.php:100
+msgid "That confirmation link has expired or was already used. Try signing in."
+msgstr ""
+
+#: includes/class-accounts.php:109
+#: includes/class-submission.php:472
+msgid "Your session expired. Please try again."
+msgstr ""
+
+#: includes/class-accounts.php:142
+msgid "The email or password is not right. Check them and try again."
+msgstr ""
+
+#: includes/class-accounts.php:156
+msgid "New accounts are created by invitation. Please contact us."
+msgstr ""
+
+#: includes/class-accounts.php:160
+msgid "Thanks. Check your email to continue."
+msgstr ""
+
+#: includes/class-accounts.php:168
+#: includes/class-accounts.php:250
+msgid "Enter your name."
+msgstr ""
+
+#: includes/class-accounts.php:171
+#: includes/class-accounts.php:253
+msgid "Enter a valid email address."
+msgstr ""
+
+#: includes/class-accounts.php:173
+msgid "An account with this email already exists. Sign in instead."
+msgstr ""
+
+#: includes/class-accounts.php:176
+msgid "Enter a phone number with at least 9 digits."
+msgstr ""
+
+#: includes/class-accounts.php:179
+msgid "Use at least 8 characters."
+msgstr ""
+
+#. translators: %s: name
+#: includes/class-accounts.php:212
+msgid "New owner waiting for approval: %s"
+msgstr ""
+
+#: includes/class-accounts.php:213
+msgid "Thanks for signing up. We will review your account and email you when you can sign in."
+msgstr ""
+
+#. translators: %s: site name
+#: includes/class-accounts.php:226
+msgid "Confirm your %s account"
+msgstr ""
+
+#. translators: 1: name, 2: link
+#: includes/class-accounts.php:226
+msgid ""
+"Hi %1$s,\n"
+"\n"
+"Confirm your email to start listing properties:\n"
+"%2$s\n"
+"\n"
+"If you did not sign up, ignore this email."
+msgstr ""
+
+#. translators: 1: name, 2: link
+#: includes/class-accounts.php:227
+msgid "Almost done. We sent a confirmation link to your email. Click it, then sign in."
+msgstr ""
+
+#: includes/class-accounts.php:255
+msgid "Another account uses this email."
+msgstr ""
+
+#: includes/class-accounts.php:258
+msgid "Use at least 8 characters, or leave it empty to keep your password."
+msgstr ""
+
+#: includes/class-accounts.php:300
+msgid "Profile saved."
+msgstr ""
+
+#: includes/class-accounts.php:315
+msgid "Please confirm your email first. Use the link we sent when you signed up."
+msgstr ""
+
+#: includes/class-accounts.php:318
+msgid "Your account is waiting for approval. We will email you when it is ready."
+msgstr ""
+
+#: includes/class-accounts.php:334
+msgid "Makaazi account"
+msgstr ""
+
+#: includes/class-accounts.php:352
+msgid "Email not confirmed"
+msgstr ""
+
+#: includes/class-accounts.php:355
+msgid "Waiting for approval"
+msgstr ""
+
+#: includes/class-accounts.php:360
+msgid "Agent profile"
+msgstr ""
+
+#: includes/class-accounts.php:360
+msgid "Agent (no profile linked)"
+msgstr ""
+
+#: includes/class-accounts.php:362
+msgid "Owner · active"
+msgstr ""
+
+#: includes/class-accounts.php:374
+msgid "Activate"
+msgstr ""
+
+#: includes/class-accounts.php:386
+msgid "You are not allowed to activate accounts."
+msgstr ""
+
+#. translators: %s: site name
+#: includes/class-accounts.php:393
+msgid "Your %s account is ready"
+msgstr ""
+
+#. translators: %s: link
+#: includes/class-accounts.php:393
+msgid ""
+"Your account is active. Sign in and list your property:\n"
+"%s"
+msgstr ""
+
+#: includes/class-accounts.php:422
+msgid "Thanks. Your listing has been sent for review. We will email you when it is live."
+msgstr ""
+
+#: includes/class-accounts.php:423
+msgid "Your listing is live."
+msgstr ""
+
+#: includes/class-accounts.php:424
+msgid "Draft saved. You can finish it any time."
+msgstr ""
+
+#: includes/class-accounts.php:425
+msgid "Listing updated."
+msgstr ""
+
+#: includes/class-accounts.php:426
+msgid "Listing marked as no longer available. Its page stays online but it is hidden from search."
+msgstr ""
+
+#: includes/class-accounts.php:427
+msgid "Listing is available again."
+msgstr ""
+
+#: includes/class-accounts.php:428
+msgid "Listing deleted."
+msgstr ""
+
+#: includes/class-accounts.php:434
+msgid "Please fix the highlighted fields."
+msgstr ""
+
+#: includes/class-accounts.php:458
+msgid "Accounts are not available on this site."
+msgstr ""
+
+#: includes/class-accounts.php:464
+msgid "My listings"
+msgstr ""
+
+#: includes/class-accounts.php:466
+#: includes/class-submission.php:152
+msgid "Add property"
+msgstr ""
+
+#: includes/class-accounts.php:469
+#: includes/class-agents.php:472
+msgid "Profile"
+msgstr ""
+
+#: includes/class-accounts.php:486
+#: includes/class-accounts.php:493
+msgid "Sign out"
+msgstr ""
+
+#: includes/class-accounts.php:486
+msgid "This account is for saving properties. To list a property, sign up as an owner or contact us."
+msgstr ""
+
+#: includes/class-accounts.php:486
+msgid "My saved properties"
+msgstr ""
+
+#: includes/class-accounts.php:488
+#: includes/class-agents.php:61
+#: includes/class-agents.php:305
+#: includes/class-roles.php:73
+#: includes/elementor/widgets.php:322
+msgid "Agent"
+msgstr ""
+
+#: includes/class-accounts.php:488
+#: includes/class-roles.php:85
+msgid "Property owner"
+msgstr ""
+
+#: includes/class-accounts.php:488
+msgid "Staff"
+msgstr ""
+
+#. translators: %s: first name
+#: includes/class-accounts.php:489
+msgid "Welcome back, %s"
+msgstr ""
+
+#: includes/class-accounts.php:491
+msgid "Open admin"
+msgstr ""
+
+#: includes/class-accounts.php:495
+msgid "Listing new properties is switched off at the moment. Your existing listings are shown below."
+msgstr ""
+
+#: includes/class-accounts.php:497
+msgid "Account"
+msgstr ""
+
+#: includes/class-accounts.php:503
+#: includes/class-render.php:908
+msgid "Saved"
+msgstr ""
+
+#: includes/class-accounts.php:543
+#: includes/class-submission.php:370
+msgid "List your property"
+msgstr ""
+
+#: includes/class-accounts.php:543
+#: includes/class-accounts.php:546
+#: includes/class-accounts.php:563
+#: includes/class-accounts.php:681
+#: includes/elementor/widgets.php:1141
+msgid "Sign in"
+msgstr ""
+
+#: includes/class-accounts.php:544
+msgid "Create a free account, add photos and details, and our team will check your listing before it goes live."
+msgstr ""
+
+#: includes/class-accounts.php:544
+msgid "Owners and agents sign in here to manage listings and enquiries."
+msgstr ""
+
+#: includes/class-accounts.php:546
+#: includes/class-accounts.php:557
+msgid "Create account"
+msgstr ""
+
+#: includes/class-accounts.php:551
+#: includes/class-render.php:1155
+msgid "Leave this empty"
+msgstr ""
+
+#: includes/class-accounts.php:552
+#: includes/class-accounts.php:650
+msgid "Full name"
+msgstr ""
+
+#: includes/class-accounts.php:553
+#: includes/class-accounts.php:651
+#: includes/class-enquiries.php:156
+msgid "Email"
+msgstr ""
+
+#: includes/class-accounts.php:555
+msgid "Password (8+ characters)"
+msgstr ""
+
+#: includes/class-accounts.php:556
+msgid "New accounts are checked by our team before you can sign in."
+msgstr ""
+
+#: includes/class-accounts.php:560
+msgid "Email or username"
+msgstr ""
+
+#: includes/class-accounts.php:561
+msgid "Password"
+msgstr ""
+
+#: includes/class-accounts.php:562
+msgid "Keep me signed in"
+msgstr ""
+
+#: includes/class-accounts.php:564
+msgid "Forgot your password?"
+msgstr ""
+
+#: includes/class-accounts.php:565
+msgid "Accounts are created by invitation. Contact us to list a property."
+msgstr ""
+
+#: includes/class-accounts.php:612
+#: includes/class-accounts.php:623
+msgid "No enquiries yet"
+msgstr ""
+
+#: includes/class-accounts.php:612
+#: includes/class-accounts.php:623
+msgid "Messages from people interested in your listings will appear here."
+msgstr ""
+
+#: includes/class-accounts.php:632
+msgid "ago"
+msgstr ""
+
+#: includes/class-accounts.php:633
+msgid "General message"
+msgstr ""
+
+#: includes/class-accounts.php:653
+msgid "New password (leave empty to keep)"
+msgstr ""
+
+#: includes/class-accounts.php:656
+msgid "Public agent profile"
+msgstr ""
+
+#: includes/class-accounts.php:656
+msgid "New photo (JPG, PNG or WebP)"
+msgstr ""
+
+#: includes/class-accounts.php:660
+msgid "Bio"
+msgstr ""
+
+#: includes/class-accounts.php:660
+msgid "View my public profile"
+msgstr ""
+
+#: includes/class-accounts.php:662
+msgid "Save profile"
+msgstr ""
+
+#: includes/class-accounts.php:701
+#: includes/class-accounts.php:708
+msgid "Accounts"
+msgstr ""
+
+#: includes/class-accounts.php:702
+msgid "My account: sign in and sign up when signed out; listings, Add property, enquiries and profile when signed in. Follows the Owner and Agent switches in Settings › Features."
+msgstr ""
+
+#: includes/class-accounts.php:709
+msgid "Header link: \"Sign in\" or \"My account\". Hidden when both Owners and Agents are switched off."
+msgstr ""
+
+#: includes/class-agents.php:22
+msgid "Job title"
+msgstr ""
+
+#: includes/class-agents.php:23
+#: includes/class-post-types.php:206
+msgid "Office"
+msgstr ""
+
+#: includes/class-agents.php:25
+msgid "WhatsApp (e.g. 254712345678)"
+msgstr ""
+
+#: includes/class-agents.php:26
+msgid "Email for enquiries"
+msgstr ""
+
+#: includes/class-agents.php:62
+#: includes/class-agents.php:63
+msgid "Add New Agent"
+msgstr ""
+
+#: includes/class-agents.php:64
+msgid "Edit Agent"
+msgstr ""
+
+#: includes/class-agents.php:66
+msgid "No agents yet."
+msgstr ""
+
+#: includes/class-agents.php:67
+msgid "Agent photo"
+msgstr ""
+
+#: includes/class-agents.php:68
+msgid "Set agent photo"
+msgstr ""
+
+#: includes/class-agents.php:217
+msgid "Agent details"
+msgstr ""
+
+#: includes/class-agents.php:218
+msgid "Sign-in account"
+msgstr ""
+
+#: includes/class-agents.php:228
+msgid "The title is the agent's name, the editor is their bio and the featured image is their photo."
+msgstr ""
+
+#: includes/class-agents.php:246
+msgid "— No sign-in —"
+msgstr ""
+
+#: includes/class-agents.php:252
+msgid "Link a user so this agent can sign in, see their enquiries and manage their own listings. The user is given the Agent role."
+msgstr ""
+
+#: includes/class-agents.php:253
+msgid "Create a user"
+msgstr ""
+
+#: includes/class-agents.php:321
+msgid "— Site contact —"
+msgstr ""
+
+#: includes/class-agents.php:325
+msgid "Shown in the contact box. Enquiries go to this agent."
+msgstr ""
+
+#: includes/class-agents.php:364
+#: includes/elementor/widgets.php:834
+msgid "Name"
+msgstr ""
+
+#: includes/class-agents.php:366
+#: includes/class-shortcode-docs.php:24
+#: includes/class-shortcode-docs.php:62
+#: includes/help/admin-articles.php:91
+#: includes/help/admin-articles.php:119
+#: includes/help/admin-articles.php:137
+#: includes/help/admin-articles.php:154
+#: includes/help/admin-articles.php:173
+#: includes/help/admin-articles.php:191
+msgid "Listings"
+msgstr ""
+
+#: includes/class-agents.php:367
+msgid "Sign-in"
+msgstr ""
+
+#: includes/class-agents.php:407
+#: includes/class-agents.php:522
+#: includes/class-render.php:1126
+msgid "Call"
+msgstr ""
+
+#. translators: 1: first name, 2: number of listings
+#: includes/class-agents.php:410
+msgid "See %1$s's %2$d listing"
+msgid_plural "See all %2$d of %1$s's listings"
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: %d: listings
+#: includes/class-agents.php:471
+msgid "%d listing"
+msgid_plural "%d listings"
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/class-agents.php:518
+#: includes/class-render.php:892
+msgid "Breadcrumb"
+msgstr ""
+
+#. translators: %s: agent first name
+#: includes/class-agents.php:523
+msgid "Hi %s, I found you on our website and would like help finding a property."
+msgstr ""
+
+#. translators: %s: agent first name
+#: includes/class-agents.php:523
+msgid "Message %s"
+msgstr ""
+
+#. translators: 1: agent first name, 2: number of listings
+#: includes/class-agents.php:533
+msgid "Listings by %1$s (%2$d)"
+msgstr ""
+
+#: includes/class-agents.php:534
+msgid "No live listings at the moment."
+msgstr ""
+
+#: includes/class-agents.php:550
+msgid "Grid of agent cards with listing counts. Hidden when Agents is switched off in Settings › Features."
+msgstr ""
+
+#: includes/class-agents.php:555
+msgid "Agent IDs in order"
+msgstr ""
+
+#: includes/class-agents.php:564
+msgid "Agent profile: photo, bio, contacts, a message form and their listings. Used by the agent page template."
+msgstr ""
+
+#: includes/class-agents.php:566
+msgid "Agent ID; defaults to the current agent page"
+msgstr ""
+
+#: includes/class-agents.php:567
+msgid "Or the agent slug, e.g. grace-achieng"
+msgstr ""
+
+#: includes/class-agents.php:568
+msgid "Listings per page"
+msgstr ""
+
+#: includes/class-assets.php:46
+msgid "Close"
+msgstr ""
+
+#: includes/class-assets.php:47
+#: templates/card.php:46
+msgid "Previous photo"
+msgstr ""
+
+#: includes/class-assets.php:48
+#: templates/card.php:47
+msgid "Next photo"
+msgstr ""
+
+#: includes/class-assets.php:49
+msgid "Zoom"
+msgstr ""
+
+#: includes/class-assets.php:50
+msgid "Photo viewer"
+msgstr ""
+
+#: includes/class-assets.php:51
+msgid "Link copied."
+msgstr ""
+
+#: includes/class-assets.php:52
+msgid "Sending…"
+msgstr ""
+
+#: includes/class-assets.php:53
+msgid "Something went wrong. Please try again or call us."
+msgstr ""
+
+#: includes/class-assets.php:54
+#: includes/class-shortlist.php:441
+msgid "Loading…"
+msgstr ""
+
+#: includes/class-assets.php:55
+#: includes/class-shortcodes.php:237
+msgid "Load more"
+msgstr ""
+
+#: includes/class-assets.php:56
+msgid "← → to browse, Esc to close"
+msgstr ""
+
+#: includes/class-assets.php:57
+msgid "Saved to favourites."
+msgstr ""
+
+#: includes/class-assets.php:58
+msgid "Removed from favourites."
+msgstr ""
+
+#: includes/class-assets.php:59
+#: includes/class-render.php:531
+#: includes/class-shortlist.php:278
+#: includes/class-submission.php:204
+msgid "View"
+msgstr ""
+
+#: includes/class-assets.php:60
+msgid "You can compare up to 4 properties. Remove one first."
+msgstr ""
+
+#: includes/class-assets.php:61
+msgid "Added to compare."
+msgstr ""
+
+#: includes/class-assets.php:63
+msgid "Compare now"
+msgstr ""
+
+#: includes/class-assets.php:64
+#: includes/class-shortlist.php:442
+msgid "Add one more property to compare"
+msgstr ""
+
+#: includes/class-assets.php:65
+#: includes/class-render.php:512
+msgid "Clear"
+msgstr ""
+
+#: includes/class-assets.php:67
+msgid "Shortlist link copied. Send it on WhatsApp or email."
+msgstr ""
+
+#: includes/class-assets.php:68
+msgid "Saved to your favourites."
+msgstr ""
+
+#: includes/class-assets.php:69
+msgid "Undo"
+msgstr ""
+
+#: includes/class-assets.php:70
+msgid "List cleared."
+msgstr ""
+
+#: includes/class-assets.php:72
+msgid "Uploading…"
+msgstr ""
+
+#: includes/class-assets.php:73
+msgid "Could not upload this photo."
+msgstr ""
+
+#: includes/class-assets.php:74
+msgid "You have reached the photo limit."
+msgstr ""
+
+#. translators: 1: photos added, 2: photo limit
+#: includes/class-assets.php:76
+msgid "%1$d of %2$d photos. The first is the cover."
+msgstr ""
+
+#: includes/class-assets.php:77
+msgid "Please fill in the highlighted fields."
+msgstr ""
+
+#: includes/class-assets.php:78
+msgid "No match found. Tap the map instead."
+msgstr ""
+
+#: includes/class-assets.php:79
+msgid "Not given"
+msgstr ""
+
+#: includes/class-assets.php:81
+#: includes/elementor/class-widget.php:237
+#: includes/elementor/widgets.php:382
+#: includes/elementor/widgets.php:771
+#: includes/elementor/widgets.php:846
+#: includes/elementor/widgets.php:1063
+msgid "Title"
+msgstr ""
+
+#: includes/class-assets.php:85
+msgid "Beds / baths / parking"
+msgstr ""
+
+#: includes/class-assets.php:88
+#: includes/class-submission.php:375
+#: includes/class-submission.php:423
+msgid "Photos"
+msgstr ""
+
+#: includes/class-assets.php:90
+msgid "Map pin"
+msgstr ""
+
+#: includes/class-assets.php:91
+msgid "Placed"
+msgstr ""
+
+#: includes/class-assets.php:92
+msgid "Not placed"
+msgstr ""
+
+#: includes/class-assets.php:93
+#: includes/functions.php:175
+#: includes/functions.php:179
+msgid "Price on request"
+msgstr ""
+
+#: includes/class-enquiries.php:34
+#: includes/class-enquiries.php:35
+#: includes/class-enquiries.php:154
+msgid "Enquiry"
+msgstr ""
+
+#: includes/class-enquiries.php:36
+msgid "No enquiries yet."
+msgstr ""
+
+#. translators: 1: name, 2: property or agent name
+#: includes/class-enquiries.php:68
+msgid "%1$s about %2$s"
+msgstr ""
+
+#. translators: 1: property title, 2: reference
+#: includes/class-enquiries.php:110
+msgid "New enquiry: %1$s (%2$s)"
+msgstr ""
+
+#. translators: %s: agent name
+#: includes/class-enquiries.php:112
+msgid "New message for %s"
+msgstr ""
+
+#: includes/class-enquiries.php:116
+msgid "Name:"
+msgstr ""
+
+#: includes/class-enquiries.php:117
+msgid "Phone:"
+msgstr ""
+
+#: includes/class-enquiries.php:118
+msgid "Email:"
+msgstr ""
+
+#: includes/class-enquiries.php:119
+msgid "Property:"
+msgstr ""
+
+#: includes/class-enquiries.php:119
+msgid "Agent:"
+msgstr ""
+
+#: includes/class-enquiries.php:157
+#: includes/class-post-types.php:45
+#: includes/elementor/widgets.php:931
+msgid "Property"
+msgstr ""
+
+#: includes/class-enquiries.php:158
+msgid "Received"
+msgstr ""
+
+#: includes/class-enquiries.php:187
+msgid "Contact details"
+msgstr ""
+
+#: includes/class-help.php:59
+msgid "Other"
+msgstr ""
+
+#: includes/class-help.php:171
+msgid "Makaazi Help"
+msgstr ""
+
+#: includes/class-help.php:171
+#: includes/class-help.php:346
+msgid "Help"
+msgstr ""
+
+#: includes/class-help.php:205
+#: includes/class-help.php:313
+#: includes/class-help.php:326
+msgid "Help Center"
+msgstr ""
+
+#: includes/class-help.php:206
+msgid "Guides for running your property site: listings, the home page, agents, owner sign-ups and settings."
+msgstr ""
+
+#: includes/class-help.php:209
+msgid "Search help"
+msgstr ""
+
+#: includes/class-help.php:211
+msgid "Search help, e.g. slider, approve, email"
+msgstr ""
+
+#: includes/class-help.php:215
+msgid "Help articles"
+msgstr ""
+
+#: includes/class-help.php:229
+msgid "No guides match. Try another word."
+msgstr ""
+
+#: includes/class-help.php:244
+msgid "Shortcode reference"
+msgstr ""
+
+#: includes/class-help.php:245
+msgid "Every shortcode with its options and copy buttons."
+msgstr ""
+
+#: includes/class-help.php:246
+msgid "Open Shortcodes"
+msgstr ""
+
+#: includes/class-help.php:249
+msgid "For developers"
+msgstr ""
+
+#: includes/class-help.php:253
+msgid "Hooks, template overrides, REST endpoints and the data model are in the separate developer documentation."
+msgstr ""
+
+#: includes/class-help.php:255
+msgid "Hooks, template overrides, REST endpoints and the data model are in the separate developer documentation: <code>docs/developer</code> in the Makaazi repository."
+msgstr ""
+
+#: includes/class-help.php:260
+#: includes/class-help.php:316
+msgid "Developer docs"
+msgstr ""
+
+#. translators: %s: Ascension Dynamics link
+#: includes/class-help.php:269
+msgid "Makaazi is made by %s."
+msgstr ""
+
+#: includes/class-help.php:312
+#: includes/elementor/class-elementor.php:48
+msgid "Makaazi"
+msgstr ""
+
+#: includes/class-help.php:327
+msgid "Step-by-step guides for every part of Makaazi are in the Help Center."
+msgstr ""
+
+#: includes/class-help.php:327
+msgid "Open the Help Center"
+msgstr ""
+
+#: includes/class-help.php:364
+msgid "Answers to common questions about listing with us. Still stuck? Reply to any of our emails or use the contact page."
+msgstr ""
+
+#: includes/class-index.php:312
+msgid "You are not allowed to do this."
+msgstr ""
+
+#: includes/class-post-types.php:44
+#: includes/class-post-types.php:55
+#: includes/class-render.php:892
+#: includes/class-seo.php:487
+#: includes/class-seo.php:619
+#: includes/elementor/widgets.php:235
+#: includes/elementor/widgets.php:272
+msgid "Properties"
+msgstr ""
+
+#: includes/class-post-types.php:46
+msgid "Add New"
+msgstr ""
+
+#: includes/class-post-types.php:47
+msgid "Add New Property"
+msgstr ""
+
+#: includes/class-post-types.php:48
+msgid "Edit Property"
+msgstr ""
+
+#: includes/class-post-types.php:49
+msgid "New Property"
+msgstr ""
+
+#: includes/class-post-types.php:50
+msgid "View Property"
+msgstr ""
+
+#: includes/class-post-types.php:51
+msgid "Search Properties"
+msgstr ""
+
+#: includes/class-post-types.php:52
+msgid "No properties found."
+msgstr ""
+
+#: includes/class-post-types.php:53
+msgid "No properties found in Trash."
+msgstr ""
+
+#: includes/class-post-types.php:54
+msgid "All Properties"
+msgstr ""
+
+#: includes/class-post-types.php:73
+msgid "Statuses"
+msgstr ""
+
+#: includes/class-post-types.php:73
+#: includes/class-render.php:1021
+#: includes/class-shortlist.php:257
+msgid "Status"
+msgstr ""
+
+#: includes/class-post-types.php:74
+msgid "Uses"
+msgstr ""
+
+#: includes/class-post-types.php:75
+msgid "Types"
+msgstr ""
+
+#: includes/class-post-types.php:76
+#: includes/elementor/widgets.php:309
+msgid "Categories"
+msgstr ""
+
+#: includes/class-post-types.php:77
+#: includes/elementor/widgets.php:703
+msgid "Locations"
+msgstr ""
+
+#: includes/class-post-types.php:78
+msgid "Feature"
+msgstr ""
+
+#. translators: %s: taxonomy singular name
+#: includes/class-post-types.php:90
+msgid "Add New %s"
+msgstr ""
+
+#. translators: %s: taxonomy singular name
+#: includes/class-post-types.php:92
+msgid "Edit %s"
+msgstr ""
+
+#. translators: %s: taxonomy plural name
+#: includes/class-post-types.php:94
+msgid "Search %s"
+msgstr ""
+
+#: includes/class-post-types.php:184
+msgid "No terms yet."
+msgstr ""
+
+#: includes/class-post-types.php:188
+msgid "Manage"
+msgstr ""
+
+#: includes/class-post-types.php:198
+#: includes/functions.php:326
+#: includes/functions.php:342
+msgid "For Sale"
+msgstr ""
+
+#: includes/class-post-types.php:198
+#: includes/functions.php:349
+msgid "For Rent"
+msgstr ""
+
+#: includes/class-post-types.php:198
+#: includes/class-render.php:290
+#: includes/elementor/widgets.php:667
+#: includes/functions.php:355
+#: includes/functions.php:356
+msgid "Short Stay"
+msgstr ""
+
+#: includes/class-post-types.php:199
+#: includes/elementor/widgets.php:37
+msgid "Residential"
+msgstr ""
+
+#: includes/class-post-types.php:201
+msgid "Apartment"
+msgstr ""
+
+#: includes/class-post-types.php:202
+msgid "Maisonette"
+msgstr ""
+
+#: includes/class-post-types.php:203
+msgid "Townhouse"
+msgstr ""
+
+#: includes/class-post-types.php:204
+msgid "Villa"
+msgstr ""
+
+#: includes/class-post-types.php:205
+msgid "Bungalow"
+msgstr ""
+
+#: includes/class-post-types.php:207
+msgid "Shop"
+msgstr ""
+
+#: includes/class-post-types.php:208
+msgid "Warehouse"
+msgstr ""
+
+#: includes/class-post-types.php:209
+msgid "Land"
+msgstr ""
+
+#: includes/class-query.php:27
+#: includes/elementor/widgets.php:332
+msgid "Newest"
+msgstr ""
+
+#: includes/class-query.php:28
+#: includes/elementor/widgets.php:334
+msgid "Price: low to high"
+msgstr ""
+
+#: includes/class-query.php:29
+#: includes/elementor/widgets.php:335
+msgid "Price: high to low"
+msgstr ""
+
+#: includes/class-query.php:30
+#: includes/elementor/widgets.php:336
+msgid "Largest"
+msgstr ""
+
+#: includes/class-query.php:31
+#: includes/elementor/widgets.php:333
+msgid "Featured first"
+msgstr ""
+
+#: includes/class-related.php:65
+msgid "Same area"
+msgstr ""
+
+#: includes/class-related.php:68
+msgid "Nearby"
+msgstr ""
+
+#: includes/class-related.php:73
+msgid "Same type"
+msgstr ""
+
+#: includes/class-related.php:77
+msgid "Same category"
+msgstr ""
+
+#: includes/class-related.php:85
+msgid "Similar price"
+msgstr ""
+
+#: includes/class-render.php:201
+msgid "Previous"
+msgstr ""
+
+#: includes/class-render.php:202
+#: includes/class-submission.php:451
+msgid "Next"
+msgstr ""
+
+#: includes/class-render.php:223
+msgid "All locations"
+msgstr ""
+
+#. translators: %s: county or city name
+#: includes/class-render.php:244
+msgid "All of %s"
+msgstr ""
+
+#: includes/class-render.php:270
+msgid "/mo"
+msgstr ""
+
+#: includes/class-render.php:270
+#: includes/functions.php:162
+msgid "/night"
+msgstr ""
+
+#: includes/class-render.php:287
+#: includes/class-shortcode-docs.php:85
+#: includes/class-shortcode-docs.php:107
+#: includes/class-shortcode-docs.php:123
+#: includes/class-shortcodes.php:290
+#: includes/elementor/widgets.php:594
+#: includes/elementor/widgets.php:649
+msgid "Search"
+msgstr ""
+
+#: includes/class-render.php:322
+msgid "Keyword or ref"
+msgstr ""
+
+#: includes/class-render.php:336
+msgid "Buy or rent"
+msgstr ""
+
+#: includes/class-render.php:351
+msgid "Any type"
+msgstr ""
+
+#: includes/class-render.php:361
+msgid "Min price"
+msgstr ""
+
+#: includes/class-render.php:361
+#: includes/class-render.php:671
+msgid "No min"
+msgstr ""
+
+#: includes/class-render.php:362
+msgid "Max price"
+msgstr ""
+
+#: includes/class-render.php:362
+#: includes/class-render.php:672
+msgid "No max"
+msgstr ""
+
+#: includes/class-render.php:366
+#: includes/class-render.php:621
+#: includes/class-render.php:651
+#: includes/class-render.php:688
+#: includes/elementor/widgets.php:36
+#: includes/elementor/widgets.php:288
+#: includes/elementor/widgets.php:295
+#: includes/elementor/widgets.php:324
+#: includes/elementor/widgets.php:550
+msgid "Any"
+msgstr ""
+
+#: includes/class-render.php:373
+msgid "e.g. pool, MK-00101"
+msgstr ""
+
+#: includes/class-render.php:510
+msgid "Close filters"
+msgstr ""
+
+#. translators: %d: number of results
+#: includes/class-render.php:514
+msgid "Show %d result"
+msgid_plural "Show %d results"
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/class-render.php:524
+msgid "Sort by"
+msgstr ""
+
+#: includes/class-render.php:539
+msgid "Grid view"
+msgstr ""
+
+#: includes/class-render.php:540
+msgid "List view"
+msgstr ""
+
+#: includes/class-render.php:541
+msgid "Map view"
+msgstr ""
+
+#: includes/class-render.php:551
+msgid "No properties match these filters"
+msgstr ""
+
+#: includes/class-render.php:551
+msgid "Remove a filter or widen the price range."
+msgstr ""
+
+#: includes/class-render.php:551
+#: includes/class-render.php:711
+msgid "Clear all filters"
+msgstr ""
+
+#. translators: %s: number of properties
+#: includes/class-render.php:582
+msgid "%s property"
+msgid_plural "%s properties"
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/class-render.php:584
+#: includes/class-seo.php:110
+msgid "to rent"
+msgstr ""
+
+#: includes/class-render.php:586
+#: includes/class-seo.php:111
+msgid "for short stays"
+msgstr ""
+
+#: includes/class-render.php:588
+#: includes/class-seo.php:109
+msgid "for sale"
+msgstr ""
+
+#. translators: %s: location name
+#: includes/class-render.php:594
+#: includes/class-seo.php:117
+msgid "in %s"
+msgstr ""
+
+#: includes/class-render.php:620
+msgid "Looking to"
+msgstr ""
+
+#: includes/class-render.php:671
+msgid "Minimum price"
+msgstr ""
+
+#: includes/class-render.php:672
+msgid "Maximum price"
+msgstr ""
+
+#: includes/class-render.php:674
+msgid "Choose Buy, Rent or Short Stay to filter by price. Each uses its own price range."
+msgstr ""
+
+#. translators: %d: number of features
+#: includes/class-render.php:702
+#: includes/class-render.php:1077
+msgid "Show fewer"
+msgstr ""
+
+#. translators: %d: number of features
+#: includes/class-render.php:702
+msgid "Show all %d"
+msgstr ""
+
+#: includes/class-render.php:708
+msgid "e.g. borehole, MK-00103"
+msgstr ""
+
+#: includes/class-render.php:710
+msgid "Apply filters"
+msgstr ""
+
+#. translators: %s: price
+#: includes/class-render.php:754
+msgid "From %s"
+msgstr ""
+
+#. translators: %s: price
+#: includes/class-render.php:758
+msgid "Up to %s"
+msgstr ""
+
+#. translators: %d: number
+#: includes/class-render.php:762
+msgid "%d+ beds"
+msgstr ""
+
+#. translators: %d: number
+#: includes/class-render.php:764
+msgid "%d+ baths"
+msgstr ""
+
+#. translators: %d: number
+#: includes/class-render.php:766
+msgid "%d+ parking"
+msgstr ""
+
+#. translators: %s: filter label
+#: includes/class-render.php:802
+msgid "Remove filter: %s"
+msgstr ""
+
+#: includes/class-render.php:804
+#: includes/class-shortlist.php:438
+msgid "Clear all"
+msgstr ""
+
+#: includes/class-render.php:825
+#: includes/class-shortcodes.php:239
+msgid "Pages"
+msgstr ""
+
+#: includes/class-render.php:864
+msgid "Map of results"
+msgstr ""
+
+#: includes/class-render.php:865
+msgid "Markers show approximate areas, not exact addresses."
+msgstr ""
+
+#. translators: %s: reference number
+#: includes/class-render.php:905
+msgid "Ref %s"
+msgstr ""
+
+#: includes/class-render.php:908
+msgid "Save"
+msgstr ""
+
+#: includes/class-render.php:910
+#: includes/class-shortlist.php:437
+msgid "Share"
+msgstr ""
+
+#. translators: 1: photo number, 2: total
+#: includes/class-render.php:958
+#: includes/class-render.php:965
+msgid "Open photo %1$d of %2$d"
+msgstr ""
+
+#. translators: %d: number of photos
+#: includes/class-render.php:962
+msgid "View %d photo"
+msgid_plural "View all %d photos"
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/class-render.php:996
+msgid "Switch area unit"
+msgstr ""
+
+#: includes/class-render.php:1042
+msgid "Completion"
+msgstr ""
+
+#: includes/class-render.php:1042
+#: includes/class-shortlist.php:267
+msgid "Year built"
+msgstr ""
+
+#: includes/class-render.php:1051
+msgid "Video tour"
+msgstr ""
+
+#: includes/class-render.php:1051
+msgid "Watch the video"
+msgstr ""
+
+#: includes/class-render.php:1053
+#: includes/class-submission.php:375
+#: includes/class-submission.php:413
+msgid "Details"
+msgstr ""
+
+#. translators: %d: number of features
+#: includes/class-render.php:1077
+msgid "Show all %d features"
+msgstr ""
+
+#. translators: %s: area
+#: includes/class-render.php:1097
+msgid "Map of the area around %s"
+msgstr ""
+
+#. translators: %s: area
+#: includes/class-render.php:1098
+msgid "Exact location shown."
+msgstr ""
+
+#. translators: %d: metres
+#: includes/class-render.php:1098
+msgid "Approximate area (about %d m). The exact address is shared when you book a viewing."
+msgstr ""
+
+#. translators: 1: property title, 2: reference, 3: URL
+#: includes/class-render.php:1114
+msgid "Hi, I'm interested in %1$s (%2$s). %3$s"
+msgstr ""
+
+#: includes/class-render.php:1124
+msgid "Listing contact"
+msgstr ""
+
+#. translators: 1: property title, 2: reference
+#: includes/class-render.php:1131
+msgid "Hi, I'm interested in %1$s (%2$s). Is it available for a viewing this week?"
+msgstr ""
+
+#: includes/class-render.php:1132
+msgid "Enquire"
+msgstr ""
+
+#: includes/class-render.php:1150
+msgid "Ask about this property"
+msgstr ""
+
+#: includes/class-render.php:1156
+msgid "Your name"
+msgstr ""
+
+#: includes/class-render.php:1158
+msgid "Email (optional)"
+msgstr ""
+
+#: includes/class-render.php:1159
+msgid "Message"
+msgstr ""
+
+#: includes/class-render.php:1161
+msgid "Send enquiry"
+msgstr ""
+
+#: includes/class-render.php:1177
+#: includes/class-shortcodes.php:534
+msgid "You may also like"
+msgstr ""
+
+#: includes/class-render.php:1196
+msgid "View all similar"
+msgstr ""
+
+#: includes/class-render.php:1242
+msgid "View all"
+msgstr ""
+
+#: includes/class-rest.php:129
+msgid "Thanks. Your enquiry has been sent."
+msgstr ""
+
+#: includes/class-rest.php:135
+msgid "You have sent several enquiries in the last hour. Please call or WhatsApp us instead."
+msgstr ""
+
+#: includes/class-rest.php:141
+msgid "This property is no longer available."
+msgstr ""
+
+#: includes/class-rest.php:145
+msgid "We could not find who to send this to. Please call us instead."
+msgstr ""
+
+#: includes/class-rest.php:152
+msgid "Add your name so we know who to reply to."
+msgstr ""
+
+#: includes/class-rest.php:155
+msgid "Enter a phone number with at least 9 digits, for example 0712 345 678."
+msgstr ""
+
+#: includes/class-rest.php:158
+msgid "Check the email address, or leave it empty."
+msgstr ""
+
+#: includes/class-rest.php:164
+msgid "We could not save your enquiry. Please call or WhatsApp us."
+msgstr ""
+
+#: includes/class-rest.php:169
+msgid "Thanks. Your enquiry has been sent and we will call or WhatsApp you shortly."
+msgstr ""
+
+#: includes/class-seo.php:105
+msgid "property"
+msgstr ""
+
+#. translators: 1: bedrooms, 2: property type
+#: includes/class-seo.php:107
+msgid "%1$d-bedroom %2$s"
+msgstr ""
+
+#: includes/class-seo.php:733
+msgid "Property price, e.g. KES 180,000 /month"
+msgstr ""
+
+#: includes/class-seo.php:736
+msgid "Property location, e.g. Westlands, Nairobi"
+msgstr ""
+
+#: includes/class-seo.php:737
+msgid "For Sale, For Rent or Short Stay"
+msgstr ""
+
+#: includes/class-seo.php:747
+msgid "Property reference"
+msgstr ""
+
+#: includes/class-shortcode-docs.php:25
+msgid "A grid, carousel or list of property cards. Use it for Featured, For Sale and For Rent sections."
+msgstr ""
+
+#: includes/class-shortcode-docs.php:28
+msgid "Number of properties (max 48)"
+msgstr ""
+
+#: includes/class-shortcode-docs.php:29
+msgid "Per row on desktop, 1–6"
+msgstr ""
+
+#: includes/class-shortcode-docs.php:30
+msgid "Per row on tablets, 1–4"
+msgstr ""
+
+#: includes/class-shortcode-docs.php:31
+msgid "Per row on phones, 1–2"
+msgstr ""
+
+#: includes/class-shortcode-docs.php:35
+msgid "Location slug, e.g. westlands (includes sub-areas)"
+msgstr ""
+
+#: includes/class-shortcode-docs.php:36
+msgid "Type slug(s), comma-separated"
+msgstr ""
+
+#: includes/class-shortcode-docs.php:37
+msgid "Category slug(s), comma-separated"
+msgstr ""
+
+#: includes/class-shortcode-docs.php:39
+msgid "Property IDs, comma-separated (with source=\"ids\")"
+msgstr ""
+
+#: includes/class-shortcode-docs.php:40
+msgid "Agent ID or slug: only that agent's listings"
+msgstr ""
+
+#: includes/class-shortcode-docs.php:42
+msgid "Small label above the title"
+msgstr ""
+
+#: includes/class-shortcode-docs.php:43
+#: includes/elementor/class-widget.php:366
+#: includes/elementor/widgets.php:780
+#: includes/elementor/widgets.php:854
+msgid "Section title"
+msgstr ""
+
+#: includes/class-shortcode-docs.php:44
+msgid "Line under the title"
+msgstr ""
+
+#: includes/class-shortcode-docs.php:45
+msgid "yes or no: link to the matching Properties page"
+msgstr ""
+
+#: includes/class-shortcode-docs.php:46
+msgid "Link text, default \"View all\""
+msgstr ""
+
+#: includes/class-shortcode-docs.php:47
+msgid "Card button text; default from Settings"
+msgstr ""
+
+#: includes/class-shortcode-docs.php:49
+msgid "Only these card parts: badges, category, use, type, location, beds, baths, parking, area"
+msgstr ""
+
+#: includes/class-shortcode-docs.php:50
+msgid "Hide these card parts"
+msgstr ""
+
+#: includes/class-shortcode-docs.php:51
+msgid "yes to include sold and let properties"
+msgstr ""
+
+#: includes/class-shortcode-docs.php:52
+msgid "Extra CSS class"
+msgstr ""
+
+#: includes/class-shortcode-docs.php:63
+msgid "The full Properties page: filters, active filter chips, sort, grid/list/map views and pagination. Filters update without reloading and the address can be shared."
+msgstr ""
+
+#: includes/class-shortcode-docs.php:65
+msgid "Per page (from Settings)"
+msgstr ""
+
+#: includes/class-shortcode-docs.php:68
+msgid "Which view buttons to show"
+msgstr ""
+
+#: includes/class-shortcode-docs.php:70
+msgid "Fix the listing to sale, rent or stay"
+msgstr ""
+
+#: includes/class-shortcode-docs.php:71
+msgid "Fix to a location slug"
+msgstr ""
+
+#: includes/class-shortcode-docs.php:72
+msgid "Fix to a type slug"
+msgstr ""
+
+#: includes/class-shortcode-docs.php:73
+msgid "Fix to a category slug"
+msgstr ""
+
+#: includes/class-shortcode-docs.php:74
+msgid "Fix to residential or commercial"
+msgstr ""
+
+#: includes/class-shortcode-docs.php:75
+msgid "Override the \"12 properties…\" heading"
+msgstr ""
+
+#: includes/class-shortcode-docs.php:76
+#: includes/elementor/widgets.php:519
+msgid "Card button text"
+msgstr ""
+
+#: includes/class-shortcode-docs.php:86
+msgid "A Buy/Rent search bar that opens the Properties page with the chosen filters. The hero slider includes the same bar."
+msgstr ""
+
+#: includes/class-shortcode-docs.php:88
+msgid "Order of fields: location, type, price, beds, keyword"
+msgstr ""
+
+#: includes/class-shortcode-docs.php:94
+msgid "Which tabs, e.g. sale,rent or stay. Empty = all switched on"
+msgstr ""
+
+#: includes/class-shortcode-docs.php:96
+msgid "no to hide the Buy/Rent tabs"
+msgstr ""
+
+#: includes/class-shortcode-docs.php:108
+msgid "\"Browse by location\" tiles (or a plain list) linking to filtered results. Set tile images under Properties › Locations."
+msgstr ""
+
+#: includes/class-shortcode-docs.php:110
+msgid "Slugs in order; empty = most popular areas"
+msgstr ""
+
+#: includes/class-shortcode-docs.php:111
+msgid "Only areas inside this county slug"
+msgstr ""
+
+#: includes/class-shortcode-docs.php:115
+msgid "Link to sale, rent or stay results"
+msgstr ""
+
+#: includes/class-shortcode-docs.php:124
+msgid "m² | ft² switch. Updates every area on the page and remembers the choice."
+msgstr ""
+
+#: includes/class-shortcode-docs.php:131
+msgid "The whole property page in one shortcode, for page builders and classic themes. The Makaazi theme uses the separate parts below instead."
+msgstr ""
+
+#: includes/class-shortcode-docs.php:132
+#: includes/class-shortcode-docs.php:147
+msgid "Property ID; defaults to the current property"
+msgstr ""
+
+#: includes/class-shortcode-docs.php:137
+msgid "Breadcrumb, badges, title, location, reference, price and share button."
+msgstr ""
+
+#: includes/class-shortcode-docs.php:138
+msgid "Photo mosaic (swipeable strip on phones). Every photo opens the lightbox."
+msgstr ""
+
+#: includes/class-shortcode-docs.php:139
+msgid "Bedrooms, bathrooms, parking, area, type and use."
+msgstr ""
+
+#: includes/class-shortcode-docs.php:140
+msgid "The description, for page builders. Block templates use the Content block."
+msgstr ""
+
+#: includes/class-shortcode-docs.php:141
+msgid "Details table with custom attributes."
+msgstr ""
+
+#: includes/class-shortcode-docs.php:142
+msgid "Features with icons."
+msgstr ""
+
+#: includes/class-shortcode-docs.php:143
+msgid "Approximate location map (OpenStreetMap)."
+msgstr ""
+
+#: includes/class-shortcode-docs.php:144
+msgid "Contact card, WhatsApp, call and enquiry form, plus the phone action bar."
+msgstr ""
+
+#: includes/class-shortcode-docs.php:149
+#: includes/elementor/widgets.php:940
+msgid "Section heading"
+msgstr ""
+
+#: includes/class-shortcode-docs.php:162
+msgid "Similar properties scored by area, type, category, status and price."
+msgstr ""
+
+#: includes/class-shortcode-docs.php:164
+msgid "Property ID"
+msgstr ""
+
+#: includes/class-shortcodes.php:223
+msgid "No properties to show yet."
+msgstr ""
+
+#. translators: %s: term name
+#: includes/class-shortcodes.php:271
+msgid "Properties: %s"
+msgstr ""
+
+#. translators: %d: number of properties
+#: includes/class-shortcodes.php:384
+msgid "%d property"
+msgid_plural "%d properties"
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/class-shortcodes.php:400
+msgid "Switch area unit between square metres and square feet"
+msgstr ""
+
+#: includes/class-shortcodes.php:416
+#: includes/class-shortcodes.php:464
+msgid "About this property"
+msgstr ""
+
+#: includes/class-shortlist.php:271
+msgid "Property comparison"
+msgstr ""
+
+#. translators: %s: property title
+#: includes/class-shortlist.php:280
+msgid "Remove %s from compare"
+msgstr ""
+
+#: includes/class-shortlist.php:290
+msgid "(differs)"
+msgstr ""
+
+#: includes/class-shortlist.php:295
+#: includes/elementor/widgets.php:92
+msgid "Yes"
+msgstr ""
+
+#: includes/class-shortlist.php:297
+#: includes/elementor/widgets.php:93
+msgid "No"
+msgstr ""
+
+#: includes/class-shortlist.php:349
+msgid "More details"
+msgstr ""
+
+#: includes/class-shortlist.php:385
+#: includes/class-shortlist.php:459
+msgid "Saved properties"
+msgstr ""
+
+#: includes/class-shortlist.php:386
+msgid "Your shortlist"
+msgstr ""
+
+#: includes/class-shortlist.php:394
+#: includes/class-shortlist.php:432
+msgid "Shared with you"
+msgstr ""
+
+#: includes/class-shortlist.php:394
+msgid "Shared shortlist"
+msgstr ""
+
+#: includes/class-shortlist.php:397
+msgid "Save all to my favourites"
+msgstr ""
+
+#: includes/class-shortlist.php:399
+msgid "Share list"
+msgstr ""
+
+#: includes/class-shortlist.php:400
+msgid "Remove all"
+msgstr ""
+
+#: includes/class-shortlist.php:407
+msgid "Loading your saved properties…"
+msgstr ""
+
+#: includes/class-shortlist.php:410
+msgid "No saved properties yet"
+msgstr ""
+
+#: includes/class-shortlist.php:410
+msgid "Tap the heart on any property to keep it here. Your list stays on this device, and on your account when you are signed in."
+msgstr ""
+
+#: includes/class-shortlist.php:410
+#: includes/class-shortlist.php:442
+msgid "Browse properties"
+msgstr ""
+
+#: includes/class-shortlist.php:423
+msgid "Compare properties"
+msgstr ""
+
+#: includes/class-shortlist.php:424
+msgid "Side by side"
+msgstr ""
+
+#: includes/class-shortlist.php:433
+msgid "Show only differences"
+msgstr ""
+
+#: includes/class-shortlist.php:435
+msgid "Use this comparison"
+msgstr ""
+
+#: includes/class-shortlist.php:442
+msgid "Nothing to compare yet"
+msgstr ""
+
+#: includes/class-shortlist.php:442
+msgid "Use the compare button on any property card. You can compare up to four."
+msgstr ""
+
+#: includes/class-shortlist.php:472
+msgid "The visitor's saved properties, with Share list and Remove all. Opening a shared link (?ids=…) shows that shortlist with a \"Save all\" button."
+msgstr ""
+
+#: includes/class-shortlist.php:483
+msgid "Side-by-side table of up to 4 properties. Rows that differ are highlighted, with a \"Show only differences\" switch."
+msgstr ""
+
+#: includes/class-shortlist.php:493
+msgid "Heart icon with a live count, linking to the Favourites page. The Makaazi theme puts it in the header."
+msgstr ""
+
+#: includes/class-shortlist.php:494
+msgid "Optional text next to the heart"
+msgstr ""
+
+#: includes/class-submission.php:119
+#: includes/class-submission.php:172
+msgid "Live"
+msgstr ""
+
+#: includes/class-submission.php:122
+#: includes/class-submission.php:173
+msgid "Pending review"
+msgstr ""
+
+#: includes/class-submission.php:125
+#: includes/class-submission.php:174
+#: includes/class-submission.php:907
+msgid "Needs changes"
+msgstr ""
+
+#: includes/class-submission.php:127
+msgid "Draft"
+msgstr ""
+
+#: includes/class-submission.php:140
+msgid "Tap again to delete"
+msgstr ""
+
+#: includes/class-submission.php:154
+msgid "No listings yet"
+msgstr ""
+
+#: includes/class-submission.php:154
+msgid "Add your first property. It takes about five minutes with photos ready."
+msgstr ""
+
+#: includes/class-submission.php:175
+msgid "Drafts"
+msgstr ""
+
+#: includes/class-submission.php:176
+msgid "Sold / let"
+msgstr ""
+
+#: includes/class-submission.php:194
+msgid "(Untitled)"
+msgstr ""
+
+#. translators: %d: views
+#: includes/class-submission.php:197
+msgid "%d view"
+msgid_plural "%d views"
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: %d: enquiries
+#: includes/class-submission.php:199
+msgid "%d enquiry"
+msgid_plural "%d enquiries"
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/class-submission.php:200
+msgid "Reviewer note:"
+msgstr ""
+
+#: includes/class-submission.php:201
+msgid "Our team usually reviews new listings within one working day."
+msgstr ""
+
+#: includes/class-submission.php:207
+msgid "Fix and resubmit"
+msgstr ""
+
+#: includes/class-submission.php:207
+msgid "Edit"
+msgstr ""
+
+#: includes/class-submission.php:209
+msgid "Mark unavailable"
+msgstr ""
+
+#: includes/class-submission.php:209
+msgid "Mark let"
+msgstr ""
+
+#: includes/class-submission.php:209
+msgid "Mark sold"
+msgstr ""
+
+#: includes/class-submission.php:211
+msgid "Relist"
+msgstr ""
+
+#: includes/class-submission.php:213
+msgid "Delete"
+msgstr ""
+
+#: includes/class-submission.php:327
+msgid "Adding listings is not available for this account."
+msgstr ""
+
+#: includes/class-submission.php:330
+#: includes/class-submission.php:511
+msgid "You can only edit your own listings."
+msgstr ""
+
+#: includes/class-submission.php:370
+msgid "Edit listing"
+msgstr ""
+
+#: includes/class-submission.php:372
+msgid "This listing is live. Saving changes sends it back for a quick review."
+msgstr ""
+
+#: includes/class-submission.php:374
+msgid "Steps"
+msgstr ""
+
+#: includes/class-submission.php:375
+msgid "Basics"
+msgstr ""
+
+#: includes/class-submission.php:375
+msgid "Review"
+msgstr ""
+
+#. translators: 1: step number, 2: step name
+#: includes/class-submission.php:377
+msgid "Step %1$d: %2$s"
+msgstr ""
+
+#: includes/class-submission.php:382
+msgid "The basics"
+msgstr ""
+
+#: includes/class-submission.php:383
+msgid "Listing title"
+msgstr ""
+
+#: includes/class-submission.php:383
+msgid "e.g. Sunny 3-bedroom apartment in Lavington"
+msgstr ""
+
+#: includes/class-submission.php:384
+msgid "I want to"
+msgstr ""
+
+#: includes/class-submission.php:384
+msgid "Sell"
+msgstr ""
+
+#: includes/class-submission.php:384
+msgid "Rent out"
+msgstr ""
+
+#: includes/class-submission.php:384
+msgid "Host short stays"
+msgstr ""
+
+#: includes/class-submission.php:385
+msgid "Choose a type"
+msgstr ""
+
+#. translators: %s: currency
+#: includes/class-submission.php:391
+msgid "Asking price (%s)"
+msgstr ""
+
+#. translators: %s: currency
+#: includes/class-submission.php:391
+msgid "Rent (%s)"
+msgstr ""
+
+#. translators: %s: currency
+#: includes/class-submission.php:391
+msgid "Nightly rate (%s)"
+msgstr ""
+
+#. translators: %s: currency
+#: includes/class-submission.php:392
+msgid "Price is"
+msgstr ""
+
+#: includes/class-submission.php:401
+msgid "Show \"Price on request\" instead"
+msgstr ""
+
+#: includes/class-submission.php:402
+#: includes/elementor/widgets.php:879
+msgid "Description"
+msgstr ""
+
+#: includes/class-submission.php:402
+msgid "Describe the layout, finishes, security, water and power, and what is nearby."
+msgstr ""
+
+#: includes/class-submission.php:405
+msgid "Category (optional)"
+msgstr ""
+
+#: includes/class-submission.php:419
+msgid "Year built (optional)"
+msgstr ""
+
+#: includes/class-submission.php:425
+msgid "Drag photos here or tap to choose"
+msgstr ""
+
+#. translators: %d: max photos
+#: includes/class-submission.php:425
+msgid "Up to %d photos. JPG, PNG or WebP. Large photos are resized before upload."
+msgstr ""
+
+#: includes/class-submission.php:429
+msgid "Make cover photo"
+msgstr ""
+
+#: includes/class-submission.php:429
+msgid "Move earlier"
+msgstr ""
+
+#: includes/class-submission.php:429
+msgid "Move later"
+msgstr ""
+
+#: includes/class-submission.php:429
+msgid "Remove photo"
+msgstr ""
+
+#: includes/class-submission.php:435
+msgid "Choose an area"
+msgstr ""
+
+#: includes/class-submission.php:436
+msgid "Road or landmark (shown publicly)"
+msgstr ""
+
+#: includes/class-submission.php:436
+msgid "e.g. Off Muthangari Drive, Lavington"
+msgstr ""
+
+#: includes/class-submission.php:438
+msgid "Search a road or estate to move the map"
+msgstr ""
+
+#: includes/class-submission.php:438
+msgid "Search the map"
+msgstr ""
+
+#: includes/class-submission.php:439
+msgid "Map: tap to place the pin"
+msgstr ""
+
+#: includes/class-submission.php:440
+msgid "Tap the map to drop a pin on the exact spot (optional). Visitors only see an approximate area, never the exact address."
+msgstr ""
+
+#: includes/class-submission.php:443
+msgid "Review and submit"
+msgstr ""
+
+#: includes/class-submission.php:444
+msgid "When you submit, our team checks the listing, usually within one working day. We will email you when it is live."
+msgstr ""
+
+#: includes/class-submission.php:446
+msgid "When you submit, an admin reviews the listing before it goes live."
+msgstr ""
+
+#: includes/class-submission.php:451
+msgid "Back"
+msgstr ""
+
+#: includes/class-submission.php:451
+msgid "Save draft"
+msgstr ""
+
+#: includes/class-submission.php:451
+msgid "Submit for review"
+msgstr ""
+
+#: includes/class-submission.php:451
+msgid "Publish listing"
+msgstr ""
+
+#: includes/class-submission.php:452
+msgid "Tips for a quick approval"
+msgstr ""
+
+#: includes/class-submission.php:452
+msgid "Bright, level photos of every room, and at least one of the outside."
+msgstr ""
+
+#: includes/class-submission.php:452
+msgid "Mention water, backup power, security and parking."
+msgstr ""
+
+#: includes/class-submission.php:452
+msgid "Use a nearby road or landmark, not the house number."
+msgstr ""
+
+#: includes/class-submission.php:452
+msgid "Your exact address is never shown publicly."
+msgstr ""
+
+#: includes/class-submission.php:479
+msgid "That action is not allowed."
+msgstr ""
+
+#: includes/class-submission.php:562
+msgid "Add a title so people can find your listing."
+msgstr ""
+
+#: includes/class-submission.php:566
+msgid "Choose the property type."
+msgstr ""
+
+#: includes/class-submission.php:569
+msgid "Enter a price in Kenya shillings, for example 150000, or tick \"Price on request\"."
+msgstr ""
+
+#: includes/class-submission.php:572
+msgid "Write at least a couple of sentences about the property."
+msgstr ""
+
+#: includes/class-submission.php:575
+msgid "Enter the floor area, or the land size for a plot."
+msgstr ""
+
+#: includes/class-submission.php:578
+msgid "Add at least 3 photos. Listings with more photos get more enquiries."
+msgstr ""
+
+#: includes/class-submission.php:581
+msgid "Choose the area the property is in."
+msgstr ""
+
+#: includes/class-submission.php:584
+msgid "Add a nearby road or landmark."
+msgstr ""
+
+#: includes/class-submission.php:619
+msgid "We could not save the listing. Please try again."
+msgstr ""
+
+#. translators: %s: title
+#: includes/class-submission.php:690
+msgid "Listing waiting for review: %s"
+msgstr ""
+
+#: includes/class-submission.php:736
+msgid "No photo received."
+msgstr ""
+
+#: includes/class-submission.php:741
+msgid "Use JPG, PNG or WebP photos."
+msgstr ""
+
+#: includes/class-submission.php:744
+msgid "That photo is larger than 8 MB."
+msgstr ""
+
+#: includes/class-submission.php:750
+msgid "Upload limit reached for now. Try again in an hour."
+msgstr ""
+
+#: includes/class-submission.php:788
+msgid "Approve & publish"
+msgstr ""
+
+#: includes/class-submission.php:789
+msgid "What should the owner change? This is emailed to them."
+msgstr ""
+
+#: includes/class-submission.php:789
+msgid "Reject…"
+msgstr ""
+
+#: includes/class-submission.php:801
+msgid "You are not allowed to moderate listings."
+msgstr ""
+
+#: includes/class-submission.php:824
+msgid "Please check the photos and details, then resubmit."
+msgstr ""
+
+#. translators: %s: title
+#: includes/class-submission.php:835
+msgid "Changes needed: %s"
+msgstr ""
+
+#. translators: 1: reason, 2: link
+#: includes/class-submission.php:835
+msgid ""
+"Thanks for your listing. Before it can go live, please make this change:\n"
+"\n"
+"%1$s\n"
+"\n"
+"Edit and resubmit here:\n"
+"%2$s"
+msgstr ""
+
+#. translators: %s: title
+#: includes/class-submission.php:864
+msgid "Your listing is live: %s"
+msgstr ""
+
+#. translators: 1: link, 2: dashboard
+#: includes/class-submission.php:864
+msgid ""
+"Good news, your listing is now live:\n"
+"%1$s\n"
+"\n"
+"Manage it here:\n"
+"%2$s"
+msgstr ""
+
+#: includes/class-submission.php:895
+msgid "Listing published. The owner has been emailed."
+msgstr ""
+
+#: includes/class-submission.php:895
+msgid "Listing sent back to the owner with your note."
+msgstr ""
+
+#: includes/elementor/class-widget.php:53
+msgid "Content"
+msgstr ""
+
+#: includes/elementor/class-widget.php:208
+msgid "Badges"
+msgstr ""
+
+#: includes/elementor/class-widget.php:217
+msgid "Favourite heart"
+msgstr ""
+
+#: includes/elementor/class-widget.php:218
+msgid "Compare button"
+msgstr ""
+
+#: includes/elementor/class-widget.php:232
+#: includes/elementor/widgets.php:376
+#: includes/elementor/widgets.php:766
+#: includes/elementor/widgets.php:841
+#: includes/elementor/widgets.php:945
+#: includes/elementor/widgets.php:1058
+msgid "Small label"
+msgstr ""
+
+#: includes/elementor/class-widget.php:367
+#: includes/elementor/widgets.php:568
+msgid "Card title"
+msgstr ""
+
+#: includes/elementor/class-widget.php:369
+#: includes/elementor/widgets.php:570
+msgid "Buttons"
+msgstr ""
+
+#: includes/elementor/class-widget.php:380
+msgid "Colours"
+msgstr ""
+
+#: includes/elementor/class-widget.php:388
+msgid "Leave empty to use the theme colours."
+msgstr ""
+
+#: includes/elementor/class-widget.php:393
+msgid "Primary (buttons, links)"
+msgstr ""
+
+#: includes/elementor/class-widget.php:394
+msgid "Accent (labels, highlights)"
+msgstr ""
+
+#: includes/elementor/class-widget.php:395
+msgid "Text"
+msgstr ""
+
+#: includes/elementor/class-widget.php:396
+msgid "Secondary text"
+msgstr ""
+
+#: includes/elementor/class-widget.php:397
+msgid "Card background"
+msgstr ""
+
+#: includes/elementor/class-widget.php:398
+msgid "Soft background"
+msgstr ""
+
+#: includes/elementor/class-widget.php:399
+msgid "Borders"
+msgstr ""
+
+#: includes/elementor/class-widget.php:414
+msgid "Corner radius"
+msgstr ""
+
+#: includes/elementor/class-widget.php:433
+msgid "Typography"
+msgstr ""
+
+#: includes/elementor/class-widget.php:545
+msgid "Nothing to show yet. Check the widget settings."
+msgstr ""
+
+#: includes/elementor/widgets.php:49
+#: includes/elementor/widgets.php:483
+#: includes/elementor/widgets.php:493
+msgid "Grid"
+msgstr ""
+
+#: includes/elementor/widgets.php:50
+msgid "Carousel"
+msgstr ""
+
+#: includes/elementor/widgets.php:51
+#: includes/elementor/widgets.php:484
+#: includes/elementor/widgets.php:494
+#: includes/elementor/widgets.php:746
+msgid "List"
+msgstr ""
+
+#: includes/elementor/widgets.php:78
+msgid "Price range"
+msgstr ""
+
+#: includes/elementor/widgets.php:91
+#: includes/elementor/widgets.php:149
+#: includes/elementor/widgets.php:181
+#: includes/elementor/widgets.php:192
+msgid "Slider setting"
+msgstr ""
+
+#: includes/elementor/widgets.php:108
+msgid "Hero Slider"
+msgstr ""
+
+#: includes/elementor/widgets.php:129
+#: includes/elementor/widgets.php:138
+msgid "Slider"
+msgstr ""
+
+#: includes/elementor/widgets.php:130
+msgid "Search bar"
+msgstr ""
+
+#: includes/elementor/widgets.php:140
+msgid "— Newest slider —"
+msgstr ""
+
+#: includes/elementor/widgets.php:143
+msgid "Create and edit slides under Properties › Hero Sliders. The options below override that slider’s own settings."
+msgstr ""
+
+#: includes/elementor/widgets.php:147
+msgid "Effect"
+msgstr ""
+
+#: includes/elementor/widgets.php:150
+msgid "Fade"
+msgstr ""
+
+#: includes/elementor/widgets.php:151
+msgid "Slide"
+msgstr ""
+
+#: includes/elementor/widgets.php:152
+msgid "Ken Burns (slow zoom)"
+msgstr ""
+
+#: includes/elementor/widgets.php:157
+msgid "Autoplay"
+msgstr ""
+
+#: includes/elementor/widgets.php:162
+msgid "Seconds per slide"
+msgstr ""
+
+#: includes/elementor/widgets.php:168
+msgid "Height (desktop)"
+msgstr ""
+
+#: includes/elementor/widgets.php:169
+msgid "e.g. 640 or full"
+msgstr ""
+
+#: includes/elementor/widgets.php:173
+msgid "Show search bar"
+msgstr ""
+
+#: includes/elementor/widgets.php:179
+msgid "Position"
+msgstr ""
+
+#: includes/elementor/widgets.php:182
+msgid "Overlapping the bottom edge"
+msgstr ""
+
+#: includes/elementor/widgets.php:183
+msgid "Inside the slide"
+msgstr ""
+
+#: includes/elementor/widgets.php:184
+msgid "Below the slider"
+msgstr ""
+
+#: includes/elementor/widgets.php:190
+#: includes/elementor/widgets.php:609
+msgid "Style"
+msgstr ""
+
+#: includes/elementor/widgets.php:193
+#: includes/elementor/widgets.php:611
+msgid "Solid"
+msgstr ""
+
+#: includes/elementor/widgets.php:194
+msgid "Glass (over the image)"
+msgstr ""
+
+#: includes/elementor/widgets.php:195
+#: includes/elementor/widgets.php:613
+msgid "Minimal"
+msgstr ""
+
+#: includes/elementor/widgets.php:201
+#: includes/elementor/widgets.php:603
+msgid "Fields (in this order)"
+msgstr ""
+
+#: includes/elementor/widgets.php:203
+msgid "Leave empty to use the slider’s fields."
+msgstr ""
+
+#: includes/elementor/widgets.php:211
+msgid "Slide heading"
+msgstr ""
+
+#: includes/elementor/widgets.php:212
+msgid "Slide text"
+msgstr ""
+
+#: includes/elementor/widgets.php:221
+msgid "Add a slider under Properties › Hero Sliders, then choose it here."
+msgstr ""
+
+#: includes/elementor/widgets.php:248
+msgid "Which properties"
+msgstr ""
+
+#: includes/elementor/widgets.php:249
+#: includes/elementor/widgets.php:347
+#: includes/elementor/widgets.php:743
+#: includes/elementor/widgets.php:958
+msgid "Layout"
+msgstr ""
+
+#: includes/elementor/widgets.php:250
+#: includes/elementor/widgets.php:514
+msgid "Heading"
+msgstr ""
+
+#: includes/elementor/widgets.php:259
+#: includes/elementor/widgets.php:1047
+#: includes/elementor/widgets.php:1130
+msgid "Show"
+msgstr ""
+
+#: includes/elementor/widgets.php:263
+msgid "For sale"
+msgstr ""
+
+#: includes/elementor/widgets.php:264
+msgid "To rent"
+msgstr ""
+
+#: includes/elementor/widgets.php:265
+msgid "Short stays"
+msgstr ""
+
+#: includes/elementor/widgets.php:266
+#: includes/elementor/widgets.php:377
+msgid "Hand-picked"
+msgstr ""
+
+#: includes/elementor/widgets.php:280
+msgid "Number of properties"
+msgstr ""
+
+#: includes/elementor/widgets.php:298
+msgid "Includes the areas inside it."
+msgstr ""
+
+#: includes/elementor/widgets.php:302
+msgid "Property types"
+msgstr ""
+
+#: includes/elementor/widgets.php:330
+#: includes/elementor/widgets.php:832
+msgid "Order"
+msgstr ""
+
+#: includes/elementor/widgets.php:337
+msgid "Random"
+msgstr ""
+
+#: includes/elementor/widgets.php:343
+msgid "Include sold and let"
+msgstr ""
+
+#: includes/elementor/widgets.php:354
+#: includes/elementor/widgets.php:501
+#: includes/elementor/widgets.php:752
+#: includes/elementor/widgets.php:826
+#: includes/elementor/widgets.php:965
+#: includes/elementor/widgets.php:1068
+msgid "Per row"
+msgstr ""
+
+#: includes/elementor/widgets.php:364
+msgid "More properties"
+msgstr ""
+
+#: includes/elementor/widgets.php:366
+#: includes/elementor/widgets.php:475
+msgid "None"
+msgstr ""
+
+#: includes/elementor/widgets.php:367
+msgid "Load more button"
+msgstr ""
+
+#: includes/elementor/widgets.php:368
+msgid "Page numbers"
+msgstr ""
+
+#: includes/elementor/widgets.php:383
+msgid "Featured properties"
+msgstr ""
+
+#: includes/elementor/widgets.php:388
+msgid "Subtitle"
+msgstr ""
+
+#: includes/elementor/widgets.php:393
+msgid "“View all” link"
+msgstr ""
+
+#: includes/elementor/widgets.php:399
+msgid "Link text"
+msgstr ""
+
+#: includes/elementor/widgets.php:406
+msgid "Empty uses Settings › Cards."
+msgstr ""
+
+#: includes/elementor/widgets.php:423
+msgid "Hide on cards"
+msgstr ""
+
+#: includes/elementor/widgets.php:431
+msgid "No properties match these settings."
+msgstr ""
+
+#: includes/elementor/widgets.php:445
+msgid "Property Listing"
+msgstr ""
+
+#: includes/elementor/widgets.php:463
+msgid "Limit to"
+msgstr ""
+
+#: includes/elementor/widgets.php:473
+msgid "Sidebar"
+msgstr ""
+
+#: includes/elementor/widgets.php:474
+msgid "Bar on top"
+msgstr ""
+
+#: includes/elementor/widgets.php:481
+msgid "View buttons"
+msgstr ""
+
+#: includes/elementor/widgets.php:485
+#: includes/elementor/widgets.php:495
+#: includes/elementor/widgets.php:882
+msgid "Map"
+msgstr ""
+
+#: includes/elementor/widgets.php:491
+msgid "Start in"
+msgstr ""
+
+#: includes/elementor/widgets.php:507
+msgid "Per page"
+msgstr ""
+
+#: includes/elementor/widgets.php:510
+msgid "Empty uses Settings › Properties page."
+msgstr ""
+
+#: includes/elementor/widgets.php:515
+msgid "Empty shows “12 properties for sale…”."
+msgstr ""
+
+#: includes/elementor/widgets.php:524
+#: includes/elementor/widgets.php:532
+#: includes/elementor/widgets.php:541
+msgid "Visitor chooses"
+msgstr ""
+
+#: includes/elementor/widgets.php:567
+msgid "Results heading"
+msgstr ""
+
+#: includes/elementor/widgets.php:585
+msgid "Property Search"
+msgstr ""
+
+#: includes/elementor/widgets.php:595
+msgid "Labels"
+msgstr ""
+
+#: includes/elementor/widgets.php:612
+msgid "Glass (over an image)"
+msgstr ""
+
+#: includes/elementor/widgets.php:619
+msgid "Buy / Rent tabs"
+msgstr ""
+
+#: includes/elementor/widgets.php:624
+msgid "Open on"
+msgstr ""
+
+#: includes/elementor/widgets.php:636
+msgid "Tabs to show"
+msgstr ""
+
+#: includes/elementor/widgets.php:644
+msgid "Empty shows all: Buy, Rent and Short Stay (when switched on)."
+msgstr ""
+
+#: includes/elementor/widgets.php:648
+#: includes/elementor/widgets.php:687
+msgid "Button"
+msgstr ""
+
+#: includes/elementor/widgets.php:654
+msgid "Buy tab"
+msgstr ""
+
+#: includes/elementor/widgets.php:660
+msgid "Rent tab"
+msgstr ""
+
+#: includes/elementor/widgets.php:666
+msgid "Short Stay tab"
+msgstr ""
+
+#: includes/elementor/widgets.php:688
+msgid "Field labels"
+msgstr ""
+
+#: includes/elementor/widgets.php:719
+msgid "Locations (in this order)"
+msgstr ""
+
+#: includes/elementor/widgets.php:723
+msgid "Empty shows the most popular areas."
+msgstr ""
+
+#: includes/elementor/widgets.php:727
+msgid "Only areas inside"
+msgstr ""
+
+#: includes/elementor/widgets.php:729
+msgid "Anywhere"
+msgstr ""
+
+#: includes/elementor/widgets.php:732
+msgid "Used when no locations are picked above."
+msgstr ""
+
+#: includes/elementor/widgets.php:736
+#: includes/elementor/widgets.php:819
+#: includes/elementor/widgets.php:950
+msgid "How many"
+msgstr ""
+
+#: includes/elementor/widgets.php:745
+msgid "Photo tiles"
+msgstr ""
+
+#: includes/elementor/widgets.php:758
+msgid "Link to"
+msgstr ""
+
+#: includes/elementor/widgets.php:759
+msgid "All listings"
+msgstr ""
+
+#: includes/elementor/widgets.php:767
+msgid "Neighbourhoods"
+msgstr ""
+
+#: includes/elementor/widgets.php:772
+msgid "Browse by location"
+msgstr ""
+
+#: includes/elementor/widgets.php:781
+msgid "Tile name"
+msgstr ""
+
+#: includes/elementor/widgets.php:811
+msgid "Agents (in this order)"
+msgstr ""
+
+#: includes/elementor/widgets.php:815
+msgid "Empty shows all agents."
+msgstr ""
+
+#: includes/elementor/widgets.php:835
+msgid "Most listings"
+msgstr ""
+
+#: includes/elementor/widgets.php:842
+msgid "Our team"
+msgstr ""
+
+#: includes/elementor/widgets.php:847
+msgid "Meet our agents"
+msgstr ""
+
+#: includes/elementor/widgets.php:855
+msgid "Agent name"
+msgstr ""
+
+#: includes/elementor/widgets.php:860
+msgid "No agents yet. Add them under Properties › Agents."
+msgstr ""
+
+#: includes/elementor/widgets.php:860
+msgid "Agents are switched off in Properties › Settings › Features."
+msgstr ""
+
+#: includes/elementor/widgets.php:875
+msgid "Whole property page"
+msgstr ""
+
+#: includes/elementor/widgets.php:876
+msgid "Header (title, price, share)"
+msgstr ""
+
+#: includes/elementor/widgets.php:877
+msgid "Photo gallery"
+msgstr ""
+
+#: includes/elementor/widgets.php:878
+msgid "Key facts"
+msgstr ""
+
+#: includes/elementor/widgets.php:880
+msgid "Details table"
+msgstr ""
+
+#: includes/elementor/widgets.php:883
+msgid "Contact and enquiry"
+msgstr ""
+
+#: includes/elementor/widgets.php:897
+msgid "Property Section"
+msgstr ""
+
+#: includes/elementor/widgets.php:924
+msgid "Section"
+msgstr ""
+
+#: includes/elementor/widgets.php:933
+msgid "Current property"
+msgstr ""
+
+#: includes/elementor/widgets.php:936
+msgid "Keep “Current property” in a single-property template. Pick one to place it on any page."
+msgstr ""
+
+#: includes/elementor/widgets.php:975
+msgid "Property title"
+msgstr ""
+
+#: includes/elementor/widgets.php:977
+msgid "Section headings"
+msgstr ""
+
+#: includes/elementor/widgets.php:1007
+msgid "Choose a property, or use this widget in a single-property template."
+msgstr ""
+
+#: includes/elementor/widgets.php:1014
+msgid "This property has nothing to show in this section."
+msgstr ""
+
+#: includes/elementor/widgets.php:1032
+msgid "Favourites & Compare"
+msgstr ""
+
+#: includes/elementor/widgets.php:1049
+msgid "Saved properties page"
+msgstr ""
+
+#: includes/elementor/widgets.php:1050
+msgid "Compare table"
+msgstr ""
+
+#: includes/elementor/widgets.php:1051
+msgid "Heart link with count"
+msgstr ""
+
+#: includes/elementor/widgets.php:1075
+msgid "Text next to the heart"
+msgstr ""
+
+#: includes/elementor/widgets.php:1115
+msgid "My Account"
+msgstr ""
+
+#: includes/elementor/widgets.php:1132
+msgid "Account dashboard (sign in, listings, enquiries)"
+msgstr ""
+
+#: includes/elementor/widgets.php:1133
+msgid "Sign in / My account link"
+msgstr ""
+
+#: includes/elementor/widgets.php:1140
+msgid "Text when signed out"
+msgstr ""
+
+#: includes/elementor/widgets.php:1146
+msgid "Text when signed in"
+msgstr ""
+
+#: includes/functions.php:160
+msgid "/month"
+msgstr ""
+
+#: includes/functions.php:161
+msgid "/year"
+msgstr ""
+
+#: includes/functions.php:352
+msgid "Price per month"
+msgstr ""
+
+#: includes/functions.php:359
+msgid "Price per night"
+msgstr ""
+
+#: includes/help/account-articles.php:16
+#: includes/help/account-articles.php:33
+#: includes/help/admin-articles.php:22
+#: includes/help/admin-articles.php:48
+#: includes/help/admin-articles.php:68
+msgid "Getting started"
+msgstr ""
+
+#: includes/help/account-articles.php:17
+msgid "How listing works"
+msgstr ""
+
+#: includes/help/account-articles.php:18
+msgid "From your first draft to a live listing."
+msgstr ""
+
+#: includes/help/account-articles.php:20
+msgid ""
+"<ol>\n"
+"<li>Open <a href=\"{url:submit}\">Add property</a> and go through the five steps: Basics, Details, Photos, Location, Review.</li>\n"
+"<li>Click <strong>Save draft</strong> at any time – nothing is public until you submit.</li>\n"
+"<li>On the last step click <strong>Submit for review</strong>. Our team checks the listing, usually within one working day.</li>\n"
+"<li>You get an email when it is live, or when something needs changing.</li>\n"
+"</ol>\n"
+"<p>Your listings, with their status and views, are on <a href=\"{url:listings}\">My listings</a>.</p>"
+msgstr ""
+
+#: includes/help/account-articles.php:34
+msgid "What each status means"
+msgstr ""
+
+#: includes/help/account-articles.php:35
+msgid "Draft, Pending review, Needs changes, Live, Sold and Let."
+msgstr ""
+
+#: includes/help/account-articles.php:37
+msgid ""
+"<ul>\n"
+"<li><strong>Draft</strong> – only you can see it. Finish it and submit when ready.</li>\n"
+"<li><strong>Pending review</strong> – waiting for our team. You can still open it, but changes wait for the review.</li>\n"
+"<li><strong>Needs changes</strong> – our team sent it back. The reason is shown on the listing and in your email. Click <strong>Fix and resubmit</strong>.</li>\n"
+"<li><strong>Live</strong> – visible to everyone and in search. The eye icon shows how many times it has been viewed.</li>\n"
+"<li><strong>Sold / Let</strong> – still online with a ribbon, but no longer in search. Click <strong>Relist</strong> if it becomes available again. Short stays you mark unavailable show as Let.</li>\n"
+"</ul>"
+msgstr ""
+
+#: includes/help/account-articles.php:50
+#: includes/help/account-articles.php:67
+#: includes/help/account-articles.php:84
+msgid "Your listing"
+msgstr ""
+
+#: includes/help/account-articles.php:51
+msgid "Taking good photos"
+msgstr ""
+
+#: includes/help/account-articles.php:52
+msgid "Listings with clear photos get far more enquiries."
+msgstr ""
+
+#: includes/help/account-articles.php:54
+msgid ""
+"<ul>\n"
+"<li>Hold your phone <strong>sideways</strong> (landscape) and keep it level.</li>\n"
+"<li>Shoot in daylight with curtains open and lights on. Tidy each room first.</li>\n"
+"<li>Include every room and at least one photo of the outside, the view and the parking.</li>\n"
+"<li>Add at least 3 photos; 10–20 is better. JPG, PNG or WebP up to 8 MB each – large photos are made smaller before upload.</li>\n"
+"<li>The first photo is the cover. Use <strong>Make cover photo</strong> to change it, and drag to reorder.</li>\n"
+"</ul>"
+msgstr ""
+
+#: includes/help/account-articles.php:68
+msgid "Getting approved first time"
+msgstr ""
+
+#: includes/help/account-articles.php:69
+msgid "What our team checks before a listing goes live."
+msgstr ""
+
+#: includes/help/account-articles.php:71
+msgid ""
+"<ul>\n"
+"<li><strong>Title</strong> says what and where, e.g. “3 Bedroom Apartment, Kilimani”.</li>\n"
+"<li><strong>Price</strong> is the real asking price, and for rentals the period (per month, per year…). Short stays are priced per night.</li>\n"
+"<li><strong>Description</strong> covers size, rooms, condition, what is included and what is nearby.</li>\n"
+"<li><strong>Location</strong> uses a nearby road or landmark, not the house number. The pin stays private: visitors only see a shaded area.</li>\n"
+"<li><strong>Photos</strong> are your own, clear and show the actual property.</li>\n"
+"</ul>"
+msgstr ""
+
+#: includes/help/account-articles.php:85
+msgid "Edit, mark sold or let, and delete"
+msgstr ""
+
+#: includes/help/account-articles.php:86
+msgid "Keep your listings up to date."
+msgstr ""
+
+#: includes/help/account-articles.php:88
+msgid ""
+"<ul>\n"
+"<li><strong>Edit</strong> – change anything and save. On some sites edits to a live listing are checked again before they show.</li>\n"
+"<li><strong>Mark sold / Mark let</strong> – use this as soon as the deal is done so people stop calling about it.</li>\n"
+"<li><strong>Relist</strong> – makes a sold or let listing available again.</li>\n"
+"<li><strong>Delete</strong> – tap twice to confirm. This cannot be undone; marking as sold or let is usually better.</li>\n"
+"</ul>"
+msgstr ""
+
+#: includes/help/account-articles.php:100
+#: includes/help/account-articles.php:116
+#: includes/help/account-articles.php:131
+msgid "Enquiries & account"
+msgstr ""
+
+#: includes/help/account-articles.php:101
+msgid "Answering enquiries"
+msgstr ""
+
+#: includes/help/account-articles.php:102
+msgid "Where messages from buyers and tenants appear."
+msgstr ""
+
+#: includes/help/account-articles.php:104
+msgid ""
+"<p>Messages about your listings are emailed to you and listed on <a href=\"{url:enquiries-tab}\">Enquiries</a>, with the person’s name, phone and email.</p>\n"
+"<ul>\n"
+"<li>Reply quickly – the first person to answer usually gets the deal.</li>\n"
+"<li>Use the call, WhatsApp or email buttons next to each enquiry.</li>\n"
+"<li>Never send a deposit or ID details to someone you have not met. Report anything suspicious to us.</li>\n"
+"</ul>"
+msgstr ""
+
+#: includes/help/account-articles.php:117
+msgid "Your profile and password"
+msgstr ""
+
+#: includes/help/account-articles.php:118
+msgid "Change your name, phone, email or password."
+msgstr ""
+
+#: includes/help/account-articles.php:120
+msgid ""
+"<ul>\n"
+"<li>Update your details on <a href=\"{url:profile}\">Profile</a>. Agents can also change the photo and bio on their public agent page.</li>\n"
+"<li>To change your password, type a new one in <em>New password</em> on Profile and click <em>Save profile</em>.</li>\n"
+"<li>Forgot your password? Use <em>Forgot your password?</em> on the sign-in form.</li>\n"
+"</ul>"
+msgstr ""
+
+#: includes/help/account-articles.php:132
+msgid "Questions"
+msgstr ""
+
+#: includes/help/account-articles.php:133
+msgid "Quick answers."
+msgstr ""
+
+#: includes/help/account-articles.php:135
+msgid ""
+"<p><strong>How long does review take?</strong> Usually within one working day.</p>\n"
+"<p><strong>Why was my listing sent back?</strong> The reason is on the listing under <em>Needs changes</em> and in your email. Fix it and click <em>Submit for review</em> again.</p>\n"
+"<p><strong>I cannot see “Add property”.</strong> Your account may still be waiting for approval, or listing may be paused on this site. Contact us.</p>\n"
+"<p><strong>Can someone else manage my listing?</strong> Ask us to assign one of our agents.</p>"
+msgstr ""
+
+#: includes/help/admin-articles.php:23
+msgid "Welcome to Makaazi"
+msgstr ""
+
+#: includes/help/admin-articles.php:24
+msgid "What the theme and the two plugins do, and where everything lives."
+msgstr ""
+
+#: includes/help/admin-articles.php:27
+msgid ""
+"<p>Makaazi is a property listing template by <a href=\"https://ascensiondynamics.co/\" target=\"_blank\" rel=\"noopener\">Ascension Dynamics</a>. It is made of three parts that work together:</p>\n"
+"<ul>\n"
+"<li><strong>Makaazi theme</strong> – the look of the site: header, footer, page layouts, fonts and colours.</li>\n"
+"<li><strong>Makaazi Core plugin</strong> – properties, search and filters, property pages, maps, enquiries, agents, owner accounts, favourites and compare.</li>\n"
+"<li><strong>Makaazi Hero Slider plugin</strong> – the big image slider with the Buy/Rent search bar on the home page.</li>\n"
+"</ul>\n"
+"<p>Everything you manage is under the <strong>Properties</strong> menu on the left:</p>\n"
+"<ul>\n"
+"<li><a href=\"{url:properties}\">All Properties</a> and <a href=\"{url:new}\">Add New</a> – your listings.</li>\n"
+"<li>Statuses (Buy / Rent), Uses, Types, Categories, Locations, Features – the lists used in search and filters.</li>\n"
+"<li><a href=\"{url:slider}\">Hero Sliders</a>, <a href=\"{url:agents}\">Agents</a>, <a href=\"{url:enquiries}\">Enquiries</a>.</li>\n"
+"<li><a href=\"{url:settings}\">Settings</a>, <a href=\"{url:shortcodes}\">Shortcodes</a>, <a href=\"{url:demo}\">Demo Content</a> and this Help Center.</li>\n"
+"</ul>\n"
+"<p>New site? Start with {help:demo}, then {help:add-property}.</p>\n"
+"<p class=\"mk-help__tip\">Look for the <strong>Help</strong> button at the top right of any Makaazi screen. It shows tips for that screen.</p>"
+msgstr ""
+
+#: includes/help/admin-articles.php:49
+msgid "Import the demo content"
+msgstr ""
+
+#: includes/help/admin-articles.php:50
+msgid "Fill an empty site with sample listings, agents, a slider and ready-made pages."
+msgstr ""
+
+#: includes/help/admin-articles.php:53
+msgid ""
+"<p>The demo gives you a working site in one click, so you can see how everything fits before adding your own listings.</p>\n"
+"<ol>\n"
+"<li>Go to <a href=\"{url:demo}\">Properties › Demo Content</a>.</li>\n"
+"<li>Click <strong>Import demo content</strong>. It takes about a minute because it copies the photos.</li>\n"
+"<li>Visit the site. The home page, Properties page, agent pages, Favourites, Compare and My account are all set up.</li>\n"
+"</ol>\n"
+"<p>What gets added: 15 properties in Nairobi, Mombasa and Nakuru, 4 agents, the home page slider, the pages above, the main menu and sensible settings.</p>\n"
+"<p><strong>Removing it:</strong> the same screen has a <strong>Remove demo content</strong> button. It deletes only what the import created; anything you added yourself stays. You can import again at any time.</p>\n"
+"<p class=\"mk-help__tip\">Tip: replace demo listings with real ones one by one, then remove the demo when you are done.</p>"
+msgstr ""
+
+#: includes/help/admin-articles.php:69
+msgid "Launch checklist"
+msgstr ""
+
+#: includes/help/admin-articles.php:70
+msgid "The settings to check before you share the site."
+msgstr ""
+
+#: includes/help/admin-articles.php:73
+msgid ""
+"<ol>\n"
+"<li><strong>Logo and site name</strong> – Appearance › Editor › Patterns › Header, or Settings › General for the site title.</li>\n"
+"<li><strong>Contact details</strong> – <a href=\"{url:settings:single}\">Settings › Property page</a>: contact name, phone, WhatsApp number (format 2547…, no +) and the email that receives enquiries.</li>\n"
+"<li><strong>Currency and units</strong> – <a href=\"{url:settings:general}\">Settings › General</a>.</li>\n"
+"<li><strong>Price brackets</strong> – <a href=\"{url:settings:prices}\">Settings › Price brackets</a>, so the price filters match your market.</li>\n"
+"<li><strong>Features</strong> – <a href=\"{url:settings:features}\">Settings › Features</a>: switch agents and owner submissions on or off.</li>\n"
+"<li><strong>Permalinks</strong> – Settings › Permalinks should be “Post name”. Click <em>Save</em> there once if a property page shows “Not found”.</li>\n"
+"<li><strong>Email</strong> – send yourself a test enquiry from a property page. If it does not arrive, see {help:email}.</li>\n"
+"<li><strong>Remove demo content</strong> if you imported it.</li>\n"
+"</ol>"
+msgstr ""
+
+#: includes/help/admin-articles.php:92
+msgid "Add or edit a property"
+msgstr ""
+
+#: includes/help/admin-articles.php:93
+msgid "Every field on the property screen, in the order you fill it."
+msgstr ""
+
+#: includes/help/admin-articles.php:96
+msgid ""
+"<ol>\n"
+"<li><strong>Title</strong> – e.g. “4 Bedroom Townhouse, Lavington”. It becomes the page address.</li>\n"
+"<li><strong>Description</strong> – the main text box. Short paragraphs read best on phones.</li>\n"
+"<li><strong>Right-hand column</strong> – choose the <em>Status</em> (For Sale, For Rent or Short Stay), <em>Use</em> (residential or commercial), <em>Type</em>, <em>Category</em>, <em>Location</em> and tick the <em>Features</em>. Pick the most specific location (e.g. Kilimani, not Nairobi); the parents are added automatically.</li>\n"
+"<li><strong>Property Details box</strong>, tab by tab:\n"
+"<ul>\n"
+"<li><em>Listing</em> – Featured (shows first and gets a badge), availability (Available, Under offer, Sold, Let) and the reference number (created on save).</li>\n"
+"<li><em>Pricing</em> – the amount and, for rentals, per month / year / night. Tick “Price on request” to hide the number.</li>\n"
+"<li><em>Specs</em> – bedrooms, bathrooms, parking, floor area, land size, year built.</li>\n"
+"<li><em>Gallery</em> – add photos, drag to reorder. The first photo is the cover on cards.</li>\n"
+"<li><em>Location</em> – drag the pin to the exact spot, then choose the public privacy radius (see {help:map-privacy}).</li>\n"
+"<li><em>Attributes</em> – extra rows for the Details table, e.g. “Service charge – KES 8,000 /month”, plus a video or virtual tour link.</li>\n"
+"</ul></li>\n"
+"<li><strong>Agent</strong> box – who handles this listing (or “Site contact”). Enquiries go to that agent.</li>\n"
+"<li>Click <strong>Publish</strong>.</li>\n"
+"</ol>\n"
+"<p class=\"mk-help__tip\">Sold and Let listings stay online with a ribbon but drop out of search and grids. Use this instead of deleting, so links keep working.</p>"
+msgstr ""
+
+#: includes/help/admin-articles.php:120
+msgid "Photo guide"
+msgstr ""
+
+#: includes/help/admin-articles.php:121
+msgid "Sizes and order that make listings look their best."
+msgstr ""
+
+#: includes/help/admin-articles.php:124
+msgid ""
+"<ul>\n"
+"<li>Landscape photos, at least <strong>1600 px wide</strong>. Phone photos are fine; hold the phone sideways.</li>\n"
+"<li>Put the best outside or living-room shot first – it is the cover on cards and in search.</li>\n"
+"<li>6–20 photos per listing. Cards let visitors swipe through the first few (Settings › Cards › Photos per card).</li>\n"
+"<li>WordPress makes smaller copies automatically, so you do not need to resize.</li>\n"
+"<li>Photos open in a full-screen lightbox with arrows and swipe on the property page.</li>\n"
+"</ul>"
+msgstr ""
+
+#: includes/help/admin-articles.php:138
+msgid "Maps and location privacy"
+msgstr ""
+
+#: includes/help/admin-articles.php:139
+msgid "Why the map shows a circle, and how to change it."
+msgstr ""
+
+#: includes/help/admin-articles.php:142
+msgid ""
+"<p>Property pages show the general area as a shaded circle, not the exact house. The exact pin you place is kept private – it is never sent to visitors’ browsers.</p>\n"
+"<ul>\n"
+"<li>Set the circle size per listing in <em>Property Details › Location › Public privacy radius</em>, or the default in <a href=\"{url:settings:single}\">Settings › Property page</a>.</li>\n"
+"<li>Tick <em>Show the exact pin publicly</em> only for places that are already public, such as an office block, shop or development.</li>\n"
+"<li>Maps use OpenStreetMap, which is free. For a busy site, use a paid tile provider and paste its URL in Settings › Property page › Map tiles URL.</li>\n"
+"</ul>"
+msgstr ""
+
+#: includes/help/admin-articles.php:155
+msgid "Short Stays (nightly rentals)"
+msgstr ""
+
+#: includes/help/admin-articles.php:156
+msgid "List furnished homes that guests book by the night."
+msgstr ""
+
+#: includes/help/admin-articles.php:159
+msgid ""
+"<p>Short Stay is a third listing type next to Buy and Rent, for holiday homes and serviced apartments priced per night.</p>\n"
+"<ol>\n"
+"<li>Make sure <em>Short Stays</em> is ticked in <a href=\"{url:settings:features}\">Settings › Features</a>.</li>\n"
+"<li>Add a property and choose the <em>Short Stay</em> status. The price period switches to <em>Per night</em>.</li>\n"
+"<li>Use <em>Attributes</em> for stay details: Sleeps, Minimum stay, Check-in time, Cleaning.</li>\n"
+"</ol>\n"
+"<p>Visitors get a <strong>Short Stay</strong> tab in the search bar and filters, with nightly price ranges you set in <a href=\"{url:settings:prices}\">Settings › Price brackets</a>. Put a row of stays on any page with <code>[makaazi_properties source=\"stay\" layout=\"carousel\"]</code>.</p>\n"
+"<p>When a stay is no longer offered, owners click <em>Mark unavailable</em> (you can set Availability to Let). Makaazi shows availability and takes enquiries; it does not take bookings or payments.</p>"
+msgstr ""
+
+#: includes/help/admin-articles.php:175
+msgid "Manage the lists visitors filter by."
+msgstr ""
+
+#: includes/help/admin-articles.php:178
+msgid ""
+"<ul>\n"
+"<li><strong>Locations</strong> are nested: City › Area (e.g. Nairobi › Westlands). Give each area a photo – it is used by the Locations tiles on the home page.</li>\n"
+"<li><strong>Types</strong> are what the building is (Apartment, Villa, Office…). <strong>Categories</strong> group listings for marketing (Luxury, New development…).</li>\n"
+"<li><strong>Uses</strong> are Residential or Commercial. <strong>Statuses</strong> are For Sale, For Rent and Short Stay – the Buy / Rent / Short Stay choice in search.</li>\n"
+"<li><strong>Features</strong> are the ticks on the property page (Borehole, Backup generator, Pool…).</li>\n"
+"</ul>\n"
+"<p>Renaming a term updates every listing that uses it. Deleting a term removes it from listings but does not delete the listings.</p>"
+msgstr ""
+
+#: includes/help/admin-articles.php:193
+msgid "Where messages from visitors go and how to follow them up."
+msgstr ""
+
+#: includes/help/admin-articles.php:196
+msgid ""
+"<p>Every message sent from a property page or the contact page is saved under <a href=\"{url:enquiries}\">Properties › Enquiries</a> and emailed.</p>\n"
+"<ul>\n"
+"<li>If the listing has an agent, the email goes to the agent. Tick <em>Copy me on agent enquiries</em> in Settings › Features to get a copy.</li>\n"
+"<li>Otherwise it goes to <em>Send enquiries to</em> in Settings › Property page (or the site admin email).</li>\n"
+"<li>Owners get an email for enquiries on their own listings and can read them in their dashboard.</li>\n"
+"<li>Each enquiry shows the property, name, phone and email. Reply by phone, WhatsApp or email.</li>\n"
+"</ul>\n"
+"<p>Spam protection is built in: a hidden trap field and a limit of a few messages per visitor per hour.</p>"
+msgstr ""
+
+#: includes/help/admin-articles.php:212
+#: includes/help/admin-articles.php:233
+#: includes/help/admin-articles.php:252
+#: includes/help/admin-articles.php:277
+msgid "Home page & design"
+msgstr ""
+
+#: includes/help/admin-articles.php:213
+msgid "Hero slider"
+msgstr ""
+
+#: includes/help/admin-articles.php:214
+msgid "Slides, timing, the search bar, and placing a slider on a page."
+msgstr ""
+
+#: includes/help/admin-articles.php:217
+msgid ""
+"<ol>\n"
+"<li>Go to <a href=\"{url:slider}\">Properties › Hero Sliders</a> and open a slider (or add a new one).</li>\n"
+"<li><strong>Slides</strong> – add a background image (1920 × 1080 or larger), an optional phone image, label, heading, text and up to two buttons. Drag to reorder. <em>Show from / until</em> dates let you schedule a promotion.</li>\n"
+"<li><strong>Slides from</strong> – your slides, your featured properties, or both.</li>\n"
+"<li><strong>Slider settings</strong> – effect (fade, slide, slow zoom), autoplay timing, arrows/dots/progress bar and the height on desktop, tablet and phone.</li>\n"
+"<li><strong>Search bar</strong> – show the Buy/Rent search, choose its position and style, tick the fields and drag to reorder them.</li>\n"
+"<li>Click <strong>Update</strong>, then copy the shortcode from the box on the right.</li>\n"
+"</ol>\n"
+"<p>To show a slider: paste the shortcode, e.g. <code>[makaazi_slider slug=\"home\"]</code>, into a Shortcode block, or use the Hero Slider widget in Elementor.</p>\n"
+"<p class=\"mk-help__tip\">Visitors who have “reduce motion” turned on never get autoplay or zoom.</p>"
+msgstr ""
+
+#: includes/help/admin-articles.php:234
+msgid "Edit the home page and other pages"
+msgstr ""
+
+#: includes/help/admin-articles.php:235
+msgid "Change sections, headings and the header and footer."
+msgstr ""
+
+#: includes/help/admin-articles.php:238
+msgid ""
+"<p>Pages are built from blocks. Most Makaazi sections are a <strong>Shortcode block</strong> with one line in it, such as <code>[makaazi_properties featured=\"1\" columns=\"3\"]</code>.</p>\n"
+"<ul>\n"
+"<li><strong>Home page</strong> – Pages › Home. Click a section to edit its heading, or change the numbers in a shortcode to show more or fewer listings. See {help:shortcodes} for every option.</li>\n"
+"<li><strong>Header and footer</strong> – Appearance › Editor › Patterns, then Header or Footer. Logo, menu and contact details are there.</li>\n"
+"<li><strong>Colours and fonts</strong> – Appearance › Editor › Styles.</li>\n"
+"<li><strong>Menu</strong> – in the Header, click the Navigation block.</li>\n"
+"</ul>\n"
+"<p>Prefer drag and drop? Install Elementor and use the Makaazi widgets – see {help:elementor}.</p>"
+msgstr ""
+
+#: includes/help/admin-articles.php:253
+msgid "Using shortcodes"
+msgstr ""
+
+#: includes/help/admin-articles.php:254
+msgid "Put listings, search, maps and forms on any page."
+msgstr ""
+
+#: includes/help/admin-articles.php:257
+msgid ""
+"<p>A shortcode is a short tag in square brackets that shows a Makaazi section. The full list, with every option and copy buttons, is on <a href=\"{url:shortcodes}\">Properties › Shortcodes</a>.</p>\n"
+"<ol>\n"
+"<li>Edit a page and add a <strong>Shortcode</strong> block (type <code>/shortcode</code>).</li>\n"
+"<li>Paste the shortcode and change the options, e.g. <code>[makaazi_properties status=\"rent\" location=\"westlands\" columns=\"4\" limit=\"8\"]</code>.</li>\n"
+"<li>Update the page.</li>\n"
+"</ol>\n"
+"<p>Most used:</p>\n"
+"<ul>\n"
+"<li><code>[makaazi_properties]</code> – a grid, list or carousel of listings (featured, buy, rent, by location…).</li>\n"
+"<li><code>[makaazi_listing]</code> – the full Properties page with filters, sort and map view.</li>\n"
+"<li><code>[makaazi_search]</code> – a search bar that sends visitors to the Properties page.</li>\n"
+"<li><code>[makaazi_locations]</code>, <code>[makaazi_agents]</code>, <code>[makaazi_favourites]</code>, <code>[makaazi_compare]</code>, <code>[makaazi_dashboard]</code>.</li>\n"
+"</ul>\n"
+"<p class=\"mk-help__tip\">Options use plain words – use the slug shown on the Locations or Types screen, e.g. <code>location=\"kilimani\"</code>.</p>"
+msgstr ""
+
+#: includes/help/admin-articles.php:278
+msgid "Elementor widgets"
+msgstr ""
+
+#: includes/help/admin-articles.php:279
+msgid "Drag-and-drop Makaazi sections when Elementor is installed."
+msgstr ""
+
+#: includes/help/admin-articles.php:282
+msgid ""
+"<p>When the free Elementor plugin is active, a <strong>Makaazi</strong> group appears in the Elementor widget panel:</p>\n"
+"<ul>\n"
+"<li>Hero Slider, Property Search, Properties (grid, list or carousel), Property Listing (full page with filters), Locations, Agents.</li>\n"
+"<li>Property Section – one part of a property page (gallery, facts, details, features, map, contact, similar listings) for building your own property template in Elementor Pro.</li>\n"
+"<li>Favourites &amp; Compare.</li>\n"
+"</ul>\n"
+"<p>Each widget has the same options as its shortcode on the <em>Content</em> tab, and colours, fonts and spacing on the <em>Style</em> tab. Widgets show live previews in the editor.</p>\n"
+"<p>Elementor is optional. The theme works fully without it.</p>"
+msgstr ""
+
+#: includes/help/admin-articles.php:298
+#: includes/help/admin-articles.php:319
+#: includes/help/admin-articles.php:344
+msgid "Agents & owners"
+msgstr ""
+
+#: includes/help/admin-articles.php:300
+msgid "Agent profiles, agent sign-in, and assigning listings."
+msgstr ""
+
+#: includes/help/admin-articles.php:303
+msgid ""
+"<p>Agents are switched on in <a href=\"{url:settings:features}\">Settings › Features</a>. Turning them off hides agent pages and the agent box on listings; nothing is deleted.</p>\n"
+"<p><strong>Add an agent</strong></p>\n"
+"<ol>\n"
+"<li><a href=\"{url:agents}\">Properties › Agents</a> › Add New.</li>\n"
+"<li>Name (the title), bio (the text box), <em>Agent photo</em> (square, at least 400 px) and, in <em>Agent details</em>, job title, office, phone, WhatsApp and email.</li>\n"
+"<li>Optional: in <em>Sign-in account</em>, pick a user (or click <em>Create a user</em>) so the agent can sign in. The user is given the Agent role.</li>\n"
+"</ol>\n"
+"<p><strong>What signed-in agents can do:</strong> add and edit their own listings from the website dashboard or wp-admin, read enquiries for their listings, and update their profile. They cannot see other agents’ listings or change settings.</p>\n"
+"<p>With <em>Review agent listings</em> on, an agent’s new listings wait in <a href=\"{url:pending}\">Pending</a> for you to approve.</p>\n"
+"<p><strong>Assign a listing:</strong> edit the property and choose the agent in the Agent box. Their card appears on the property page and enquiries go to them.</p>"
+msgstr ""
+
+#: includes/help/admin-articles.php:320
+msgid "Owner sign-ups and listing review"
+msgstr ""
+
+#: includes/help/admin-articles.php:321
+msgid "Let property owners list from the website, and approve or reject their listings."
+msgstr ""
+
+#: includes/help/admin-articles.php:324
+msgid ""
+"<p>Switch on <em>Owner submissions</em> in <a href=\"{url:settings:features}\">Settings › Features</a> and choose how owners get an account:</p>\n"
+"<ul>\n"
+"<li><strong>Anyone can sign up</strong> – optionally with <em>Confirm email</em>.</li>\n"
+"<li><strong>Sign-ups need my approval</strong> – new owners appear under <a href=\"{url:users}\">Users</a> as “Pending”. Hover and click <strong>Activate</strong>.</li>\n"
+"<li><strong>Invite only</strong> – you create users with the role <em>Property owner</em>.</li>\n"
+"</ul>\n"
+"<p>Owners use the <strong>My account</strong> page (it contains <code>[makaazi_dashboard]</code>). They never see wp-admin.</p>\n"
+"<p><strong>Reviewing a listing</strong></p>\n"
+"<ol>\n"
+"<li>A number on the Properties menu shows listings waiting. Open <a href=\"{url:pending}\">Pending</a>.</li>\n"
+"<li>Open the listing to check photos, price and text. You can fix small things yourself.</li>\n"
+"<li>Back in the list, hover the row: <strong>Approve</strong> publishes it and emails the owner. <strong>Reject</strong> asks for a reason, moves it back to draft and emails the owner the reason.</li>\n"
+"</ol>\n"
+"<p>With <em>Review edits to live listings</em> on, an owner’s changes to a live listing go back to Pending.</p>"
+msgstr ""
+
+#: includes/help/admin-articles.php:345
+msgid "Favourites and compare"
+msgstr ""
+
+#: includes/help/admin-articles.php:346
+msgid "How visitors save and compare listings."
+msgstr ""
+
+#: includes/help/admin-articles.php:349
+msgid ""
+"<ul>\n"
+"<li>Visitors tap the <strong>heart</strong> on a card or <strong>Save</strong> on a property page. Saved listings are kept in the browser, and in their account when signed in, so they follow them to other devices.</li>\n"
+"<li><strong>Compare</strong> holds up to 4 listings and shows them side by side, with differences highlighted.</li>\n"
+"<li>Both pages have a <em>Share</em> link that opens the same list for someone else.</li>\n"
+"</ul>\n"
+"<p>Switch each on or off and choose the pages in <a href=\"{url:settings:shortlist}\">Settings › Favourites &amp; compare</a>.</p>"
+msgstr ""
+
+#: includes/help/admin-articles.php:364
+msgid "Settings explained"
+msgstr ""
+
+#: includes/help/admin-articles.php:365
+msgid "What each Settings tab controls."
+msgstr ""
+
+#: includes/help/admin-articles.php:368
+msgid ""
+"<ul>\n"
+"<li><a href=\"{url:settings:features}\"><strong>Features</strong></a> – switch Short Stays, agents and owner submissions on or off, and how they work. Switching off hides things; nothing is deleted.</li>\n"
+"<li><a href=\"{url:settings:general}\"><strong>General</strong></a> – currency, short prices (KES 85M), m² or ft², the unit switch and the reference prefix.</li>\n"
+"<li><a href=\"{url:settings:cards}\"><strong>Cards</strong></a> – button text, how many photos a card can scroll, photo shape, what each card shows and the “New” badge.</li>\n"
+"<li><a href=\"{url:settings:listing}\"><strong>Properties page</strong></a> – listings per page, default sort and which filters to offer.</li>\n"
+"<li><a href=\"{url:settings:shortlist}\"><strong>Favourites &amp; compare</strong></a> – switches and pages.</li>\n"
+"<li><a href=\"{url:settings:single}\"><strong>Property page</strong></a> – contact details, where enquiries go, map privacy, similar listings and map tiles.</li>\n"
+"<li><a href=\"{url:settings:prices}\"><strong>Price brackets</strong></a> – amounts offered in the price filters for Buy, Rent (per month) and Short Stay (per night).</li>\n"
+"</ul>"
+msgstr ""
+
+#: includes/help/admin-articles.php:385
+msgid "Google, sharing and Yoast SEO"
+msgstr ""
+
+#: includes/help/admin-articles.php:386
+msgid "How listings appear in Google and when shared on WhatsApp or Facebook."
+msgstr ""
+
+#: includes/help/admin-articles.php:389
+msgid ""
+"<p>Makaazi tells search engines what each listing is (price, rooms, size, area, photos) using Schema.org data, so Google can show richer results. Nothing to set up.</p>\n"
+"<ul>\n"
+"<li><strong>Without an SEO plugin</strong>, Makaazi adds a description, the share preview (title, price, area and cover photo for WhatsApp, Facebook and X) and sensible titles such as “Properties to rent”.</li>\n"
+"<li><strong>With Yoast SEO or Rank Math</strong>, the plugin takes over titles and share tags and Makaazi feeds it: the listing data joins its schema, listings without a written meta description get an automatic one, gallery photos go into the XML sitemap, and Yoast’s content analysis also reads the Property Details box.</li>\n"
+"<li>In Yoast you can use these variables in title and description templates (Yoast SEO › Settings › Content types › Properties): <code>%%mk_price%%</code>, <code>%%mk_location%%</code>, <code>%%mk_status%%</code>, <code>%%mk_type%%</code>, <code>%%mk_beds%%</code>, <code>%%mk_ref%%</code>. Example title: <code>%%title%% – %%mk_price%% %%sep%% %%sitename%%</code>.</li>\n"
+"<li>Search pages with several filters are marked “noindex” so Google indexes your clean pages (Properties, Properties to rent, each location) instead of thousands of combinations.</li>\n"
+"<li>Exact map pins are never shared with Google either.</li>\n"
+"</ul>\n"
+"<p class=\"mk-help__tip\">Tip: write a short, specific first sentence in each description. It is what Google and WhatsApp show.</p>"
+msgstr ""
+
+#: includes/help/admin-articles.php:406
+#: includes/help/admin-articles.php:422
+#: includes/help/admin-articles.php:440
+msgid "Troubleshooting"
+msgstr ""
+
+#: includes/help/admin-articles.php:407
+msgid "Emails are not arriving"
+msgstr ""
+
+#: includes/help/admin-articles.php:408
+msgid "Enquiry, approval and sign-up emails need a working mail setup."
+msgstr ""
+
+#: includes/help/admin-articles.php:411
+msgid ""
+"<ul>\n"
+"<li><strong>On your own computer (XAMPP, Local…)</strong> email is not sent by default. Enquiries are still saved under Properties › Enquiries, and you can activate owners under Users.</li>\n"
+"<li><strong>On a live host</strong>, install an SMTP plugin (e.g. WP Mail SMTP) and connect it to your email provider. This also stops emails landing in spam.</li>\n"
+"<li>Check the address in Settings › Property page › Send enquiries to.</li>\n"
+"</ul>"
+msgstr ""
+
+#: includes/help/admin-articles.php:423
+msgid "A page says “Not found” or a shortcode shows as text"
+msgstr ""
+
+#: includes/help/admin-articles.php:424
+msgid "Fixes for the most common display problems."
+msgstr ""
+
+#: includes/help/admin-articles.php:427
+msgid ""
+"<ul>\n"
+"<li><strong>Property or agent page “Not found”</strong> – go to Settings › Permalinks and click <em>Save Changes</em> (no need to change anything).</li>\n"
+"<li><strong>Shortcode shows as plain text</strong> – check Makaazi Core is active and the shortcode is spelled correctly. Put it in a Shortcode block, not a Paragraph.</li>\n"
+"<li><strong>Agent pages missing</strong> – agents are switched off in Settings › Features.</li>\n"
+"<li><strong>Listing missing from search</strong> – it is Sold/Let, a draft, or waiting in Pending.</li>\n"
+"<li><strong>Map is grey</strong> – the listing has no pin. Edit it and drag the pin in Property Details › Location.</li>\n"
+"</ul>"
+msgstr ""
+
+#: includes/help/admin-articles.php:441
+msgid "Frequently asked questions"
+msgstr ""
+
+#: includes/help/admin-articles.php:442
+msgid "Short answers to common questions."
+msgstr ""
+
+#: includes/help/admin-articles.php:445
+msgid ""
+"<p><strong>Can I use another currency?</strong> Yes – Settings › General › Currency code, then update the price brackets.</p>\n"
+"<p><strong>Can I hide the price?</strong> Tick “Price on request” in Property Details › Pricing.</p>\n"
+"<p><strong>Can I translate the site?</strong> Yes. All text uses the <code>makaazi</code> text domain, so tools like Loco Translate work.</p>\n"
+"<p><strong>Will updates overwrite my changes?</strong> Changes made in the editor, settings and listings are kept. Edits to theme or plugin files are lost – ask your developer to use a child theme.</p>\n"
+"<p><strong>How do I back up?</strong> Use your host’s backup or a plugin such as UpdraftPlus. Back up both the database and the uploads folder.</p>\n"
+"<p><strong>I need a developer feature.</strong> Your developer can find the separate developer documentation in the Makaazi repository under <code>docs/developer</code>.</p>"
+msgstr ""
+
+#. translators: %s: property title
+#: templates/card.php:19
+msgid "Photos of %s. Use the arrow keys to browse."
+msgstr ""
+
+#. translators: %d: number of additional photos
+#: templates/card.php:30
+msgid "+%d photo"
+msgid_plural "+%d photos"
+msgstr[0] ""
+msgstr[1] ""
+
+#: templates/card.php:41
+msgid "New"
+msgstr ""
+
+#. translators: %s: property title
+#: templates/card.php:53
+msgid "Save %s to favourites"
+msgstr ""
+
+#. translators: %s: property title
+#: templates/card.php:73
+msgid "Compare %s"
+msgstr ""

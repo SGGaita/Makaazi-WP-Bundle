@@ -72,6 +72,7 @@ class Makaazi_Assets {
 					'uploading'=> __( 'Uploading…', 'makaazi' ),
 					'upFail'   => __( 'Could not upload this photo.', 'makaazi' ),
 					'tooMany'  => __( 'You have reached the photo limit.', 'makaazi' ),
+					/* translators: 1: photos added, 2: photo limit */
 					'photosN'  => __( '%1$d of %2$d photos. The first is the cover.', 'makaazi' ),
 					'needed'   => __( 'Please fill in the highlighted fields.', 'makaazi' ),
 					'notFound' => __( 'No match found. Tap the map instead.', 'makaazi' ),

@@ -131,6 +131,7 @@ class Makaazi_Shortlist {
 					array(
 						'columns' => $cols ? $cols : 3,
 						'eager'   => true,
+						'heading' => max( 2, min( 4, (int) $r->get_param( 'heading' ) ? (int) $r->get_param( 'heading' ) : 3 ) ),
 					)
 				) : '',
 			)
@@ -271,7 +272,7 @@ class Makaazi_Shortlist {
 		$h .= '<thead><tr><td class="mk-ctable__corner"></td>';
 		foreach ( $ids as $id ) {
 			$g  = makaazi_gallery_ids( $id );
-			$h .= '<th scope="col" class="mk-ctable__head"><a class="mk-ctable__img" href="' . esc_url( get_permalink( $id ) ) . '" tabindex="-1">' . ( $g ? wp_get_attachment_image( $g[0], 'makaazi-card', false, array( 'alt' => '' ) ) : '' ) . '</a>'
+			$h .= '<th scope="col" class="mk-ctable__head"><a class="mk-ctable__img" href="' . esc_url( get_permalink( $id ) ) . '" tabindex="-1" aria-hidden="true">' . ( $g ? wp_get_attachment_image( $g[0], 'makaazi-card', false, array( 'alt' => '' ) ) : '' ) . '</a>'
 				. '<a class="mk-ctable__title" href="' . esc_url( get_permalink( $id ) ) . '">' . esc_html( get_the_title( $id ) ) . '</a>'
 				. '<span class="mk-ctable__price">' . makaazi_price( $id ) . '</span>'
 				. '<span class="mk-ctable__acts"><a class="mk-btn mk-btn--outline mk-btn--sm" href="' . esc_url( get_permalink( $id ) ) . '">' . esc_html__( 'View', 'makaazi' ) . '</a>'
@@ -389,8 +390,8 @@ class Makaazi_Shortlist {
 		);
 		$shared = self::shared_ids( self::MAX_FAVS );
 		Makaazi_Assets::enqueue();
-		$h  = '<div class="mk-block mk-shortlist" data-mk-favs-page data-columns="' . max( 1, min( 4, (int) $a['columns'] ) ) . '"' . ( $shared ? ' data-shared="' . esc_attr( implode( ',', $shared ) ) . '"' : '' ) . '>';
-		$h .= '<div class="mk-sechead"><div><p class="mk-eyebrow">' . esc_html( $shared ? __( 'Shared with you', 'makaazi' ) : $a['eyebrow'] ) . '</p><h2 class="mk-sechead__title">' . esc_html( $shared ? __( 'Shared shortlist', 'makaazi' ) : $a['title'] ) . ' <span class="mk-shortlist__n" data-mk-count></span></h2></div>';
+		$h  = '<div class="mk-block mk-shortlist" data-mk-favs-page data-heading="' . ( Makaazi_Render::page_level() + 1 ) . '" data-columns="' . max( 1, min( 4, (int) $a['columns'] ) ) . '"' . ( $shared ? ' data-shared="' . esc_attr( implode( ',', $shared ) ) . '"' : '' ) . '>';
+		$h .= '<div class="mk-sechead"><div><p class="mk-eyebrow">' . esc_html( $shared ? __( 'Shared with you', 'makaazi' ) : $a['eyebrow'] ) . '</p><h' . Makaazi_Render::page_level() . ' class="mk-sechead__title">' . esc_html( $shared ? __( 'Shared shortlist', 'makaazi' ) : $a['title'] ) . ' <span class="mk-shortlist__n" data-mk-count></span></h' . Makaazi_Render::page_level() . '></div>';
 		$h .= '<div class="mk-shortlist__acts">';
 		if ( $shared ) {
 			$h .= '<button type="button" class="mk-btn mk-btn--sm" data-mk-save-all>' . makaazi_icon( 'heart', 15 ) . ' ' . esc_html__( 'Save all to my favourites', 'makaazi' ) . '</button>';
@@ -428,7 +429,7 @@ class Makaazi_Shortlist {
 		$shared = self::shared_ids( self::MAX_COMPARE );
 		Makaazi_Assets::enqueue();
 		$h  = '<div class="mk-block mk-compare" data-mk-compare-page' . ( $shared ? ' data-shared="' . esc_attr( implode( ',', $shared ) ) . '"' : '' ) . '>';
-		$h .= '<div class="mk-sechead"><div><p class="mk-eyebrow">' . esc_html( $shared ? __( 'Shared with you', 'makaazi' ) : $a['eyebrow'] ) . '</p><h2 class="mk-sechead__title">' . esc_html( $a['title'] ) . ' <span class="mk-shortlist__n" data-mk-count></span></h2></div>';
+		$h .= '<div class="mk-sechead"><div><p class="mk-eyebrow">' . esc_html( $shared ? __( 'Shared with you', 'makaazi' ) : $a['eyebrow'] ) . '</p><h' . Makaazi_Render::page_level() . ' class="mk-sechead__title">' . esc_html( $a['title'] ) . ' <span class="mk-shortlist__n" data-mk-count></span></h' . Makaazi_Render::page_level() . '></div>';
 		$h .= '<div class="mk-shortlist__acts"><label class="mk-switch"><input type="checkbox" data-mk-diff> <span>' . esc_html__( 'Show only differences', 'makaazi' ) . '</span></label>';
 		if ( $shared ) {
 			$h .= '<button type="button" class="mk-btn mk-btn--sm" data-mk-use-compare>' . esc_html__( 'Use this comparison', 'makaazi' ) . '</button>';

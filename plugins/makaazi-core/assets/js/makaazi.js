@@ -491,7 +491,7 @@
 				acts.forEach(function (a) { a.hidden = !ids.length; });
 				if (!ids.length) { body.innerHTML = ''; empty.hidden = false; return; }
 				empty.hidden = true;
-				fetch(restUrl('/saved/cards', { ids: ids.join(','), columns: el.getAttribute('data-columns') || 3 }), { credentials: 'omit' })
+				fetch(restUrl('/saved/cards', { ids: ids.join(','), columns: el.getAttribute('data-columns') || 3, heading: el.getAttribute('data-heading') || 3 }), { credentials: 'omit' })
 					.then(function (r) { return r.json(); })
 					.then(function (d) {
 						body.innerHTML = d.html || '';

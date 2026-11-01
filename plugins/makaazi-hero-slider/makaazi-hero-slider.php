@@ -10,6 +10,7 @@
  * Author URI:        https://ascensiondynamics.co/
  * License:           GPL-2.0-or-later
  * Text Domain:       makaazi-slider
+ * Domain Path:       /languages
  *
  * @package MakaaziSlider
  */
@@ -31,3 +32,11 @@ MKS_Render::init();
 if ( is_admin() ) {
 	MKS_Admin::init();
 }
+
+/**
+ * Translations: wp-content/languages/plugins/{domain}-{locale}.mo first, then this plugin's languages/ folder.
+ */
+function mks_load_textdomain() {
+	load_plugin_textdomain( 'makaazi-slider', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
+}
+add_action( 'init', 'mks_load_textdomain', 0 );

@@ -113,7 +113,7 @@ class Makaazi_SEO {
 		$s    = $head . ' ' . ( isset( $verb[ $status ] ) ? $verb[ $status ] : '' );
 		$loc  = makaazi_location_text( $id );
 		if ( $loc ) {
-			/* translators: %s: location */
+			/* translators: %s: location name */
 			$s .= ' ' . sprintf( __( 'in %s', 'makaazi' ), $loc );
 		}
 		$s    .= '. ' . wp_strip_all_tags( makaazi_price( $id ) ) . '.';

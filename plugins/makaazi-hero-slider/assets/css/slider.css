@@ -32,7 +32,7 @@
 .mks__text { margin: 0; font-size: clamp(15px, 1.4vw, 18px); color: rgba(255, 255, 255, .86); max-width: 48ch; }
 .mks__btns { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 8px; }
 .mks__btn { display: inline-flex; align-items: center; padding: 12px 22px; border-radius: 4px; font-weight: 600; font-size: 14.5px; text-decoration: none !important; border: 1.5px solid transparent; transition: background .15s; }
-.mks__btn--primary { background: var(--mks-accent); color: #fff !important; border-color: var(--mks-accent); }
+.mks__btn--primary { background: var(--mks-accent); color: var(--mks-deep) !important; border-color: var(--mks-accent); }
 .mks__btn--primary:hover { filter: brightness(1.08); }
 .mks__btn--ghost { border-color: rgba(255, 255, 255, .7); color: #fff !important; }
 .mks__btn--ghost:hover { background: rgba(255, 255, 255, .1); }

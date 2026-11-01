@@ -149,6 +149,8 @@ class Makaazi_Render {
 			'favourite'    => (bool) makaazi_settings( 'card_favourite' ) && ! in_array( 'favourite', self::hidden( $o ), true ),
 			'compare'      => (bool) makaazi_settings( 'card_compare' ) && ! in_array( 'compare', self::hidden( $o ), true ),
 			'why'          => isset( $o['why'] ) ? (array) $o['why'] : array(),
+			// Card titles sit one level below the section heading (h2 under an h1 page title).
+			'heading'      => isset( $o['heading'] ) ? max( 2, min( 4, (int) $o['heading'] ) ) : ( self::is_listing_page() || 1 === self::page_level() ? 2 : 3 ),
 		);
 		/**
 		 * Filter the data used to render a property card (add specs, change the price line…).
@@ -513,7 +515,8 @@ class Makaazi_Render {
 				. '</div>';
 		}
 		$html .= '<section class="mk-results" aria-live="polite" aria-busy="false">';
-		$html .= '<div class="mk-results__bar"><h2 class="mk-results__title">' . esc_html( $cfg['title'] ? $cfg['title'] : self::results_title( $total, $f ) ) . '</h2>';
+		$tag   = self::is_listing_page() ? 'h1' : 'h2';
+		$html .= '<div class="mk-results__bar"><' . $tag . ' class="mk-results__title">' . esc_html( $cfg['title'] ? $cfg['title'] : self::results_title( $total, $f ) ) . '</' . $tag . '>';
 		$html .= '<div class="mk-results__ctl">';
 		if ( 'none' !== $cfg['filters'] ) {
 			$html .= '<button type="button" class="mk-btn mk-btn--ghost mk-btn--sm mk-filters-btn" data-mk-drawer-open aria-controls="mk-filters">' . makaazi_icon( 'filter' ) . ' ' . esc_html__( 'Filters', 'makaazi' ) . ( $chips['n'] ? ' (' . (int) $chips['n'] . ')' : '' ) . '</button>';
@@ -1202,20 +1205,40 @@ class Makaazi_Render {
 	}
 
 	/**
+	 * Is this the main Properties page or a property taxonomy archive (where the results title is the page's h1)?
+	 *
+	 * @return bool
+	 */
+	public static function is_listing_page() {
+		return is_post_type_archive( 'property' ) || is_tax( get_object_taxonomies( 'property' ) );
+	}
+
+	/**
+	 * Heading level for a section that is the main content of a page without its own title
+	 * (the full-width page template, or an archive).
+	 *
+	 * @return int 1 or 2.
+	 */
+	public static function page_level() {
+		return ( is_page() && 'page-full' === get_page_template_slug( get_queried_object_id() ) && ! is_front_page() ) || is_post_type_archive( array( 'mk_agent' ) ) ? 1 : 2;
+	}
+
+	/**
 	 * Section heading with optional "view all" link.
 	 *
-	 * @param string $eyebrow Small label.
-	 * @param string $title   Heading.
-	 * @param string $link    URL.
+	 * @param string $eyebrow Eyebrow.
+	 * @param string $title   Title.
+	 * @param string $link    Link.
 	 * @param string $text    Link text.
 	 * @param string $sub     Subtitle.
+	 * @param int    $level   Heading level.
 	 * @return string
 	 */
-	public static function section_head( $eyebrow, $title, $link = '', $text = '', $sub = '' ) {
+	public static function section_head( $eyebrow, $title, $link = '', $text = '', $sub = '', $level = 2 ) {
 		if ( ! $eyebrow && ! $title && ! $link ) {
 			return '';
 		}
-		return '<div class="mk-sechead"><div>' . ( $eyebrow ? '<p class="mk-eyebrow">' . esc_html( $eyebrow ) . '</p>' : '' ) . ( $title ? '<h2 class="mk-sechead__title">' . esc_html( $title ) . '</h2>' : '' ) . ( $sub ? '<p class="mk-sechead__sub">' . esc_html( $sub ) . '</p>' : '' ) . '</div>'
+		return '<div class="mk-sechead"><div>' . ( $eyebrow ? '<p class="mk-eyebrow">' . esc_html( $eyebrow ) . '</p>' : '' ) . ( $title ? '<h' . (int) $level . ' class="mk-sechead__title">' . esc_html( $title ) . '</h' . (int) $level . '>' : '' ) . ( $sub ? '<p class="mk-sechead__sub">' . esc_html( $sub ) . '</p>' : '' ) . '</div>'
 			. ( $link ? '<a class="mk-viewall" href="' . esc_url( $link ) . '">' . esc_html( $text ? $text : __( 'View all', 'makaazi' ) ) . makaazi_icon( 'arrow', 15 ) . '</a>' : '' ) . '</div>';
 	}
 }

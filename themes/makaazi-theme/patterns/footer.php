@@ -22,8 +22,8 @@ $mk_props = home_url( '/properties/' );
 <!-- /wp:column -->
 
 <!-- wp:column -->
-<div class="wp-block-column"><!-- wp:heading {"level":4} -->
-<h4 class="wp-block-heading"><?php esc_html_e( 'Explore', 'makaazi-theme' ); ?></h4>
+<div class="wp-block-column"><!-- wp:heading {"className":"mk-footer-h"} -->
+<h2 class="wp-block-heading mk-footer-h"><?php esc_html_e( 'Explore', 'makaazi-theme' ); ?></h2>
 <!-- /wp:heading -->
 
 <!-- wp:list {"className":"mk-footer-links"} -->
@@ -46,8 +46,8 @@ $mk_props = home_url( '/properties/' );
 <!-- /wp:column -->
 
 <!-- wp:column -->
-<div class="wp-block-column"><!-- wp:heading {"level":4} -->
-<h4 class="wp-block-heading"><?php esc_html_e( 'Popular areas', 'makaazi-theme' ); ?></h4>
+<div class="wp-block-column"><!-- wp:heading {"className":"mk-footer-h"} -->
+<h2 class="wp-block-heading mk-footer-h"><?php esc_html_e( 'Popular areas', 'makaazi-theme' ); ?></h2>
 <!-- /wp:heading -->
 
 <!-- wp:shortcode -->
@@ -56,8 +56,8 @@ $mk_props = home_url( '/properties/' );
 <!-- /wp:column -->
 
 <!-- wp:column -->
-<div class="wp-block-column"><!-- wp:heading {"level":4} -->
-<h4 class="wp-block-heading"><?php esc_html_e( 'Contact', 'makaazi-theme' ); ?></h4>
+<div class="wp-block-column"><!-- wp:heading {"className":"mk-footer-h"} -->
+<h2 class="wp-block-heading mk-footer-h"><?php esc_html_e( 'Contact', 'makaazi-theme' ); ?></h2>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->

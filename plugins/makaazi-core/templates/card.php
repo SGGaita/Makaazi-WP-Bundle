@@ -15,7 +15,11 @@ $c = $card;
 ?>
 <article class="mk-card<?php echo 'list' === $c['layout'] ? ' mk-card--list' : ''; ?><?php echo $c['closed'] ? ' is-closed' : ''; ?>" data-id="<?php echo (int) $c['id']; ?>">
 	<div class="mk-card__media" style="--mk-ratio:<?php echo esc_attr( $c['ratio'] ); ?>">
-		<div class="mk-strip" data-mk-strip tabindex="-1">
+		<?php if ( count( $c['images'] ) > 1 ) : ?>
+		<div class="mk-strip" data-mk-strip tabindex="0" role="group" aria-label="<?php echo esc_attr( sprintf( /* translators: %s: property title */ __( 'Photos of %s. Use the arrow keys to browse.', 'makaazi' ), $c['title'] ) ); ?>">
+		<?php else : ?>
+		<div class="mk-strip" data-mk-strip>
+		<?php endif; ?>
 			<?php foreach ( $c['images'] as $i => $img ) : ?>
 				<a class="mk-strip__slide" href="<?php echo esc_url( $c['url'] ); ?>" tabindex="-1" aria-hidden="<?php echo $i ? 'true' : 'false'; ?>">
 					<?php echo $img; // phpcs:ignore WordPress.Security.EscapeOutput -- wp_get_attachment_image output. ?>
@@ -39,8 +43,8 @@ $c = $card;
 			</div>
 		<?php endif; ?>
 		<?php if ( count( $c['images'] ) > 1 ) : ?>
-			<button type="button" class="mk-strip__arrow mk-strip__arrow--prev" data-mk-strip-nav="-1" aria-label="<?php esc_attr_e( 'Previous photo', 'makaazi' ); ?>"><?php echo makaazi_icon( 'left' ); // phpcs:ignore ?></button>
-			<button type="button" class="mk-strip__arrow mk-strip__arrow--next" data-mk-strip-nav="1" aria-label="<?php esc_attr_e( 'Next photo', 'makaazi' ); ?>"><?php echo makaazi_icon( 'right' ); // phpcs:ignore ?></button>
+			<button type="button" class="mk-strip__arrow mk-strip__arrow--prev" data-mk-strip-nav="-1" tabindex="-1" aria-label="<?php esc_attr_e( 'Previous photo', 'makaazi' ); ?>"><?php echo makaazi_icon( 'left' ); // phpcs:ignore ?></button>
+			<button type="button" class="mk-strip__arrow mk-strip__arrow--next" data-mk-strip-nav="1" tabindex="-1" aria-label="<?php esc_attr_e( 'Next photo', 'makaazi' ); ?>"><?php echo makaazi_icon( 'right' ); // phpcs:ignore ?></button>
 			<div class="mk-strip__dots" aria-hidden="true">
 				<?php foreach ( $c['images'] as $i => $img ) : ?><i class="<?php echo 0 === $i ? 'is-on' : ''; ?>"></i><?php endforeach; ?>
 			</div>
@@ -51,7 +55,7 @@ $c = $card;
 	</div>
 	<div class="mk-card__body">
 		<?php if ( $c['meta_line'] ) : ?><div class="mk-card__meta"><?php echo esc_html( $c['meta_line'] ); ?></div><?php endif; ?>
-		<h3 class="mk-card__title"><a href="<?php echo esc_url( $c['url'] ); ?>"><?php echo esc_html( $c['title'] ); ?></a></h3>
+		<h<?php echo (int) $c['heading']; ?> class="mk-card__title"><a href="<?php echo esc_url( $c['url'] ); ?>"><?php echo esc_html( $c['title'] ); ?></a></h<?php echo (int) $c['heading']; ?>>
 		<?php if ( $c['location'] ) : ?><div class="mk-card__loc"><?php echo makaazi_icon( 'pin', 14 ); // phpcs:ignore ?> <?php echo esc_html( $c['location'] ); ?></div><?php endif; ?>
 		<div class="mk-card__price"><?php echo $c['price']; // phpcs:ignore -- escaped in makaazi_price(). ?></div>
 		<?php if ( $c['specs'] ) : ?>
