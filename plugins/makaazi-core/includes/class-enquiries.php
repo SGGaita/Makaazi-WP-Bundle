@@ -55,18 +55,21 @@ class Makaazi_Enquiries {
 	 * @param string $phone Phone.
 	 * @param string $email Email.
 	 * @param string $msg   Message.
+	 * @param int    $aid   Agent ID.
 	 * @return int|WP_Error
 	 */
-	public static function create( $pid, $name, $phone, $email, $msg ) {
-		$id = wp_insert_post(
+	public static function create( $pid, $name, $phone, $email, $msg, $aid = 0 ) {
+		$about = $pid ? get_the_title( $pid ) : get_the_title( $aid );
+		$id    = wp_insert_post(
 			array(
 				'post_type'    => 'mk_enquiry',
 				'post_status'  => 'private',
-				/* translators: 1: name, 2: property title */
-				'post_title'   => sprintf( __( '%1$s about %2$s', 'makaazi' ), $name, get_the_title( $pid ) ),
+				/* translators: 1: name, 2: property or agent name */
+				'post_title'   => sprintf( __( '%1$s about %2$s', 'makaazi' ), $name, $about ),
 				'post_content' => $msg,
 				'meta_input'   => array(
 					'_mk_property_id' => $pid,
+					'_mk_agent_id'    => $aid,
 					'_mk_name'        => $name,
 					'_mk_phone'       => $phone,
 					'_mk_email'       => $email,
@@ -77,27 +80,49 @@ class Makaazi_Enquiries {
 		if ( is_wp_error( $id ) ) {
 			return $id;
 		}
-		update_post_meta( $pid, '_mk_leads', (int) get_post_meta( $pid, '_mk_leads', true ) + 1 );
+		if ( $pid ) {
+			update_post_meta( $pid, '_mk_leads', (int) get_post_meta( $pid, '_mk_leads', true ) + 1 );
+		}
 
-		$to = makaazi_settings( 'enquiry_email' );
-		$to = is_email( $to ) ? $to : get_option( 'admin_email' );
-		/* translators: 1: property title, 2: reference */
-		$subject = sprintf( __( 'New enquiry: %1$s (%2$s)', 'makaazi' ), get_the_title( $pid ), makaazi_meta( $pid, 'ref' ) );
+		$admin = makaazi_settings( 'enquiry_email' );
+		$admin = is_email( $admin ) ? $admin : get_option( 'admin_email' );
+		$to    = array();
+		if ( $aid ) {
+			$ae = (string) get_post_meta( $aid, '_mk_email', true );
+			if ( is_email( $ae ) ) {
+				$to[] = $ae;
+			}
+			if ( makaazi_settings( 'enquiry_cc_admin' ) || ! $to ) {
+				$to[] = $admin;
+			}
+		} else {
+			$to[] = $admin;
+		}
+		// Owners hear about enquiries on their own listings.
+		if ( $pid ) {
+			$author = get_userdata( (int) get_post_field( 'post_author', $pid ) );
+			if ( $author && Makaazi_Roles::is_owner( $author ) ) {
+				$to[] = $author->user_email;
+			}
+		}
+		$subject = $pid
+			/* translators: 1: property title, 2: reference */
+			? sprintf( __( 'New enquiry: %1$s (%2$s)', 'makaazi' ), get_the_title( $pid ), makaazi_meta( $pid, 'ref' ) )
+			/* translators: %s: agent name */
+			: sprintf( __( 'New message for %s', 'makaazi' ), get_the_title( $aid ) );
 		$body    = implode(
 			"\n",
 			array(
 				__( 'Name:', 'makaazi' ) . ' ' . $name,
 				__( 'Phone:', 'makaazi' ) . ' ' . $phone,
 				__( 'Email:', 'makaazi' ) . ' ' . ( $email ? $email : '-' ),
-				__( 'Property:', 'makaazi' ) . ' ' . get_permalink( $pid ),
+				$pid ? __( 'Property:', 'makaazi' ) . ' ' . get_permalink( $pid ) : __( 'Agent:', 'makaazi' ) . ' ' . get_the_title( $aid ),
 				'',
 				$msg,
-				'',
-				__( 'View all enquiries:', 'makaazi' ) . ' ' . admin_url( 'edit.php?post_type=mk_enquiry' ),
 			)
 		);
 		$headers = $email ? array( 'Reply-To: ' . $name . ' <' . $email . '>' ) : array();
-		wp_mail( $to, $subject, $body, $headers );
+		wp_mail( array_unique( $to ), $subject, $body, $headers );
 		return $id;
 	}
 

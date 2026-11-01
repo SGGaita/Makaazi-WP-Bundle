@@ -32,6 +32,10 @@ require_once MAKAAZI_DIR . 'includes/class-enquiries.php';
 require_once MAKAAZI_DIR . 'includes/class-assets.php';
 require_once MAKAAZI_DIR . 'includes/class-shortcode-docs.php';
 require_once MAKAAZI_DIR . 'includes/class-shortlist.php';
+require_once MAKAAZI_DIR . 'includes/class-roles.php';
+require_once MAKAAZI_DIR . 'includes/class-agents.php';
+require_once MAKAAZI_DIR . 'includes/class-accounts.php';
+require_once MAKAAZI_DIR . 'includes/class-submission.php';
 
 if ( is_admin() ) {
 	require_once MAKAAZI_DIR . 'admin/class-admin.php';
@@ -49,6 +53,10 @@ Makaazi_Rest::init();
 Makaazi_Enquiries::init();
 Makaazi_Assets::init();
 Makaazi_Shortlist::init();
+Makaazi_Roles::init();
+Makaazi_Agents::init();
+Makaazi_Accounts::init();
+Makaazi_Submission::init();
 
 if ( is_admin() ) {
 	Makaazi_Admin::init();
@@ -64,6 +72,8 @@ if ( is_admin() ) {
 function makaazi_activate() {
 	Makaazi_Post_Types::register();
 	Makaazi_Post_Types::seed_terms();
+	Makaazi_Roles::install();
+	Makaazi_Agents::register();
 	flush_rewrite_rules();
 }
 register_activation_hook( __FILE__, 'makaazi_activate' );

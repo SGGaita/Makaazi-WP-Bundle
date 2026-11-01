@@ -13,12 +13,16 @@ defined( 'ABSPATH' ) || exit;
  * @return array
  */
 function makaazi_default_settings() {
+	// Translate only once WordPress has loaded translations (settings can be read earlier, e.g. in capability checks).
+	$t = function ( $text ) {
+		return did_action( 'init' ) ? __( $text, 'makaazi' ) : $text; // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText
+	};
 	return array(
 		'currency'           => 'KES',
 		'short_price'        => 0,
 		'unit'               => 'sqm',
 		'unit_toggle'        => 1,
-		'button_text'        => __( 'View Property', 'makaazi' ),
+		'button_text'        => $t( 'View Property' ),
 		'card_images'        => 5,
 		'card_show'          => array( 'category', 'use', 'type', 'location', 'beds', 'baths', 'parking', 'area', 'badges' ),
 		'new_days'           => 7,
@@ -29,7 +33,7 @@ function makaazi_default_settings() {
 		'privacy_radius'     => 500,
 		'related_count'      => 8,
 		'related_same_status' => 1,
-		'contact_name'       => __( 'Makaazi Homes', 'makaazi' ),
+		'contact_name'       => $t( 'Makaazi Homes' ),
 		'contact_phone'      => '+254 700 123 456',
 		'whatsapp'           => '254700123456',
 		'enquiry_email'      => '',
@@ -40,6 +44,16 @@ function makaazi_default_settings() {
 		'card_compare'       => 1,
 		'favourites_page'    => 0,
 		'compare_page'       => 0,
+		'agents_enabled'     => 1,
+		'agent_review'       => 0,
+		'enquiry_cc_admin'   => 1,
+		'owners_enabled'     => 1,
+		'owner_registration' => 'open',
+		'owner_email_verify' => 1,
+		'owner_autopublish'  => 0,
+		'owner_edit_review'  => 1,
+		'max_photos'         => 20,
+		'dashboard_page'     => 0,
 		'map_tiles'          => 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
 		'map_center'         => '-1.2864,36.8172',
 	);
@@ -53,7 +67,7 @@ function makaazi_default_settings() {
  */
 function makaazi_settings( $key = null ) {
 	static $cache = null;
-	if ( null === $cache ) {
+	if ( null === $cache || ( ! did_action( 'init' ) ) ) {
 		$saved = get_option( 'makaazi_settings', array() );
 		$cache = wp_parse_args( is_array( $saved ) ? $saved : array(), makaazi_default_settings() );
 	}
@@ -448,6 +462,8 @@ function makaazi_icon( $name, $size = 16 ) {
 		'filter'  => '<path d="M4 6h16M7 12h10M10 18h4"/>',
 		'photo'   => '<rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M21 16l-5-5-8 8"/>',
 		'arrow'   => '<path d="M5 12h14M13 6l6 6-6 6"/>',
+		'user'    => '<circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/>',
+		'eye'     => '<path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/>',
 		'heart'   => '<path d="M12 20s-7-4.4-9-9a4.6 4.6 0 0 1 8-4l1 1 1-1a4.6 4.6 0 0 1 8 4c-2 4.6-9 9-9 9z"/>',
 		'compare' => '<path d="M7 4v13M7 4L4 7M7 4l3 3M17 20V7M17 20l-3-3M17 20l3-3"/>',
 	);
@@ -510,4 +526,38 @@ function makaazi_shortlist_url( $which ) {
 	}
 	$p = get_page_by_path( 'favourites' === $which ? 'favourites' : 'compare' );
 	return $p ? get_permalink( $p ) : '';
+}
+
+/**
+ * Agents feature switched on?
+ *
+ * @return bool
+ */
+function makaazi_agents_on() {
+	return (bool) makaazi_settings( 'agents_enabled' );
+}
+
+/**
+ * Owner submissions switched on?
+ *
+ * @return bool
+ */
+function makaazi_owners_on() {
+	return (bool) makaazi_settings( 'owners_enabled' );
+}
+
+/**
+ * My account / dashboard URL.
+ *
+ * @param array $args Query args.
+ * @return string
+ */
+function makaazi_dashboard_url( $args = array() ) {
+	$id  = (int) makaazi_settings( 'dashboard_page' );
+	$url = ( $id && 'publish' === get_post_status( $id ) ) ? get_permalink( $id ) : '';
+	if ( ! $url ) {
+		$p   = get_page_by_path( 'my-account' );
+		$url = $p ? get_permalink( $p ) : '';
+	}
+	return ( $url && $args ) ? add_query_arg( $args, $url ) : $url;
 }

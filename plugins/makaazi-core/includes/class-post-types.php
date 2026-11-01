@@ -52,7 +52,8 @@ class Makaazi_Post_Types {
 				'menu_position'   => 5,
 				'supports'        => array( 'title', 'editor', 'excerpt', 'thumbnail', 'revisions', 'author', 'custom-fields' ),
 				'show_in_rest'    => true,
-				'capability_type' => 'post',
+				'capability_type' => array( 'property', 'properties' ),
+				'map_meta_cap'    => true,
 			)
 		);
 
@@ -94,6 +95,12 @@ class Makaazi_Post_Types {
 					'meta_box_cb'       => in_array( $tax, array( 'property_status', 'property_use', 'property_type', 'property_location' ), true ) ? array( __CLASS__, 'radio_box' ) : null,
 					// Radio boxes post term IDs, so sanitize them as IDs for flat taxonomies too.
 					'meta_box_sanitize_cb' => 'taxonomy_meta_box_sanitize_cb_checkboxes',
+					'capabilities'      => array(
+						'manage_terms' => 'manage_categories',
+						'edit_terms'   => 'manage_categories',
+						'delete_terms' => 'manage_categories',
+						'assign_terms' => 'edit_properties',
+					),
 				)
 			);
 		}

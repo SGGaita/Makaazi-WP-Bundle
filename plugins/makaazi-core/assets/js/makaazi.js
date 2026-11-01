@@ -399,12 +399,12 @@
 			try { localStorage.setItem(KEY.favs, JSON.stringify(st.favs)); localStorage.setItem(KEY.compare, JSON.stringify(st.compare)); } catch (e) { /* storage blocked */ }
 		}
 		function push() {
-			if (!CFG.user) return;
+			if (!+CFG.user) return;
 			fetch(restUrl('/me/saved'), { method: 'POST', credentials: 'same-origin', headers: { 'Content-Type': 'application/json', 'X-WP-Nonce': CFG.nonce }, body: JSON.stringify(st) }).catch(function () {});
 		}
 		function union(a, b, m) { var o = a.slice(); b.forEach(function (x) { if (o.indexOf(x) < 0) o.push(x); }); return o.slice(0, m); }
 		function sync() {
-			if (!CFG.user || !window.fetch) return Promise.resolve();
+			if (!+CFG.user || !window.fetch) return Promise.resolve();
 			return fetch(restUrl('/me/saved'), { credentials: 'same-origin', headers: { 'X-WP-Nonce': CFG.nonce } })
 				.then(function (r) { return r.ok ? r.json() : null; })
 				.then(function (d) {
@@ -601,4 +601,203 @@
 		SL.boot();
 	}
 	if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot); else boot();
+}());
+
+/* ---------- Owner / agent dashboard: listing form ---------- */
+(function () {
+	'use strict';
+	var CFG = window.MAKAAZI || {}, T = CFG.i18n || {};
+	function $(s, r) { return (r || document).querySelector(s); }
+	function $$(s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); }
+	function restUrl(path) { var b = CFG.rest || ''; return b.indexOf('rest_route=') > -1 ? b + path : b.replace(/\/$/, '') + path; }
+
+	/* Two-tap delete */
+	document.addEventListener('submit', function (e) {
+		var f = e.target.closest('[data-mk-confirm]');
+		if (!f || f._ok) return;
+		e.preventDefault();
+		var b = $('button', f); f._ok = true; b.textContent = f.getAttribute('data-mk-confirm'); b.classList.add('is-confirm'); b.focus();
+		setTimeout(function () { f._ok = false; }, 5000);
+	});
+
+	var form = $('[data-mk-submit]');
+	if (!form) return;
+	var steps = $$('.mk-step', form), cur = parseInt(form.getAttribute('data-first'), 10) || 1, N = steps.length;
+	var maxPhotos = parseInt(form.getAttribute('data-max-photos'), 10) || 20;
+	var btnBack = $('[data-mk-back]', form), btnNext = $('[data-mk-next]', form), btnFinal = $('[data-mk-final]', form);
+	form.classList.add('is-js');
+
+	function show(n) {
+		cur = Math.max(1, Math.min(N, n));
+		steps.forEach(function (s) { s.hidden = +s.getAttribute('data-step') !== cur; });
+		$$('.mk-steps li', form).forEach(function (li, i) { li.className = i + 1 === cur ? 'is-on' : (i + 1 < cur ? 'is-done' : ''); var b = $('button', li); if (i + 1 === cur) b.setAttribute('aria-current', 'step'); else b.removeAttribute('aria-current'); });
+		btnBack.hidden = cur === 1; btnNext.hidden = cur === N; btnFinal.hidden = cur !== N;
+		if (cur === 4) initPin();
+		if (cur === N) review();
+		var t = $('.mk-step__title', steps[cur - 1]); if (t) { t.setAttribute('tabindex', '-1'); }
+	}
+	function fieldErr(input, msg) {
+		var lab = input.closest('.mk-field'); if (!lab) return;
+		lab.classList.add('has-error'); input.setAttribute('aria-invalid', 'true');
+		var sp = $('.mk-ferr', lab); if (!sp) { sp = document.createElement('span'); sp.className = 'mk-ferr'; lab.appendChild(sp); }
+		sp.textContent = msg;
+	}
+	function clearErr(input) { var lab = input.closest('.mk-field'); if (!lab) return; lab.classList.remove('has-error'); input.removeAttribute('aria-invalid'); var sp = $('.mk-ferr', lab); if (sp) sp.remove(); }
+	function validate(n) {
+		var s = steps[n - 1], bad = [];
+		$$('[required]', s).forEach(function (i) { if (!String(i.value).trim()) { fieldErr(i, T.needed); bad.push(i); } });
+		if (n === 1) {
+			var price = $('[name=price]', form), por = $('[name=por]', form);
+			if (!por.checked && !(+price.value > 0)) { fieldErr(price, T.needed); bad.push(price); }
+		}
+		if (n === 3 && ids().length < 3) { var d = $('[data-mk-drop]', form); d.classList.add('has-error'); bad.push($('[data-mk-files]', form)); }
+		if (bad.length) { bad[0].focus(); return false; }
+		return true;
+	}
+	form.addEventListener('input', function (e) { if (e.target.matches('input, select, textarea')) clearErr(e.target); });
+	form.addEventListener('change', function (e) { if (e.target.matches('select')) clearErr(e.target); });
+	btnNext.addEventListener('click', function () { if (validate(cur)) { show(cur + 1); form.scrollIntoView({ behavior: 'smooth', block: 'start' }); } });
+	btnBack.addEventListener('click', function () { show(cur - 1); });
+	$$('[data-mk-go]', form).forEach(function (b) { b.addEventListener('click', function () { var n = +b.getAttribute('data-mk-go'); if (n < cur || validate(cur)) show(n); }); });
+	form.addEventListener('submit', function (e) {
+		var intent = e.submitter && e.submitter.value;
+		if (intent === 'draft') return;
+		for (var i = 1; i < N; i++) { if (!validate(i)) { e.preventDefault(); show(i); validate(i); return; } }
+	});
+
+	/* Sale / rent: label and period */
+	function syncStatus() {
+		var rent = ($('[data-mk-status]:checked', form) || {}).value === 'rent';
+		var lab = $('[data-mk-price-label]', form); lab.textContent = lab.getAttribute(rent ? 'data-rent' : 'data-sale');
+		var per = $('[data-mk-period]', form); if (rent && per.value === 'total') per.value = 'month'; if (!rent) per.value = 'total';
+	}
+	$$('[data-mk-status]', form).forEach(function (r) { r.addEventListener('change', syncStatus); });
+	/* Land: hide rooms */
+	function syncType() {
+		var land = ($('[data-mk-type]', form) || {}).value === 'land';
+		$$('[data-mk-room]', form).forEach(function (el) { el.hidden = land; });
+	}
+	$('[data-mk-type]', form).addEventListener('change', syncType); syncType();
+
+	/* Photos */
+	var input = $('[data-mk-photos]', form), list = $('[data-mk-thumbs]', form), files = $('[data-mk-files]', form), drop = $('[data-mk-drop]', form), countEl = $('[data-mk-photo-count]', form);
+	function ids() { return $$('li[data-id]', list).map(function (li) { return li.getAttribute('data-id'); }); }
+	function sync() {
+		input.value = ids().join(',');
+		$$('li', list).forEach(function (li, i) { li.classList.toggle('is-cover', i === 0); });
+		var n = ids().length;
+		countEl.textContent = n ? (T.photosN || '%1$d / %2$d').replace('%1$d', n).replace('%2$d', maxPhotos) : '';
+		if (n >= 3) drop.classList.remove('has-error');
+	}
+	function thumb(id, src) {
+		var li = document.createElement('li');
+		li.setAttribute('data-id', id); li.draggable = true;
+		li.innerHTML = '<img src="' + src + '" alt=""><span class="mk-thumbs__badge">' + (T.cover || 'Cover') + '</span><span class="mk-thumbs__acts"><button type="button" data-mk-cover aria-label="Cover">★</button><button type="button" data-mk-left aria-label="Earlier">◀</button><button type="button" data-mk-right aria-label="Later">▶</button><button type="button" data-mk-remove aria-label="Remove">✕</button></span>';
+		return li;
+	}
+	function resize(file) {
+		return new Promise(function (res) {
+			if (!/^image\/(jpeg|png|webp)$/.test(file.type) || file.size < 1.5e6) { res(file); return; }
+			var img = new Image(), url = URL.createObjectURL(file);
+			img.onload = function () {
+				var max = 2000, w = img.width, h = img.height, k = Math.min(1, max / Math.max(w, h));
+				var c = document.createElement('canvas'); c.width = Math.round(w * k); c.height = Math.round(h * k);
+				c.getContext('2d').drawImage(img, 0, 0, c.width, c.height);
+				c.toBlob(function (b) { URL.revokeObjectURL(url); res(b ? new File([b], file.name.replace(/\.\w+$/, '.jpg'), { type: 'image/jpeg' }) : file); }, 'image/jpeg', 0.85);
+			};
+			img.onerror = function () { res(file); };
+			img.src = url;
+		});
+	}
+	function upload(fileList) {
+		var arr = Array.prototype.slice.call(fileList);
+		var room = maxPhotos - ids().length;
+		if (room <= 0) { alert(T.tooMany); return; }
+		arr.slice(0, room).reduce(function (p, file) {
+			return p.then(function () {
+				var ph = document.createElement('li'); ph.className = 'is-loading'; ph.innerHTML = '<span>' + (T.uploading || '…') + '</span>'; list.appendChild(ph);
+				return resize(file).then(function (f) {
+					var fd = new FormData(); fd.append('file', f, f.name);
+					return fetch(restUrl('/upload'), { method: 'POST', credentials: 'same-origin', headers: { 'X-WP-Nonce': CFG.nonce }, body: fd })
+						.then(function (r) { return r.json().then(function (d) { return { ok: r.ok, d: d }; }); })
+						.then(function (res) {
+							if (res.ok) list.replaceChild(thumb(res.d.id, res.d.thumb), ph);
+							else { ph.className = 'is-error'; ph.innerHTML = '<span>' + ((res.d && res.d.message) || T.upFail) + '</span>'; setTimeout(function () { ph.remove(); }, 4000); }
+							sync();
+						});
+				}).catch(function () { ph.remove(); });
+			});
+		}, Promise.resolve());
+	}
+	files.addEventListener('change', function () { upload(files.files); files.value = ''; });
+	['dragenter', 'dragover'].forEach(function (ev) { drop.addEventListener(ev, function (e) { if (e.dataTransfer && Array.prototype.indexOf.call(e.dataTransfer.types, 'Files') > -1) { e.preventDefault(); drop.classList.add('is-over'); } }); });
+	['dragleave', 'drop'].forEach(function (ev) { drop.addEventListener(ev, function () { drop.classList.remove('is-over'); }); });
+	drop.addEventListener('drop', function (e) { if (e.dataTransfer && e.dataTransfer.files.length) { e.preventDefault(); upload(e.dataTransfer.files); } });
+	list.addEventListener('click', function (e) {
+		var b = e.target.closest('button'); if (!b) return;
+		var li = b.closest('li');
+		if (b.hasAttribute('data-mk-remove')) li.remove();
+		else if (b.hasAttribute('data-mk-cover')) list.insertBefore(li, list.firstChild);
+		else if (b.hasAttribute('data-mk-left') && li.previousElementSibling) list.insertBefore(li, li.previousElementSibling);
+		else if (b.hasAttribute('data-mk-right') && li.nextElementSibling) list.insertBefore(li.nextElementSibling, li);
+		sync();
+	});
+	var dragged = null;
+	list.addEventListener('dragstart', function (e) { dragged = e.target.closest('li'); if (dragged) { dragged.classList.add('is-drag'); e.dataTransfer.effectAllowed = 'move'; } });
+	list.addEventListener('dragend', function () { if (dragged) dragged.classList.remove('is-drag'); dragged = null; sync(); });
+	list.addEventListener('dragover', function (e) {
+		if (!dragged) return; e.preventDefault();
+		var over = e.target.closest('li'); if (!over || over === dragged) return;
+		var r = over.getBoundingClientRect(), after = (e.clientX - r.left) > r.width / 2;
+		list.insertBefore(dragged, after ? over.nextSibling : over);
+	});
+	sync();
+
+	/* Map pin */
+	var pinMap = null, pin = null;
+	function initPin() {
+		var el = $('[data-mk-pinmap]', form);
+		if (!el || !window.L) return;
+		if (pinMap) { setTimeout(function () { pinMap.invalidateSize(); }, 50); return; }
+		var lat = parseFloat($('[data-mk-lat]', form).value), lng = parseFloat($('[data-mk-lng]', form).value), has = !isNaN(lat) && !isNaN(lng);
+		var c = (el.getAttribute('data-center') || '-1.2864,36.8172').split(',').map(parseFloat);
+		pinMap = window.L.map(el).setView(has ? [lat, lng] : c, has ? 15 : 12);
+		window.L.tileLayer(CFG.tiles || 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19, attribution: CFG.attrib || '' }).addTo(pinMap);
+		function place(ll) {
+			if (!pin) { pin = window.L.marker(ll, { draggable: true }).addTo(pinMap); pin.on('dragend', function () { place(pin.getLatLng()); }); }
+			pin.setLatLng(ll);
+			$('[data-mk-lat]', form).value = ll.lat.toFixed(6); $('[data-mk-lng]', form).value = ll.lng.toFixed(6);
+		}
+		if (has) place(window.L.latLng(lat, lng));
+		pinMap.on('click', function (e) { place(e.latlng); });
+		var go = $('[data-mk-geo-go]', form), q = $('[data-mk-geo]', form);
+		go.addEventListener('click', function () {
+			if (!q.value) return;
+			fetch('https://nominatim.openstreetmap.org/search?format=json&limit=1&countrycodes=ke&q=' + encodeURIComponent(q.value))
+				.then(function (r) { return r.json(); })
+				.then(function (d) { if (d && d[0]) { var ll = window.L.latLng(+d[0].lat, +d[0].lon); pinMap.setView(ll, 16); place(ll); } else alert(T.notFound); })
+				.catch(function () { alert(T.notFound); });
+		});
+		q.addEventListener('keydown', function (e) { if (e.key === 'Enter') { e.preventDefault(); go.click(); } });
+		setTimeout(function () { pinMap.invalidateSize(); }, 60);
+	}
+
+	/* Review */
+	function txt(sel) { var el = $(sel, form); if (!el) return ''; if (el.tagName === 'SELECT') return el.value ? el.options[el.selectedIndex].text : ''; return el.value; }
+	function review() {
+		var R = T.rv || {}, dl = $('[data-mk-review]', form), none = T.none || '–';
+		var rent = ($('[data-mk-status]:checked', form) || {}).value === 'rent';
+		var feats = $$('[name="features[]"]:checked', form).map(function (i) { return i.parentElement.textContent.trim(); });
+		var price = $('[name=por]', form).checked ? R.request : (txt('[name=price]') ? 'KES ' + Number(txt('[name=price]')).toLocaleString('en-US') + (txt('[name=period]') && $('[name=period]', form).value !== 'total' ? ' · ' + txt('[name=period]') : '') : '');
+		var rows = [
+			[R.title, txt('[name=title]')], [R.status, rent ? $$('[data-mk-status]', form)[1].parentElement.textContent.trim() : $$('[data-mk-status]', form)[0].parentElement.textContent.trim()],
+			[R.type, txt('[name=type]')], [R.price, price],
+			[R.rooms, [txt('[name=bedrooms]'), txt('[name=bathrooms]'), txt('[name=parking]')].map(function (x) { return x || '–'; }).join(' / ')],
+			[R.area, txt('[name=area]') ? txt('[name=area]') + ' ' + ($('#mk-s-area', form).previousElementSibling.textContent.match(/\(([^)]+)\)/) || ['', ''])[1] : (txt('[name=land_size]') ? txt('[name=land_size]') + ' ' + txt('[name=land_unit]') : '')],
+			[R.features, feats.join(', ')], [R.photos, String(ids().length)],
+			[R.location, [txt('[name=label]'), txt('[name=location]')].filter(Boolean).join(', ')], [R.pin, $('[data-mk-lat]', form).value ? R.yes : R.no]
+		];
+		dl.innerHTML = rows.map(function (r) { var v = r[1] || none; return '<div><dt>' + r[0] + '</dt><dd>' + String(v).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }) + '</dd></div>'; }).join('');
+	}
+	show(cur);
 }());

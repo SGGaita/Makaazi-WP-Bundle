@@ -58,6 +58,7 @@
  "props": [
   {
    "key": "p1",
+   "agent": "a1",
    "title": "Riverside Heights 3BR",
    "status": "rent",
    "type": "apartment",
@@ -121,6 +122,7 @@
   },
   {
    "key": "p2",
+   "agent": "a3",
    "title": "Kilimani Garden Apartments 2BR",
    "status": "rent",
    "type": "apartment",
@@ -175,6 +177,7 @@
   },
   {
    "key": "p3",
+   "agent": "a2",
    "title": "Karen Ridge Villa",
    "status": "sale",
    "type": "villa",
@@ -239,6 +242,7 @@
   },
   {
    "key": "p4",
+   "agent": "a2",
    "title": "Lavington Townhouse 4BR",
    "status": "sale",
    "type": "townhouse",
@@ -294,6 +298,7 @@
   },
   {
    "key": "p5",
+   "agent": "a4",
    "title": "Upper Hill Office Floor",
    "status": "rent",
    "type": "office",
@@ -345,6 +350,7 @@
   },
   {
    "key": "p6",
+   "agent": "a2",
    "title": "Runda Family Home",
    "status": "sale",
    "type": "villa",
@@ -407,6 +413,7 @@
   },
   {
    "key": "p7",
+   "agent": "a3",
    "title": "Kileleshwa Studio",
    "status": "rent",
    "type": "apartment",
@@ -455,6 +462,7 @@
   },
   {
    "key": "p8",
+   "agent": "a4",
    "title": "Ruiru Off-plan 2BR",
    "status": "sale",
    "type": "apartment",
@@ -507,6 +515,7 @@
   },
   {
    "key": "p9",
+   "agent": "a4",
    "title": "Kitengela Residential Plot",
    "status": "sale",
    "type": "land",
@@ -554,6 +563,7 @@
   },
   {
    "key": "p10",
+   "agent": "a4",
    "title": "Westlands Retail Shop",
    "status": "rent",
    "type": "shop",
@@ -602,6 +612,7 @@
   },
   {
    "key": "p11",
+   "agent": "a3",
    "title": "Nyali Beachfront 3BR",
    "status": "rent",
    "type": "apartment",
@@ -657,6 +668,7 @@
   },
   {
    "key": "p12",
+   "agent": "a2",
    "title": "Kiambu Road Maisonette",
    "status": "sale",
    "type": "maisonette",
@@ -711,6 +723,7 @@
   },
   {
    "key": "p13",
+   "agent": "a1",
    "title": "Kilimani Penthouse",
    "status": "sale",
    "type": "apartment",
@@ -764,6 +777,7 @@
   },
   {
    "key": "p14",
+   "agent": "a1",
    "title": "Westlands 1BR Serviced",
    "status": "rent",
    "type": "apartment",
@@ -813,6 +827,7 @@
   },
   {
    "key": "p15",
+   "agent": "a1",
    "title": "Westlands Skyline 2BR",
    "status": "rent",
    "type": "apartment",
@@ -904,5 +919,43 @@
   "kitengela": "land-1.jpg",
   "nyali": "beach-1.jpg",
   "kiamburd": "town-2.jpg"
- }
+ },
+ "agents": [
+  {
+   "id": "a1",
+   "name": "Grace Achieng",
+   "role": "Senior Agent",
+   "office": "Westlands office",
+   "phone": "+254 712 345 678",
+   "email": "grace@makaazihomes.co.ke",
+   "bio": "Grace has placed families and expatriate tenants across Westlands, Kileleshwa and Lavington for nine years. She knows which buildings have reliable water and backup power."
+  },
+  {
+   "id": "a2",
+   "name": "Brian Otieno",
+   "role": "Sales Manager",
+   "office": "Karen office",
+   "phone": "+254 723 456 789",
+   "email": "brian@makaazihomes.co.ke",
+   "bio": "Brian leads residential sales in Karen, Runda and Kiambu Road, with a focus on gated communities and family homes on half-acre plots."
+  },
+  {
+   "id": "a3",
+   "name": "Amina Hassan",
+   "role": "Rentals Lead",
+   "office": "Kilimani office",
+   "phone": "+254 734 567 890",
+   "email": "amina@makaazihomes.co.ke",
+   "bio": "Amina manages furnished and long-let rentals in Kilimani and Nyali, and handles tenant onboarding from viewing to move-in."
+  },
+  {
+   "id": "a4",
+   "name": "David Kamau",
+   "role": "Commercial Agent",
+   "office": "Upper Hill office",
+   "phone": "+254 745 678 901",
+   "email": "david@makaazihomes.co.ke",
+   "bio": "David advises businesses on office floors, retail space and land along the Nairobi growth corridors, including Ruiru and Kitengela."
+  }
+ ]
 }

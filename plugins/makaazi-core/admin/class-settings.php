@@ -86,6 +86,21 @@ class Makaazi_Settings {
 					'filters'      => array( 'multi', __( 'Filters', 'makaazi' ), '', $filters ),
 				),
 			),
+			'features' => array(
+				__( 'Features', 'makaazi' ),
+				array(
+					'agents_enabled'     => array( 'checkbox', __( 'Agents', 'makaazi' ), __( 'Agent profiles, agent pages, the agent on each listing and agent sign-in. Turning this off hides them; nothing is deleted.', 'makaazi' ) ),
+					'agent_review'       => array( 'checkbox', __( 'Review agent listings', 'makaazi' ), __( 'New listings from agents wait for an admin to approve them.', 'makaazi' ) ),
+					'enquiry_cc_admin'   => array( 'checkbox', __( 'Copy me on agent enquiries', 'makaazi' ), __( 'Send a copy of every enquiry to the address in Property page › Send enquiries to.', 'makaazi' ) ),
+					'owners_enabled'     => array( 'checkbox', __( 'Owner submissions', 'makaazi' ), __( 'Owners can sign up, list properties from the website and manage them in their dashboard.', 'makaazi' ) ),
+					'owner_registration' => array( 'select', __( 'Owner accounts', 'makaazi' ), __( 'How property owners get an account.', 'makaazi' ), array( 'open' => __( 'Anyone can sign up', 'makaazi' ), 'approval' => __( 'Sign-ups need my approval', 'makaazi' ), 'invite' => __( 'Invite only (I create accounts)', 'makaazi' ) ) ),
+					'owner_email_verify' => array( 'checkbox', __( 'Confirm email', 'makaazi' ), __( 'New owners must click a link in an email before signing in. Your site must be able to send email (XAMPP cannot by default); you can also activate accounts under Users.', 'makaazi' ) ),
+					'owner_autopublish'  => array( 'checkbox', __( 'Publish owner listings straight away', 'makaazi' ), __( 'Not recommended. When off, every owner listing waits for review.', 'makaazi' ) ),
+					'owner_edit_review'  => array( 'checkbox', __( 'Review edits to live listings', 'makaazi' ), __( 'When an owner edits a live listing it goes back to Pending review.', 'makaazi' ) ),
+					'max_photos'         => array( 'number', __( 'Photos per listing', 'makaazi' ), __( 'Maximum photos an owner or agent can upload.', 'makaazi' ) ),
+					'dashboard_page'     => array( 'page', __( 'My account page', 'makaazi' ), __( 'A page containing [makaazi_dashboard].', 'makaazi' ) ),
+				),
+			),
 			'shortlist' => array(
 				__( 'Favourites & compare', 'makaazi' ),
 				array(
@@ -124,7 +139,7 @@ class Makaazi_Settings {
 	 */
 	public static function page() {
 		$schema = self::schema();
-		$tab    = isset( $_GET['tab'] ) && isset( $schema[ $_GET['tab'] ] ) ? sanitize_key( $_GET['tab'] ) : 'general'; // phpcs:ignore WordPress.Security.NonceVerification
+		$tab    = isset( $_GET['tab'] ) && isset( $schema[ $_GET['tab'] ] ) ? sanitize_key( $_GET['tab'] ) : 'features'; // phpcs:ignore WordPress.Security.NonceVerification
 		$s      = makaazi_settings();
 		echo '<div class="wrap mk-settings"><h1>' . esc_html__( 'Makaazi Settings', 'makaazi' ) . '</h1>';
 		if ( isset( $_GET['updated'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification
@@ -211,7 +226,7 @@ class Makaazi_Settings {
 		}
 		check_admin_referer( 'makaazi_settings' );
 		$schema = self::schema();
-		$tab    = isset( $_POST['tab'] ) && isset( $schema[ $_POST['tab'] ] ) ? sanitize_key( $_POST['tab'] ) : 'general';
+		$tab    = isset( $_POST['tab'] ) && isset( $schema[ $_POST['tab'] ] ) ? sanitize_key( $_POST['tab'] ) : 'features';
 		$in     = isset( $_POST['s'] ) && is_array( $_POST['s'] ) ? wp_unslash( $_POST['s'] ) : array(); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput
 		$saved  = get_option( 'makaazi_settings', array() );
 		$saved  = is_array( $saved ) ? $saved : array();
@@ -241,6 +256,10 @@ class Makaazi_Settings {
 					}
 					$saved[ $key ] = $v;
 			}
+		}
+		$before = get_option( 'makaazi_settings', array() );
+		if ( isset( $saved['agents_enabled'] ) && ( ! is_array( $before ) || ! isset( $before['agents_enabled'] ) || (int) $before['agents_enabled'] !== (int) $saved['agents_enabled'] ) ) {
+			update_option( 'makaazi_flush_rules', 1, false ); // Agent pages appear or disappear.
 		}
 		update_option( 'makaazi_settings', $saved );
 		makaazi_bump_cache();

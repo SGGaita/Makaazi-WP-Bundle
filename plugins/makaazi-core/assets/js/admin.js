@@ -141,6 +141,14 @@
 		});
 	});
 
+	/* Reject with a reason (pending properties) */
+	$(document).on('click', 'a.mk-reject', function (e) {
+		e.preventDefault();
+		var reason = window.prompt($(this).data('prompt'), '');
+		if (reason === null) return;
+		window.location.href = this.href + '&reason=' + encodeURIComponent(reason);
+	});
+
 	/* Copy buttons */
 	$(document).on('click', '[data-mk-copy]', function () {
 		var b = $(this), t = b.data('mk-copy'), label = b.text();

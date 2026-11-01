@@ -44,7 +44,8 @@ class Makaazi_Demo {
 			. '<li>' . esc_html__( '15 properties with photos, prices in KES, features and approximate map locations', 'makaazi' ) . '</li>'
 			. '<li>' . esc_html__( 'Locations, types, categories and features', 'makaazi' ) . '</li>'
 			. '<li>' . esc_html__( 'A three-slide hero slider with the Buy/Rent search (needs Makaazi Hero Slider)', 'makaazi' ) . '</li>'
-			. '<li>' . esc_html__( 'Home, Contact, Favourites and Compare pages built from shortcodes, the front page setting and a main menu', 'makaazi' ) . '</li>'
+			. '<li>' . esc_html__( '4 agent profiles, assigned to the listings', 'makaazi' ) . '</li>'
+			. '<li>' . esc_html__( 'Home, Contact, Favourites, Compare and My account pages, the front page setting and a main menu', 'makaazi' ) . '</li>'
 			. '</ul><p>' . esc_html__( 'Photos are illustrations. Running the import again skips anything already imported.', 'makaazi' ) . '</p>';
 		echo '<form method="post" action="' . esc_url( admin_url( 'admin-post.php' ) ) . '">';
 		wp_nonce_field( 'makaazi_demo' );
@@ -206,9 +207,39 @@ class Makaazi_Demo {
 			}
 		}
 
+		// Agents.
+		$agent_ids = array();
+		foreach ( isset( $data['agents'] ) ? $data['agents'] : array() as $a ) {
+			$aid = self::existing( 'agent:' . $a['id'], 'mk_agent' );
+			if ( ! $aid ) {
+				$aid = wp_insert_post(
+					array(
+						'post_type'    => 'mk_agent',
+						'post_status'  => 'publish',
+						'post_title'   => $a['name'],
+						'post_content' => $a['bio'],
+					)
+				);
+				if ( is_wp_error( $aid ) || ! $aid ) {
+					continue;
+				}
+				update_post_meta( $aid, '_mk_demo', 'agent:' . $a['id'] );
+				update_post_meta( $aid, '_mk_role', $a['role'] );
+				update_post_meta( $aid, '_mk_office', $a['office'] );
+				update_post_meta( $aid, '_mk_phone', $a['phone'] );
+				update_post_meta( $aid, '_mk_whatsapp', preg_replace( '/\D+/', '', $a['phone'] ) );
+				update_post_meta( $aid, '_mk_email', $a['email'] );
+			}
+			$agent_ids[ $a['id'] ] = (int) $aid;
+		}
+
 		$now = time();
 		foreach ( $data['props'] as $p ) {
-			if ( self::existing( 'prop:' . $p['key'], 'property' ) ) {
+			$found = self::existing( 'prop:' . $p['key'], 'property' );
+			if ( $found ) {
+				if ( ! empty( $p['agent'] ) && isset( $agent_ids[ $p['agent'] ] ) && ! get_post_meta( $found, '_mk_agent_id', true ) ) {
+					update_post_meta( $found, '_mk_agent_id', $agent_ids[ $p['agent'] ] );
+				}
 				continue;
 			}
 			$date = gmdate( 'Y-m-d H:i:s', $now - (int) $p['age'] * DAY_IN_SECONDS - 3600 );
@@ -261,6 +292,7 @@ class Makaazi_Demo {
 				'_mk_exact_pin'        => in_array( $p['type'], array( 'office', 'shop' ), true ) ? 1 : 0,
 				'_mk_attributes'       => $p['attrs'] ? $p['attrs'] : array(),
 				'_mk_leads'            => 0,
+				'_mk_agent_id'         => ! empty( $p['agent'] ) && isset( $agent_ids[ $p['agent'] ] ) ? $agent_ids[ $p['agent'] ] : 0,
 			);
 			if ( $p['year'] ) {
 				$meta['_mk_year_built'] = $p['year'];
@@ -349,6 +381,7 @@ class Makaazi_Demo {
 		foreach ( array(
 			'favourites' => array( __( 'Favourites', 'makaazi' ), '[makaazi_favourites]', 'favourites_page' ),
 			'compare'    => array( __( 'Compare', 'makaazi' ), '[makaazi_compare]', 'compare_page' ),
+			'my-account' => array( __( 'My account', 'makaazi' ), '[makaazi_dashboard]', 'dashboard_page' ),
 		) as $slug => $d ) {
 			$pid = self::existing( 'page:' . $slug, 'page' );
 			if ( ! $pid ) {
@@ -412,6 +445,30 @@ class Makaazi_Demo {
 			update_post_meta( $nav, '_mk_demo', 'nav:main' );
 		}
 
+		$nav_id = self::existing( 'nav:main', 'wp_navigation' );
+		if ( $nav_id && post_type_exists( 'mk_agent' ) && get_post_type_archive_link( 'mk_agent' ) ) {
+			$content = get_post_field( 'post_content', $nav_id );
+			if ( false === strpos( $content, '"Agents"' ) ) {
+				$agents_link = '<!-- wp:navigation-link ' . wp_json_encode(
+					array(
+						'label'          => __( 'Agents', 'makaazi' ),
+						'url'            => get_post_type_archive_link( 'mk_agent' ),
+						'kind'           => 'custom',
+						'isTopLevelLink' => true,
+					),
+					JSON_UNESCAPED_SLASHES
+				) . ' /-->';
+				$pos     = strrpos( $content, '<!-- wp:navigation-link' );
+				$content = false === $pos ? $content . "\n" . $agents_link : substr( $content, 0, $pos ) . $agents_link . "\n" . substr( $content, $pos );
+				wp_update_post(
+					array(
+						'ID'           => $nav_id,
+						'post_content' => $content,
+					)
+				);
+			}
+		}
+
 		if ( 'Just another WordPress site' === get_option( 'blogdescription' ) || '' === get_option( 'blogdescription' ) ) {
 			update_option( 'blogdescription', __( 'Homes, offices and land across Kenya', 'makaazi' ) );
 		}
@@ -457,7 +514,7 @@ class Makaazi_Demo {
 	public static function remove() {
 		$items = get_posts(
 			array(
-				'post_type'      => array( 'property', 'mk_slider', 'page', 'wp_navigation', 'attachment' ),
+				'post_type'      => array( 'property', 'mk_slider', 'page', 'wp_navigation', 'attachment', 'mk_agent' ),
 				'post_status'    => 'any',
 				'posts_per_page' => -1,
 				'fields'         => 'ids',

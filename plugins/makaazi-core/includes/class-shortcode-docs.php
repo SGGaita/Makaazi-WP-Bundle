@@ -37,6 +37,7 @@ class Makaazi_Shortcode_Docs {
 					'category'       => array( '', __( 'Category slug(s), comma-separated', 'makaazi' ) ),
 					'use'            => array( '', 'residential, commercial' ),
 					'ids'            => array( '', __( 'Property IDs, comma-separated (with source="ids")', 'makaazi' ) ),
+					'agent'          => array( '', __( 'Agent ID or slug: only that agent\'s listings', 'makaazi' ) ),
 					'pagination'     => array( 'none', 'none, numbered, loadmore' ),
 					'eyebrow'        => array( '', __( 'Small label above the title', 'makaazi' ) ),
 					'title'          => array( '', __( 'Section title', 'makaazi' ) ),

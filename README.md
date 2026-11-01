@@ -35,6 +35,7 @@ The full reference with every attribute and copy buttons is in **Properties › 
 [makaazi_property]   (or the separate _header, _gallery, _facts, _details, _features, _map, _contact parts)
 [makaazi_related_properties]
 [makaazi_favourites]  [makaazi_compare]  [makaazi_favourites_link]
+[makaazi_agents]  [makaazi_agent]  [makaazi_dashboard]  [makaazi_account_link]
 ```
 
 ## Notes
@@ -43,8 +44,11 @@ The full reference with every attribute and copy buttons is in **Properties › 
 - Enquiries are saved under **Properties › Enquiries** and emailed to the address in Settings. XAMPP does not send mail by default, so check the Enquiries screen when testing locally.
 - Card template can be overridden by copying `plugins/makaazi-core/templates/card.php` to `themes/makaazi-theme/makaazi/card.php`.
 - Maps use OpenStreetMap tiles and need an internet connection.
+- Roles: **Agent** (edits own and assigned listings, front-end dashboard plus limited admin) and **Property owner** (front-end only, never sees wp-admin). Pending accounts can be activated from **Users** (Activate link).
+- Form fields avoid WordPress query-var names (`name`, `year`, …); posting those makes WordPress return a 404.
 
 ## Roadmap
 
 Done: favourites and compare (device storage, synced to the account for signed-in users, shareable ?ids= links).
-Next: agent profiles, owner submission and dashboard, Elementor widgets. See `docs/makaazi-development-plan.md` in the project.
+Done: agent profiles and sign-in, owner sign-up (open / approval / invite), 5-step listing form, owner and agent dashboard, moderation. Each can be switched off in Properties › Settings › Features.
+Next: Elementor widgets. See `docs/makaazi-development-plan.md` in the project.

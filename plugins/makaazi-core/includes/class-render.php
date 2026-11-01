@@ -1089,29 +1089,53 @@ class Makaazi_Render {
 		$ref   = makaazi_meta( $id, 'ref' );
 		/* translators: 1: property title, 2: reference, 3: URL */
 		$msg   = sprintf( __( 'Hi, I\'m interested in %1$s (%2$s). %3$s', 'makaazi' ), $title, $ref, get_permalink( $id ) );
-		$wa    = $s['whatsapp'] ? makaazi_whatsapp_url( $s['whatsapp'], $msg ) : '';
-		$tel   = preg_replace( '/[^\d+]/', '', $s['contact_phone'] );
+		$aid   = Makaazi_Agents::of_property( $id );
 		$h     = '<div class="mk-single mk-contact" id="mk-enquire">';
-		$h    .= '<div class="mk-box mk-agent"><div class="mk-agent__who"><span class="mk-agent__avatar" aria-hidden="true">' . esc_html( mb_substr( $s['contact_name'], 0, 1 ) ) . '</span><div><strong>' . esc_html( $s['contact_name'] ) . '</strong><span>' . esc_html__( 'Listing contact', 'makaazi' ) . '</span></div></div>';
-		$h    .= '<div class="mk-row2">' . ( $wa ? '<a class="mk-btn mk-btn--wa" href="' . esc_url( $wa ) . '" target="_blank" rel="noopener">' . makaazi_icon( 'wa' ) . ' WhatsApp</a>' : '' )
-			. ( $tel ? '<a class="mk-btn mk-btn--outline" href="tel:' . esc_attr( $tel ) . '">' . makaazi_icon( 'phone' ) . ' ' . esc_html__( 'Call', 'makaazi' ) . '</a>' : '' ) . '</div>';
-		$h    .= $s['contact_phone'] ? '<p class="mk-agent__num">' . makaazi_icon( 'phone', 14 ) . ' ' . esc_html( $s['contact_phone'] ) . '</p>' : '';
-		$h    .= '</div>';
+		if ( $aid ) {
+			$h  .= Makaazi_Agents::card( $aid, $msg );
+			$wan = (string) get_post_meta( $aid, '_mk_whatsapp', true );
+			$wa  = $wan ? makaazi_whatsapp_url( $wan, $msg ) : '';
+		} else {
+			$wa   = $s['whatsapp'] ? makaazi_whatsapp_url( $s['whatsapp'], $msg ) : '';
+			$tel  = preg_replace( '/[^\d+]/', '', $s['contact_phone'] );
+			$h   .= '<div class="mk-box mk-agent"><div class="mk-agent__who"><span class="mk-agent__avatar" aria-hidden="true">' . esc_html( mb_substr( $s['contact_name'], 0, 1 ) ) . '</span><div><strong>' . esc_html( $s['contact_name'] ) . '</strong><span>' . esc_html__( 'Listing contact', 'makaazi' ) . '</span></div></div>';
+			$h   .= '<div class="mk-row2">' . ( $wa ? '<a class="mk-btn mk-btn--wa" href="' . esc_url( $wa ) . '" target="_blank" rel="noopener">' . makaazi_icon( 'wa' ) . ' WhatsApp</a>' : '' )
+				. ( $tel ? '<a class="mk-btn mk-btn--outline" href="tel:' . esc_attr( $tel ) . '">' . makaazi_icon( 'phone' ) . ' ' . esc_html__( 'Call', 'makaazi' ) . '</a>' : '' ) . '</div>';
+			$h   .= $s['contact_phone'] ? '<p class="mk-agent__num">' . makaazi_icon( 'phone', 14 ) . ' ' . esc_html( $s['contact_phone'] ) . '</p>' : '';
+			$h   .= '</div>';
+		}
 		/* translators: 1: property title, 2: reference */
-		$default = sprintf( __( 'Hi, I\'m interested in %1$s (%2$s). Is it available for a viewing this week?', 'makaazi' ), $title, $ref );
-		$h      .= '<form class="mk-box mk-enquiry" data-mk-enquiry novalidate><h2 class="mk-enquiry__title">' . esc_html__( 'Ask about this property', 'makaazi' ) . '</h2>'
-			. '<input type="hidden" name="property_id" value="' . (int) $id . '">'
-			. '<input type="hidden" name="ts" value="' . esc_attr( time() ) . '">'
-			. '<div class="mk-hp" aria-hidden="true"><label>' . esc_html__( 'Leave this empty', 'makaazi' ) . '<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>'
-			. '<label class="mk-field" for="mk-e-name-' . (int) $id . '"><span>' . esc_html__( 'Your name', 'makaazi' ) . '</span><input id="mk-e-name-' . (int) $id . '" type="text" name="name" required autocomplete="name"></label>'
-			. '<label class="mk-field" for="mk-e-phone-' . (int) $id . '"><span>' . esc_html__( 'Phone', 'makaazi' ) . '</span><input id="mk-e-phone-' . (int) $id . '" type="tel" name="phone" required autocomplete="tel" placeholder="07XX XXX XXX"></label>'
-			. '<label class="mk-field" for="mk-e-email-' . (int) $id . '"><span>' . esc_html__( 'Email (optional)', 'makaazi' ) . '</span><input id="mk-e-email-' . (int) $id . '" type="email" name="email" autocomplete="email"></label>'
-			. '<label class="mk-field" for="mk-e-msg-' . (int) $id . '"><span>' . esc_html__( 'Message', 'makaazi' ) . '</span><textarea id="mk-e-msg-' . (int) $id . '" name="message" rows="4">' . esc_textarea( $default ) . '</textarea></label>'
-			. '<p class="mk-enquiry__status" role="status" aria-live="polite"></p>'
-			. '<button type="submit" class="mk-btn mk-btn--block">' . esc_html__( 'Send enquiry', 'makaazi' ) . '</button></form>';
-		$h      .= '<div class="mk-mbar">' . ( $wa ? '<a class="mk-btn mk-btn--wa" href="' . esc_url( $wa ) . '" target="_blank" rel="noopener">' . makaazi_icon( 'wa' ) . ' WhatsApp</a>' : '' ) . '<a class="mk-btn mk-btn--outline" href="#mk-enquire">' . esc_html__( 'Enquire', 'makaazi' ) . '</a></div>';
+		$h .= self::enquiry_form( $id, $aid, sprintf( __( 'Hi, I\'m interested in %1$s (%2$s). Is it available for a viewing this week?', 'makaazi' ), $title, $ref ) );
+		$h .= '<div class="mk-mbar">' . ( $wa ? '<a class="mk-btn mk-btn--wa" href="' . esc_url( $wa ) . '" target="_blank" rel="noopener">' . makaazi_icon( 'wa' ) . ' WhatsApp</a>' : '' ) . '<a class="mk-btn mk-btn--outline" href="#mk-enquire">' . esc_html__( 'Enquire', 'makaazi' ) . '</a></div>';
 		Makaazi_Assets::enqueue();
 		return $h . '</div>';
+	}
+
+	/**
+	 * Enquiry form for a property or an agent.
+	 *
+	 * @param int    $pid     Property ID (0 for an agent enquiry).
+	 * @param int    $aid     Agent ID.
+	 * @param string $default Default message.
+	 * @param string $title   Form heading.
+	 * @return string
+	 */
+	public static function enquiry_form( $pid, $aid, $default, $title = '' ) {
+		static $n = 0;
+		++$n;
+		$u     = 'mk-e' . $n;
+		$title = $title ? $title : __( 'Ask about this property', 'makaazi' );
+		return '<form class="mk-box mk-enquiry" data-mk-enquiry novalidate><h2 class="mk-enquiry__title">' . esc_html( $title ) . '</h2>'
+			. '<input type="hidden" name="property_id" value="' . (int) $pid . '">'
+			. '<input type="hidden" name="agent_id" value="' . (int) $aid . '">'
+			. '<input type="hidden" name="ts" value="' . esc_attr( time() ) . '">'
+			. '<div class="mk-hp" aria-hidden="true"><label>' . esc_html__( 'Leave this empty', 'makaazi' ) . '<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>'
+			. '<label class="mk-field" for="' . $u . '-name"><span>' . esc_html__( 'Your name', 'makaazi' ) . '</span><input id="' . $u . '-name" type="text" name="name" required autocomplete="name"></label>'
+			. '<label class="mk-field" for="' . $u . '-phone"><span>' . esc_html__( 'Phone', 'makaazi' ) . '</span><input id="' . $u . '-phone" type="tel" name="phone" required autocomplete="tel" placeholder="07XX XXX XXX"></label>'
+			. '<label class="mk-field" for="' . $u . '-email"><span>' . esc_html__( 'Email (optional)', 'makaazi' ) . '</span><input id="' . $u . '-email" type="email" name="email" autocomplete="email"></label>'
+			. '<label class="mk-field" for="' . $u . '-msg"><span>' . esc_html__( 'Message', 'makaazi' ) . '</span><textarea id="' . $u . '-msg" name="message" rows="4">' . esc_textarea( $default ) . '</textarea></label>'
+			. '<p class="mk-enquiry__status" role="status" aria-live="polite"></p>'
+			. '<button type="submit" class="mk-btn mk-btn--block">' . esc_html__( 'Send enquiry', 'makaazi' ) . '</button></form>';
 	}
 
 	/**

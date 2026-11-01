@@ -135,8 +135,14 @@ class Makaazi_Rest {
 			return $err( __( 'You have sent several enquiries in the last hour. Please call or WhatsApp us instead.', 'makaazi' ), 429 );
 		}
 		$pid = isset( $p['property_id'] ) ? absint( $p['property_id'] ) : 0;
-		if ( ! $pid || 'property' !== get_post_type( $pid ) || 'publish' !== get_post_status( $pid ) ) {
-			return $err( __( 'This property is no longer available.', 'makaazi' ) );
+		$aid = isset( $p['agent_id'] ) ? absint( $p['agent_id'] ) : 0;
+		if ( $pid ) {
+			if ( 'property' !== get_post_type( $pid ) || 'publish' !== get_post_status( $pid ) ) {
+				return $err( __( 'This property is no longer available.', 'makaazi' ) );
+			}
+			$aid = Makaazi_Agents::of_property( $pid );
+		} elseif ( ! $aid || ! makaazi_agents_on() || 'mk_agent' !== get_post_type( $aid ) || 'publish' !== get_post_status( $aid ) ) {
+			return $err( __( 'We could not find who to send this to. Please call us instead.', 'makaazi' ) );
 		}
 		$name  = isset( $p['name'] ) ? sanitize_text_field( $p['name'] ) : '';
 		$phone = isset( $p['phone'] ) ? sanitize_text_field( $p['phone'] ) : '';
@@ -153,7 +159,7 @@ class Makaazi_Rest {
 		}
 		set_transient( $key, $hit + 1, HOUR_IN_SECONDS );
 
-		$id = Makaazi_Enquiries::create( $pid, $name, $phone, $email, $msg );
+		$id = Makaazi_Enquiries::create( $pid, $name, $phone, $email, $msg, $aid );
 		if ( is_wp_error( $id ) ) {
 			return $err( __( 'We could not save your enquiry. Please call or WhatsApp us.', 'makaazi' ), 500 );
 		}

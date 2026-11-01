@@ -9,6 +9,10 @@
  * @package MakaaziTheme
  */
 
+$mk_cta_url = home_url( '/contact/' );
+if ( function_exists( 'makaazi_owners_on' ) && makaazi_owners_on() && makaazi_dashboard_url() ) {
+	$mk_cta_url = is_user_logged_in() ? makaazi_dashboard_url( array( 'tab' => 'submit' ) ) : makaazi_dashboard_url( array( 'mode' => 'register' ) );
+}
 ?>
 <!-- wp:shortcode -->
 [makaazi_slider slug="home-hero"]
@@ -52,7 +56,7 @@
 
 <!-- wp:buttons -->
 <div class="wp-block-buttons"><!-- wp:button {"backgroundColor":"accent","textColor":"base"} -->
-<div class="wp-block-button"><a class="wp-block-button__link has-base-color has-accent-background-color has-text-color has-background wp-element-button" href="<?php echo esc_url( home_url( '/contact/' ) ); ?>"><?php esc_html_e( 'Talk to us', 'makaazi-theme' ); ?></a></div>
+<div class="wp-block-button"><a class="wp-block-button__link has-base-color has-accent-background-color has-text-color has-background wp-element-button" href="<?php echo esc_url( $mk_cta_url ); ?>"><?php esc_html_e( 'List your property', 'makaazi-theme' ); ?></a></div>
 <!-- /wp:button --></div>
 <!-- /wp:buttons --></div>
 <!-- /wp:group --></div>

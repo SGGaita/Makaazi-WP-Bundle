@@ -27,6 +27,10 @@
 [makaazi_unit_toggle]
 <!-- /wp:shortcode -->
 
+<!-- wp:shortcode -->
+[makaazi_account_link]
+<!-- /wp:shortcode -->
+
 <!-- wp:buttons {"className":"mk-header-cta"} -->
 <div class="wp-block-buttons mk-header-cta"><!-- wp:button -->
 <div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="<?php echo esc_url( home_url( '/properties/' ) ); ?>"><?php esc_html_e( 'Browse properties', 'makaazi-theme' ); ?></a></div>

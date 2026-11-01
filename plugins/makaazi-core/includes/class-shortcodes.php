@@ -17,19 +17,27 @@ class Makaazi_Shortcodes {
 	 */
 	public static function init() {
 		add_action( 'init', array( __CLASS__, 'register' ) );
-		add_filter( 'render_block_core/shortcode', array( __CLASS__, 'render_shortcode_block' ), 10, 1 );
+		add_filter( 'pre_render_block', array( __CLASS__, 'pre_render_shortcode_block' ), 10, 2 );
 	}
 
 	/**
-	 * Block themes run shortcodes in a template before patterns and template parts are expanded,
-	 * so a Shortcode block inside a pattern would print as text. Render it here instead.
+	 * Render Shortcode blocks that contain Makaazi shortcodes ourselves.
 	 *
-	 * @param string $html Block output.
-	 * @return string
+	 * Core wraps a Shortcode block's output in wpautop(), which inserts stray <p>/<br> tags into
+	 * our layout HTML. Block themes also run shortcodes in a template before patterns and template
+	 * parts are expanded, so a shortcode inside a pattern would print as text. This handles both.
+	 *
+	 * @param string|null $pre   Pre-rendered output.
+	 * @param array       $block Parsed block.
+	 * @return string|null
 	 */
-	public static function render_shortcode_block( $html ) {
-		if ( false === strpos( $html, '[' ) ) {
-			return $html;
+	public static function pre_render_shortcode_block( $pre, $block ) {
+		if ( null !== $pre || empty( $block['blockName'] ) || 'core/shortcode' !== $block['blockName'] ) {
+			return $pre;
+		}
+		$html = isset( $block['innerHTML'] ) ? trim( $block['innerHTML'] ) : '';
+		if ( false === strpos( $html, '[makaazi_' ) && false === strpos( $html, 'class="mk' ) ) {
+			return $pre;
 		}
 		return do_shortcode( shortcode_unautop( $html ) );
 	}
@@ -74,6 +82,7 @@ class Makaazi_Shortcodes {
 			'category'       => '',
 			'use'            => '',
 			'ids'            => '',
+			'agent'          => '',
 			'count'          => 6,
 			'columns'        => 3,
 			'columns_tablet' => 2,
@@ -140,6 +149,17 @@ class Makaazi_Shortcodes {
 		$args      = Makaazi_Query::args( $f, max( 1, min( 48, (int) $a['count'] ) ) );
 		if ( 'yes' === $a['include_closed'] ) {
 			unset( $args['meta_query']['avail'] );
+		}
+		if ( '' !== (string) $a['agent'] ) {
+			$aid = is_numeric( $a['agent'] ) ? absint( $a['agent'] ) : 0;
+			if ( ! $aid ) {
+				$ap  = get_page_by_path( sanitize_title( $a['agent'] ), OBJECT, 'mk_agent' );
+				$aid = $ap ? $ap->ID : -1;
+			}
+			$args['meta_query'][] = array(
+				'key'   => '_mk_agent_id',
+				'value' => $aid,
+			);
 		}
 		if ( 'featured' === $a['source'] ) {
 			$args['meta_query'][] = array(
