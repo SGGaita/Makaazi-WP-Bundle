@@ -103,7 +103,7 @@ return array(
 <li><em>Listing</em> – Featured (shows first and gets a badge), availability (Available, Under offer, Sold, Let) and the reference number (created on save).</li>
 <li><em>Pricing</em> – the amount and, for rentals, per month / year / night. Tick “Price on request” to hide the number.</li>
 <li><em>Specs</em> – bedrooms, bathrooms, parking, floor area, land size, year built.</li>
-<li><em>Gallery</em> – add photos, drag to reorder. The first photo is the cover on cards.</li>
+<li><em>Gallery</em> – click <strong>Add photos</strong>, select several at once (hold Ctrl or Shift), then drag to reorder. The first photo is the cover and the Featured image; changing either one updates the other when you click Update.</li>
 <li><em>Location</em> – drag the pin to the exact spot, then choose the public privacy radius (see {help:map-privacy}).</li>
 <li><em>Attributes</em> – extra rows for the Details table, e.g. “Service charge – KES 8,000 /month”, plus a video or virtual tour link.</li>
 </ul></li>

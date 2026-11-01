@@ -19,6 +19,21 @@ class Makaazi_Meta_Box {
 		add_action( 'add_meta_boxes_property', array( __CLASS__, 'add' ) );
 		add_action( 'save_post_property', array( __CLASS__, 'save' ), 10, 2 );
 		add_action( 'edit_form_after_title', array( __CLASS__, 'after_title' ) );
+		add_filter( 'admin_post_thumbnail_html', array( __CLASS__, 'thumbnail_note' ), 10, 2 );
+	}
+
+	/**
+	 * Explain the link between the Featured image and the gallery.
+	 *
+	 * @param string $html    Box HTML.
+	 * @param int    $post_id Post ID.
+	 * @return string
+	 */
+	public static function thumbnail_note( $html, $post_id ) {
+		if ( 'property' !== get_post_type( $post_id ) ) {
+			return $html;
+		}
+		return $html . '<p class="description">' . esc_html__( 'This is the cover photo: the first photo in Property Details › Gallery. Add more photos there.', 'makaazi' ) . '</p>';
 	}
 
 	/**
@@ -258,10 +273,8 @@ class Makaazi_Meta_Box {
 		}
 
 		$gallery = isset( $in['gallery'] ) ? array_values( array_filter( array_map( 'absint', explode( ',', (string) $in['gallery'] ) ) ) ) : array();
+		$gallery = self::sync_cover( $post_id, $gallery );
 		update_post_meta( $post_id, '_mk_gallery', $gallery );
-		if ( $gallery && (int) get_post_thumbnail_id( $post_id ) !== $gallery[0] ) {
-			set_post_thumbnail( $post_id, $gallery[0] );
-		}
 
 		$attrs = array();
 		if ( ! empty( $in['attr_k'] ) && is_array( $in['attr_k'] ) ) {
@@ -279,5 +292,30 @@ class Makaazi_Meta_Box {
 		if ( '' !== $ref ) {
 			update_post_meta( $post_id, '_mk_ref', $ref );
 		}
+	}
+
+	/**
+	 * Keep the Featured image and the first gallery photo (the cover) the same.
+	 *
+	 * Whichever the editor changed wins: a new Featured image moves to the front of the gallery;
+	 * dragging another photo to the front of the gallery makes it the Featured image.
+	 *
+	 * @param int   $post_id Property ID.
+	 * @param int[] $gallery Gallery IDs as submitted.
+	 * @return int[] Gallery to save.
+	 */
+	public static function sync_cover( $post_id, $gallery ) {
+		$old   = array_values( array_filter( array_map( 'absint', (array) get_post_meta( $post_id, '_mk_gallery', true ) ) ) );
+		$thumb = (int) get_post_thumbnail_id( $post_id );
+		$cover = $gallery ? $gallery[0] : 0;
+		$moved = $cover && ( ! $old || $old[0] !== $cover );
+		if ( $thumb && $thumb !== $cover && ! $moved ) {
+			// The Featured image was changed: make it the cover.
+			$gallery = array_values( array_diff( $gallery, array( $thumb ) ) );
+			array_unshift( $gallery, $thumb );
+		} elseif ( $cover && $thumb !== $cover ) {
+			set_post_thumbnail( $post_id, $cover );
+		}
+		return $gallery;
 	}
 }
