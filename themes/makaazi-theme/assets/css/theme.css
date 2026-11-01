@@ -1,0 +1,64 @@
+/* Makaazi theme: header, footer, sections. Component styles live in the Makaazi Core plugin. */
+body { -webkit-font-smoothing: antialiased; }
+:where(.wp-site-blocks) > * { margin-block-start: 0; }
+
+/* Header */
+.mk-site-header { position: sticky; top: 0; z-index: 9000; background: var(--wp--preset--color--base); border-bottom: 1px solid var(--wp--preset--color--line); }
+.admin-bar .mk-site-header { top: var(--wp-admin--admin-bar--height, 32px); }
+@media (max-width: 600px) { .admin-bar .mk-site-header { top: 0; } }
+.mk-site-header__bar { min-height: var(--wp--custom--header-height, 72px); gap: 16px; }
+.mk-site-header__brand { gap: 28px; }
+.mk-site-header .wp-block-site-logo img { height: auto; display: block; }
+.mk-nav .wp-block-navigation-item__content { padding: 8px 12px; border-radius: 4px; color: var(--wp--preset--color--contrast); }
+.mk-nav .wp-block-navigation-item__content:hover { background: var(--wp--preset--color--surface); color: var(--wp--preset--color--primary); }
+.mk-nav .current-menu-item > .wp-block-navigation-item__content { color: var(--wp--preset--color--primary); box-shadow: inset 0 -2px 0 var(--wp--preset--color--primary); border-radius: 0; }
+.mk-site-header__actions { gap: 10px; }
+.mk-header-cta .wp-block-button__link { white-space: nowrap; }
+.mk-site-header .wp-block-site-logo { flex: none; }
+.mk-site-header__brand { min-width: 0; }
+@media (max-width: 781px) {
+	.mk-site-header .mk-header-cta { display: none; }
+	.mk-site-header__brand { gap: 12px; }
+	.mk-site-header .wp-block-site-logo img { width: 138px !important; }
+	.mk-site-header__bar { min-height: 60px; }
+	.mk-site-header__brand { order: 0; }
+	.mk-site-header__brand { flex: 1 1 auto; }
+	.mk-nav { margin-left: auto; }
+}
+.wp-block-navigation__responsive-container.is-menu-open { padding-top: 24px; }
+.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation-item__content { font-size: 18px; padding: 10px 0; }
+
+/* Main */
+.mk-main--page { padding-block: clamp(32px, 5vw, 64px); }
+.mk-main--listing { padding-block: 28px 64px; }
+.mk-main--property { padding-block: 20px 56px; }
+.mk-section { padding-block: clamp(40px, 6vw, 72px); }
+.mk-main--front > .wp-block-post-content > *:first-child { margin-top: 0; }
+.mk-cta { padding-block: clamp(36px, 5vw, 56px); }
+.mk-cta h2 { font-weight: 500; font-size: clamp(22px, 2.4vw, 28px); margin: 0; }
+.mk-cta p { margin: 6px 0 0; opacity: .8; max-width: 56ch; }
+.mk-cta .mk-cta__text { flex: 1 1 420px; }
+
+/* Property page columns */
+.mk-pbody-cols { gap: 40px !important; margin-top: 32px !important; align-items: flex-start !important; }
+.mk-pbody-side { position: sticky; top: calc(var(--wp--custom--header-height, 72px) + 24px); }
+.admin-bar .mk-pbody-side { top: calc(var(--wp--custom--header-height, 72px) + 56px); }
+@media (max-width: 781px) { .mk-pbody-cols { gap: 0 !important; } .mk-pbody-side { position: static; } }
+.mk-desc .wp-block-post-content > *:first-child { margin-top: 0; }
+.mk-desc .wp-block-post-content p { max-width: 68ch; color: #333A48; }
+
+/* Footer */
+.mk-site-footer { background: var(--wp--preset--color--primary-dark); color: rgba(255, 255, 255, .74); font-size: 14px; margin-top: 0; }
+.mk-site-footer__in { padding-block: clamp(40px, 5vw, 56px) 20px; }
+.mk-site-footer h4 { color: #fff; font-family: var(--wp--preset--font-family--body); font-size: 12px; letter-spacing: .14em; text-transform: uppercase; margin: 0 0 12px; }
+.mk-site-footer a { color: rgba(255, 255, 255, .85); text-decoration: none; }
+.mk-site-footer a:hover { color: #fff; text-decoration: underline; }
+.mk-site-footer p { margin: 12px 0 0; max-width: 36ch; }
+.mk-footer-links, .mk-site-footer .mk-loclist { list-style: none; padding: 0; margin: 0; display: grid; gap: 6px; }
+.mk-footer-base { border-top: 1px solid rgba(255, 255, 255, .12); margin-top: 32px !important; padding-top: 16px; font-size: 12.5px; }
+.mk-footer-base p { margin: 0; max-width: none; }
+@media (max-width: 781px) { .mk-footer-cols { gap: 28px !important; } }
+
+/* Forms on plain pages */
+.wp-block-post-content input[type=text], .wp-block-post-content input[type=email], .wp-block-post-content textarea { border: 1px solid var(--wp--preset--color--grey); border-radius: 4px; padding: 10px 12px; font: inherit; }
+:focus-visible { outline-color: var(--wp--preset--color--accent); }

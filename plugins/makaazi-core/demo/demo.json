@@ -1,0 +1,908 @@
+{
+ "locations": {
+  "nairobi": {
+   "name": "Nairobi",
+   "areas": {
+    "westlands": "Westlands",
+    "kilimani": "Kilimani",
+    "kileleshwa": "Kileleshwa",
+    "lavington": "Lavington",
+    "karen": "Karen",
+    "runda": "Runda",
+    "upperhill": "Upper Hill"
+   }
+  },
+  "kiambu": {
+   "name": "Kiambu",
+   "areas": {
+    "ruiru": "Ruiru",
+    "kiamburd": "Kiambu Road"
+   }
+  },
+  "kajiado": {
+   "name": "Kajiado",
+   "areas": {
+    "kitengela": "Kitengela"
+   }
+  },
+  "mombasa": {
+   "name": "Mombasa",
+   "areas": {
+    "nyali": "Nyali"
+   }
+  }
+ },
+ "categories": {
+  "luxury": "Luxury",
+  "gated": "Gated Community",
+  "furnished": "Furnished",
+  "offplan": "Off-plan",
+  "holiday": "Holiday Home"
+ },
+ "features": {
+  "pool": "Swimming pool",
+  "gym": "Gym",
+  "borehole": "Borehole",
+  "generator": "Backup generator",
+  "dsq": "DSQ",
+  "cctv": "CCTV & 24h security",
+  "lift": "Lift",
+  "balcony": "Balcony",
+  "garden": "Garden",
+  "fibre": "Fibre internet",
+  "solar": "Solar water heating",
+  "play": "Children's play area",
+  "aircon": "Air conditioning",
+  "sea": "Sea view"
+ },
+ "props": [
+  {
+   "key": "p1",
+   "title": "Riverside Heights 3BR",
+   "status": "rent",
+   "type": "apartment",
+   "use": [
+    "residential"
+   ],
+   "cats": [
+    "luxury"
+   ],
+   "loc": "westlands",
+   "label": "Off Riverside Drive, Westlands",
+   "price": 180000,
+   "period": "month",
+   "por": 0,
+   "area": 145,
+   "land": null,
+   "bd": 3,
+   "ba": 2.5,
+   "pk": 2,
+   "featured": 1,
+   "year": 2021,
+   "features": [
+    "pool",
+    "gym",
+    "lift",
+    "generator",
+    "borehole",
+    "cctv",
+    "balcony",
+    "fibre"
+   ],
+   "attrs": [
+    [
+     "Service charge",
+     "KES 8,000 /month"
+    ],
+    [
+     "Deposit",
+     "2 months"
+    ],
+    [
+     "Floor",
+     "9th of 14"
+    ]
+   ],
+   "desc": "A bright corner unit on the ninth floor with views over the Riverside greenbelt. The open-plan living room opens onto a wraparound balcony, and all three bedrooms are en-suite. The building has a heated rooftop pool, a gym and full backup power.",
+   "age": 12,
+   "photos": [
+    "tower-1.jpg",
+    "living-1.jpg",
+    "kitchen-1.jpg",
+    "bed-1.jpg",
+    "bath-1.jpg",
+    "pool-1.jpg",
+    "living-2.jpg",
+    "bed-2.jpg",
+    "kitchen-2.jpg"
+   ],
+   "lat": -1.2716,
+   "lng": 36.8068
+  },
+  {
+   "key": "p2",
+   "title": "Kilimani Garden Apartments 2BR",
+   "status": "rent",
+   "type": "apartment",
+   "use": [
+    "residential"
+   ],
+   "cats": [
+    "furnished"
+   ],
+   "loc": "kilimani",
+   "label": "Near Yaya Centre, Kilimani",
+   "price": 95000,
+   "period": "month",
+   "por": 0,
+   "area": 98,
+   "land": null,
+   "bd": 2,
+   "ba": 2,
+   "pk": 1,
+   "featured": 0,
+   "year": 2018,
+   "features": [
+    "garden",
+    "borehole",
+    "generator",
+    "cctv",
+    "fibre"
+   ],
+   "attrs": [
+    [
+     "Service charge",
+     "KES 5,000 /month"
+    ],
+    [
+     "Furnishing",
+     "Fully furnished"
+    ]
+   ],
+   "desc": "A fully furnished two-bedroom apartment in a quiet compound with a shared garden. Walking distance to Yaya Centre and Argwings Kodhek Road. Ideal for a young family or professionals sharing.",
+   "age": 30,
+   "photos": [
+    "tower-2.jpg",
+    "living-2.jpg",
+    "kitchen-2.jpg",
+    "bed-2.jpg",
+    "bath-2.jpg",
+    "pool-2.jpg",
+    "living-3.jpg"
+   ],
+   "lat": -1.29314,
+   "lng": 36.78584
+  },
+  {
+   "key": "p3",
+   "title": "Karen Ridge Villa",
+   "status": "sale",
+   "type": "villa",
+   "use": [
+    "residential"
+   ],
+   "cats": [
+    "luxury",
+    "gated"
+   ],
+   "loc": "karen",
+   "label": "Karen Plains Road, Karen",
+   "price": 85000000,
+   "period": "total",
+   "por": 0,
+   "area": 520,
+   "land": [
+    0.5,
+    "acres"
+   ],
+   "bd": 5,
+   "ba": 5.5,
+   "pk": 4,
+   "featured": 1,
+   "year": 2019,
+   "features": [
+    "pool",
+    "garden",
+    "dsq",
+    "borehole",
+    "solar",
+    "cctv",
+    "generator",
+    "play"
+   ],
+   "attrs": [
+    [
+     "Title",
+     "Freehold"
+    ],
+    [
+     "DSQ",
+     "2 rooms"
+    ]
+   ],
+   "desc": "A contemporary five-bedroom villa on half an acre in a gated community of twelve homes. Double-volume living spaces open onto a landscaped garden and pool. Includes a two-room DSQ, borehole and solar water heating.",
+   "age": 6,
+   "photos": [
+    "villa-3.jpg",
+    "pool-3.jpg",
+    "living-3.jpg",
+    "kitchen-3.jpg",
+    "bed-3.jpg",
+    "bath-3.jpg",
+    "living-4.jpg",
+    "bed-4.jpg",
+    "villa-1.jpg",
+    "kitchen-1.jpg"
+   ],
+   "lat": -1.31778,
+   "lng": 36.70378
+  },
+  {
+   "key": "p4",
+   "title": "Lavington Townhouse 4BR",
+   "status": "sale",
+   "type": "townhouse",
+   "use": [
+    "residential"
+   ],
+   "cats": [
+    "gated"
+   ],
+   "loc": "lavington",
+   "label": "James Gichuru Road, Lavington",
+   "price": 48000000,
+   "period": "total",
+   "por": 0,
+   "area": 310,
+   "land": null,
+   "bd": 4,
+   "ba": 4.5,
+   "pk": 3,
+   "featured": 0,
+   "year": 2020,
+   "features": [
+    "garden",
+    "dsq",
+    "borehole",
+    "cctv",
+    "play"
+   ],
+   "attrs": [
+    [
+     "Title",
+     "Leasehold (99 yrs)"
+    ],
+    [
+     "Units in compound",
+     "8"
+    ]
+   ],
+   "desc": "One of eight townhouses in a secure compound off James Gichuru Road. Four en-suite bedrooms, a private garden and a DSQ. Close to Lavington Mall and several international schools.",
+   "age": 20,
+   "photos": [
+    "town-1.jpg",
+    "living-4.jpg",
+    "kitchen-1.jpg",
+    "bed-4.jpg",
+    "bath-1.jpg",
+    "living-1.jpg",
+    "bed-1.jpg",
+    "town-2.jpg"
+   ],
+   "lat": -1.28112,
+   "lng": 36.77072
+  },
+  {
+   "key": "p5",
+   "title": "Upper Hill Office Floor",
+   "status": "rent",
+   "type": "office",
+   "use": [
+    "commercial"
+   ],
+   "cats": [],
+   "loc": "upperhill",
+   "label": "Hospital Road, Upper Hill",
+   "price": 450000,
+   "period": "month",
+   "por": 0,
+   "area": 320,
+   "land": null,
+   "bd": 0,
+   "ba": 2,
+   "pk": 6,
+   "featured": 0,
+   "year": 2016,
+   "features": [
+    "lift",
+    "generator",
+    "cctv",
+    "aircon",
+    "fibre"
+   ],
+   "attrs": [
+    [
+     "Service charge",
+     "KES 120 /m² /month"
+    ],
+    [
+     "Fit-out",
+     "Shell and core"
+    ]
+   ],
+   "desc": "A full open-plan floor in a Grade A tower with raised floors, fibre connectivity and six reserved parking bays. Suitable for a 30 to 40 person team.",
+   "age": 15,
+   "photos": [
+    "office-1.jpg",
+    "officeint-2.jpg",
+    "officeint-3.jpg",
+    "kitchen-2.jpg",
+    "officeint-1.jpg",
+    "office-2.jpg"
+   ],
+   "lat": -1.29866,
+   "lng": 36.81246
+  },
+  {
+   "key": "p6",
+   "title": "Runda Family Home",
+   "status": "sale",
+   "type": "villa",
+   "use": [
+    "residential"
+   ],
+   "cats": [
+    "luxury",
+    "gated"
+   ],
+   "loc": "runda",
+   "label": "Runda Grove, Runda",
+   "price": 120000000,
+   "period": "total",
+   "por": 0,
+   "area": 610,
+   "land": [
+    0.75,
+    "acres"
+   ],
+   "bd": 6,
+   "ba": 6,
+   "pk": 5,
+   "featured": 1,
+   "year": 2017,
+   "features": [
+    "pool",
+    "garden",
+    "dsq",
+    "borehole",
+    "solar",
+    "cctv",
+    "gym"
+   ],
+   "attrs": [
+    [
+     "Title",
+     "Freehold"
+    ],
+    [
+     "Staff quarters",
+     "3 rooms"
+    ]
+   ],
+   "desc": "A six-bedroom family home on three quarters of an acre, with mature gardens, a heated pool and a home gym. Within the Runda estate security perimeter.",
+   "age": 3,
+   "photos": [
+    "villa-3.jpg",
+    "pool-3.jpg",
+    "living-2.jpg",
+    "kitchen-3.jpg",
+    "bed-2.jpg",
+    "bath-3.jpg",
+    "living-3.jpg",
+    "bed-3.jpg",
+    "villa-1.jpg"
+   ],
+   "lat": -1.2139,
+   "lng": 36.8179
+  },
+  {
+   "key": "p7",
+   "title": "Kileleshwa Studio",
+   "status": "rent",
+   "type": "apartment",
+   "use": [
+    "residential"
+   ],
+   "cats": [
+    "furnished"
+   ],
+   "loc": "kileleshwa",
+   "label": "Othaya Road, Kileleshwa",
+   "price": 45000,
+   "period": "month",
+   "por": 0,
+   "area": 42,
+   "land": null,
+   "bd": 1,
+   "ba": 1,
+   "pk": 1,
+   "featured": 0,
+   "year": 2022,
+   "features": [
+    "lift",
+    "generator",
+    "fibre",
+    "cctv"
+   ],
+   "attrs": [
+    [
+     "Service charge",
+     "Included"
+    ]
+   ],
+   "desc": "A compact furnished studio with a separate sleeping nook, ideal for a single professional. Fast fibre and backup power included in the rent.",
+   "age": 9,
+   "photos": [
+    "tower-3.jpg",
+    "living-3.jpg",
+    "kitchen-1.jpg",
+    "bed-3.jpg",
+    "bath-1.jpg",
+    "pool-1.jpg"
+   ],
+   "lat": -1.28274,
+   "lng": 36.78144
+  },
+  {
+   "key": "p8",
+   "title": "Ruiru Off-plan 2BR",
+   "status": "sale",
+   "type": "apartment",
+   "use": [
+    "residential"
+   ],
+   "cats": [
+    "offplan"
+   ],
+   "loc": "ruiru",
+   "label": "Eastern Bypass, Ruiru",
+   "price": 6800000,
+   "period": "total",
+   "por": 0,
+   "area": 86,
+   "land": null,
+   "bd": 2,
+   "ba": 2,
+   "pk": 1,
+   "featured": 0,
+   "year": 2027,
+   "features": [
+    "lift",
+    "borehole",
+    "play",
+    "cctv"
+   ],
+   "attrs": [
+    [
+     "Completion",
+     "Q3 2027"
+    ],
+    [
+     "Payment plan",
+     "30% deposit, 70% over 18 months"
+    ]
+   ],
+   "desc": "Off-plan two-bedroom apartments near the Eastern Bypass, with a flexible 18-month payment plan. Completion expected in the third quarter of 2027.",
+   "age": 25,
+   "photos": [
+    "tower-4.jpg",
+    "living-4.jpg",
+    "kitchen-2.jpg",
+    "bed-4.jpg",
+    "bath-2.jpg",
+    "pool-2.jpg"
+   ],
+   "lat": -1.14528,
+   "lng": 36.96268
+  },
+  {
+   "key": "p9",
+   "title": "Kitengela Residential Plot",
+   "status": "sale",
+   "type": "land",
+   "use": [
+    "residential",
+    "commercial"
+   ],
+   "cats": [],
+   "loc": "kitengela",
+   "label": "Off Namanga Road, Kitengela",
+   "price": 2800000,
+   "period": "total",
+   "por": 0,
+   "area": 1012,
+   "land": [
+    0.25,
+    "acres"
+   ],
+   "bd": 0,
+   "ba": 0,
+   "pk": 0,
+   "featured": 0,
+   "year": null,
+   "features": [],
+   "attrs": [
+    [
+     "Title",
+     "Freehold, ready"
+    ],
+    [
+     "Utilities",
+     "Water and power on site"
+    ]
+   ],
+   "desc": "A quarter-acre residential plot in a fast-growing, fenced development with water and power connected. Ready title deed.",
+   "age": 40,
+   "photos": [
+    "land-3.jpg",
+    "land-1.jpg",
+    "land-2.jpg",
+    "land-3.jpg"
+   ],
+   "lat": -1.46932,
+   "lng": 36.95392
+  },
+  {
+   "key": "p10",
+   "title": "Westlands Retail Shop",
+   "status": "rent",
+   "type": "shop",
+   "use": [
+    "commercial"
+   ],
+   "cats": [],
+   "loc": "westlands",
+   "label": "Mpaka Road, Westlands",
+   "price": 220000,
+   "period": "month",
+   "por": 0,
+   "area": 120,
+   "land": null,
+   "bd": 0,
+   "ba": 1,
+   "pk": 2,
+   "featured": 0,
+   "year": 2015,
+   "features": [
+    "generator",
+    "cctv",
+    "aircon"
+   ],
+   "attrs": [
+    [
+     "Frontage",
+     "9 m"
+    ],
+    [
+     "Use",
+     "Retail, café or showroom"
+    ]
+   ],
+   "desc": "A ground-floor shop with nine metres of glass frontage on busy Mpaka Road. Suitable for retail, a café or a showroom.",
+   "age": 18,
+   "photos": [
+    "shop-2.jpg",
+    "officeint-1.jpg",
+    "shop-1.jpg",
+    "officeint-2.jpg",
+    "shop-2.jpg"
+   ],
+   "lat": -1.26896,
+   "lng": 36.81296
+  },
+  {
+   "key": "p11",
+   "title": "Nyali Beachfront 3BR",
+   "status": "rent",
+   "type": "apartment",
+   "use": [
+    "residential"
+   ],
+   "cats": [
+    "holiday",
+    "furnished"
+   ],
+   "loc": "nyali",
+   "label": "Links Road, Nyali, Mombasa",
+   "price": 120000,
+   "period": "month",
+   "por": 0,
+   "area": 160,
+   "land": null,
+   "bd": 3,
+   "ba": 3,
+   "pk": 2,
+   "featured": 0,
+   "year": 2014,
+   "features": [
+    "pool",
+    "sea",
+    "generator",
+    "aircon",
+    "cctv"
+   ],
+   "attrs": [
+    [
+     "Furnishing",
+     "Fully furnished"
+    ],
+    [
+     "Min. let",
+     "6 months"
+    ]
+   ],
+   "desc": "A furnished three-bedroom apartment a short walk from Nyali beach, with a sea-view balcony and a shared pool.",
+   "age": 22,
+   "photos": [
+    "beach-1.jpg",
+    "living-3.jpg",
+    "pool-2.jpg",
+    "bed-3.jpg",
+    "kitchen-2.jpg",
+    "bath-2.jpg",
+    "beach-2.jpg"
+   ],
+   "lat": -4.0419,
+   "lng": 39.7104
+  },
+  {
+   "key": "p12",
+   "title": "Kiambu Road Maisonette",
+   "status": "sale",
+   "type": "maisonette",
+   "use": [
+    "residential"
+   ],
+   "cats": [
+    "gated"
+   ],
+   "loc": "kiamburd",
+   "label": "Off Kiambu Road, Ridgeways",
+   "price": 26500000,
+   "period": "total",
+   "por": 0,
+   "area": 240,
+   "land": null,
+   "bd": 4,
+   "ba": 3.5,
+   "pk": 2,
+   "featured": 0,
+   "year": 2021,
+   "features": [
+    "garden",
+    "dsq",
+    "borehole",
+    "cctv",
+    "solar"
+   ],
+   "attrs": [
+    [
+     "Title",
+     "Leasehold"
+    ],
+    [
+     "Units",
+     "24"
+    ]
+   ],
+   "desc": "A four-bedroom maisonette in a gated community of 24 homes, with a private garden and DSQ. Fifteen minutes from the Northern Bypass.",
+   "age": 8,
+   "photos": [
+    "town-3.jpg",
+    "living-4.jpg",
+    "kitchen-3.jpg",
+    "bed-4.jpg",
+    "bath-3.jpg",
+    "living-1.jpg",
+    "bed-1.jpg"
+   ],
+   "lat": -1.22044,
+   "lng": 36.83964
+  },
+  {
+   "key": "p13",
+   "title": "Kilimani Penthouse",
+   "status": "sale",
+   "type": "apartment",
+   "use": [
+    "residential"
+   ],
+   "cats": [
+    "luxury"
+   ],
+   "loc": "kilimani",
+   "label": "Lenana Road, Kilimani",
+   "price": 65000000,
+   "period": "total",
+   "por": 1,
+   "area": 290,
+   "land": null,
+   "bd": 4,
+   "ba": 4,
+   "pk": 3,
+   "featured": 1,
+   "year": 2023,
+   "features": [
+    "pool",
+    "gym",
+    "lift",
+    "balcony",
+    "generator",
+    "aircon",
+    "fibre"
+   ],
+   "attrs": [
+    [
+     "Terrace",
+     "120 m²"
+    ]
+   ],
+   "desc": "A duplex penthouse with a private 120 m² roof terrace and city views. Viewings are by appointment only.",
+   "age": 2,
+   "photos": [
+    "tower-1.jpg",
+    "living-1.jpg",
+    "kitchen-1.jpg",
+    "bed-1.jpg",
+    "bath-1.jpg",
+    "pool-1.jpg",
+    "living-2.jpg",
+    "bed-2.jpg"
+   ],
+   "lat": -1.29258,
+   "lng": 36.78448
+  },
+  {
+   "key": "p14",
+   "title": "Westlands 1BR Serviced",
+   "status": "rent",
+   "type": "apartment",
+   "use": [
+    "residential"
+   ],
+   "cats": [
+    "furnished"
+   ],
+   "loc": "westlands",
+   "label": "Rhapta Road, Westlands",
+   "price": 75000,
+   "period": "month",
+   "por": 0,
+   "area": 65,
+   "land": null,
+   "bd": 1,
+   "ba": 1,
+   "pk": 1,
+   "featured": 1,
+   "year": 2020,
+   "features": [
+    "gym",
+    "lift",
+    "generator",
+    "fibre",
+    "cctv"
+   ],
+   "attrs": [
+    [
+     "Cleaning",
+     "Twice weekly"
+    ]
+   ],
+   "desc": "A serviced one-bedroom with weekly cleaning, fibre and a rooftop gym. Minutes from Sarit Centre and Westgate.",
+   "age": 1,
+   "photos": [
+    "tower-2.jpg",
+    "living-2.jpg",
+    "kitchen-2.jpg",
+    "bed-2.jpg",
+    "bath-2.jpg",
+    "pool-2.jpg"
+   ],
+   "lat": -1.26512,
+   "lng": 36.81392
+  },
+  {
+   "key": "p15",
+   "title": "Westlands Skyline 2BR",
+   "status": "rent",
+   "type": "apartment",
+   "use": [
+    "residential"
+   ],
+   "cats": [],
+   "loc": "westlands",
+   "label": "Waiyaki Way, Westlands",
+   "price": 130000,
+   "period": "month",
+   "por": 0,
+   "area": 112,
+   "land": null,
+   "bd": 2,
+   "ba": 2,
+   "pk": 2,
+   "featured": 0,
+   "year": 2019,
+   "features": [
+    "pool",
+    "lift",
+    "generator",
+    "borehole",
+    "balcony"
+   ],
+   "attrs": [
+    [
+     "Service charge",
+     "KES 7,000 /month"
+    ]
+   ],
+   "desc": "A two-bedroom apartment with an open kitchen and a balcony facing the city skyline. The building has a pool and two lifts.",
+   "age": 14,
+   "photos": [
+    "tower-3.jpg",
+    "living-3.jpg",
+    "kitchen-3.jpg",
+    "bed-3.jpg",
+    "bath-3.jpg",
+    "pool-3.jpg",
+    "living-4.jpg"
+   ],
+   "lat": -1.27016,
+   "lng": 36.81016
+  }
+ ],
+ "hero": [
+  {
+   "image": "hero-1.jpg",
+   "eyebrow": "Homes across Kenya",
+   "title": "Find a place that feels like home",
+   "text": "Apartments, family homes, offices and land in Nairobi and beyond, listed by people who know the area.",
+   "btn1_text": "Browse properties",
+   "btn1_url": "/properties/",
+   "btn2_text": "Talk to us",
+   "btn2_url": "/contact/"
+  },
+  {
+   "image": "hero-2.jpg",
+   "eyebrow": "New this week",
+   "title": "City living in Westlands",
+   "text": "Serviced apartments and family units minutes from Sarit Centre and Waiyaki Way.",
+   "btn1_text": "See Westlands rentals",
+   "btn1_url": "/properties/?status=rent&location=westlands",
+   "btn2_text": "Book a viewing",
+   "btn2_url": "/contact/"
+  },
+  {
+   "image": "hero-3.jpg",
+   "eyebrow": "For business",
+   "title": "Office floors in Upper Hill",
+   "text": "Grade A space with fibre, backup power and reserved parking.",
+   "btn1_text": "View commercial space",
+   "btn1_url": "/properties/?use=commercial",
+   "btn2_text": "Contact us",
+   "btn2_url": "/contact/"
+  }
+ ],
+ "locImg": {
+  "westlands": "tower-1.jpg",
+  "kilimani": "tower-2.jpg",
+  "karen": "villa-1.jpg",
+  "lavington": "town-1.jpg",
+  "runda": "villa-2.jpg",
+  "upperhill": "office-1.jpg",
+  "kileleshwa": "tower-3.jpg",
+  "ruiru": "tower-4.jpg",
+  "kitengela": "land-1.jpg",
+  "nyali": "beach-1.jpg",
+  "kiamburd": "town-2.jpg"
+ }
+}

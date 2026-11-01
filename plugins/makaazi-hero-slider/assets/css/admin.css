@@ -1,0 +1,28 @@
+.mks-slides { display: grid; gap: 10px; margin: 12px 0; }
+.mks-slide { border: 1px solid #dcdcde; background: #fff; }
+.mks-slide__head { display: flex; align-items: center; gap: 10px; padding: 10px 12px; background: #f6f7f7; }
+.mks-slide__handle { cursor: move; color: #8c8f94; }
+.mks-slide__title { flex: 1; }
+.mks-slide__acts { font-size: 13px; color: #c3c4c7; }
+.mks-del { color: #b32d2e !important; }
+.mks-slide.is-confirm .mks-del { font-weight: 600; }
+.mks-slide__body { display: none; grid-template-columns: 260px minmax(0, 1fr); gap: 18px; padding: 14px; border-top: 1px solid #dcdcde; }
+.mks-slide.is-open .mks-slide__body { display: grid; }
+.mks-slide__media { display: grid; gap: 12px; align-content: start; }
+.mks-slide__fields { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.mks-slide label { display: grid; gap: 4px; font-weight: 600; font-size: 12.5px; }
+.mks-slide input[type=text], .mks-slide input[type=url], .mks-slide textarea, .mks-slide select { width: 100%; }
+.mks-span { grid-column: 1 / -1; }
+.mks-img { display: grid; gap: 6px; }
+.mks-img__label { font-weight: 600; font-size: 12.5px; }
+.mks-img__preview img { width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; display: block; border: 1px solid #dcdcde; }
+.mks-img__preview:empty { display: block; aspect-ratio: 16 / 9; background: #f0f0f1; border: 1px dashed #c3c4c7; }
+@media (max-width: 960px) { .mks-slide__body { grid-template-columns: 1fr; } .mks-slide__fields { grid-template-columns: 1fr; } }
+.mks-form th { width: 160px; }
+.mks-radios { display: inline-flex; flex-wrap: wrap; gap: 4px 16px; }
+.mks-ck { margin-right: 14px; }
+.mks-fields { margin: 0; display: grid; gap: 4px; max-width: 320px; }
+.mks-fields li { display: flex; gap: 8px; align-items: center; background: #fff; border: 1px solid #dcdcde; padding: 6px 10px; margin: 0; cursor: move; }
+.mks-fields .dashicons { color: #8c8f94; }
+.mks-labels label { margin-right: 12px; }
+.mks-code code { display: block; margin-bottom: 4px; word-break: break-all; }

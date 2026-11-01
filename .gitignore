@@ -1,0 +1,13 @@
+# This repository lives in wp-content/. Only the Makaazi theme and plugins are tracked.
+/*
+!/.gitignore
+!/README.md
+!/themes/
+/themes/*
+!/themes/makaazi-theme/
+!/plugins/
+/plugins/*
+!/plugins/makaazi-core/
+!/plugins/makaazi-hero-slider/
+.DS_Store
+Thumbs.db
