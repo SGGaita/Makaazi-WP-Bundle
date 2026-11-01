@@ -52,6 +52,15 @@ The full reference with every attribute and copy buttons is in **Properties › 
 - Roles: **Agent** (edits own and assigned listings, front-end dashboard plus limited admin) and **Property owner** (front-end only, never sees wp-admin). Pending accounts can be activated from **Users** (Activate link).
 - Form fields avoid WordPress query-var names (`name`, `year`, …); posting those makes WordPress return a 404.
 
+## Highlights
+
+- **Buy, Rent and Short Stay** listing types (Short Stay for nightly holiday and serviced rentals; switch in Settings › Features).
+- **Fast search** with AJAX filters, map view and a search index table (tested with 2,000 listings: filter requests about 50 ms).
+- **SEO**: Schema.org `RealEstateListing`, share previews for WhatsApp and Facebook, and built-in support for **Yoast SEO** and **Rank Math** (schema graph, snippet variables such as `%%mk_price%%`, sitemap images, content analysis).
+- **Accessible**: WCAG 2.1 AA checks with axe on every key page; keyboard-friendly galleries and photo strips.
+- **Translatable**: `.pot` files in each package's `languages/` folder.
+- Agents, owner submissions with moderation, favourites and compare, Help Center, Elementor widgets.
+
 ## Elementor (optional)
 
 With Elementor active, a **Makaazi** category appears in the widget panel: Hero Slider, Properties, Property Listing, Property Search, Locations, Property Section, Agents, Favourites & Compare, My Account. Each has the shortcode's options plus Style controls for colours, corners and fonts.
@@ -61,4 +70,13 @@ With Elementor active, a **Makaazi** category appears in the widget panel: Hero 
 Done: favourites and compare (device storage, synced to the account for signed-in users, shareable ?ids= links).
 Done: agent profiles and sign-in, owner sign-up (open / approval / invite), 5-step listing form, owner and agent dashboard, moderation. Each can be switched off in Properties › Settings › Features.
 Done: Help Center, contextual help, dashboard Help, developer docs, extension hooks, Elementor widgets.
-Next: see `docs/makaazi-development-plan.md` in the project.
+Done (v1.0): Short Stay listings, SEO and Yoast/Rank Math support, search index, accessibility pass, translation templates, sticky header, PHPUnit + Playwright tests and GitHub Actions CI/releases.
+
+## Tests
+
+```bash
+composer install && bash tests/bin/install-wp-tests.sh --sqlite 7.0 && vendor/bin/phpunit
+npm install && npm run env:start && npm run test:e2e
+```
+
+See [`docs/developer/build-test.md`](docs/developer/build-test.md).
