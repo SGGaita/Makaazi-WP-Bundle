@@ -119,6 +119,13 @@ class Makaazi_Related {
 				'why' => array_slice( $r['why'], 0, 2 ),
 			);
 		}
+		/**
+		 * Filter the related listings for a property.
+		 *
+		 * @param array $out Rows of array( 'id' => int, 'why' => string[] ).
+		 * @param int   $id  Property ID.
+		 */
+		$out = apply_filters( 'makaazi_related', $out, $id );
 		set_transient( $key, $out, 12 * HOUR_IN_SECONDS );
 		return $out;
 	}

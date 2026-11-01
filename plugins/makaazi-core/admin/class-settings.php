@@ -113,7 +113,7 @@ class Makaazi_Settings {
 			'single'  => array(
 				__( 'Property page', 'makaazi' ),
 				array(
-					'contact_name'        => array( 'text', __( 'Contact name', 'makaazi' ), __( 'Shown in the contact box (agent profiles come in a later release).', 'makaazi' ) ),
+					'contact_name'        => array( 'text', __( 'Contact name', 'makaazi' ), __( 'Shown in the contact box when a listing has no agent.', 'makaazi' ) ),
 					'contact_phone'       => array( 'text', __( 'Phone', 'makaazi' ), '' ),
 					'whatsapp'            => array( 'text', __( 'WhatsApp number', 'makaazi' ), __( 'International format without +, e.g. 254700123456.', 'makaazi' ) ),
 					'enquiry_email'       => array( 'text', __( 'Send enquiries to', 'makaazi' ), __( 'Leave empty to use the site admin email. Enquiries are also saved under Properties › Enquiries.', 'makaazi' ) ),

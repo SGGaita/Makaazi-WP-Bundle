@@ -1,12 +1,13 @@
 <?php
 /**
  * Plugin Name:       Makaazi Core
- * Plugin URI:        https://makaazihomes.co.ke/
- * Description:       Property listings for the Makaazi Homes template: properties, taxonomies, settings, enquiries and the listing shortcodes.
+ * Plugin URI:        https://ascensiondynamics.co/
+ * Description:       Property listings for the Makaazi property template: properties, taxonomies, settings, enquiries and the listing shortcodes.
  * Version:           0.1.0
  * Requires at least: 6.6
  * Requires PHP:      7.4
- * Author:            Makaazi Homes
+ * Author:            Ascension Dynamics
+ * Author URI:        https://ascensiondynamics.co/
  * License:           GPL-2.0-or-later
  * Text Domain:       makaazi
  *
@@ -36,6 +37,7 @@ require_once MAKAAZI_DIR . 'includes/class-roles.php';
 require_once MAKAAZI_DIR . 'includes/class-agents.php';
 require_once MAKAAZI_DIR . 'includes/class-accounts.php';
 require_once MAKAAZI_DIR . 'includes/class-submission.php';
+require_once MAKAAZI_DIR . 'includes/class-help.php';
 
 if ( is_admin() ) {
 	require_once MAKAAZI_DIR . 'admin/class-admin.php';
@@ -57,6 +59,7 @@ Makaazi_Roles::init();
 Makaazi_Agents::init();
 Makaazi_Accounts::init();
 Makaazi_Submission::init();
+Makaazi_Help::init();
 
 if ( is_admin() ) {
 	Makaazi_Admin::init();

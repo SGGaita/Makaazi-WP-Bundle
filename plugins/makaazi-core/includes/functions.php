@@ -17,7 +17,7 @@ function makaazi_default_settings() {
 	$t = function ( $text ) {
 		return did_action( 'init' ) ? __( $text, 'makaazi' ) : $text; // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText
 	};
-	return array(
+	$defaults = array(
 		'currency'           => 'KES',
 		'short_price'        => 0,
 		'unit'               => 'sqm',
@@ -57,6 +57,12 @@ function makaazi_default_settings() {
 		'map_tiles'          => 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
 		'map_center'         => '-1.2864,36.8172',
 	);
+	/**
+	 * Filter the default plugin settings (add your own keys here).
+	 *
+	 * @param array $defaults Default settings.
+	 */
+	return apply_filters( 'makaazi_default_settings', $defaults );
 }
 
 /**
@@ -70,6 +76,12 @@ function makaazi_settings( $key = null ) {
 	if ( null === $cache || ( ! did_action( 'init' ) ) ) {
 		$saved = get_option( 'makaazi_settings', array() );
 		$cache = wp_parse_args( is_array( $saved ) ? $saved : array(), makaazi_default_settings() );
+		/**
+		 * Filter the merged plugin settings at runtime (does not change what is saved).
+		 *
+		 * @param array $settings Settings.
+		 */
+		$cache = apply_filters( 'makaazi_settings', $cache );
 	}
 	if ( null === $key ) {
 		return $cache;
@@ -421,6 +433,13 @@ function makaazi_locate_template( $name ) {
  * @return string
  */
 function makaazi_template( $name, $args = array() ) {
+	/**
+	 * Filter the variables passed to a template file.
+	 *
+	 * @param array  $args Template variables.
+	 * @param string $name Template name, e.g. card.php.
+	 */
+	$args = apply_filters( 'makaazi_template_args', $args, $name );
 	$file = makaazi_locate_template( $name );
 	if ( ! file_exists( $file ) ) {
 		return '';

@@ -18,13 +18,18 @@ class Makaazi_Query {
 	 * @return array
 	 */
 	public static function sorts() {
-		return array(
+		/**
+		 * Filter the sort options offered on listings. Add a key here and handle it with makaazi_query_args.
+		 *
+		 * @param array $sorts key => label.
+		 */
+		return apply_filters( 'makaazi_sorts', array(
 			'newest'     => __( 'Newest', 'makaazi' ),
 			'price_asc'  => __( 'Price: low to high', 'makaazi' ),
 			'price_desc' => __( 'Price: high to low', 'makaazi' ),
 			'largest'    => __( 'Largest', 'makaazi' ),
 			'featured'   => __( 'Featured first', 'makaazi' ),
-		);
+		) );
 	}
 
 	/**
@@ -261,7 +266,13 @@ class Makaazi_Query {
 			}
 		}
 		$args = self::apply_sort( $args, $f['sort'] );
-		return array_merge( $args, $extra );
+		/**
+		 * Filter the WP_Query arguments used for property searches and listings.
+		 *
+		 * @param array $args    Query args.
+		 * @param array $filters Parsed filters (status, location, type, price…).
+		 */
+		return apply_filters( 'makaazi_query_args', array_merge( $args, $extra ), $f );
 	}
 
 	/**

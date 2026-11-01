@@ -686,6 +686,15 @@ class Makaazi_Submission {
 			/* translators: %s: title */
 			wp_mail( makaazi_settings( 'enquiry_email' ) && is_email( makaazi_settings( 'enquiry_email' ) ) ? makaazi_settings( 'enquiry_email' ) : get_option( 'admin_email' ), sprintf( __( 'Listing waiting for review: %s', 'makaazi' ), $v['title'] ), sprintf( "%s\n%s\n\n%s", $u->display_name, $u->user_email, admin_url( 'edit.php?post_status=pending&post_type=property' ) ) );
 		}
+		/**
+		 * Fires after an agent or owner saves a listing from the front-end dashboard.
+		 *
+		 * @param int    $pid    Property ID.
+		 * @param string $status New post status (draft, pending, publish).
+		 * @param string $intent draft or submit.
+		 * @param int    $user   User ID.
+		 */
+		do_action( 'makaazi_property_submitted', $pid, $status, $intent, $u->ID );
 		$msg = 'draft' === $intent ? ( 'publish' === $status ? 'updated' : 'draft' ) : ( 'pending' === $status ? 'submitted' : ( $was_live ? 'updated' : 'published' ) );
 		wp_safe_redirect( makaazi_dashboard_url( array( 'mk_msg' => $msg ) ) );
 		exit;
@@ -800,6 +809,12 @@ class Makaazi_Submission {
 				)
 			);
 			makaazi_bump_cache();
+			/**
+			 * Fires when a moderator approves a submitted listing.
+			 *
+			 * @param int $id Property ID.
+			 */
+			do_action( 'makaazi_listing_approved', $id );
 			$msg = 'approved';
 		} else {
 			$reason = isset( $_GET['reason'] ) ? sanitize_textarea_field( wp_unslash( $_GET['reason'] ) ) : '';
@@ -816,6 +831,13 @@ class Makaazi_Submission {
 				/* translators: %s: title */
 				wp_mail( $author->user_email, sprintf( __( 'Changes needed: %s', 'makaazi' ), get_the_title( $id ) ), sprintf( /* translators: 1: reason, 2: link */ __( "Thanks for your listing. Before it can go live, please make this change:\n\n%1\$s\n\nEdit and resubmit here:\n%2\$s", 'makaazi' ), $reason, makaazi_dashboard_url( array( 'tab' => 'submit', 'id' => $id ) ) ) );
 			}
+			/**
+			 * Fires when a moderator sends a listing back for changes.
+			 *
+			 * @param int    $id     Property ID.
+			 * @param string $reason Reason shown to the owner.
+			 */
+			do_action( 'makaazi_listing_rejected', $id, $reason );
 			$msg = 'rejected';
 		}
 		wp_safe_redirect( admin_url( 'edit.php?post_type=property&post_status=pending&mk_mod=' . $msg ) );

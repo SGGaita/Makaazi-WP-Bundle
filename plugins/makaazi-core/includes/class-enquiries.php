@@ -122,7 +122,23 @@ class Makaazi_Enquiries {
 			)
 		);
 		$headers = $email ? array( 'Reply-To: ' . $name . ' <' . $email . '>' ) : array();
-		wp_mail( array_unique( $to ), $subject, $body, $headers );
+		/**
+		 * Filter who receives the enquiry email.
+		 *
+		 * @param string[] $to  Email addresses.
+		 * @param int      $id  Enquiry ID.
+		 * @param int      $pid Property ID.
+		 */
+		$to = apply_filters( 'makaazi_enquiry_recipients', array_unique( $to ), $id, $pid );
+		wp_mail( $to, $subject, $body, $headers );
+		/**
+		 * Fires after an enquiry is saved and emailed (e.g. push it to a CRM).
+		 *
+		 * @param int   $id   Enquiry ID.
+		 * @param int   $pid  Property ID (0 for general enquiries).
+		 * @param array $data name, phone, email, message, agent_id.
+		 */
+		do_action( 'makaazi_enquiry_created', $id, $pid, compact( 'name', 'phone', 'email', 'msg', 'aid' ) );
 		return $id;
 	}
 

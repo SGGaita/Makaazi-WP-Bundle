@@ -1,6 +1,6 @@
-# Makaazi Homes: WordPress template
+# Makaazi: WordPress property listing template
 
-Property listing template for Makaazi Homes: a block theme plus two plugins, built around shortcodes.
+Property listing template by [Ascension Dynamics](https://ascensiondynamics.co/): the Makaazi block theme plus two plugins, built around shortcodes. The demo content uses a sample agency, Makaazi Homes.
 
 | Folder | What it is |
 |---|---|

@@ -467,6 +467,13 @@ class Makaazi_Accounts {
 		}
 		$tabs['enquiries'] = __( 'Enquiries', 'makaazi' );
 		$tabs['profile']   = __( 'Profile', 'makaazi' );
+		/**
+		 * Filter the dashboard tabs. Render a custom tab with the makaazi_dashboard_tab_{key} filter.
+		 *
+		 * @param array   $tabs key => label.
+		 * @param WP_User $u    Current user.
+		 */
+		$tabs              = apply_filters( 'makaazi_dashboard_tabs', $tabs, $u );
 		$tab               = isset( $_GET['tab'] ) ? sanitize_key( $_GET['tab'] ) : 'listings'; // phpcs:ignore WordPress.Security.NonceVerification
 		if ( 'edit' === $tab ) {
 			$tab = 'submit';
@@ -506,8 +513,17 @@ class Makaazi_Accounts {
 			case 'profile':
 				$h .= self::profile_tab( $u );
 				break;
-			default:
+			case 'listings':
 				$h .= Makaazi_Submission::listings_tab( $u );
+				break;
+			default:
+				/**
+				 * Render a custom dashboard tab added with makaazi_dashboard_tabs.
+				 *
+				 * @param string  $html Tab HTML.
+				 * @param WP_User $u    Current user.
+				 */
+				$h .= apply_filters( 'makaazi_dashboard_tab_' . $tab, '', $u );
 		}
 		return $h . '</div>';
 	}

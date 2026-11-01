@@ -801,3 +801,29 @@
 	}
 	show(cur);
 }());
+
+/* Dashboard › Help: open the guide a link or the URL hash points to. */
+( function () {
+	function openHelp( hash ) {
+		if ( ! hash || hash.indexOf( '#mk-help-' ) !== 0 ) {
+			return false;
+		}
+		var el = document.getElementById( hash.slice( 1 ) );
+		if ( ! el || 'DETAILS' !== el.tagName ) {
+			return false;
+		}
+		el.open = true;
+		el.scrollIntoView( { behavior: 'smooth', block: 'start' } );
+		return true;
+	}
+	document.addEventListener( 'click', function ( e ) {
+		var a = e.target.closest && e.target.closest( '.mk-dhelp a[href^="#mk-help-"]' );
+		if ( a && openHelp( a.getAttribute( 'href' ) ) ) {
+			e.preventDefault();
+			history.replaceState( null, '', a.getAttribute( 'href' ) );
+		}
+	} );
+	if ( document.querySelector( '.mk-dhelp' ) ) {
+		openHelp( window.location.hash );
+	}
+} )();

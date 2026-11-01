@@ -127,7 +127,7 @@ class Makaazi_Render {
 		$ratio = isset( $o['image_ratio'] ) && $o['image_ratio'] ? $o['image_ratio'] : makaazi_settings( 'image_ratio' );
 		$ratio = str_replace( ':', ' / ', preg_replace( '/[^0-9:]/', '', $ratio ) );
 
-		return array(
+		$data = array(
 			'id'           => $id,
 			'url'          => get_permalink( $id ),
 			'title'        => get_the_title( $id ),
@@ -150,6 +150,14 @@ class Makaazi_Render {
 			'compare'      => (bool) makaazi_settings( 'card_compare' ) && ! in_array( 'compare', self::hidden( $o ), true ),
 			'why'          => isset( $o['why'] ) ? (array) $o['why'] : array(),
 		);
+		/**
+		 * Filter the data used to render a property card (add specs, change the price line…).
+		 *
+		 * @param array $data Card data.
+		 * @param int   $id   Property ID.
+		 * @param array $o    Card options from the shortcode/widget.
+		 */
+		return apply_filters( 'makaazi_card_data', $data, $id, $o );
 	}
 
 	/**

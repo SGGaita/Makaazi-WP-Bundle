@@ -1,12 +1,13 @@
 <?php
 /**
  * Plugin Name:       Makaazi Hero Slider
- * Plugin URI:        https://makaazihomes.co.ke/
+ * Plugin URI:        https://ascensiondynamics.co/
  * Description:       Hero sliders with fade, slide and Ken Burns effects and a configurable Buy/Rent property search bar. Place with [makaazi_slider].
  * Version:           0.1.0
  * Requires at least: 6.6
  * Requires PHP:      7.4
- * Author:            Makaazi Homes
+ * Author:            Ascension Dynamics
+ * Author URI:        https://ascensiondynamics.co/
  * License:           GPL-2.0-or-later
  * Text Domain:       makaazi-slider
  *
