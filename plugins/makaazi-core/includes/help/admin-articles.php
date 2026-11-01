@@ -379,6 +379,27 @@ return array(
 		),
 	),
 
+	array(
+		'id'       => 'seo',
+		'group'    => __( 'Settings', 'makaazi' ),
+		'title'    => __( 'Google, sharing and Yoast SEO', 'makaazi' ),
+		'summary'  => __( 'How listings appear in Google and when shared on WhatsApp or Facebook.', 'makaazi' ),
+		'screens'  => array( 'property', 'edit-property' ),
+		'keywords' => 'seo google yoast rank math schema share whatsapp facebook preview description sitemap',
+		'body'     => __(
+			'<p>Makaazi tells search engines what each listing is (price, rooms, size, area, photos) using Schema.org data, so Google can show richer results. Nothing to set up.</p>
+<ul>
+<li><strong>Without an SEO plugin</strong>, Makaazi adds a description, the share preview (title, price, area and cover photo for WhatsApp, Facebook and X) and sensible titles such as “Properties to rent”.</li>
+<li><strong>With Yoast SEO or Rank Math</strong>, the plugin takes over titles and share tags and Makaazi feeds it: the listing data joins its schema, listings without a written meta description get an automatic one, gallery photos go into the XML sitemap, and Yoast’s content analysis also reads the Property Details box.</li>
+<li>In Yoast you can use these variables in title and description templates (Yoast SEO › Settings › Content types › Properties): <code>%%mk_price%%</code>, <code>%%mk_location%%</code>, <code>%%mk_status%%</code>, <code>%%mk_type%%</code>, <code>%%mk_beds%%</code>, <code>%%mk_ref%%</code>. Example title: <code>%%title%% – %%mk_price%% %%sep%% %%sitename%%</code>.</li>
+<li>Search pages with several filters are marked “noindex” so Google indexes your clean pages (Properties, Properties to rent, each location) instead of thousands of combinations.</li>
+<li>Exact map pins are never shared with Google either.</li>
+</ul>
+<p class="mk-help__tip">Tip: write a short, specific first sentence in each description. It is what Google and WhatsApp show.</p>',
+			'makaazi'
+		),
+	),
+
 	/* ---------------------------------------------------------------- Troubleshooting */
 	array(
 		'id'       => 'email',

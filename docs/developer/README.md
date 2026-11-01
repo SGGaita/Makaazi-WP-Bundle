@@ -20,7 +20,8 @@ This folder is for developers. Site staff, agents and owners use the in-admin He
 6. [Roles and capabilities](roles-capabilities.md): agents, owners, feature switches
 7. [Shortcodes and Elementor](shortcodes-elementor.md): adding attributes and writing your own widget
 8. [Help Center content](help-content.md): adding or changing Help articles
-9. [Build, test and release](build-test.md): local setup, checks, packaging
+9. [SEO and Schema.org](seo.md): structured data, share previews, Yoast and Rank Math
+10. [Build, test and release](build-test.md): local setup, checks, packaging
 
 ## Requirements
 
