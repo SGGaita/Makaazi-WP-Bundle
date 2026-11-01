@@ -44,7 +44,7 @@ class Makaazi_Demo {
 			. '<li>' . esc_html__( '15 properties with photos, prices in KES, features and approximate map locations', 'makaazi' ) . '</li>'
 			. '<li>' . esc_html__( 'Locations, types, categories and features', 'makaazi' ) . '</li>'
 			. '<li>' . esc_html__( 'A three-slide hero slider with the Buy/Rent search (needs Makaazi Hero Slider)', 'makaazi' ) . '</li>'
-			. '<li>' . esc_html__( 'Home and Contact pages built from shortcodes, set as the front page, and a main menu', 'makaazi' ) . '</li>'
+			. '<li>' . esc_html__( 'Home, Contact, Favourites and Compare pages built from shortcodes, the front page setting and a main menu', 'makaazi' ) . '</li>'
 			. '</ul><p>' . esc_html__( 'Photos are illustrations. Running the import again skips anything already imported.', 'makaazi' ) . '</p>';
 		echo '<form method="post" action="' . esc_url( admin_url( 'admin-post.php' ) ) . '">';
 		wp_nonce_field( 'makaazi_demo' );
@@ -343,6 +343,35 @@ class Makaazi_Demo {
 			);
 			update_post_meta( $contact, '_mk_demo', 'page:contact' );
 		}
+		// Favourites and Compare pages (created if missing, also on re-import).
+		$settings = get_option( 'makaazi_settings', array() );
+		$settings = is_array( $settings ) ? $settings : array();
+		foreach ( array(
+			'favourites' => array( __( 'Favourites', 'makaazi' ), '[makaazi_favourites]', 'favourites_page' ),
+			'compare'    => array( __( 'Compare', 'makaazi' ), '[makaazi_compare]', 'compare_page' ),
+		) as $slug => $d ) {
+			$pid = self::existing( 'page:' . $slug, 'page' );
+			if ( ! $pid ) {
+				$pid = wp_insert_post(
+					array(
+						'post_type'     => 'page',
+						'post_status'   => 'publish',
+						'post_title'    => $d[0],
+						'post_name'     => $slug,
+						'post_content'  => "<!-- wp:shortcode -->\n" . $d[1] . "\n<!-- /wp:shortcode -->",
+					)
+				);
+				update_post_meta( $pid, '_mk_demo', 'page:' . $slug );
+				if ( isset( wp_get_theme()->get_page_templates()['page-full'] ) ) {
+					update_post_meta( $pid, '_wp_page_template', 'page-full' );
+				}
+			}
+			if ( empty( $settings[ $d[2] ] ) || 'publish' !== get_post_status( (int) $settings[ $d[2] ] ) ) {
+				$settings[ $d[2] ] = $pid;
+			}
+		}
+		update_option( 'makaazi_settings', $settings );
+
 		if ( ! get_option( 'makaazi_demo_imported' ) ) {
 			update_option( 'makaazi_demo_prev_front', array( get_option( 'show_on_front' ), (int) get_option( 'page_on_front' ) ), false );
 		}

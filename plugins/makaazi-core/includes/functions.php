@@ -36,6 +36,10 @@ function makaazi_default_settings() {
 		'brackets_sale'      => '5000000,10000000,20000000,35000000,50000000,75000000,100000000,150000000',
 		'brackets_rent'      => '20000,50000,100000,150000,250000,500000',
 		'ref_prefix'         => 'MK-',
+		'card_favourite'     => 1,
+		'card_compare'       => 1,
+		'favourites_page'    => 0,
+		'compare_page'       => 0,
 		'map_tiles'          => 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
 		'map_center'         => '-1.2864,36.8172',
 	);
@@ -444,6 +448,8 @@ function makaazi_icon( $name, $size = 16 ) {
 		'filter'  => '<path d="M4 6h16M7 12h10M10 18h4"/>',
 		'photo'   => '<rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M21 16l-5-5-8 8"/>',
 		'arrow'   => '<path d="M5 12h14M13 6l6 6-6 6"/>',
+		'heart'   => '<path d="M12 20s-7-4.4-9-9a4.6 4.6 0 0 1 8-4l1 1 1-1a4.6 4.6 0 0 1 8 4c-2 4.6-9 9-9 9z"/>',
+		'compare' => '<path d="M7 4v13M7 4L4 7M7 4l3 3M17 20V7M17 20l-3-3M17 20l3-3"/>',
 	);
 	$path = isset( $icons[ $name ] ) ? $icons[ $name ] : $icons['check'];
 	return '<svg class="mk-ic" width="' . (int) $size . '" height="' . (int) $size . '" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">' . $path . '</svg>';
@@ -489,4 +495,19 @@ function makaazi_archive_url( $args = array() ) {
 function makaazi_whatsapp_url( $number, $message ) {
 	$number = preg_replace( '/\D+/', '', (string) $number );
 	return 'https://wa.me/' . $number . '?text=' . rawurlencode( $message );
+}
+
+/**
+ * URL of the Favourites or Compare page.
+ *
+ * @param string $which favourites|compare.
+ * @return string
+ */
+function makaazi_shortlist_url( $which ) {
+	$id = (int) makaazi_settings( 'favourites' === $which ? 'favourites_page' : 'compare_page' );
+	if ( $id && 'publish' === get_post_status( $id ) ) {
+		return get_permalink( $id );
+	}
+	$p = get_page_by_path( 'favourites' === $which ? 'favourites' : 'compare' );
+	return $p ? get_permalink( $p ) : '';
 }

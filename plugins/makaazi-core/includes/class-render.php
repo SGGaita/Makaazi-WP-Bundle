@@ -34,6 +34,16 @@ class Makaazi_Render {
 	}
 
 	/**
+	 * Parts hidden with hide="…".
+	 *
+	 * @param array $o Options.
+	 * @return string[]
+	 */
+	public static function hidden( $o ) {
+		return empty( $o['hide'] ) ? array() : array_map( 'trim', explode( ',', $o['hide'] ) );
+	}
+
+	/**
 	 * Prepare card data.
 	 *
 	 * @param int   $id Post ID.
@@ -136,6 +146,8 @@ class Makaazi_Render {
 			'price'        => makaazi_price( $id ),
 			'specs'        => $specs,
 			'button_text'  => ! empty( $o['button_text'] ) ? $o['button_text'] : makaazi_settings( 'button_text' ),
+			'favourite'    => (bool) makaazi_settings( 'card_favourite' ) && ! in_array( 'favourite', self::hidden( $o ), true ),
+			'compare'      => (bool) makaazi_settings( 'card_compare' ) && ! in_array( 'compare', self::hidden( $o ), true ),
 			'why'          => isset( $o['why'] ) ? (array) $o['why'] : array(),
 		);
 	}
@@ -869,7 +881,10 @@ class Makaazi_Render {
 			/* translators: %s: reference number */
 			. '<span>' . esc_html( sprintf( __( 'Ref %s', 'makaazi' ), makaazi_meta( $id, 'ref' ) ) ) . '</span></div></div>'
 			. '<div class="mk-phead__side"><div class="mk-phead__price">' . makaazi_price( $id ) . '</div>'
-			. '<button type="button" class="mk-btn mk-btn--ghost mk-btn--sm" data-mk-share data-url="' . esc_url( get_permalink( $id ) ) . '" data-title="' . esc_attr( get_the_title( $id ) ) . '">' . makaazi_icon( 'share', 15 ) . ' ' . esc_html__( 'Share', 'makaazi' ) . '</button></div></div>';
+			. '<div class="mk-phead__acts">'
+			. ( makaazi_settings( 'card_favourite' ) ? '<button type="button" class="mk-btn mk-btn--ghost mk-btn--sm mk-act" data-mk-fav="' . (int) $id . '" aria-pressed="false">' . makaazi_icon( 'heart', 15 ) . ' <span data-on="' . esc_attr__( 'Saved', 'makaazi' ) . '" data-off="' . esc_attr__( 'Save', 'makaazi' ) . '">' . esc_html__( 'Save', 'makaazi' ) . '</span></button>' : '' )
+			. ( makaazi_settings( 'card_compare' ) ? '<button type="button" class="mk-btn mk-btn--ghost mk-btn--sm mk-act" data-mk-cmp="' . (int) $id . '" aria-pressed="false">' . makaazi_icon( 'compare', 15 ) . ' ' . esc_html__( 'Compare', 'makaazi' ) . '</button>' : '' )
+			. '<button type="button" class="mk-btn mk-btn--ghost mk-btn--sm" data-mk-share data-url="' . esc_url( get_permalink( $id ) ) . '" data-title="' . esc_attr( get_the_title( $id ) ) . '">' . makaazi_icon( 'share', 15 ) . ' ' . esc_html__( 'Share', 'makaazi' ) . '</button></div></div></div>';
 		Makaazi_Assets::enqueue();
 		return '<div class="mk-single mk-single--header">' . $h . '</div>';
 	}

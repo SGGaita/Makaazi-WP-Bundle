@@ -31,6 +31,7 @@ require_once MAKAAZI_DIR . 'includes/class-rest.php';
 require_once MAKAAZI_DIR . 'includes/class-enquiries.php';
 require_once MAKAAZI_DIR . 'includes/class-assets.php';
 require_once MAKAAZI_DIR . 'includes/class-shortcode-docs.php';
+require_once MAKAAZI_DIR . 'includes/class-shortlist.php';
 
 if ( is_admin() ) {
 	require_once MAKAAZI_DIR . 'admin/class-admin.php';
@@ -47,6 +48,7 @@ Makaazi_Shortcodes::init();
 Makaazi_Rest::init();
 Makaazi_Enquiries::init();
 Makaazi_Assets::init();
+Makaazi_Shortlist::init();
 
 if ( is_admin() ) {
 	Makaazi_Admin::init();

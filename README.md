@@ -34,6 +34,7 @@ The full reference with every attribute and copy buttons is in **Properties › 
 [makaazi_unit_toggle]
 [makaazi_property]   (or the separate _header, _gallery, _facts, _details, _features, _map, _contact parts)
 [makaazi_related_properties]
+[makaazi_favourites]  [makaazi_compare]  [makaazi_favourites_link]
 ```
 
 ## Notes
@@ -45,4 +46,5 @@ The full reference with every attribute and copy buttons is in **Properties › 
 
 ## Roadmap
 
-Round 2: agent profiles, favourites and compare, owner submission and dashboard, Elementor widgets. See `docs/makaazi-development-plan.md` in the project.
+Done: favourites and compare (device storage, synced to the account for signed-in users, shareable ?ids= links).
+Next: agent profiles, owner submission and dashboard, Elementor widgets. See `docs/makaazi-development-plan.md` in the project.

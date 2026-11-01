@@ -35,6 +35,11 @@ class Makaazi_Assets {
 			array(
 				'rest'   => esc_url_raw( rest_url( Makaazi_Rest::NS ) ),
 				'unit'   => makaazi_unit(),
+				'user'   => get_current_user_id(),
+				'nonce'  => is_user_logged_in() ? wp_create_nonce( 'wp_rest' ) : '',
+				'favUrl' => makaazi_shortlist_url( 'favourites' ),
+				'cmpUrl' => makaazi_shortlist_url( 'compare' ),
+				'cmpMax' => 4,
 				'tiles'  => makaazi_settings( 'map_tiles' ),
 				'attrib' => '&copy; OpenStreetMap contributors',
 				'i18n'   => array(
@@ -49,6 +54,20 @@ class Makaazi_Assets {
 					'loading'  => __( 'Loading…', 'makaazi' ),
 					'loadmore' => __( 'Load more', 'makaazi' ),
 					'browse'   => __( '← → to browse, Esc to close', 'makaazi' ),
+					'saved'    => __( 'Saved to favourites.', 'makaazi' ),
+					'unsaved'  => __( 'Removed from favourites.', 'makaazi' ),
+					'view'     => __( 'View', 'makaazi' ),
+					'cmpFull'  => __( 'You can compare up to 4 properties. Remove one first.', 'makaazi' ),
+					'cmpAdded' => __( 'Added to compare.', 'makaazi' ),
+					'cmpBar'   => __( 'Compare', 'makaazi' ),
+					'cmpNow'   => __( 'Compare now', 'makaazi' ),
+					'cmpNeed'  => __( 'Add one more property to compare', 'makaazi' ),
+					'clear'    => __( 'Clear', 'makaazi' ),
+					'remove'   => __( 'Remove', 'makaazi' ),
+					'shareList'=> __( 'Shortlist link copied. Send it on WhatsApp or email.', 'makaazi' ),
+					'savedAll' => __( 'Saved to your favourites.', 'makaazi' ),
+					'undo'     => __( 'Undo', 'makaazi' ),
+					'cleared'  => __( 'List cleared.', 'makaazi' ),
 				),
 			)
 		);

@@ -20,6 +20,10 @@
 
 <!-- wp:group {"className":"mk-site-header__actions","layout":{"type":"flex","flexWrap":"nowrap"}} -->
 <div class="wp-block-group mk-site-header__actions"><!-- wp:shortcode -->
+[makaazi_favourites_link]
+<!-- /wp:shortcode -->
+
+<!-- wp:shortcode -->
 [makaazi_unit_toggle]
 <!-- /wp:shortcode -->
 

@@ -45,6 +45,9 @@ $c = $card;
 				<?php foreach ( $c['images'] as $i => $img ) : ?><i class="<?php echo 0 === $i ? 'is-on' : ''; ?>"></i><?php endforeach; ?>
 			</div>
 		<?php endif; ?>
+		<?php if ( $c['favourite'] ) : ?>
+			<button type="button" class="mk-fav" data-mk-fav="<?php echo (int) $c['id']; ?>" aria-pressed="false" aria-label="<?php echo esc_attr( sprintf( /* translators: %s: property title */ __( 'Save %s to favourites', 'makaazi' ), $c['title'] ) ); ?>"><?php echo makaazi_icon( 'heart', 18 ); // phpcs:ignore ?></button>
+		<?php endif; ?>
 	</div>
 	<div class="mk-card__body">
 		<?php if ( $c['meta_line'] ) : ?><div class="mk-card__meta"><?php echo esc_html( $c['meta_line'] ); ?></div><?php endif; ?>
@@ -62,5 +65,8 @@ $c = $card;
 	</div>
 	<div class="mk-card__foot">
 		<a class="mk-btn mk-btn--outline mk-btn--block" href="<?php echo esc_url( $c['url'] ); ?>" aria-label="<?php echo esc_attr( $c['button_text'] . ': ' . $c['title'] ); ?>"><?php echo esc_html( $c['button_text'] ); ?></a>
+		<?php if ( $c['compare'] ) : ?>
+			<button type="button" class="mk-cmp" data-mk-cmp="<?php echo (int) $c['id']; ?>" aria-pressed="false" aria-label="<?php echo esc_attr( sprintf( /* translators: %s: property title */ __( 'Compare %s', 'makaazi' ), $c['title'] ) ); ?>" title="<?php esc_attr_e( 'Compare', 'makaazi' ); ?>"><?php echo makaazi_icon( 'compare', 17 ); // phpcs:ignore ?></button>
+		<?php endif; ?>
 	</div>
 </article>

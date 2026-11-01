@@ -86,6 +86,15 @@ class Makaazi_Settings {
 					'filters'      => array( 'multi', __( 'Filters', 'makaazi' ), '', $filters ),
 				),
 			),
+			'shortlist' => array(
+				__( 'Favourites & compare', 'makaazi' ),
+				array(
+					'card_favourite'  => array( 'checkbox', __( 'Favourites', 'makaazi' ), __( 'Show the heart on cards and the Save button on property pages.', 'makaazi' ) ),
+					'card_compare'    => array( 'checkbox', __( 'Compare', 'makaazi' ), __( 'Show the compare button and the compare bar (up to 4 properties).', 'makaazi' ) ),
+					'favourites_page' => array( 'page', __( 'Favourites page', 'makaazi' ), __( 'A page containing [makaazi_favourites].', 'makaazi' ) ),
+					'compare_page'    => array( 'page', __( 'Compare page', 'makaazi' ), __( 'A page containing [makaazi_compare].', 'makaazi' ) ),
+				),
+			),
 			'single'  => array(
 				__( 'Property page', 'makaazi' ),
 				array(
@@ -151,8 +160,19 @@ class Makaazi_Settings {
 					}
 					echo '</fieldset>';
 					break;
+				case 'page':
+					wp_dropdown_pages(
+						array(
+							'name'              => 's[' . $key . ']',
+							'id'                => $id,
+							'selected'          => (int) $val,
+							'show_option_none'  => __( '— Choose a page —', 'makaazi' ),
+							'option_none_value' => 0,
+						)
+					);
+					break;
 				case 'number':
-					echo '<input type="number" min="0" id="' . esc_attr( $id ) . '" name="s[' . esc_attr( $key ) . ']" value="' . esc_attr( $val ) . '" class="small-text">';
+					echo '<input type="number" min="0" id=""' . esc_attr( $id ) . '" name="s[' . esc_attr( $key ) . ']" value="' . esc_attr( $val ) . '" class="small-text">';
 					break;
 				default:
 					echo '<input type="text" id="' . esc_attr( $id ) . '" name="s[' . esc_attr( $key ) . ']" value="' . esc_attr( $val ) . '" class="regular-text">';
@@ -208,6 +228,7 @@ class Makaazi_Settings {
 					$saved[ $key ] = array_key_exists( $v, $f[3] ) ? $v : makaazi_default_settings()[ $key ];
 					break;
 				case 'number':
+				case 'page':
 					$saved[ $key ] = isset( $in[ $key ] ) ? absint( $in[ $key ] ) : 0;
 					break;
 				default:
