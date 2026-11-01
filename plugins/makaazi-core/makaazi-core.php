@@ -3,7 +3,7 @@
  * Plugin Name:       Makaazi Core
  * Plugin URI:        https://ascensiondynamics.co/
  * Description:       Property listings for the Makaazi property template: properties, taxonomies, settings, enquiries and the listing shortcodes.
- * Version:           0.1.0
+ * Version:           0.3.0
  * Requires at least: 6.6
  * Requires PHP:      7.4
  * Author:            Ascension Dynamics
@@ -16,7 +16,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'MAKAAZI_VERSION', '0.1.0' );
+define( 'MAKAAZI_VERSION', '0.3.0' );
 define( 'MAKAAZI_FILE', __FILE__ );
 define( 'MAKAAZI_DIR', plugin_dir_path( __FILE__ ) );
 define( 'MAKAAZI_URL', plugin_dir_url( __FILE__ ) );

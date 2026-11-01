@@ -34,7 +34,7 @@ return array(
 <p>Everything you manage is under the <strong>Properties</strong> menu on the left:</p>
 <ul>
 <li><a href="{url:properties}">All Properties</a> and <a href="{url:new}">Add New</a> – your listings.</li>
-<li>Buy / Rent, Locations, Types, Categories, Use, Features – the lists used in search and filters.</li>
+<li>Statuses (Buy / Rent), Uses, Types, Categories, Locations, Features – the lists used in search and filters.</li>
 <li><a href="{url:slider}">Hero Sliders</a>, <a href="{url:agents}">Agents</a>, <a href="{url:enquiries}">Enquiries</a>.</li>
 <li><a href="{url:settings}">Settings</a>, <a href="{url:shortcodes}">Shortcodes</a>, <a href="{url:demo}">Demo Content</a> and this Help Center.</li>
 </ul>
@@ -97,7 +97,7 @@ return array(
 			'<ol>
 <li><strong>Title</strong> – e.g. “4 Bedroom Townhouse, Lavington”. It becomes the page address.</li>
 <li><strong>Description</strong> – the main text box. Short paragraphs read best on phones.</li>
-<li><strong>Right-hand column</strong> – choose <em>Buy / Rent</em>, <em>Use</em> (residential or commercial), <em>Type</em>, <em>Category</em>, <em>Location</em> and tick the <em>Features</em>. Pick the most specific location (e.g. Kilimani, not Nairobi); the parents are added automatically.</li>
+<li><strong>Right-hand column</strong> – choose the <em>Status</em> (Buy or Rent), <em>Use</em> (residential or commercial), <em>Type</em>, <em>Category</em>, <em>Location</em> and tick the <em>Features</em>. Pick the most specific location (e.g. Kilimani, not Nairobi); the parents are added automatically.</li>
 <li><strong>Property Details box</strong>, tab by tab:
 <ul>
 <li><em>Listing</em> – Featured (shows first and gets a badge), availability (Available, Under offer, Sold, Let) and the reference number (created on save).</li>
@@ -160,7 +160,7 @@ return array(
 			'<ul>
 <li><strong>Locations</strong> are nested: City › Area (e.g. Nairobi › Westlands). Give each area a photo – it is used by the Locations tiles on the home page.</li>
 <li><strong>Types</strong> are what the building is (Apartment, Villa, Office…). <strong>Categories</strong> group listings for marketing (Luxury, New development…).</li>
-<li><strong>Use</strong> is Residential or Commercial. <strong>Buy / Rent</strong> is the listing status used by search.</li>
+<li><strong>Uses</strong> are Residential or Commercial. <strong>Statuses</strong> are For Sale and For Rent – the Buy / Rent choice in search.</li>
 <li><strong>Features</strong> are the ticks on the property page (Borehole, Backup generator, Pool…).</li>
 </ul>
 <p>Renaming a term updates every listing that uses it. Deleting a term removes it from listings but does not delete the listings.</p>',

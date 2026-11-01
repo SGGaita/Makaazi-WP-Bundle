@@ -5,10 +5,15 @@ Property listing template by [Ascension Dynamics](https://ascensiondynamics.co/)
 | Folder | What it is |
 |---|---|
 | `themes/makaazi-theme` | Block theme: brand colours and fonts (theme.json), header, footer, and templates assembled from Makaazi shortcodes |
-| `plugins/makaazi-core` | Properties, taxonomies, Property Details box, settings, enquiries, demo importer, shortcode reference and all listing shortcodes |
+| `plugins/makaazi-core` | Properties, taxonomies, Property Details box, settings, enquiries, agents, owner accounts, favourites & compare, demo importer, Help Center, Elementor widgets and all listing shortcodes |
 | `plugins/makaazi-hero-slider` | Hero sliders with a Buy/Rent search bar, placed with `[makaazi_slider]` |
 
-This repository is the site's `wp-content` folder. `.gitignore` tracks only the three Makaazi folders.
+This repository is the site's `wp-content` folder. `.gitignore` tracks only the three Makaazi folders and `docs/`.
+
+## Documentation
+
+- **Site staff, agents and owners:** in WordPress, under **Properties › Help**, the **Help** button on every Makaazi screen, and the **Help** tab in My account.
+- **Developers:** [`docs/developer/`](docs/developer/README.md), covering architecture, data model, hooks, templates, REST API, roles, shortcodes and Elementor, Help content, and build/test.
 
 ## Install (XAMPP)
 
@@ -47,8 +52,13 @@ The full reference with every attribute and copy buttons is in **Properties › 
 - Roles: **Agent** (edits own and assigned listings, front-end dashboard plus limited admin) and **Property owner** (front-end only, never sees wp-admin). Pending accounts can be activated from **Users** (Activate link).
 - Form fields avoid WordPress query-var names (`name`, `year`, …); posting those makes WordPress return a 404.
 
+## Elementor (optional)
+
+With Elementor active, a **Makaazi** category appears in the widget panel: Hero Slider, Properties, Property Listing, Property Search, Locations, Property Section, Agents, Favourites & Compare, My Account. Each has the shortcode's options plus Style controls for colours, corners and fonts.
+
 ## Roadmap
 
 Done: favourites and compare (device storage, synced to the account for signed-in users, shareable ?ids= links).
 Done: agent profiles and sign-in, owner sign-up (open / approval / invite), 5-step listing form, owner and agent dashboard, moderation. Each can be switched off in Properties › Settings › Features.
-Next: Elementor widgets. See `docs/makaazi-development-plan.md` in the project.
+Done: Help Center, contextual help, dashboard Help, developer docs, extension hooks, Elementor widgets.
+Next: see `docs/makaazi-development-plan.md` in the project.
